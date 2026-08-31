@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Bebas Neue', 'Oswald', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0c0e12;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: 0.03em;
+  }
+}
+
+/* Custom food glow and Caribbean accents */
+.bg-caribbean-dark {
+  background-color: #0d0f14;
+}
+
+.bg-caribbean-card {
+  background-color: #14171f;
+}
+
+.bg-caribbean-card-hover:hover {
+  background-color: #1a1e28;
+}
+
+.text-caribbean-orange {
+  color: #ff481f;
+}
+
+.bg-caribbean-orange {
+  background-color: #ff481f;
+}
+
+.text-caribbean-yellow {
+  color: #fbbf24;
+}
+
+.bg-caribbean-yellow {
+  background-color: #f59e0b;
+}
+
+.border-caribbean-orange {
+  border-color: #ff481f;
+}
+
+/* Ribbon badge styling matching reference image */
+.ribbon-badge {
+  position: relative;
+  background: linear-gradient(135deg, #e52516 0%, #b91c1c 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(229, 37, 22, 0.4);
+}
+
+.ribbon-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0 0;
+  border-color: #7f1d1d transparent transparent transparent;
+}
+
+/* Glassmorphism effects */
+.glass-panel {
+  background: rgba(20, 23, 31, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(20, 23, 31, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 72, 31, 0.3);
+  box-shadow: 0 0 25px rgba(255, 72, 31, 0.15);
+}
+
+/* Glow effects */
+.glow-orange {
+  box-shadow: 0 0 30px rgba(255, 72, 31, 0.35);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262b37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff481f;
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
