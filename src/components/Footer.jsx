@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Flame, Heart, ShoppingBag, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, Flame, ExternalLink } from 'lucide-react';
 import { restaurantInfo } from '../data/restaurantInfo';
 
 export default function Footer({ setCurrentView, openOrderingModal }) {
@@ -16,11 +16,11 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
   };
 
   return (
-    <footer className="bg-[#08090d] text-white border-t border-white/10 pt-16 pb-24 lg:pb-16">
+    <footer className="bg-[#111827] text-white border-t border-gray-800 pt-16 pb-24 lg:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800 text-left">
           
           {/* Col 1: Brand & Tagline */}
           <div className="space-y-4">
@@ -58,7 +58,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'combo-builder')} className="hover:text-white transition-colors text-[#ff481f] font-semibold">
+                <button onClick={() => handleNav('home', 'combo-builder')} className="hover:text-white transition-colors text-[#ff5e36] font-semibold">
                   Interactive Combo Builder
                 </button>
               </li>
@@ -82,13 +82,13 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
 
           {/* Col 3: Order Online Links */}
           <div className="space-y-3">
-            <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-[#ff481f]">
+            <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-[#ff5e36]">
               ONLINE ORDERING
             </h4>
             <div className="space-y-2 text-xs sm:text-sm">
               <button
                 onClick={() => openOrderingModal('pickup')}
-                className="w-full text-left p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
+                className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
               >
                 <span>Direct Pickup Order</span>
                 <Phone className="w-3.5 h-3.5 text-[#fbbf24]" />
@@ -100,7 +100,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                   href={d.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-left p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
+                  className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
                 >
                   <span>Order on {d.name}</span>
                   <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
@@ -134,7 +134,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                   905-517-8529
                 </a>
               </div>
-              <div className="pt-2 text-[11px] text-gray-500">
+              <div className="pt-2 text-[11px] text-gray-400">
                 Mon–Fri: 11am–9pm • Sat: 1pm–9pm • Sun: Closed
               </div>
             </div>
@@ -143,11 +143,11 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <div>
             © {new Date().getFullYear()} Miss Lyn’s Wings. All Rights Reserved. Hamilton, Ontario.
           </div>
-          <div className="flex items-center gap-1 text-gray-400">
+          <div className="flex items-center gap-1 text-gray-300">
             <span>Authentic Caribbean Food in Hamilton</span>
           </div>
         </div>

@@ -12,9 +12,9 @@ import FloatingOrderBar from './components/FloatingOrderBar';
 import OrderingModal from './components/OrderingModal';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home' | 'menu'
+  const [currentView, setCurrentView] = useState('home');
   const [orderingModalOpen, setOrderingModalOpen] = useState(false);
-  const [orderingModalTab, setOrderingModalTab] = useState('all'); // 'pickup' | 'delivery' | 'all'
+  const [orderingModalTab, setOrderingModalTab] = useState('all');
   const [selectedOrderItem, setSelectedOrderItem] = useState(null);
   const [cart, setCart] = useState([]);
 
@@ -34,7 +34,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0c0e12] text-[#f3f4f6] flex flex-col justify-between selection:bg-[#ff481f] selection:text-white">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col justify-between selection:bg-[#e02e07] selection:text-white">
       
       {/* Top Sticky Navbar */}
       <Navbar
