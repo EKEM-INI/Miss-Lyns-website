@@ -199,8 +199,8 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 {/* Drinks Photography */}
                 <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-gray-100 shadow-sm">
                   <img
-                    src="/images/dishes/0047.jpg"
-                    alt="Chilled Island Drinks and Pop"
+                    src="/images/dishes/drinks.png"
+                    alt="Chilled Island Drinks, Bigga, Cran Wata and Sodas"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />

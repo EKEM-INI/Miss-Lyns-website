@@ -41,7 +41,7 @@ export const comboSides = {
       id: "rice-and-peas",
       name: "Rice & Peas",
       type: "standard",
-      image: "/images/dishes/0022.jpg", // authentic side visual
+      image: "/images/dishes/0022.jpg",
       description: "Traditional Jamaican coconut-infused rice cooked with red kidney beans and thyme."
     },
     {
@@ -102,16 +102,16 @@ export const comboDrinks = {
       name: "Pop (Can)",
       type: "standard",
       options: ["Coca-Cola", "Diet Coke", "Sprite", "Canada Dry Ginger Ale", "C-Plus Orange", "Nestea Iced Tea", "A&W Root Beer"],
-      image: "/images/dishes/0020.jpg",
+      image: "/images/dishes/drinks.png",
       description: "Refreshing 355ml chilled canned soft drink of your choice."
     },
     {
       id: "water",
-      name: "Spring Water",
+      name: "Spring Water / Cran Wata",
       type: "standard",
-      options: ["Bottled Spring Water"],
-      image: "/images/dishes/0028.jpg",
-      description: "Crisp, pure bottled spring water."
+      options: ["Bottled Spring Water", "Cran Wata"],
+      image: "/images/dishes/drinks.png",
+      description: "Crisp, pure bottled water or Jamaican Cran Wata."
     }
   ],
   premium: [
@@ -120,8 +120,8 @@ export const comboDrinks = {
       name: "Bigga Soda",
       type: "premium",
       upgradeBadge: "Island Soda",
-      options: ["Bigga Pineapple", "Bigga Fruit Punch", "Bigga Ginger Beer", "Bigga Grape", "Bigga Kola Champagne"],
-      image: "/images/dishes/0029.jpg",
+      options: ["Bigga Pineapple", "Bigga Fruit Punch", "Bigga Ginger Beer", "Bigga Orange", "Bigga Kola Champagne"],
+      image: "/images/dishes/drinks.png",
       description: "Authentic Jamaican fruit soda bursting with vibrant Caribbean flavor."
     },
     {
@@ -130,7 +130,7 @@ export const comboDrinks = {
       type: "premium",
       upgradeBadge: "Island Soda",
       options: ["Ting Sparkling Pink Grapefruit", "Ting Original"],
-      image: "/images/dishes/0047.jpg",
+      image: "/images/dishes/drinks.png",
       description: "Famous Jamaican sparkling citrus soda made with real Caribbean grapefruit juice."
     },
     {
@@ -139,7 +139,7 @@ export const comboDrinks = {
       type: "premium",
       upgradeBadge: "Island Soda",
       options: ["D&G Cream Soda", "D&G Genuine Ginger Beer", "D&G Pineapple", "D&G Kola Champagne"],
-      image: "/images/dishes/0049.jpg",
+      image: "/images/dishes/drinks.png",
       description: "Classic Desnoes & Geddes Jamaican heritage beverages."
     },
     {
@@ -148,7 +148,7 @@ export const comboDrinks = {
       type: "premium",
       upgradeBadge: "Island Soda",
       options: ["Tropical Pineapple Soda"],
-      image: "/images/dishes/0051.jpg",
+      image: "/images/dishes/drinks.png",
       description: "Sweet, sparkling tropical pineapple sensation."
     }
   ]

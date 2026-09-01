@@ -93,14 +93,14 @@ export const menuItems = [
     spiceLevel: 1
   },
 
-  // 3. COMBOS (Authoritative Single Listing)
+  // 3. COMBOS
   {
     id: "wings-fries-combo",
     categoryId: "combos",
     name: "Classic 1 Lb Wings & Fries Combo",
     price: 19.99,
     priceDisplay: "$19.99",
-    description: "1 Lb of signature wings tossed in your choice of sauce, served alongside crispy golden french fries and a chilled can of pop.",
+    description: "1 Lb of signature wings tossed in your choice of sauce, served alongside crispy golden french fries and a chilled drink.",
     image: "/images/dishes/0053.jpg",
     tags: ["#1 Lunch Combo"],
     spiceLevel: 2
@@ -423,7 +423,7 @@ export const menuItems = [
     spiceLevel: 0
   },
 
-  // 8. DRINKS
+  // 8. DRINKS (All using the user's authentic drinks photograph)
   {
     id: "canned-pop",
     categoryId: "drinks",
@@ -431,7 +431,7 @@ export const menuItems = [
     price: 2.00,
     priceDisplay: "$2.00",
     description: "Choice of Coca-Cola, Diet Coke, Sprite, Canada Dry Ginger Ale, C-Plus Orange, Nestea, or Root Beer.",
-    image: "/images/dishes/0020.jpg",
+    image: "/images/dishes/drinks.png",
     tags: ["Chilled Can"]
   },
   {
@@ -441,7 +441,7 @@ export const menuItems = [
     price: 3.50,
     priceDisplay: "$3.50",
     description: "Authentic Jamaican sparkling soda made with real Caribbean grapefruit juice.",
-    image: "/images/dishes/0047.jpg",
+    image: "/images/dishes/drinks.png",
     tags: ["Island Favorite", "Imported"]
   },
   {
@@ -450,8 +450,8 @@ export const menuItems = [
     name: "Bigga Jamaican Soda",
     price: 3.50,
     priceDisplay: "$3.50",
-    description: "Vibrant tropical soda. Flavors: Pineapple, Fruit Punch, Ginger Beer, Kola Champagne, Grape.",
-    image: "/images/dishes/0029.jpg",
+    description: "Vibrant tropical soda in a variety of authentic Island flavors: Pineapple, Fruit Punch, Ginger Beer, Orange, and Kola Champagne.",
+    image: "/images/dishes/drinks.png",
     tags: ["Imported from Jamaica"]
   },
   {
@@ -461,7 +461,7 @@ export const menuItems = [
     price: 3.50,
     priceDisplay: "$3.50",
     description: "Desnoes & Geddes authentic Jamaican Cream Soda, Pineapple Soda, or Jamaican Ginger Beer.",
-    image: "/images/dishes/0049.jpg",
+    image: "/images/dishes/drinks.png",
     tags: ["Jamaican Heritage"]
   },
   {
@@ -471,17 +471,17 @@ export const menuItems = [
     price: 3.50,
     priceDisplay: "$3.50",
     description: "Crisp and bubbly tropical pineapple soda.",
-    image: "/images/dishes/0051.jpg",
+    image: "/images/dishes/drinks.png",
     tags: ["Tropical Sweet"]
   },
   {
     id: "spring-water",
     categoryId: "drinks",
-    name: "Bottled Spring Water (500ml)",
+    name: "Bottled Spring Water & Cran Wata",
     price: 1.75,
     priceDisplay: "$1.75",
-    description: "Pure, chilled natural spring water.",
-    image: "/images/dishes/0028.jpg",
+    description: "Pure chilled natural spring water and refreshing Jamaican Cranberry Wata.",
+    image: "/images/dishes/drinks.png",
     tags: ["Pure & Fresh"]
   }
 ];
