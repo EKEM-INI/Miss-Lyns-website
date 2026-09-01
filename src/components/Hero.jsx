@@ -28,12 +28,11 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
 
             {/* Main Headline */}
             <div className="space-y-2">
-              <h1 className="font-heading text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-gray-900 leading-[1.02] uppercase">
-                Always Fresh. <br />
+              <h1 className="font-heading text-5xl sm:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 leading-[1.0] uppercase">
+                BUILD YOUR <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#d97706] to-[#b45309]">
-                  Made To Order.
-                </span> <br />
-                Bold Flavour Every Time.
+                  COMBO
+                </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl font-normal leading-relaxed pt-2">
                 Hamilton’s favorite destination for deep-marinated Jamaican jerk chicken, crispy jumbo wings tossed in signature sauces, and authentic Caribbean comfort feast combos.

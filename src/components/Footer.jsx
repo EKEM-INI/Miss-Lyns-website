@@ -53,13 +53,13 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'family-feast')} className="hover:text-white transition-colors text-yellow-400 font-semibold">
-                  Family Feast Bundle ($49.99)
+                <button onClick={() => handleNav('home', 'combo-builder')} className="hover:text-white transition-colors text-[#ff5e36] font-semibold">
+                  Interactive Combo Builder
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'combo-builder')} className="hover:text-white transition-colors text-[#ff5e36] font-semibold">
-                  Interactive Combo Builder
+                <button onClick={() => handleNav('home', 'family-feast')} className="hover:text-white transition-colors text-yellow-400 font-semibold">
+                  Family Feast Bundle ($49.99)
                 </button>
               </li>
               <li>
@@ -68,7 +68,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'about-story')} className="hover:text-white transition-colors">
+                <button onClick={() => handleNav('about')} className="hover:text-white transition-colors">
                   About Miss Lyn’s
                 </button>
               </li>

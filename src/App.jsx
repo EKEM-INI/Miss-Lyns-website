@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import FamilyFeast from './components/FamilyFeast';
 import ComboBuilder from './components/ComboBuilder';
+import FamilyFeast from './components/FamilyFeast';
 import BrandStory from './components/BrandStory';
 import MenuHighlights from './components/MenuHighlights';
 import MenuPage from './components/MenuPage';
+import AboutPage from './components/AboutPage';
 import LocationHours from './components/LocationHours';
 import Footer from './components/Footer';
 import FloatingOrderBar from './components/FloatingOrderBar';
 import OrderingModal from './components/OrderingModal';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home');
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'menu' | 'about'
   const [orderingModalOpen, setOrderingModalOpen] = useState(false);
   const [orderingModalTab, setOrderingModalTab] = useState('all');
   const [selectedOrderItem, setSelectedOrderItem] = useState(null);
@@ -47,7 +48,7 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-grow">
-        {currentView === 'home' ? (
+        {currentView === 'home' && (
           <>
             {/* 01 — HERO */}
             <Hero
@@ -55,14 +56,14 @@ export default function App() {
               setCurrentView={setCurrentView}
             />
 
-            {/* 02 — FAMILY FEAST ($49.99 Prominent Feature) */}
-            <FamilyFeast
+            {/* 02 — BUILD YOUR COMBO (Interactive 3-Step Configurator - Placed Before Family Feast) */}
+            <ComboBuilder
               openOrderingModal={openOrderingModal}
               addToCart={addToCart}
             />
 
-            {/* 03 — BUILD YOUR COMBO (Interactive 3-Step Configurator) */}
-            <ComboBuilder
+            {/* 03 — FAMILY FEAST ($49.99 Bundle Feature) */}
+            <FamilyFeast
               openOrderingModal={openOrderingModal}
               addToCart={addToCart}
             />
@@ -84,12 +85,22 @@ export default function App() {
               openOrderingModal={openOrderingModal}
             />
           </>
-        ) : (
+        )}
+
+        {currentView === 'menu' && (
           /* DEDICATED MENU PAGE */
           <MenuPage
             setCurrentView={setCurrentView}
             openOrderingModal={openOrderingModal}
             addToCart={addToCart}
+          />
+        )}
+
+        {currentView === 'about' && (
+          /* DEDICATED LOADABLE ABOUT US PAGE */
+          <AboutPage
+            setCurrentView={setCurrentView}
+            openOrderingModal={openOrderingModal}
           />
         )}
       </main>

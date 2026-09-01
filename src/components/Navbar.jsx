@@ -91,17 +91,17 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               HOME
             </button>
             <button 
+              onClick={() => handleNavClick('home', 'combo-builder')}
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-gray-700 hover:text-[#e02e07] hover:bg-red-50 transition-colors"
+            >
+              BUILD YOUR COMBO
+            </button>
+            <button 
               onClick={() => handleNavClick('home', 'family-feast')}
               className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-gray-700 hover:text-[#d97706] hover:bg-amber-50 transition-colors flex items-center gap-1.5"
             >
               <span className="w-2 h-2 rounded-full bg-[#e52516] animate-ping"></span>
               FAMILY FEAST
-            </button>
-            <button 
-              onClick={() => handleNavClick('home', 'combo-builder')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-gray-700 hover:text-[#e02e07] hover:bg-red-50 transition-colors"
-            >
-              BUILD YOUR COMBO
             </button>
             <button 
               onClick={() => handleNavClick('menu')}
@@ -112,8 +112,10 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               MENU
             </button>
             <button 
-              onClick={() => handleNavClick('home', 'about-story')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('about')}
+              className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
+                currentView === 'about' ? 'text-[#e02e07] bg-red-50' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+              }`}
             >
               ABOUT
             </button>
@@ -218,6 +220,14 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             </button>
 
             <button
+              onClick={() => handleNavClick('home', 'combo-builder')}
+              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-gray-100 text-[#e02e07] flex items-center justify-between"
+            >
+              <span>BUILD YOUR COMBO</span>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
+            </button>
+
+            <button
               onClick={() => handleNavClick('home', 'family-feast')}
               className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-gray-100 text-[#d97706] flex items-center justify-between"
             >
@@ -225,14 +235,6 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                 <span className="w-2.5 h-2.5 rounded-full bg-[#e52516] animate-pulse"></span>
                 FAMILY FEAST ($49.99)
               </span>
-              <ChevronRight className="w-5 h-5 text-gray-400" />
-            </button>
-
-            <button
-              onClick={() => handleNavClick('home', 'combo-builder')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-gray-100 text-[#e02e07] flex items-center justify-between"
-            >
-              <span>BUILD YOUR COMBO</span>
               <ChevronRight className="w-5 h-5 text-gray-400" />
             </button>
 
@@ -245,7 +247,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             </button>
 
             <button
-              onClick={() => handleNavClick('home', 'about-story')}
+              onClick={() => handleNavClick('about')}
               className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-gray-100 text-gray-900 flex items-center justify-between"
             >
               <span>ABOUT MISS LYN’S</span>
