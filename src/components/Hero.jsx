@@ -127,8 +127,8 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 {/* Hero Image — 100% Authentic Photo */}
                 <div className="relative aspect-4/3 sm:aspect-16/11 rounded-2xl overflow-hidden bg-gray-100">
                   <img
-                    src="/images/dishes/0053.jpg"
-                    alt="Miss Lyn's Saucy Signature Wings"
+                    src="/images/dishes/hero-combo.jpg"
+                    alt="Miss Lyn's Custom Combo Platter - Crispy Chicken, Fries, Onion Rings & Drinks"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     fetchPriority="high"
                   />
@@ -138,10 +138,10 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white leading-none drop-shadow-md">
-                          SIGNATURE GLAZED WINGS
+                          FRESH COMBO PLATTER
                         </h3>
                         <p className="text-xs sm:text-sm text-yellow-300 font-semibold drop-shadow">
-                          Tossed in Miss Lyn’s Island Jerk Sauce
+                          Crispy Chicken, Golden Fries, Onion Rings & Island Sodas
                         </p>
                       </div>
                       <span className="font-heading text-xl sm:text-2xl font-black text-white px-3 py-1 rounded-xl bg-[#e52516] shadow">
