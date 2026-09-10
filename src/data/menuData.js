@@ -4,7 +4,7 @@ export const menuCategories = [
   { id: "combos", name: "Individual Combos", icon: "Layers", count: 4 },
   { id: "chicken", name: "Jerk & Fried Chicken", icon: "Utensils", count: 6 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
-  { id: "sides", name: "Sides & Upgrades", icon: "Soup", count: 10 },
+  { id: "sides", name: "Sides & Upgrades", icon: "Soup", count: 9 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 5 },
   { id: "drinks", name: "Island Sodas & Drinks", icon: "Coffee", count: 1 }
 ];
@@ -264,7 +264,7 @@ export const menuItems = [
     spiceLevel: 2
   },
 
-  // 6. SIDES & UPGRADES
+  // 6. SIDES & UPGRADES (Jamaican Festivals removed)
   {
     id: "french-fries",
     categoryId: "sides",
@@ -304,16 +304,6 @@ export const menuItems = [
     description: "Thick-cut sweet onion rings in golden crispy batter.",
     image: "/images/dishes/0015.jpg",
     tags: ["Crispy Side"]
-  },
-  {
-    id: "jamaican-festivals",
-    categoryId: "sides",
-    name: "Jamaican Festivals (3 Pieces)",
-    price: 5.00,
-    priceDisplay: "$5.00",
-    description: "Sweet fried cornmeal and flour dough sticks — the classic Jamaican pairing for wings and jerk chicken.",
-    image: "/images/dishes/0022.jpg",
-    tags: ["Authentic Side", "Sweet & Savoury"]
   },
   {
     id: "macaroni-salad",
@@ -395,7 +385,7 @@ export const menuItems = [
     name: "Rich Savoury Gravy",
     price: 2.00,
     priceDisplay: "$2.00",
-    description: "Piping hot, rich brown gravy perfect for dipping fries, wings, and festivals.",
+    description: "Piping hot, rich brown gravy perfect for dipping fries and wings.",
     image: "/images/dishes/0028.jpg",
     tags: ["Warm Savoury"],
     spiceLevel: 0

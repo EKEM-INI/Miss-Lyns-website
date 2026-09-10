@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Flame, Sparkles, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Flame, Sparkles, ShoppingBag, Check } from 'lucide-react';
 import { menuItems } from '../data/menuData';
 
 export default function MenuHighlights({ setCurrentView, openOrderingModal, addToCart }) {
@@ -13,6 +13,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   ];
 
   const highlightedItems = menuItems.filter(item => highlightIds.includes(item.id));
+  const drinksItem = menuItems.find(item => item.id === 'island-drinks-selection');
 
   const handleQuickAdd = (item) => {
     if (addToCart) {
@@ -50,7 +51,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
         </div>
 
         {/* Highlight Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {highlightedItems.map((item) => (
             <div
               key={item.id}
@@ -112,8 +113,122 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
           ))}
         </div>
 
+        {/* SINGLE DEDICATED SPOT FOR DRINKS ON MAIN PAGE (Light Design) */}
+        {drinksItem && (
+          <div className="mb-12 rounded-3xl bg-gradient-to-br from-orange-50/70 via-amber-50/30 to-white border-2 border-orange-200 p-6 sm:p-8 shadow-md text-gray-900">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              
+              {/* Authentic Drinks Photo */}
+              <div className="lg:col-span-5">
+                <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-white border border-orange-200 shadow-sm group">
+                  <img
+                    src={drinksItem.image}
+                    alt="Authentic Jamaican Island Drinks, Bigga, Cran Wata and Sodas"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-emerald-600 text-white shadow-sm flex items-center gap-1">
+                      🌴 Direct Jamaican Imports
+                    </span>
+                  </div>
+                  <div className="absolute bottom-3 right-3">
+                    <span className="font-heading text-xl font-black text-gray-900 px-3 py-1 rounded-xl bg-white/95 backdrop-blur-md border border-gray-200 shadow-sm">
+                      $1.75 – $3.50
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Drinks Details */}
+              <div className="lg:col-span-7 space-y-4 text-left">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-red-100 text-[#e02e07] text-[11px] font-bold uppercase tracking-wide mb-1.5 border border-red-200">
+                    <Sparkles className="w-3 h-3 text-[#d97706]" />
+                    <span>REFRESHING BEVERAGES SELECTION</span>
+                  </div>
+                  <h3 className="font-heading text-3xl sm:text-4xl font-black uppercase text-gray-900 leading-none">
+                    Island Sodas & Cold Beverages
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+                    Pair your wings and jerk chicken with authentic Jamaican tropical sodas, Cran Wata, or chilled soft drinks.
+                  </p>
+                </div>
+
+                {/* 2-Column Varieties List */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  
+                  {/* Island Sodas */}
+                  <div className="p-3.5 rounded-xl bg-white border border-orange-200 shadow-sm space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black uppercase tracking-wider text-[#b45309] flex items-center gap-1">
+                        <span>🌴 Island Sodas</span>
+                      </span>
+                      <span className="text-xs font-bold text-gray-900 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">$3.50</span>
+                    </div>
+                    <ul className="text-xs text-gray-600 space-y-1">
+                      <li className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#059669]" />
+                        <span>Bigga (Pineapple, Fruit Punch, Ginger, Orange, Kola)</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#059669]" />
+                        <span>Ting Sparkling Grapefruit</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#059669]" />
+                        <span>D&G Cream Soda & Ginger Beer</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Soft Drinks & Water */}
+                  <div className="p-3.5 rounded-xl bg-white border border-gray-200 shadow-sm space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black uppercase tracking-wider text-gray-800">
+                        🥤 Soft Drinks & Water
+                      </span>
+                      <span className="text-xs font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">$1.75 – $2.00</span>
+                    </div>
+                    <ul className="text-xs text-gray-600 space-y-1">
+                      <li className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#059669]" />
+                        <span>Canned Pop (Coke, Sprite, Ginger Ale, Nestea, etc.)</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#059669]" />
+                        <span>Jamaican Cranberry Wata</span>
+                      </li>
+                      <li className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#059669]" />
+                        <span>Pure Bottled Spring Water</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+
+                {/* Action Row */}
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span className="text-xs text-gray-500 font-medium">
+                    * Served ice-cold with cups upon request
+                  </span>
+                  <button
+                    onClick={() => handleQuickAdd(drinksItem)}
+                    className="w-full sm:w-auto px-6 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-[#e02e07] hover:bg-[#ff481f] text-white shadow-md flex items-center justify-center gap-2 transition-all"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>Order Drinks</span>
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        )}
+
         {/* Bottom Menu Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-orange-50/60 border border-orange-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="p-6 rounded-2xl bg-orange-50/60 border border-orange-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
           <div>
             <h4 className="font-heading text-2xl font-bold uppercase text-gray-900">
               LOOKING FOR MORE SIZES, COMBOS & SIDES?

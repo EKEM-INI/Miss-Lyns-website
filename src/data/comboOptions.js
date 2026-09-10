@@ -38,13 +38,6 @@ export const comboSides = {
       description: "Crispy golden cut potato fries seasoned to perfection."
     },
     {
-      id: "jamaican-festivals",
-      name: "Jamaican Festivals",
-      type: "standard",
-      image: "/images/dishes/0022.jpg",
-      description: "Crispy, sweet Jamaican fried cornmeal dumplings—the classic island pairing."
-    },
-    {
       id: "coleslaw",
       name: "Coleslaw",
       type: "standard",

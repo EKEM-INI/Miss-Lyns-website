@@ -165,7 +165,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Item 1 */}
             <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 flex flex-col justify-between">
@@ -192,7 +192,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
                   Grandma’s Soul-Warming Fried Chicken
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Crisp, golden, perfectly seasoned, and never greasy—prepared just the way Miss Lyn made it.
+                  Crispy on the outside, succulent on the inside, and seasoned down to the bone with Grandma Hazel’s secret spice blend.
                 </p>
               </div>
             </div>
@@ -203,29 +203,11 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-gray-100">
                   <img src="/images/dishes/0014.jpg" alt="Deep-Fried Macaroni Pie" className="w-full h-full object-cover" />
                 </div>
-                <div className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-100 text-[#b45309]">
-                  A Miss Lyn’s Exclusive
-                </div>
                 <h3 className="font-heading text-2xl font-bold uppercase text-gray-900">
                   Deep-Fried Macaroni Pie
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   Classic, comforting Caribbean macaroni pie is breaded and fried to golden, crunchy perfection for a completely unforgettable bite.
-                </p>
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="aspect-16/10 rounded-xl overflow-hidden bg-gray-100">
-                  <img src="/images/dishes/0022.jpg" alt="Traditional Sweet Festivals" className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-heading text-2xl font-bold uppercase text-gray-900">
-                  Traditional Sweet Festivals
-                </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  Crispy, sweet Jamaican fried dumplings that make the perfect pairing for cooling down the fire of our spiciest jerk sauces.
                 </p>
               </div>
             </div>
