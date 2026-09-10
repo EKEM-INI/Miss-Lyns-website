@@ -51,61 +51,52 @@ export const comboSides = {
       image: "/images/dishes/0024.jpg",
       description: "Rich and creamy chilled macaroni salad with subtle Caribbean spice."
     }
-  ],
-  premium: [
-    {
-      id: "poutine",
-      name: "Poutine",
-      type: "premium",
-      upgradeBadge: "Premium Upgrade",
-      image: "/images/dishes/0026.jpg",
-      description: "Golden crispy fries topped with real cheese curds and piping hot savoury gravy."
-    },
-    {
-      id: "mac-and-cheese-pie",
-      name: "Deep-Fried Mac Pie",
-      type: "premium",
-      upgradeBadge: "Premium Upgrade",
-      image: "/images/dishes/0014.jpg",
-      description: "Classic Caribbean macaroni pie breaded and fried to golden, crunchy perfection."
-    },
-    {
-      id: "sweet-potato-fries",
-      name: "Sweet Potato Fries",
-      type: "premium",
-      upgradeBadge: "Premium Upgrade",
-      image: "/images/dishes/0021.jpg",
-      description: "Crispy sweet potato fries with a light savoury dusting."
-    },
-    {
-      id: "onion-rings",
-      name: "Onion Rings",
-      type: "premium",
-      upgradeBadge: "Premium Upgrade",
-      image: "/images/dishes/0015.jpg",
-      description: "Battered thick-cut sweet onion rings fried to deep golden crispness."
-    }
   ]
 };
+
+export const comboPremiumUpgrades = [
+  {
+    id: "poutine",
+    name: "Poutine",
+    price: 3.00,
+    priceDisplay: "+$3.00",
+    image: "/images/dishes/0026.jpg",
+    description: "Golden crispy fries topped with real cheese curds and piping hot savoury gravy."
+  },
+  {
+    id: "mac-and-cheese-pie",
+    name: "Deep-Fried Mac Pie",
+    price: 3.00,
+    priceDisplay: "+$3.00",
+    image: "/images/dishes/0014.jpg",
+    description: "Classic Caribbean macaroni pie breaded and fried to golden, crunchy perfection."
+  },
+  {
+    id: "sweet-potato-fries",
+    name: "Sweet Potato Fries",
+    price: 3.00,
+    priceDisplay: "+$3.00",
+    image: "/images/dishes/0021.jpg",
+    description: "Crispy sweet potato fries with a light savoury dusting."
+  },
+  {
+    id: "onion-rings",
+    name: "Onion Rings",
+    price: 3.00,
+    priceDisplay: "+$3.00",
+    image: "/images/dishes/0015.jpg",
+    description: "Battered thick-cut sweet onion rings fried to deep golden crispness."
+  }
+];
 
 export const comboDrinks = {
   standard: [
     {
-      id: "standard-pop",
-      name: "Standard Drink (Included)",
+      id: "included-drink",
+      name: "Cold Drink / Island Soda",
       type: "standard",
       image: "/images/dishes/drinks.png",
-      description: "Choice of chilled canned soft drink (Coca-Cola, Diet Coke, Sprite, Ginger Ale, C-Plus, Nestea, Root Beer) or pure spring water."
-    }
-  ],
-  premium: [
-    {
-      id: "premium-island-soda",
-      name: "Premium Island Soda Upgrade",
-      type: "premium",
-      upgradeBadge: "+$1.50 Upgrade",
-      image: "/images/dishes/drinks.png",
-      description: "Authentic imported Jamaican tropical soda (Bigga flavors, Ting Sparkling Grapefruit, D&G Cream Soda / Ginger Beer, or Cran Wata)."
+      description: "Any refreshing chilled canned soft drink, spring water, Cran Wata, or imported Jamaican Island soda (Bigga, Ting, D&G) included with your combo."
     }
   ]
 };
