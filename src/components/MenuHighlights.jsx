@@ -13,7 +13,6 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   ];
 
   const highlightedItems = menuItems.filter(item => highlightIds.includes(item.id));
-  const drinksItem = menuItems.find(item => item.id === 'island-drinks-selection');
 
   const handleQuickAdd = (item) => {
     if (addToCart) {
@@ -50,8 +49,8 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
           </button>
         </div>
 
-        {/* Highlight Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Highlight Grid (Food Only - No Drinks) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {highlightedItems.map((item) => (
             <div
               key={item.id}
@@ -113,73 +112,14 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
           ))}
         </div>
 
-        {/* THE SINGLE DEDICATED DRINKS SPOT (Light Design & Highlights Everything) */}
-        {drinksItem && (
-          <div className="mb-12 rounded-3xl bg-gradient-to-r from-orange-50/80 via-amber-50/40 to-white border-2 border-orange-200 p-6 sm:p-8 shadow-md text-gray-900">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              
-              {/* Authentic Drinks Photo */}
-              <div className="md:col-span-5 lg:col-span-4">
-                <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-white border border-orange-200 shadow-sm group">
-                  <img
-                    src={drinksItem.image}
-                    alt="Authentic Jamaican Island Drinks, Cran Wata and Sodas"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-emerald-600 text-white shadow-sm">
-                      🌴 All Cold Drinks Included
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Drinks Description & Action */}
-              <div className="md:col-span-7 lg:col-span-8 space-y-3 text-left">
-                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-red-100 text-[#e02e07] text-[11px] font-bold uppercase tracking-wide border border-red-200">
-                  <Sparkles className="w-3 h-3 text-[#d97706]" />
-                  <span>OFFICIAL DRINKS SPOT</span>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <h3 className="font-heading text-3xl sm:text-4xl font-black uppercase text-gray-900 leading-none">
-                    Cold Drinks & Island Sodas
-                  </h3>
-                  <span className="font-heading text-2xl font-black text-[#e02e07] bg-white px-3 py-1 rounded-xl border border-orange-200 shadow-sm w-fit">
-                    $1.75 – $3.50
-                  </span>
-                </div>
-
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-2xl">
-                  {drinksItem.description}
-                </p>
-
-                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <span className="text-xs font-semibold text-gray-500">
-                    * Served chilled with ice and cups upon request
-                  </span>
-                  <button
-                    onClick={() => handleQuickAdd(drinksItem)}
-                    className="px-6 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-[#e02e07] hover:bg-[#ff481f] text-white shadow-md flex items-center justify-center gap-2 transition-all shrink-0"
-                  >
-                    <ShoppingBag className="w-4 h-4" />
-                    <span>Order Drinks</span>
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        )}
-
         {/* Bottom Menu Banner */}
-        <div className="p-6 rounded-2xl bg-orange-50/60 border border-orange-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="mt-12 p-6 rounded-2xl bg-orange-50/60 border border-orange-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
           <div>
             <h4 className="font-heading text-2xl font-bold uppercase text-gray-900">
-              LOOKING FOR MORE SIZES, COMBOS & SIDES?
+              LOOKING FOR MORE SIZES, COMBOS & DRINKS?
             </h4>
             <p className="text-xs text-gray-600">
-              Browse our complete categorized menu including Jamaican patties, sides, and drinks.
+              Browse our complete categorized menu including Jamaican patties, sides, and chilled Island sodas.
             </p>
           </div>
           <button
