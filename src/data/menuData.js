@@ -6,7 +6,7 @@ export const menuCategories = [
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Sides & Upgrades", icon: "Soup", count: 10 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 5 },
-  { id: "drinks", name: "Island Sodas & Drinks", icon: "Coffee", count: 6 }
+  { id: "drinks", name: "Island Sodas & Drinks", icon: "Coffee", count: 1 }
 ];
 
 export const menuItems = [
@@ -423,65 +423,28 @@ export const menuItems = [
     spiceLevel: 0
   },
 
-  // 8. DRINKS (All using the user's authentic drinks photograph)
+  // 8. DRINKS (Single Consolidated Spot with Light Design)
   {
-    id: "canned-pop",
+    id: "island-drinks-selection",
     categoryId: "drinks",
-    name: "Canned Soft Drinks (355ml)",
-    price: 2.00,
-    priceDisplay: "$2.00",
-    description: "Choice of Coca-Cola, Diet Coke, Sprite, Canada Dry Ginger Ale, C-Plus Orange, Nestea, or Root Beer.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Chilled Can"]
-  },
-  {
-    id: "ting-grapefruit",
-    categoryId: "drinks",
-    name: "Ting Sparkling Grapefruit (Jamaica)",
+    name: "Island Sodas & Cold Beverages",
     price: 3.50,
-    priceDisplay: "$3.50",
-    description: "Authentic Jamaican sparkling soda made with real Caribbean grapefruit juice.",
+    priceDisplay: "$1.75 – $3.50",
+    description: "Quench your thirst with authentic direct Jamaican imports including Bigga (Pineapple, Fruit Punch, Ginger Beer, Orange, Kola Champagne), Ting Sparkling Grapefruit, D&G Sodas, Cran Wata, pure spring water, and canned soft drinks.",
     image: "/images/dishes/drinks.png",
-    tags: ["Island Favorite", "Imported"]
-  },
-  {
-    id: "bigga-soda",
-    categoryId: "drinks",
-    name: "Bigga Jamaican Soda",
-    price: 3.50,
-    priceDisplay: "$3.50",
-    description: "Vibrant tropical soda in a variety of authentic Island flavors: Pineapple, Fruit Punch, Ginger Beer, Orange, and Kola Champagne.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Imported from Jamaica"]
-  },
-  {
-    id: "dg-beverages",
-    categoryId: "drinks",
-    name: "D&G Jamaican Sodas",
-    price: 3.50,
-    priceDisplay: "$3.50",
-    description: "Desnoes & Geddes authentic Jamaican Cream Soda, Pineapple Soda, or Jamaican Ginger Beer.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Jamaican Heritage"]
-  },
-  {
-    id: "tropical-pineapple-soda",
-    categoryId: "drinks",
-    name: "Tropical Pineapple Island Soda",
-    price: 3.50,
-    priceDisplay: "$3.50",
-    description: "Crisp and bubbly tropical pineapple soda.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Tropical Sweet"]
-  },
-  {
-    id: "spring-water",
-    categoryId: "drinks",
-    name: "Bottled Spring Water & Cran Wata",
-    price: 1.75,
-    priceDisplay: "$1.75",
-    description: "Pure chilled natural spring water and refreshing Jamaican Cranberry Wata.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Pure & Fresh"]
+    tags: ["Direct Jamaican Imports", "Cold Drinks"],
+    isDrinksSpotlight: true,
+    drinksList: {
+      islandSodas: [
+        { name: "Bigga Jamaican Soda", desc: "Pineapple, Fruit Punch, Ginger Beer, Orange, Kola Champagne", price: "$3.50" },
+        { name: "Ting Sparkling Grapefruit", desc: "Real Jamaican grapefruit sparkling soda", price: "$3.50" },
+        { name: "D&G Jamaican Sodas", desc: "Cream Soda, Genuine Ginger Beer, Pineapple", price: "$3.50" },
+        { name: "Tropical Pineapple Soda", desc: "Crisp & bubbly tropical Island soda", price: "$3.50" }
+      ],
+      softDrinksAndWater: [
+        { name: "Canned Soft Drinks", desc: "Coca-Cola, Diet Coke, Sprite, Ginger Ale, C-Plus, Nestea, Root Beer", price: "$2.00" },
+        { name: "Cran Wata & Spring Water", desc: "Jamaican Cranberry Wata & Pure Spring Water", price: "$1.75" }
+      ]
+    }
   }
 ];

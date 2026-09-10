@@ -141,7 +141,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                           FRESH COMBO PLATTER
                         </h3>
                         <p className="text-xs sm:text-sm text-yellow-300 font-semibold drop-shadow">
-                          Crispy Chicken, Golden Fries, Onion Rings & Island Sodas
+                          Crispy Wings, Saucy Jerk Chicken, Onion Rings & Jamaican Festivals
                         </p>
                       </div>
                       <span className="font-heading text-xl sm:text-2xl font-black text-white px-3 py-1 rounded-xl bg-[#e52516] shadow">

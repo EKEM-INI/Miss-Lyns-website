@@ -38,11 +38,11 @@ export const comboSides = {
       description: "Crispy golden cut potato fries seasoned to perfection."
     },
     {
-      id: "rice-and-peas",
-      name: "Rice & Peas",
+      id: "jamaican-festivals",
+      name: "Jamaican Festivals",
       type: "standard",
       image: "/images/dishes/0022.jpg",
-      description: "Traditional Jamaican coconut-infused rice cooked with red kidney beans and thyme."
+      description: "Crispy, sweet Jamaican fried cornmeal dumplings—the classic island pairing."
     },
     {
       id: "coleslaw",
@@ -69,12 +69,12 @@ export const comboSides = {
       description: "Golden crispy fries topped with real cheese curds and piping hot savoury gravy."
     },
     {
-      id: "mac-and-cheese",
-      name: "Mac & Cheese",
+      id: "mac-and-cheese-pie",
+      name: "Deep-Fried Mac Pie",
       type: "premium",
       upgradeBadge: "Premium Upgrade",
       image: "/images/dishes/0014.jpg",
-      description: "Baked cheesy macaroni pie cut into thick, golden-crusted squares."
+      description: "Classic Caribbean macaroni pie breaded and fried to golden, crunchy perfection."
     },
     {
       id: "sweet-potato-fries",
