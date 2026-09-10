@@ -91,58 +91,12 @@ export const comboSides = {
 export const comboDrinks = {
   standard: [
     {
-      id: "pop",
-      name: "Pop (Can)",
+      id: "cold-drinks-selection",
+      name: "Cold Drink / Island Soda",
       type: "standard",
-      options: ["Coca-Cola", "Diet Coke", "Sprite", "Canada Dry Ginger Ale", "C-Plus Orange", "Nestea Iced Tea", "A&W Root Beer"],
       image: "/images/dishes/drinks.png",
-      description: "Refreshing 355ml chilled canned soft drink of your choice."
-    },
-    {
-      id: "water",
-      name: "Spring Water / Cran Wata",
-      type: "standard",
-      options: ["Bottled Spring Water", "Cran Wata"],
-      image: "/images/dishes/drinks.png",
-      description: "Crisp, pure bottled water or Jamaican Cran Wata."
+      description: "Any refreshing chilled canned soft drink, spring water, Cran Wata, or imported Jamaican Island soda (Bigga, Ting, D&G) of your choice."
     }
   ],
-  premium: [
-    {
-      id: "bigga",
-      name: "Bigga Soda",
-      type: "premium",
-      upgradeBadge: "Island Soda",
-      options: ["Bigga Pineapple", "Bigga Fruit Punch", "Bigga Ginger Beer", "Bigga Orange", "Bigga Kola Champagne"],
-      image: "/images/dishes/drinks.png",
-      description: "Authentic Jamaican fruit soda bursting with vibrant Caribbean flavor."
-    },
-    {
-      id: "ting",
-      name: "Ting",
-      type: "premium",
-      upgradeBadge: "Island Soda",
-      options: ["Ting Sparkling Pink Grapefruit", "Ting Original"],
-      image: "/images/dishes/drinks.png",
-      description: "Famous Jamaican sparkling citrus soda made with real Caribbean grapefruit juice."
-    },
-    {
-      id: "dg-soda",
-      name: "D&G Soda",
-      type: "premium",
-      upgradeBadge: "Island Soda",
-      options: ["D&G Cream Soda", "D&G Genuine Ginger Beer", "D&G Pineapple", "D&G Kola Champagne"],
-      image: "/images/dishes/drinks.png",
-      description: "Classic Desnoes & Geddes Jamaican heritage beverages."
-    },
-    {
-      id: "pineapple-soda",
-      name: "Pineapple Soda",
-      type: "premium",
-      upgradeBadge: "Island Soda",
-      options: ["Tropical Pineapple Soda"],
-      image: "/images/dishes/drinks.png",
-      description: "Sweet, sparkling tropical pineapple sensation."
-    }
-  ]
+  premium: []
 };
