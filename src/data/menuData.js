@@ -264,7 +264,7 @@ export const menuItems = [
     spiceLevel: 2
   },
 
-  // 6. SIDES & UPGRADES (Jamaican Festivals removed)
+  // 6. SIDES & UPGRADES
   {
     id: "french-fries",
     categoryId: "sides",
@@ -413,28 +413,16 @@ export const menuItems = [
     spiceLevel: 0
   },
 
-  // 8. DRINKS (Single Consolidated Spot with Light Design)
+  // 8. DRINKS (Single Dedicated Spot Highlighting All Drinks)
   {
     id: "island-drinks-selection",
     categoryId: "drinks",
-    name: "Island Sodas & Cold Beverages",
+    name: "Cold Drinks & Island Sodas",
     price: 3.50,
     priceDisplay: "$1.75 – $3.50",
-    description: "Quench your thirst with authentic direct Jamaican imports including Bigga (Pineapple, Fruit Punch, Ginger Beer, Orange, Kola Champagne), Ting Sparkling Grapefruit, D&G Sodas, Cran Wata, pure spring water, and canned soft drinks.",
+    description: "All cold drinks and refreshing beverages in one spot! Includes authentic imported Jamaican Island sodas (Bigga, Ting, D&G), refreshing Cran Wata, pure spring water, and chilled canned soft drinks.",
     image: "/images/dishes/drinks.png",
-    tags: ["Direct Jamaican Imports", "Cold Drinks"],
-    isDrinksSpotlight: true,
-    drinksList: {
-      islandSodas: [
-        { name: "Bigga Jamaican Soda", desc: "Pineapple, Fruit Punch, Ginger Beer, Orange, Kola Champagne", price: "$3.50" },
-        { name: "Ting Sparkling Grapefruit", desc: "Real Jamaican grapefruit sparkling soda", price: "$3.50" },
-        { name: "D&G Jamaican Sodas", desc: "Cream Soda, Genuine Ginger Beer, Pineapple", price: "$3.50" },
-        { name: "Tropical Pineapple Soda", desc: "Crisp & bubbly tropical Island soda", price: "$3.50" }
-      ],
-      softDrinksAndWater: [
-        { name: "Canned Soft Drinks", desc: "Coca-Cola, Diet Coke, Sprite, Ginger Ale, C-Plus, Nestea, Root Beer", price: "$2.00" },
-        { name: "Cran Wata & Spring Water", desc: "Jamaican Cranberry Wata & Pure Spring Water", price: "$1.75" }
-      ]
-    }
+    tags: ["All Beverages Included", "Direct Jamaican Imports"],
+    isDrinksSpotlight: true
   }
 ];
