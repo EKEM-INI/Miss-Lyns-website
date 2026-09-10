@@ -21,7 +21,11 @@ export default function App() {
 
   const openOrderingModal = (tab = 'all', item = null) => {
     setOrderingModalTab(tab);
-    setSelectedOrderItem(item);
+    if (item) {
+      // Add or highlight item
+      setSelectedOrderItem(item);
+      addToCart(item);
+    }
     setOrderingModalOpen(true);
   };
 
@@ -31,8 +35,42 @@ export default function App() {
   };
 
   const addToCart = (item) => {
-    setCart((prev) => [...prev, item]);
+    setCart((prev) => {
+      // Check if existing identical item exists
+      const existingIdx = prev.findIndex(i => i.id === item.id && JSON.stringify(i.details) === JSON.stringify(item.details));
+      if (existingIdx > -1) {
+        const updated = [...prev];
+        updated[existingIdx].quantity = (updated[existingIdx].quantity || 1) + 1;
+        return updated;
+      } else {
+        return [...prev, { ...item, quantity: item.quantity || 1 }];
+      }
+    });
   };
+
+  const updateCartQuantity = (index, delta) => {
+    setCart((prev) => {
+      const updated = [...prev];
+      if (!updated[index]) return prev;
+      const newQty = (updated[index].quantity || 1) + delta;
+      if (newQty <= 0) {
+        return updated.filter((_, i) => i !== index);
+      } else {
+        updated[index].quantity = newQty;
+        return updated;
+      }
+    });
+  };
+
+  const removeFromCart = (index) => {
+    setCart((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const totalCartCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col justify-between selection:bg-[#e02e07] selection:text-white">
@@ -42,7 +80,7 @@ export default function App() {
         currentView={currentView}
         setCurrentView={setCurrentView}
         openOrderingModal={openOrderingModal}
-        cartCount={cart.length}
+        cartCount={totalCartCount}
         openCart={() => openOrderingModal('all')}
       />
 
@@ -56,7 +94,7 @@ export default function App() {
               setCurrentView={setCurrentView}
             />
 
-            {/* 02 — BUILD YOUR COMBO (Interactive 3-Step Configurator - Placed Before Family Feast) */}
+            {/* 02 — BUILD YOUR COMBO (Interactive 3-Step Configurator with Premium Upgrade under Step 3) */}
             <ComboBuilder
               openOrderingModal={openOrderingModal}
               addToCart={addToCart}
@@ -116,12 +154,16 @@ export default function App() {
         openOrderingModal={openOrderingModal}
       />
 
-      {/* Pickup & Delivery Ordering Modal */}
+      {/* Pickup & Delivery Ordering Modal with Cart Review, Client Info Form, and Delivery App Sync */}
       <OrderingModal
         isOpen={orderingModalOpen}
         onClose={closeOrderingModal}
         defaultTab={orderingModalTab}
         orderItem={selectedOrderItem}
+        cart={cart}
+        updateCartQuantity={updateCartQuantity}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
       />
 
     </div>

@@ -91,12 +91,21 @@ export const comboSides = {
 export const comboDrinks = {
   standard: [
     {
-      id: "cold-drinks-selection",
-      name: "Cold Drink / Island Soda",
+      id: "standard-pop",
+      name: "Standard Drink (Included)",
       type: "standard",
       image: "/images/dishes/drinks.png",
-      description: "Any refreshing chilled canned soft drink, spring water, Cran Wata, or imported Jamaican Island soda (Bigga, Ting, D&G) of your choice."
+      description: "Choice of chilled canned soft drink (Coca-Cola, Diet Coke, Sprite, Ginger Ale, C-Plus, Nestea, Root Beer) or pure spring water."
     }
   ],
-  premium: []
+  premium: [
+    {
+      id: "premium-island-soda",
+      name: "Premium Island Soda Upgrade",
+      type: "premium",
+      upgradeBadge: "+$1.50 Upgrade",
+      image: "/images/dishes/drinks.png",
+      description: "Authentic imported Jamaican tropical soda (Bigga flavors, Ting Sparkling Grapefruit, D&G Cream Soda / Ginger Beer, or Cran Wata)."
+    }
+  ]
 };

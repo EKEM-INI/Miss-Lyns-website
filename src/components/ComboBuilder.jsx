@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Sparkles, ShoppingBag, Layers } from 'lucide-react';
+import { Check, Sparkles, ShoppingBag, Layers, Flame } from 'lucide-react';
 import { comboProteins, comboSides, comboDrinks } from '../data/comboOptions';
 
 export default function ComboBuilder({ openOrderingModal, addToCart }) {
@@ -9,8 +9,10 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
   const basePrice = 15.50;
   const isPremiumSide = selectedSide.type === 'premium';
+  const isPremiumDrink = selectedDrink.type === 'premium';
   const sideUpgradeCost = isPremiumSide ? 3.00 : 0;
-  const totalComboPrice = (basePrice + sideUpgradeCost).toFixed(2);
+  const drinkUpgradeCost = isPremiumDrink ? 1.50 : 0;
+  const totalComboPrice = (basePrice + sideUpgradeCost + drinkUpgradeCost).toFixed(2);
 
   const handleAddComboToOrder = () => {
     const comboItem = {
@@ -21,8 +23,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
       image: selectedProtein.image,
       details: {
         protein: selectedProtein.name,
-        side: `${selectedSide.name} ${isPremiumSide ? '(Premium Upgrade)' : ''}`,
-        drink: selectedDrink.name
+        side: `${selectedSide.name} ${isPremiumSide ? '(+$3.00 Premium Upgrade)' : ''}`,
+        drink: `${selectedDrink.name} ${isPremiumDrink ? '(+$1.50 Premium Island Soda Upgrade)' : '(Included)'}`
       }
     };
     if (addToCart) {
@@ -48,7 +50,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           </h2>
 
           <p className="text-base sm:text-lg text-gray-600">
-            Create your custom meal in 3 simple steps. Pick your protein, choose your favorite side, and enjoy a cold drink.
+            Create your custom meal in 3 simple steps. Pick your protein, choose your favorite side, and select your beverage.
           </p>
         </div>
 
@@ -76,7 +78,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 className="px-5 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#e02e07]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
               >
                 <ShoppingBag className="w-4 h-4" />
-                <span>ORDER THIS COMBO</span>
+                <span>ADD COMBO TO ORDER</span>
               </button>
             </div>
           </div>
@@ -134,7 +136,9 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             </div>
 
             {/* Live Drink Slot */}
-            <div className="relative rounded-2xl bg-white border-2 border-emerald-300 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
+            <div className={`relative rounded-2xl bg-white border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
+              isPremiumDrink ? 'border-emerald-500 bg-emerald-50/30' : 'border-emerald-300'
+            }`}>
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-gray-100 shrink-0 border border-gray-200">
                 <img
                   src={selectedDrink.image}
@@ -143,15 +147,24 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 />
               </div>
               <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#059669] block">
-                  STEP 3 • DRINK
-                </span>
-                <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-gray-900 leading-tight">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#059669] block">
+                    STEP 3 • DRINK
+                  </span>
+                  {isPremiumDrink ? (
+                    <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.2 rounded bg-emerald-200 text-emerald-900">
+                      +$1.50 Upgrade
+                    </span>
+                  ) : (
+                    <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.2 rounded bg-gray-100 text-gray-700">
+                      Included
+                    </span>
+                  )}
+                </div>
+                <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-gray-900 leading-tight">
                   {selectedDrink.name}
                 </h4>
-                <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block mt-0.5">
-                  Included with Combo
-                </span>
+                <p className="text-xs text-gray-500 line-clamp-1">{selectedDrink.description}</p>
               </div>
             </div>
 
@@ -362,8 +375,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           </div>
 
 
-          {/* STEP 3: ONLY ONE DRINKS SPOT (Designed like the Menu Page) */}
-          <div className="space-y-5 pt-4">
+          {/* STEP 3: DRINKS WITH PREMIUM UPGRADE OPTION */}
+          <div className="space-y-6 pt-4">
             <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
               <div className="w-8 h-8 rounded-full bg-[#10b981] text-white font-heading text-lg font-bold flex items-center justify-center">
                 3
@@ -372,59 +385,110 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-gray-900 uppercase tracking-wide leading-none">
                   STEP 3 — CHOOSE YOUR DRINK
                 </h3>
-                <p className="text-xs text-gray-500">Included cold beverage of your choice</p>
+                <p className="text-xs text-gray-500">Pick standard drink (included) or upgrade to authentic Premium Jamaican Island Soda</p>
               </div>
             </div>
 
-            {/* THE SINGLE DEDICATED DRINKS SPOT (Menu-Style Light Design) */}
-            <div className="rounded-3xl bg-gradient-to-r from-orange-50/80 via-amber-50/40 to-white border-2 border-emerald-300 p-6 sm:p-7 shadow-md text-gray-900 transition-all">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                
-                {/* Authentic Drinks Photography */}
-                <div className="md:col-span-4">
-                  <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-white border border-orange-200 shadow-sm group">
-                    <img
-                      src={selectedDrink.image}
-                      alt="Authentic Jamaican Island Drinks, Cran Wata and Sodas"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-2.5 left-2.5">
-                      <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-emerald-600 text-white shadow-sm">
-                        🌴 Included with Combo
+            {/* DRINK OPTIONS: STANDARD VS PREMIUM UPGRADE */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              
+              {/* Option 1: Standard Drink (Included) */}
+              {comboDrinks.standard.map((drink) => {
+                const isSelected = selectedDrink.id === drink.id;
+                return (
+                  <button
+                    key={drink.id}
+                    onClick={() => setSelectedDrink(drink)}
+                    className={`relative text-left rounded-3xl p-5 sm:p-6 transition-all duration-300 group flex flex-col justify-between ${
+                      isSelected
+                        ? 'bg-emerald-50/90 border-2 border-[#10b981] shadow-lg shadow-emerald-900/5 scale-[1.01]'
+                        : 'bg-white border border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-black uppercase tracking-wider text-gray-700 px-2.5 py-1 rounded-md bg-gray-100 border border-gray-200">
+                        STANDARD DRINK
+                      </span>
+                      <span className="text-xs font-extrabold text-[#059669] bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">
+                        INCLUDED IN COMBO
                       </span>
                     </div>
-                  </div>
-                </div>
 
-                {/* Drinks Description & Confirmation */}
-                <div className="md:col-span-8 space-y-3 text-left">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-100 text-[#059669] text-[11px] font-bold uppercase tracking-wide border border-emerald-200">
-                    <Sparkles className="w-3 h-3 text-[#059669]" />
-                    <span>INCLUDED BEVERAGE SPOT</span>
-                  </div>
-                  
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <h4 className="font-heading text-2xl sm:text-3xl font-black uppercase text-gray-900 leading-none">
-                      Cold Drinks & Island Sodas
-                    </h4>
-                    <span className="font-heading text-sm font-black text-emerald-700 bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200 w-fit">
-                      ✓ Included in Combo
-                    </span>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-2xl">
-                    Your combo meal comes with your choice of any refreshing chilled canned soft drink, bottled spring water, Cran Wata, or authentic imported Jamaican Island soda (Bigga, Ting, D&G).
-                  </p>
-
-                  <div className="pt-2 flex items-center gap-2 text-xs font-bold text-emerald-700">
-                    <div className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">
-                      <Check className="w-3.5 h-3.5 text-white" />
+                    <div className="flex items-center gap-4 my-2">
+                      <div className="w-20 h-20 rounded-xl overflow-hidden bg-white border border-gray-200 shrink-0">
+                        <img src={drink.image} alt={drink.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h4 className={`font-heading text-2xl font-black uppercase ${isSelected ? 'text-[#059669]' : 'text-gray-900'}`}>
+                          Standard Soft Drink / Water
+                        </h4>
+                        <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                          {drink.description}
+                        </p>
+                      </div>
                     </div>
-                    <span>Beverage Selected & Included with Your Meal</span>
-                  </div>
-                </div>
 
-              </div>
+                    <div className={`mt-4 w-full py-2.5 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 ${
+                      isSelected
+                        ? 'bg-[#10b981] text-white shadow-sm'
+                        : 'bg-gray-100 text-gray-700 group-hover:bg-gray-200'
+                    }`}>
+                      {isSelected && <Check className="w-4 h-4" />}
+                      <span>{isSelected ? 'SELECTED (INCLUDED)' : 'CHOOSE STANDARD DRINK'}</span>
+                    </div>
+                  </button>
+                );
+              })}
+
+              {/* Option 2: Premium Island Soda Upgrade */}
+              {comboDrinks.premium.map((drink) => {
+                const isSelected = selectedDrink.id === drink.id;
+                return (
+                  <button
+                    key={drink.id}
+                    onClick={() => setSelectedDrink(drink)}
+                    className={`relative text-left rounded-3xl p-5 sm:p-6 transition-all duration-300 group flex flex-col justify-between ${
+                      isSelected
+                        ? 'bg-amber-50/90 border-2 border-[#d97706] shadow-lg shadow-amber-900/5 scale-[1.01]'
+                        : 'bg-gradient-to-br from-amber-50/30 to-orange-50/20 border border-amber-300 hover:border-amber-400 shadow-sm'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-black uppercase tracking-wider text-[#b45309] px-2.5 py-1 rounded-md bg-amber-100 border border-amber-200 flex items-center gap-1">
+                        <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
+                        <span>PREMIUM UPGRADE</span>
+                      </span>
+                      <span className="text-xs font-black text-amber-900 bg-amber-200 px-2.5 py-1 rounded-md border border-amber-300">
+                        +$1.50 UPGRADE
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-4 my-2">
+                      <div className="w-20 h-20 rounded-xl overflow-hidden bg-white border border-amber-200 shrink-0">
+                        <img src={drink.image} alt={drink.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h4 className={`font-heading text-2xl font-black uppercase ${isSelected ? 'text-[#b45309]' : 'text-gray-900'}`}>
+                          🌴 Jamaican Island Soda
+                        </h4>
+                        <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                          {drink.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className={`mt-4 w-full py-2.5 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 ${
+                      isSelected
+                        ? 'bg-[#d97706] text-white shadow-sm'
+                        : 'bg-amber-100 text-[#b45309] group-hover:bg-amber-200'
+                    }`}>
+                      {isSelected && <Check className="w-4 h-4" />}
+                      <span>{isSelected ? 'SELECTED (+ $1.50)' : 'UPGRADE TO ISLAND SODA (+ $1.50)'}</span>
+                    </div>
+                  </button>
+                );
+              })}
+
             </div>
 
           </div>
