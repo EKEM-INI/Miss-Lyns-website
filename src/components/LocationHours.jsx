@@ -90,18 +90,23 @@ export default function LocationHours({ openOrderingModal }) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="pt-2">
                 {restaurantInfo.phones.map((p, idx) => (
                   <a
                     key={idx}
                     href={`tel:${p.raw}`}
-                    className="p-3 rounded-xl bg-white hover:bg-[#e02e07] hover:text-white text-gray-900 transition-all flex items-center gap-2 border border-orange-200 group shadow-sm"
+                    className="p-3.5 rounded-xl bg-white hover:bg-[#e02e07] hover:text-white text-gray-900 transition-all flex items-center justify-between border border-orange-200 group shadow-sm"
                   >
-                    <Phone className="w-4 h-4 text-[#d97706] group-hover:text-white" />
-                    <div>
-                      <div className="font-heading text-lg font-bold leading-none">{p.number}</div>
-                      <div className="text-[10px] text-gray-500 group-hover:text-white/80">{p.label}</div>
+                    <div className="flex items-center gap-2.5">
+                      <Phone className="w-5 h-5 text-[#d97706] group-hover:text-white" />
+                      <div>
+                        <div className="font-heading text-xl font-bold leading-none">{p.number}</div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/80">{p.label}</div>
+                      </div>
                     </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#e02e07] group-hover:text-white bg-red-50 group-hover:bg-white/20 px-3 py-1 rounded-lg">
+                      Tap to Call
+                    </span>
                   </a>
                 ))}
               </div>

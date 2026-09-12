@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Phone, ShoppingBag, ExternalLink, MapPin, Clock, Sparkles, Check, Copy, User, Mail, Plus, Minus, Trash2, MessageSquare, ArrowRight } from 'lucide-react';
 import { restaurantInfo } from '../data/restaurantInfo';
 
@@ -25,6 +25,15 @@ export default function OrderingModal({
     unit: '',
     instructions: ''
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      setClientInfo(prev => ({
+        ...prev,
+        orderType: defaultTab === 'delivery' ? 'delivery' : 'pickup'
+      }));
+    }
+  }, [isOpen, defaultTab]);
 
   const [copied, setCopied] = useState(false);
   const [formErrors, setFormErrors] = useState({});
@@ -121,17 +130,17 @@ export default function OrderingModal({
         {/* Modal Header */}
         <div className="text-center mb-6 pt-1">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#e02e07] text-xs font-bold uppercase tracking-wider mb-2 border border-red-100">
-            <span>🍗 Miss Lyn’s Wings Checkout & Ordering</span>
+            <span>🍗 Miss Lyn’s Wings Ordering</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-gray-900 leading-tight">
             {step === 'cart' && 'REVIEW YOUR ORDER'}
             {step === 'client-info' && 'CUSTOMER INFORMATION'}
-            {step === 'complete' && 'COMPLETE YOUR ORDER'}
+            {step === 'complete' && (clientInfo.orderType === 'delivery' ? 'UBER EATS DELIVERY' : 'CONFIRM PICKUP ORDER')}
           </h2>
           <p className="text-xs sm:text-sm text-gray-600">
             {step === 'cart' && 'Confirm all your dishes, combos & drinks before checking out.'}
             {step === 'client-info' && 'Please provide your basic contact details to finalize your order.'}
-            {step === 'complete' && 'Your order is prepared! Transfer to delivery app or call for pickup.'}
+            {step === 'complete' && (clientInfo.orderType === 'delivery' ? 'Your customized order is ready! Complete your delivery order on Uber Eats.' : 'Your order is prepared! Call the restaurant at (905) 522-5967 to place your pickup order.')}
           </p>
         </div>
 
@@ -152,20 +161,72 @@ export default function OrderingModal({
               step === 'client-info' ? 'bg-[#e02e07] text-white shadow' : 'bg-gray-100 text-gray-600'
             }`}
           >
-            2. Client Info
+            2. Customer Info
           </button>
           <span>→</span>
           <span className={`px-3 py-1.5 rounded-lg transition-all ${
             step === 'complete' ? 'bg-[#e02e07] text-white shadow' : 'bg-gray-100 text-gray-400'
           }`}>
-            3. Pickup / Delivery
+            3. {clientInfo.orderType === 'delivery' ? 'Uber Eats Delivery' : 'Pickup Confirmation'}
           </span>
         </div>
 
 
         {/* ================= STEP 1: CART REVIEW (Choose all orders before checkout) ================= */}
         {step === 'cart' && (
-          <div className="space-y-5 animate-fadeIn">
+          <div className="space-y-4 animate-fadeIn">
+            
+            {/* Top Order Mode Banner */}
+            {clientInfo.orderType === 'delivery' ? (
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-50 border-2 border-emerald-300 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-black text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0 shadow">
+                    <ShoppingBag className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider mb-0.5">
+                      <span>Official Delivery Partner: Uber Eats</span>
+                    </div>
+                    <div className="font-heading text-lg font-black uppercase text-emerald-950 leading-tight">
+                      Order Delivery on Uber Eats
+                    </div>
+                    <div className="text-[11px] text-emerald-800">
+                      Customize your order below and transfer directly to Uber Eats for fast delivery.
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setClientInfo(prev => ({ ...prev, orderType: 'pickup' }))}
+                  className="text-xs font-bold text-emerald-900 bg-emerald-100 hover:bg-emerald-200 px-3 py-1.5 rounded-lg border border-emerald-300 transition-colors shrink-0"
+                >
+                  Switch to Pickup
+                </button>
+              </div>
+            ) : (
+              <div className="p-3.5 rounded-2xl bg-orange-50/80 border border-orange-200 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-amber-100 text-[#d97706] flex items-center justify-center font-bold text-sm shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="font-heading text-base font-black uppercase text-gray-900 leading-tight">
+                      Pickup Order • 677 King Street East
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      Call to place your order ahead: <strong className="text-gray-900">(905) 522-5967</strong>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setClientInfo(prev => ({ ...prev, orderType: 'delivery' }))}
+                  className="text-xs font-bold text-[#b45309] bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg border border-amber-300 transition-colors shrink-0"
+                >
+                  Switch to Uber Eats
+                </button>
+              </div>
+            )}
             
             {activeItems.length === 0 ? (
               <div className="py-12 text-center rounded-2xl bg-gray-50 border border-gray-200">
@@ -274,7 +335,7 @@ export default function OrderingModal({
                     onClick={() => setStep('client-info')}
                     className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg flex items-center justify-center gap-2"
                   >
-                    <span>Proceed to Client Info</span>
+                    <span>Proceed to Customer Info</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -301,7 +362,7 @@ export default function OrderingModal({
                 }`}
               >
                 <Phone className="w-4 h-4 text-yellow-400" />
-                <span>Pickup Order</span>
+                <span>Pickup</span>
               </button>
 
               <button
@@ -309,12 +370,12 @@ export default function OrderingModal({
                 onClick={() => setClientInfo(prev => ({ ...prev, orderType: 'delivery' }))}
                 className={`py-2.5 rounded-xl font-heading text-base font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
                   clientInfo.orderType === 'delivery'
-                    ? 'bg-gradient-to-r from-[#e02e07] to-[#e52516] text-white shadow'
+                    ? 'bg-gradient-to-r from-emerald-600 to-green-600 text-white shadow'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                <ShoppingBag className="w-4 h-4" />
-                <span>Delivery Order</span>
+                <ShoppingBag className="w-4 h-4 text-emerald-200" />
+                <span>Delivery (Uber Eats)</span>
               </button>
             </div>
 
@@ -384,9 +445,9 @@ export default function OrderingModal({
 
               {/* Delivery Address (Shown when Delivery selected) */}
               {clientInfo.orderType === 'delivery' && (
-                <div className="p-3.5 rounded-2xl bg-orange-50/50 border border-orange-200 space-y-2.5">
-                  <div className="flex items-center gap-1.5 text-xs font-black uppercase text-[#b45309]">
-                    <MapPin className="w-3.5 h-3.5" />
+                <div className="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-2.5">
+                  <div className="flex items-center gap-1.5 text-xs font-black uppercase text-emerald-900">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-700" />
                     <span>Delivery Location (Hamilton, ON)</span>
                   </div>
                   
@@ -472,7 +533,7 @@ export default function OrderingModal({
               </div>
               <div>
                 <h4 className="font-heading text-xl font-black text-gray-900 leading-tight">
-                  ORDER SUMMARY READY FOR {clientInfo.orderType === 'delivery' ? 'DELIVERY' : 'PICKUP'}
+                  ORDER SUMMARY READY FOR {clientInfo.orderType === 'delivery' ? 'UBER EATS DELIVERY' : 'PICKUP'}
                 </h4>
                 <p className="text-xs text-gray-600">
                   Customer: <strong>{clientInfo.name}</strong> • Phone: <strong>{clientInfo.phone}</strong> • Total: <strong className="text-[#e02e07]">${total.toFixed(2)}</strong>
@@ -510,7 +571,7 @@ export default function OrderingModal({
               </pre>
             </div>
 
-            {/* If DELIVERY Selected: 1-Click Transfer to Delivery App */}
+            {/* If DELIVERY Selected: Uber Eats on Top */}
             {clientInfo.orderType === 'delivery' ? (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -519,7 +580,7 @@ export default function OrderingModal({
                   </h4>
                 </div>
                 <p className="text-xs text-gray-500 leading-relaxed">
-                  Your customized order summary is copied to your clipboard. Click below to open Miss Lyn's Wings on Uber Eats and complete your order:
+                  Your customized order summary is copied to your clipboard. Click below to open Miss Lyn's Wings on Uber Eats and finalize your delivery order:
                 </p>
 
                 {/* Primary Featured Uber Eats Checkout Card */}
@@ -538,7 +599,7 @@ export default function OrderingModal({
                       </div>
                       <div>
                         <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/30 text-[10px] font-bold uppercase tracking-wider text-emerald-200 mb-1">
-                          <span>✨ Official Online Delivery Partner</span>
+                          <span>✨ Official Delivery Partner</span>
                         </div>
                         <h4 className="font-heading text-2xl font-black uppercase text-white leading-tight">
                           Checkout on Uber Eats
@@ -556,39 +617,13 @@ export default function OrderingModal({
                   </a>
                 ))}
 
-                {/* Secondary Delivery Options */}
-                <div className="pt-2">
-                  <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-2">
-                    Or Choose Another Delivery Service:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {restaurantInfo.deliveryLinks.filter(d => d.platform !== 'Uber Eats').map((delivery) => (
-                      <a
-                        key={delivery.platform}
-                        href={delivery.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={handleCopyOrder}
-                        className="p-3.5 rounded-xl bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-400 transition-all flex items-center justify-between group shadow-sm text-left"
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <div 
-                            className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs shadow"
-                            style={{ backgroundColor: delivery.color }}
-                          >
-                            <ShoppingBag className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <h5 className="font-heading text-base font-bold uppercase text-gray-900 leading-tight">
-                              {delivery.name}
-                            </h5>
-                            <span className="text-[10px] text-gray-500">{delivery.badgeText}</span>
-                          </div>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-900 transition-colors" />
-                      </a>
-                    ))}
-                  </div>
+                {/* Phone contact for questions */}
+                <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-600 flex items-center justify-between">
+                  <span>Questions about your order? Call Miss Lyn's:</span>
+                  <a href="tel:9055225967" className="font-bold text-gray-900 hover:text-[#e02e07] flex items-center gap-1">
+                    <Phone className="w-3.5 h-3.5 text-[#d97706]" />
+                    <span>(905) 522-5967</span>
+                  </a>
                 </div>
 
               </div>
@@ -603,17 +638,14 @@ export default function OrderingModal({
                     Call our counter with your order summary ready. We will start preparing it fresh immediately!
                   </p>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                    {restaurantInfo.phones.map((phone, idx) => (
-                      <a
-                        key={idx}
-                        href={`tel:${phone.raw}`}
-                        className="p-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold transition-all flex items-center gap-2.5 border border-white/20"
-                      >
-                        <Phone className="w-4 h-4 text-yellow-400" />
-                        <span className="text-base font-heading">{phone.number}</span>
-                      </a>
-                    ))}
+                  <div className="pt-1">
+                    <a
+                      href="tel:9055225967"
+                      className="p-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold transition-all flex items-center justify-center gap-2.5 border border-white/20"
+                    >
+                      <Phone className="w-5 h-5 text-yellow-400" />
+                      <span className="text-lg font-heading">(905) 522-5967</span>
+                    </a>
                   </div>
                 </div>
               </div>

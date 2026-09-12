@@ -146,12 +146,6 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                   (905) 522-5967
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#fbbf24] shrink-0" />
-                <a href="tel:9055178529" className="hover:text-white font-bold text-gray-200">
-                  905-517-8529
-                </a>
-              </div>
               <div className="flex items-center gap-2 pt-0.5">
                 <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
                 <a

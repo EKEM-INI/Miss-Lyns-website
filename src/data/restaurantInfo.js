@@ -12,8 +12,7 @@ export const restaurantInfo = {
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Miss+Lyn's+Wings+677+King+Street+East+Hamilton+Ontario"
   },
   phones: [
-    { label: "Direct Orders", number: "(905) 522-5967", raw: "9055225967" },
-    { label: "Mobile / Call Ahead", number: "905-517-8529", raw: "9055178529" }
+    { label: "Call / Order Ahead", number: "(905) 522-5967", raw: "9055225967" }
   ],
   hours: [
     { days: "Monday – Friday", time: "11:00 AM – 9:00 PM", isOpenToday: true },
@@ -29,24 +28,6 @@ export const restaurantInfo = {
       icon: "bike",
       color: "#06C167",
       featured: true
-    },
-    {
-      platform: "SkipTheDishes",
-      name: "SkipTheDishes",
-      url: "https://www.skipthedishes.com/miss-lyns-wings",
-      badgeText: "Fast Delivery",
-      icon: "truck",
-      color: "#D8232A",
-      featured: false
-    },
-    {
-      platform: "DoorDash",
-      name: "DoorDash",
-      url: "https://www.doordash.com/store/miss-lyns-wings-hamilton",
-      badgeText: "Order Delivery",
-      icon: "car",
-      color: "#FF3008",
-      featured: false
     }
   ],
   features: [

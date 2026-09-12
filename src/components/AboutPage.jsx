@@ -270,10 +270,10 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
               View Full Menu
             </button>
             <button
-              onClick={() => openOrderingModal('all')}
+              onClick={() => openOrderingModal('pickup')}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-gray-900 hover:bg-black text-white shadow-lg transition-all"
             >
-              Order Online / Pickup
+              Order Pickup
             </button>
           </div>
         </section>
