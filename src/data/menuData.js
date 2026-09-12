@@ -6,7 +6,7 @@ export const menuCategories = [
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Sides", icon: "Soup", count: 12 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 2 },
-  { id: "drinks", name: "Drinks", icon: "Coffee", count: 3 }
+  { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
 
 export const menuItems = [
@@ -498,12 +498,22 @@ export const menuItems = [
     tags: ["Direct Jamaican Import"]
   },
   {
+    id: "gatorade-drink",
+    categoryId: "drinks",
+    name: "Gatorade Sports Drink",
+    price: 4.00,
+    priceDisplay: "$4.00",
+    description: "Refreshing sports drinks in popular flavors including Cool Blue, Fruit Punch, and Orange.",
+    image: "/images/dishes/drinks.png",
+    tags: ["Electrolyte Refreshment"]
+  },
+  {
     id: "island-drinks-selection",
     categoryId: "drinks",
     name: "Cold Drinks & Island Sodas Spotlight",
     price: 2.50,
     priceDisplay: "$2.50 – $4.00",
-    description: "All cold drinks and refreshing beverages in one spot! Includes authentic imported Jamaican Island sodas (Bigga, Ting, D&G), refreshing water, and chilled canned soft drinks.",
+    description: "All cold drinks and refreshing beverages in one spot! Includes authentic imported Jamaican Island sodas (Bigga, Ting, D&G), refreshing water, Gatorade, and chilled canned soft drinks.",
     image: "/images/dishes/drinks.png",
     tags: ["All Beverages Included", "Direct Jamaican Imports"],
     isDrinksSpotlight: true

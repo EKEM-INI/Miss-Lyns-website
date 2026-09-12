@@ -141,7 +141,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold tracking-wider uppercase bg-gradient-to-r from-[#e52516] to-[#d92212] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#e52516]/25 transition-all active:scale-95 flex items-center gap-1.5"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              Order Delivery with Uber Eats
+              Order Delivery
             </button>
 
             {/* Cart Button */}
@@ -297,7 +297,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                 }}
                 className="w-full py-3.5 rounded-xl font-extrabold uppercase text-xs sm:text-sm bg-gradient-to-r from-[#e52516] to-[#ff481f] text-white shadow-md text-center"
               >
-                Order Delivery with Uber Eats
+                Order Delivery
               </button>
             </div>
             <p className="text-center text-xs text-gray-500">

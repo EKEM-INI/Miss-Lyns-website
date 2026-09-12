@@ -135,12 +135,12 @@ export default function OrderingModal({
           <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-gray-900 leading-tight">
             {step === 'cart' && 'REVIEW YOUR ORDER'}
             {step === 'client-info' && 'CUSTOMER INFORMATION'}
-            {step === 'complete' && (clientInfo.orderType === 'delivery' ? 'UBER EATS DELIVERY' : 'CONFIRM PICKUP ORDER')}
+            {step === 'complete' && (clientInfo.orderType === 'delivery' ? 'SELECT DELIVERY APP' : 'CONFIRM PICKUP ORDER')}
           </h2>
           <p className="text-xs sm:text-sm text-gray-600">
             {step === 'cart' && 'Confirm all your dishes, combos & drinks before checking out.'}
             {step === 'client-info' && 'Please provide your basic contact details to finalize your order.'}
-            {step === 'complete' && (clientInfo.orderType === 'delivery' ? 'Your customized order is ready! Complete your delivery order on Uber Eats.' : 'Your order is prepared! Call the restaurant at (905) 522-5967 to place your pickup order.')}
+            {step === 'complete' && (clientInfo.orderType === 'delivery' ? 'Your order summary is ready! Choose your favorite delivery app (Uber Eats, SkipTheDishes, or DoorDash) to place your order directly.' : 'Your order is prepared! Call the restaurant at (905) 522-5967 to place your pickup order.')}
           </p>
         </div>
 
@@ -167,7 +167,7 @@ export default function OrderingModal({
           <span className={`px-3 py-1.5 rounded-lg transition-all ${
             step === 'complete' ? 'bg-[#e02e07] text-white shadow' : 'bg-gray-100 text-gray-400'
           }`}>
-            3. {clientInfo.orderType === 'delivery' ? 'Uber Eats Delivery' : 'Pickup Confirmation'}
+            3. {clientInfo.orderType === 'delivery' ? 'Delivery App' : 'Pickup Confirmation'}
           </span>
         </div>
 
@@ -178,27 +178,27 @@ export default function OrderingModal({
             
             {/* Top Order Mode Banner */}
             {clientInfo.orderType === 'delivery' ? (
-              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-50 border-2 border-emerald-300 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-red-50 via-orange-50 to-amber-50 border-2 border-orange-200 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-black text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0 shadow">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#e02e07] to-[#d97706] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow">
                     <ShoppingBag className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider mb-0.5">
-                      <span>Official Delivery Partner: Uber Eats</span>
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#e02e07] text-white text-[10px] font-extrabold uppercase tracking-wider mb-0.5">
+                      <span>Delivery Partners: Uber Eats • Skip • DoorDash</span>
                     </div>
-                    <div className="font-heading text-lg font-black uppercase text-emerald-950 leading-tight">
-                      Order Delivery on Uber Eats
+                    <div className="font-heading text-lg font-black uppercase text-gray-900 leading-tight">
+                      Order Delivery on Your Preferred App
                     </div>
-                    <div className="text-[11px] text-emerald-800">
-                      Customize your order below and transfer directly to Uber Eats for fast delivery.
+                    <div className="text-[11px] text-gray-600">
+                      Customize your order below and transfer directly to Uber Eats, SkipTheDishes, or DoorDash.
                     </div>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setClientInfo(prev => ({ ...prev, orderType: 'pickup' }))}
-                  className="text-xs font-bold text-emerald-900 bg-emerald-100 hover:bg-emerald-200 px-3 py-1.5 rounded-lg border border-emerald-300 transition-colors shrink-0"
+                  className="text-xs font-bold text-gray-800 bg-white hover:bg-gray-100 px-3 py-1.5 rounded-lg border border-gray-300 transition-colors shrink-0 shadow-sm"
                 >
                   Switch to Pickup
                 </button>
@@ -223,7 +223,7 @@ export default function OrderingModal({
                   onClick={() => setClientInfo(prev => ({ ...prev, orderType: 'delivery' }))}
                   className="text-xs font-bold text-[#b45309] bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg border border-amber-300 transition-colors shrink-0"
                 >
-                  Switch to Uber Eats
+                  Switch to Delivery
                 </button>
               </div>
             )}
@@ -571,51 +571,115 @@ export default function OrderingModal({
               </pre>
             </div>
 
-            {/* If DELIVERY Selected: Uber Eats on Top */}
+            {/* If DELIVERY Selected: All 3 Official Delivery Partners */}
             {clientInfo.orderType === 'delivery' ? (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <h4 className="font-heading text-xl font-bold uppercase text-gray-900">
-                    COMPLETE DELIVERY ON UBER EATS:
+                    CHOOSE YOUR DELIVERY PLATFORM:
                   </h4>
                 </div>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  Your customized order summary is copied to your clipboard. Click below to open Miss Lyn's Wings on Uber Eats and finalize your delivery order:
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Your customized order summary has been prepared. Click your preferred delivery service below to order directly from Miss Lyn's Wings:
                 </p>
 
-                {/* Primary Featured Uber Eats Checkout Card */}
-                {restaurantInfo.deliveryLinks.filter(d => d.platform === 'Uber Eats').map((uber) => (
+                {/* Multi-Platform Delivery Cards */}
+                <div className="space-y-3">
+                  
+                  {/* 1. UBER EATS */}
                   <a
-                    key={uber.platform}
-                    href={uber.url}
+                    href="https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleCopyOrder}
-                    className="p-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-green-700 text-white hover:from-emerald-500 hover:to-green-600 transition-all flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl border-2 border-emerald-400 group"
+                    className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-700 text-white hover:from-emerald-500 hover:to-green-600 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-emerald-400 group"
                   >
                     <div className="flex items-center gap-3.5 text-left">
-                      <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl shadow-md shrink-0">
-                        <ShoppingBag className="w-6 h-6 text-emerald-400" />
+                      <div className="w-11 h-11 rounded-xl bg-black text-white flex items-center justify-center font-bold text-lg shadow-md shrink-0">
+                        <ShoppingBag className="w-5 h-5 text-emerald-400" />
                       </div>
                       <div>
-                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/30 text-[10px] font-bold uppercase tracking-wider text-emerald-200 mb-1">
+                        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/30 text-[10px] font-bold uppercase tracking-wider text-emerald-200 mb-0.5">
                           <span>✨ Official Delivery Partner</span>
                         </div>
-                        <h4 className="font-heading text-2xl font-black uppercase text-white leading-tight">
-                          Checkout on Uber Eats
+                        <h4 className="font-heading text-xl sm:text-2xl font-black uppercase text-white leading-tight">
+                          Uber Eats
                         </h4>
                         <p className="text-xs text-emerald-100">
-                          {activeItems.length} items ready • Estimated Total: ${total.toFixed(2)}
+                          Order direct on Miss Lyn's Uber Eats store
                         </p>
                       </div>
                     </div>
 
-                    <div className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-emerald-950 font-heading text-base font-black uppercase tracking-wider group-hover:bg-yellow-300 transition-all shadow-md flex items-center justify-center gap-2 shrink-0">
+                    <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-emerald-950 font-heading text-sm font-black uppercase tracking-wider group-hover:bg-yellow-300 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
                       <span>Order on Uber Eats</span>
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </div>
                   </a>
-                ))}
+
+                  {/* 2. SKIPTHEDISHES */}
+                  <a
+                    href="https://www.skipthedishes.com/miss-lyns-wings"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleCopyOrder}
+                    className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#D41D24] to-[#B3141A] text-white hover:from-[#e5252c] hover:to-[#c4181f] transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-400 group"
+                  >
+                    <div className="flex items-center gap-3.5 text-left">
+                      <div className="w-11 h-11 rounded-xl bg-white text-[#D41D24] flex items-center justify-center font-black text-xl shadow-md shrink-0">
+                        <ShoppingBag className="w-5 h-5 text-[#D41D24]" />
+                      </div>
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/25 text-[10px] font-bold uppercase tracking-wider text-red-100 mb-0.5">
+                          <span>✨ Official Delivery Partner</span>
+                        </div>
+                        <h4 className="font-heading text-xl sm:text-2xl font-black uppercase text-white leading-tight">
+                          SkipTheDishes
+                        </h4>
+                        <p className="text-xs text-red-100">
+                          Order direct on Miss Lyn's SkipTheDishes store
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-[#D41D24] font-heading text-sm font-black uppercase tracking-wider group-hover:bg-yellow-300 group-hover:text-gray-900 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
+                      <span>Order on SkipTheDishes</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </div>
+                  </a>
+
+                  {/* 3. DOORDASH */}
+                  <a
+                    href="https://www.doordash.com/en/store/miss-lynn's-wings-hamilton-652454/907076/?srsltid=AfmBOopu-l9BrXy39xGrXawHIrAYgPK1ofC-AIOHQjuBNW-VzL4Ap11e"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleCopyOrder}
+                    className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#FF3008] to-[#D92200] text-white hover:from-[#ff4824] hover:to-[#eb2703] transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-400 group"
+                  >
+                    <div className="flex items-center gap-3.5 text-left">
+                      <div className="w-11 h-11 rounded-xl bg-white text-[#FF3008] flex items-center justify-center font-bold text-xl shadow-md shrink-0">
+                        <ShoppingBag className="w-5 h-5 text-[#FF3008]" />
+                      </div>
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/25 text-[10px] font-bold uppercase tracking-wider text-orange-100 mb-0.5">
+                          <span>✨ Official Delivery Partner</span>
+                        </div>
+                        <h4 className="font-heading text-xl sm:text-2xl font-black uppercase text-white leading-tight">
+                          DoorDash
+                        </h4>
+                        <p className="text-xs text-orange-100">
+                          Order direct on Miss Lyn's DoorDash store
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-[#FF3008] font-heading text-sm font-black uppercase tracking-wider group-hover:bg-yellow-300 group-hover:text-gray-900 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
+                      <span>Order on DoorDash</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </div>
+                  </a>
+
+                </div>
 
                 {/* Phone contact for questions */}
                 <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-600 flex items-center justify-between">
