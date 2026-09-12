@@ -50,13 +50,13 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 <span>ORDER PICKUP</span>
               </button>
 
-              {/* ORDER DELIVERY */}
+              {/* ORDER DELIVERY WITH UBER EATS */}
               <button
                 onClick={() => openOrderingModal('delivery')}
                 className="px-8 py-4 rounded-2xl font-heading text-xl font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] via-[#e52516] to-[#d92212] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-xl shadow-[#e52516]/25 transition-all hover:scale-[1.03] active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 <ShoppingBag className="w-5 h-5 text-white" />
-                <span>ORDER DELIVERY</span>
+                <span>ORDER DELIVERY WITH UBER EATS</span>
               </button>
 
               {/* VIEW MENU */}

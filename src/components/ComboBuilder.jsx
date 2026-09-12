@@ -8,13 +8,13 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
   const [selectedUpgrade, setSelectedUpgrade] = useState(null); // null or one of comboPremiumUpgrades
   const selectedDrink = comboDrinks.standard[0];
 
-  const basePrice = 15.50;
+  const basePrice = selectedProtein?.price || 16.85;
   const upgradeCost = selectedUpgrade ? selectedUpgrade.price : 0;
   const totalComboPrice = (basePrice + upgradeCost).toFixed(2);
 
   const handleAddComboToOrder = () => {
     const sideDisplay = selectedUpgrade 
-      ? `${selectedSide.name} (Upgraded to ${selectedUpgrade.name} +$3.00)`
+      ? `${selectedSide.name} (Upgraded to ${selectedUpgrade.name} +$${upgradeCost.toFixed(2)})`
       : selectedSide.name;
 
     const comboItem = {
@@ -26,7 +26,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
       details: {
         protein: selectedProtein.name,
         side: sideDisplay,
-        upgrade: selectedUpgrade ? `${selectedUpgrade.name} (+$3.00 Premium Upgrade)` : 'None (Standard Side)',
+        upgrade: selectedUpgrade ? `${selectedUpgrade.name} (+$${upgradeCost.toFixed(2)} Premium Upgrade)` : 'None (Standard Side)',
         drink: `${selectedDrink.name} (Included)`
       }
     };
