@@ -21,11 +21,6 @@ export default function App() {
   const [cart, setCart] = useState([]);
 
   const openOrderingModal = (tab = 'all', item = null) => {
-    if (tab === 'delivery') {
-      const uberUrl = restaurantInfo.deliveryLinks.find(d => d.platform === 'Uber Eats')?.url || "https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L";
-      window.open(uberUrl, '_blank', 'noopener,noreferrer');
-      return;
-    }
     setOrderingModalTab(tab);
     if (item) {
       // Add or highlight item
