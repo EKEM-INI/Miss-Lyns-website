@@ -51,20 +51,11 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
               Always Fresh. Made To Order. Bold Flavour Every Time. Authentic Caribbean jerk chicken, wings, comfort sides, and golden flaky patties in Hamilton, Ontario.
             </p>
-            <div className="pt-2 flex flex-col gap-2">
+            <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 w-fit">
                 <Flame className="w-3.5 h-3.5 text-[#ff481f]" />
                 <span>100% Fresh Never Frozen Chicken</span>
               </div>
-              <a
-                href={restaurantInfo.social.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-orange-500/10 hover:from-pink-500/20 hover:via-purple-500/20 hover:to-orange-500/20 border border-pink-500/20 hover:border-pink-500/40 text-xs font-semibold text-pink-300 hover:text-pink-200 transition-all w-fit group"
-              >
-                <InstagramIcon className="w-3.5 h-3.5 text-pink-400 group-hover:scale-110 transition-transform" />
-                <span>Instagram: <strong className="text-white font-bold">{restaurantInfo.social.instagram.handle}</strong></span>
-              </a>
             </div>
           </div>
 
@@ -159,6 +150,18 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 <Phone className="w-4 h-4 text-[#fbbf24] shrink-0" />
                 <a href="tel:9055178529" className="hover:text-white font-bold text-gray-200">
                   905-517-8529
+                </a>
+              </div>
+              <div className="flex items-center gap-2 pt-0.5">
+                <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
+                <a
+                  href={restaurantInfo.social.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-300 font-bold text-gray-200 flex items-center gap-1 transition-colors group"
+                >
+                  <span className="text-gray-400 group-hover:text-pink-300">IG:</span>
+                  <span className="text-pink-400 group-hover:underline">{restaurantInfo.social.instagram.handle}</span>
                 </a>
               </div>
               <div className="pt-2 text-[11px] text-gray-400">

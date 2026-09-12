@@ -22,20 +22,22 @@ export const restaurantInfo = {
   ],
   deliveryLinks: [
     {
+      platform: "Uber Eats",
+      name: "Uber Eats",
+      url: "https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L",
+      badgeText: "Official Delivery Partner",
+      icon: "bike",
+      color: "#06C167",
+      featured: true
+    },
+    {
       platform: "SkipTheDishes",
       name: "SkipTheDishes",
       url: "https://www.skipthedishes.com/miss-lyns-wings",
-      badgeText: "Recommended Delivery",
-      icon: "truck",
-      color: "#D8232A"
-    },
-    {
-      platform: "Uber Eats",
-      name: "Uber Eats",
-      url: "https://www.ubereats.com/store/miss-lyns-wings/Hamilton",
       badgeText: "Fast Delivery",
-      icon: "bike",
-      color: "#06C167"
+      icon: "truck",
+      color: "#D8232A",
+      featured: false
     },
     {
       platform: "DoorDash",
@@ -43,7 +45,8 @@ export const restaurantInfo = {
       url: "https://www.doordash.com/store/miss-lyns-wings-hamilton",
       badgeText: "Order Delivery",
       icon: "car",
-      color: "#FF3008"
+      color: "#FF3008",
+      featured: false
     }
   ],
   features: [

@@ -512,48 +512,85 @@ export default function OrderingModal({
 
             {/* If DELIVERY Selected: 1-Click Transfer to Delivery App */}
             {clientInfo.orderType === 'delivery' ? (
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <h4 className="font-heading text-xl font-bold uppercase text-gray-900">
-                    TRANSFER TO YOUR PREFERRED DELIVERY APP:
+                    COMPLETE DELIVERY ON UBER EATS:
                   </h4>
                 </div>
                 <p className="text-xs text-gray-500 leading-relaxed">
-                  Your customized orders are copied to your clipboard. Click below to launch your delivery app of choice and confirm your delivery:
+                  Your customized order summary is copied to your clipboard. Click below to open Miss Lyn's Wings on Uber Eats and complete your order:
                 </p>
 
-                <div className="space-y-2.5">
-                  {restaurantInfo.deliveryLinks.map((delivery) => (
-                    <a
-                      key={delivery.platform}
-                      href={delivery.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleCopyOrder}
-                      className="p-4 rounded-2xl bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-red-400 transition-all flex items-center justify-between group shadow-sm"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div 
-                          className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shadow"
-                          style={{ backgroundColor: delivery.color }}
-                        >
-                          <ShoppingBag className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h4 className="font-heading text-xl font-bold uppercase text-gray-900 group-hover:text-[#e02e07] transition-colors leading-tight">
-                            Order on {delivery.name}
-                          </h4>
-                          <span className="text-[11px] text-gray-500">{delivery.badgeText} • Order reflects site selection</span>
-                        </div>
+                {/* Primary Featured Uber Eats Checkout Card */}
+                {restaurantInfo.deliveryLinks.filter(d => d.platform === 'Uber Eats').map((uber) => (
+                  <a
+                    key={uber.platform}
+                    href={uber.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleCopyOrder}
+                    className="p-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-green-700 text-white hover:from-emerald-500 hover:to-green-600 transition-all flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl border-2 border-emerald-400 group"
+                  >
+                    <div className="flex items-center gap-3.5 text-left">
+                      <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl shadow-md shrink-0">
+                        <ShoppingBag className="w-6 h-6 text-emerald-400" />
                       </div>
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/30 text-[10px] font-bold uppercase tracking-wider text-emerald-200 mb-1">
+                          <span>✨ Official Online Delivery Partner</span>
+                        </div>
+                        <h4 className="font-heading text-2xl font-black uppercase text-white leading-tight">
+                          Checkout on Uber Eats
+                        </h4>
+                        <p className="text-xs text-emerald-100">
+                          {activeItems.length} items ready • Estimated Total: ${total.toFixed(2)}
+                        </p>
+                      </div>
+                    </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white px-4 py-2 rounded-xl bg-[#e02e07] group-hover:bg-[#ff481f] shadow-md">
-                        <span>Launch App</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </div>
-                    </a>
-                  ))}
+                    <div className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-emerald-950 font-heading text-base font-black uppercase tracking-wider group-hover:bg-yellow-300 transition-all shadow-md flex items-center justify-center gap-2 shrink-0">
+                      <span>Order on Uber Eats</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </div>
+                  </a>
+                ))}
+
+                {/* Secondary Delivery Options */}
+                <div className="pt-2">
+                  <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-2">
+                    Or Choose Another Delivery Service:
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {restaurantInfo.deliveryLinks.filter(d => d.platform !== 'Uber Eats').map((delivery) => (
+                      <a
+                        key={delivery.platform}
+                        href={delivery.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={handleCopyOrder}
+                        className="p-3.5 rounded-xl bg-gray-50 hover:bg-white border border-gray-200 hover:border-gray-400 transition-all flex items-center justify-between group shadow-sm text-left"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <div 
+                            className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white text-xs shadow"
+                            style={{ backgroundColor: delivery.color }}
+                          >
+                            <ShoppingBag className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <h5 className="font-heading text-base font-bold uppercase text-gray-900 leading-tight">
+                              {delivery.name}
+                            </h5>
+                            <span className="text-[10px] text-gray-500">{delivery.badgeText}</span>
+                          </div>
+                        </div>
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-900 transition-colors" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
+
               </div>
             ) : (
               /* If PICKUP Selected: Direct Call-in Action */
