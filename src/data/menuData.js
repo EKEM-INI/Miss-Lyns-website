@@ -19,7 +19,7 @@ export const menuItems = [
     priceDisplay: "$49.99",
     description: "The ultimate Caribbean feast! Includes your choice of 3 Proteins (Wings, Jerk Chicken, Fried Chicken) + 3 Comfort Sides + 4 Cold Drinks. Serves 4-6.",
     image: "/images/dishes/0053.jpg",
-    altImages: ["/images/dishes/0019.jpg", "/images/dishes/0021.jpg", "/images/dishes/0017.jpg"],
+    altImages: ["/images/dishes/0019.jpg", "/images/dishes/0021.jpg", "/images/dishes/fried-chicken.jpg"],
     tags: ["Best Value", "Feeds 4-6", "Special Promotion"],
     isSpecial: true,
     spiceLevel: 2
@@ -123,7 +123,7 @@ export const menuItems = [
     price: 15.50,
     priceDisplay: "$15.50",
     description: "2 pieces of golden spiced crispy fried chicken with your choice of standard side and a cold drink.",
-    image: "/images/dishes/0017.jpg",
+    image: "/images/dishes/fried-chicken.jpg",
     tags: ["Comfort Classic"],
     spiceLevel: 1
   },
@@ -180,7 +180,7 @@ export const menuItems = [
     price: 9.00,
     priceDisplay: "$9.00",
     description: "Two pieces of tender chicken drumstick and thigh with our seasoned golden crunchy crust.",
-    image: "/images/dishes/0017.jpg",
+    image: "/images/dishes/fried-chicken.jpg",
     tags: ["Golden Crisp"],
     spiceLevel: 1
   },
@@ -191,7 +191,7 @@ export const menuItems = [
     price: 17.25,
     priceDisplay: "$17.25",
     description: "Four pieces of crunchy, deeply seasoned Caribbean-style fried chicken.",
-    image: "/images/dishes/0038.jpg",
+    image: "/images/dishes/fried-chicken.jpg",
     tags: ["Golden Crisp"],
     spiceLevel: 1
   },
@@ -202,7 +202,7 @@ export const menuItems = [
     price: 24.50,
     priceDisplay: "$24.50",
     description: "Six pieces of crispy fried chicken made fresh to order.",
-    image: "/images/dishes/0038.jpg",
+    image: "/images/dishes/fried-chicken.jpg",
     tags: ["Sharing Size"],
     spiceLevel: 1
   },
@@ -286,16 +286,6 @@ export const menuItems = [
     tags: ["Premium Side", "Canadian Classic"]
   },
   {
-    id: "mac-and-cheese-pie",
-    categoryId: "sides",
-    name: "Crispy Mac & Cheese Pie",
-    price: 7.50,
-    priceDisplay: "$7.50",
-    description: "Authentic Caribbean-style baked macaroni and cheese pie, sliced and crisped with cheesy crust.",
-    image: "/images/dishes/0014.jpg",
-    tags: ["House Specialty", "Comfort Food"]
-  },
-  {
     id: "onion-rings",
     categoryId: "sides",
     name: "Crispy Battered Onion Rings",
@@ -332,7 +322,7 @@ export const menuItems = [
     price: 4.50,
     priceDisplay: "$4.50",
     description: "Thick Texas toast brushed with aromatic garlic herb butter and toasted golden.",
-    image: "/images/dishes/0023.jpg",
+    image: "/images/dishes/garlic-bread.jpg",
     tags: ["Toasted Warm"]
   },
   {

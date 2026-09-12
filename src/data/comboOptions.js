@@ -21,8 +21,8 @@ export const comboProteins = [
     id: "fried-chicken",
     name: "Fried Chicken",
     tagline: "Crunchy golden seasoned chicken",
-    image: "/images/dishes/0017.jpg",
-    altImage: "/images/dishes/0038.jpg",
+    image: "/images/dishes/fried-chicken.jpg",
+    altImage: "/images/dishes/fried-chicken.jpg",
     description: "Deep-seasoned chicken drumsticks and thighs coated in our signature spiced crunchy crust.",
     badge: "Crispy Favorite"
   }
@@ -64,12 +64,12 @@ export const comboPremiumUpgrades = [
     description: "Golden crispy fries topped with real cheese curds and piping hot savoury gravy."
   },
   {
-    id: "mac-and-cheese-pie",
-    name: "Deep-Fried Mac Pie",
+    id: "garlic-bread",
+    name: "Toasted Garlic Bread",
     price: 3.00,
     priceDisplay: "+$3.00",
-    image: "/images/dishes/0014.jpg",
-    description: "Classic Caribbean macaroni pie breaded and fried to golden, crunchy perfection."
+    image: "/images/dishes/garlic-bread.jpg",
+    description: "Thick slices of golden toasted garlic herb bread."
   },
   {
     id: "sweet-potato-fries",

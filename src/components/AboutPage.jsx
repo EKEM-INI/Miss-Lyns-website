@@ -186,7 +186,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-gray-100">
-                  <img src="/images/dishes/0017.jpg" alt="Grandma’s Soul-Warming Fried Chicken" className="w-full h-full object-cover" />
+                  <img src="/images/dishes/fried-chicken.jpg" alt="Grandma’s Soul-Warming Fried Chicken" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold uppercase text-gray-900">
                   Grandma’s Soul-Warming Fried Chicken
@@ -201,13 +201,13 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-gray-100">
-                  <img src="/images/dishes/0014.jpg" alt="Deep-Fried Macaroni Pie" className="w-full h-full object-cover" />
+                  <img src="/images/dishes/garlic-bread.jpg" alt="Toasted Garlic Bread" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold uppercase text-gray-900">
-                  Deep-Fried Macaroni Pie
+                  Toasted Garlic Bread
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Classic, comforting Caribbean macaroni pie is breaded and fried to golden, crunchy perfection for a completely unforgettable bite.
+                  Thick-cut Texas toast brushed generously with aromatic garlic herb butter and toasted to golden, crispy perfection.
                 </p>
               </div>
             </div>

@@ -305,7 +305,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           </div>
 
 
-          {/* STEP 3: DRINKS & PREMIUM UPGRADES (Poutine, Mac Pie, Sweet Potato Fries, Onion Rings) */}
+          {/* STEP 3: DRINKS & PREMIUM UPGRADES (Poutine, Garlic Bread, Sweet Potato Fries, Onion Rings) */}
           <div className="space-y-6 pt-4">
             <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
               <div className="w-8 h-8 rounded-full bg-[#10b981] text-white font-heading text-lg font-bold flex items-center justify-center">
@@ -315,7 +315,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-gray-900 uppercase tracking-wide leading-none">
                   STEP 3 — CHOOSE YOUR DRINK & PREMIUM UPGRADE
                 </h3>
-                <p className="text-xs text-gray-500">Drink is included with your combo. Upgrade your side to poutine, deep-fried mac pie, sweet potato fries, or onion rings!</p>
+                <p className="text-xs text-gray-500">Drink is included with your combo. Upgrade your side to poutine, toasted garlic bread, sweet potato fries, or onion rings!</p>
               </div>
             </div>
 
@@ -363,7 +363,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               </div>
             </div>
 
-            {/* PART 2: PREMIUM UPGRADES (Poutine, Deep-Fried Mac Pie, Sweet Potato Fries, Onion Rings) */}
+            {/* PART 2: PREMIUM UPGRADES (Poutine, Garlic Bread, Sweet Potato Fries, Onion Rings) */}
             <div className="pt-2">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-black uppercase tracking-widest text-[#b45309] flex items-center gap-1.5">

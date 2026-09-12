@@ -3,7 +3,7 @@ import { Users, Sparkles, Check, Flame, ShoppingBag } from 'lucide-react';
 
 export default function FamilyFeast({ openOrderingModal, addToCart }) {
   const [selectedProteins, setSelectedProteins] = useState(["Wings", "Jerk Chicken", "Fried Chicken"]);
-  const [selectedSides, setSelectedSides] = useState(["Fries", "Coleslaw", "Mac & Cheese Pie"]);
+  const [selectedSides, setSelectedSides] = useState(["Fries", "Coleslaw", "Toasted Garlic Bread"]);
   const [selectedDrinks, setSelectedDrinks] = useState(["Pop (Can)", "Ting Sparkling Grapefruit", "Bigga Pineapple", "D&G Cream Soda"]);
 
   const handleOrderFeast = () => {
@@ -146,14 +146,14 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-gray-100 shadow-sm">
                   <img
                     src="/images/dishes/0021.jpg"
-                    alt="Golden French Fries and Mac Pie"
+                    alt="Golden French Fries and Garlic Toast"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
                   <div className="absolute bottom-2 left-2 right-2 text-left">
                     <span className="text-xs font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-                      Fries • Mac Pie • Coleslaw
+                      Fries • Garlic Bread • Coleslaw
                     </span>
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   CHOOSE 3 SIDES
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Choose from crispy french fries, freshly baked mac & cheese pie, cool coleslaw, or macaroni salad.
+                  Choose from crispy french fries, toasted garlic bread, cool coleslaw, or macaroni salad.
                 </p>
               </div>
 
@@ -178,7 +178,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 </div>
                 <div className="flex items-center gap-1.5 text-[#b45309]">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
-                  <span>Crispy Mac & Cheese Pie</span>
+                  <span>Toasted Garlic Bread</span>
                 </div>
               </div>
             </div>
