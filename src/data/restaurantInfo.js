@@ -51,5 +51,12 @@ export const restaurantInfo = {
     { title: "Made to Order", desc: "Cooked hot and crispy right when you order, never sitting under lamps" },
     { title: "Secret Family Recipe", desc: "Marinated with Miss Lyn's authentic scotch bonnet & pimento spices" },
     { title: "Local Hamilton Pride", desc: "Proudly serving the King St East community with bold Caribbean heat" }
-  ]
+  ],
+  social: {
+    instagram: {
+      handle: "@misslynswings",
+      url: "https://www.instagram.com/misslynswings/?hl=en",
+      label: "Follow us on Instagram"
+    }
+  }
 };
