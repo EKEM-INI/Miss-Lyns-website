@@ -11,6 +11,7 @@ import LocationHours from './components/LocationHours';
 import Footer from './components/Footer';
 import FloatingOrderBar from './components/FloatingOrderBar';
 import OrderingModal from './components/OrderingModal';
+import { restaurantInfo } from './data/restaurantInfo';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('home'); // 'home' | 'menu' | 'about'
@@ -20,6 +21,11 @@ export default function App() {
   const [cart, setCart] = useState([]);
 
   const openOrderingModal = (tab = 'all', item = null) => {
+    if (tab === 'delivery') {
+      const uberUrl = restaurantInfo.deliveryLinks.find(d => d.platform === 'Uber Eats')?.url || "https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L";
+      window.open(uberUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
     setOrderingModalTab(tab);
     if (item) {
       // Add or highlight item
