@@ -5,7 +5,7 @@ export const menuCategories = [
   { id: "chicken", name: "Jerk Chicken & Fried Chicken", icon: "Utensils", count: 6 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Sides", icon: "Soup", count: 12 },
-  { id: "sauces", name: "Extra Sauce & Dips", icon: "Droplet", count: 16 },
+  { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 2 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 3 }
 ];
 
@@ -452,182 +452,28 @@ export const menuItems = [
     tags: ["Cool Side"]
   },
 
-  // 7. EXTRA SAUCE & DIPS ($1.25 sauces / $1.50 dips)
+  // 7. SAUCES & DIPS
   {
-    id: "sauce-lemon-pepper",
+    id: "house-jerk-sauce",
     categoryId: "sauces",
-    name: "Lemon Pepper",
+    name: "Miss Lyn's House Jerk Sauce",
     price: 1.25,
     priceDisplay: "$1.25",
-    description: "Zesty and aromatic sauce with a hint of citrus.",
+    description: "Our signature blend of scotch bonnet, allspice, thyme, garlic, and Island cane sugar.",
     image: "/images/dishes/0028.jpg",
-    tags: ["Zesty"],
-    spiceLevel: 1
-  },
-  {
-    id: "sauce-cajun",
-    categoryId: "sauces",
-    name: "Cajun",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Spicy Cajun-style sauce to add a kick to your meal.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Cajun Kick"],
-    spiceLevel: 2
-  },
-  {
-    id: "sauce-bbq",
-    categoryId: "sauces",
-    name: "BBQ",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Tangy and smoky sauce to elevate your meal.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Smoky"],
-    spiceLevel: 1
-  },
-  {
-    id: "sauce-med-bbq",
-    categoryId: "sauces",
-    name: "Medium BBQ",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Tangy and smoky BBQ sauce to elevate your meal.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Medium Heat"],
-    spiceLevel: 2
-  },
-  {
-    id: "sauce-hot-bbq",
-    categoryId: "sauces",
-    name: "Hot BBQ",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Tangy and smoky BBQ sauce to elevate your meal.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Spicy BBQ"],
+    tags: ["Signature Sauce"],
     spiceLevel: 3
   },
   {
-    id: "sauce-honey-garlic",
+    id: "mango-pepper-sauce",
     categoryId: "sauces",
-    name: "Honey Garlic",
+    name: "Mango Scotch Bonnet Pepper Dip",
     price: 1.25,
     priceDisplay: "$1.25",
-    description: "Sweet and savory garlic sauce.",
+    description: "Sweet tropical mango balanced with fiery fresh scotch bonnet peppers.",
     image: "/images/dishes/0029.jpg",
-    tags: ["Sweet & Savoury"],
-    spiceLevel: 0
-  },
-  {
-    id: "sauce-med-honey",
-    categoryId: "sauces",
-    name: "Medium Honey",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Sweet and viscous honey with a touch of warmth.",
-    image: "/images/dishes/0029.jpg",
-    tags: ["Sweet Heat"],
-    spiceLevel: 1
-  },
-  {
-    id: "sauce-hot-honey",
-    categoryId: "sauces",
-    name: "Hot Honey",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "A sweet and spicy condiment to elevate your meal.",
-    image: "/images/dishes/0029.jpg",
-    tags: ["Sweet & Fiery"],
-    spiceLevel: 2
-  },
-  {
-    id: "sauce-med-buffalo",
-    categoryId: "sauces",
-    name: "Medium Buffalo",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Buffalo sauce with medium heat for extra flavour.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Buffalo Medium"],
-    spiceLevel: 2
-  },
-  {
-    id: "sauce-hot-buffalo",
-    categoryId: "sauces",
-    name: "Hot Buffalo",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Spicy buffalo sauce for added flavor.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Hot Buffalo"],
+    tags: ["Sweet & Hot"],
     spiceLevel: 3
-  },
-  {
-    id: "sauce-suicide-buffalo",
-    categoryId: "sauces",
-    name: "Suicide Buffalo",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Extra-hot buffalo sauce for added flavour.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Extreme Heat"],
-    spiceLevel: 4
-  },
-  {
-    id: "sauce-sweet-thai",
-    categoryId: "sauces",
-    name: "Sweet Thai Chili",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Thai-inspired chili sauce with a sweet twist.",
-    image: "/images/dishes/0029.jpg",
-    tags: ["Sweet & Tangy"],
-    spiceLevel: 2
-  },
-  {
-    id: "sauce-jerk",
-    categoryId: "sauces",
-    name: "Jamaican Jerk",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Jamaican jerk sauce to add flavour to your meal.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Signature Jerk"],
-    spiceLevel: 3
-  },
-  {
-    id: "sauce-suicide-jerk",
-    categoryId: "sauces",
-    name: "Jamaican Suicide Jerk",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Extra-hot Jamaican jerk sauce for bold, aromatic flavour.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Extreme Jerk"],
-    spiceLevel: 4
-  },
-  {
-    id: "dip-blue-cheese",
-    categoryId: "sauces",
-    name: "Blue Cheese",
-    price: 1.50,
-    priceDisplay: "$1.50",
-    description: "Pungent and creamy cheese with a strong flavour.",
-    image: "/images/dishes/0020.jpg",
-    tags: ["Cool Dip"],
-    spiceLevel: 0
-  },
-  {
-    id: "dip-ranch",
-    categoryId: "sauces",
-    name: "Ranch",
-    price: 1.50,
-    priceDisplay: "$1.50",
-    description: "Creamy sauce with a tangy flavour.",
-    image: "/images/dishes/0020.jpg",
-    tags: ["Cool Dip"],
-    spiceLevel: 0
   },
 
   // 8. DRINKS
