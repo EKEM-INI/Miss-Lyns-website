@@ -1,10 +1,10 @@
 export const menuCategories = [
   { id: "family-meals", name: "Family Packs & Feasts", icon: "Users", count: 4 },
   { id: "wings", name: "Wings (Just Wings)", icon: "Flame", count: 6 },
-  { id: "combos", name: "Combos", icon: "Layers", count: 7 },
-  { id: "chicken", name: "Jerk Chicken & Fried Chicken", icon: "Utensils", count: 6 },
+  { id: "combos", name: "Combos", icon: "Layers", count: 6 },
+  { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
-  { id: "sides", name: "Sides", icon: "Soup", count: 12 },
+  { id: "sides", name: "Sides", icon: "Soup", count: 8 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 2 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
@@ -50,9 +50,9 @@ export const menuItems = [
     name: "Family Feast Promotional Bundle",
     price: 49.99,
     priceDisplay: "$49.99",
-    description: "The ultimate Caribbean feast! Includes your choice of 3 Proteins (Wings, Jerk Chicken, Fried Chicken) + 3 Comfort Sides + 4 Cold Drinks. Serves 4-6.",
+    description: "The ultimate Caribbean feast! Includes your choice of 2 Proteins (Wings, Jerk Chicken) + 3 Comfort Sides + 4 Cold Drinks. Serves 4-6.",
     image: "/images/dishes/0053.jpg",
-    altImages: ["/images/dishes/0019.jpg", "/images/dishes/0021.jpg", "/images/dishes/fried-chicken.jpg"],
+    altImages: ["/images/dishes/0019.jpg", "/images/dishes/0021.jpg"],
     tags: ["Best Value", "Feeds 4-6", "Special Promotion"],
     isSpecial: true,
     spiceLevel: 2
@@ -193,19 +193,8 @@ export const menuItems = [
     tags: ["Best of Both"],
     spiceLevel: 3
   },
-  {
-    id: "combo-7",
-    categoryId: "combos",
-    name: "7 - 4Pc Chicken Strips (1 Sauce) Combo",
-    price: 16.85,
-    priceDisplay: "$16.85",
-    description: "1 medium side, 1 pop, 1 sauce per order. 4 crispy golden seasoned chicken strips with side and cold drink.",
-    image: "/images/dishes/fried-chicken.jpg",
-    tags: ["Crispy Strips"],
-    spiceLevel: 1
-  },
 
-  // 4. JERK CHICKEN & CRISPY FRIED CHICKEN
+  // 4. JERK CHICKEN
   {
     id: "jerk-chicken-2pc",
     categoryId: "chicken",
@@ -238,39 +227,6 @@ export const menuItems = [
     image: "/images/dishes/0040.jpg",
     tags: ["Family Portion"],
     spiceLevel: 3
-  },
-  {
-    id: "fried-chicken-2pc",
-    categoryId: "chicken",
-    name: "Crispy Fried Chicken (2 Pieces)",
-    price: 9.60,
-    priceDisplay: "$9.60",
-    description: "Two pieces of tender chicken drumstick and thigh with our seasoned golden crunchy crust.",
-    image: "/images/dishes/fried-chicken.jpg",
-    tags: ["Golden Crisp"],
-    spiceLevel: 1
-  },
-  {
-    id: "fried-chicken-4pc",
-    categoryId: "chicken",
-    name: "Crispy Fried Chicken (4 Pieces)",
-    price: 18.00,
-    priceDisplay: "$18.00",
-    description: "Four pieces of crunchy, deeply seasoned Caribbean-style fried chicken.",
-    image: "/images/dishes/fried-chicken.jpg",
-    tags: ["Golden Crisp"],
-    spiceLevel: 1
-  },
-  {
-    id: "fried-chicken-6pc",
-    categoryId: "chicken",
-    name: "Crispy Fried Chicken (6 Pieces)",
-    price: 26.40,
-    priceDisplay: "$26.40",
-    description: "Six pieces of crispy fried chicken made fresh to order.",
-    image: "/images/dishes/fried-chicken.jpg",
-    tags: ["Sharing Size"],
-    spiceLevel: 1
   },
 
   // 5. JAMAICAN PATTIES
@@ -382,34 +338,14 @@ export const menuItems = [
     tags: ["Crispy Side"]
   },
   {
-    id: "festival",
-    categoryId: "sides",
-    name: "Festival",
-    price: 9.60,
-    priceDisplay: "$9.60",
-    description: "Jamaican-style fried sweet cornmeal dumpling, crisp outside and tender inside.",
-    image: "/images/dishes/0025.jpg",
-    tags: ["Jamaican Specialty"]
-  },
-  {
-    id: "mac-pie",
-    categoryId: "sides",
-    name: "Mac Pie",
-    price: 9.60,
-    priceDisplay: "$9.60",
-    description: "Creamy macaroni baked in a rich golden pastry crust.",
-    image: "/images/dishes/0024.jpg",
-    tags: ["Comfort Classic"]
-  },
-  {
     id: "poutine",
     categoryId: "sides",
-    name: "Poutine",
+    name: "Fries",
     price: 10.80,
     priceDisplay: "$10.80",
-    description: "French fries topped with cheese curds and rich savoury brown gravy.",
+    description: "Crispy golden cut french fries served hot and seasoned to perfection.",
     image: "/images/dishes/0026.jpg",
-    tags: ["Canadian Classic"]
+    tags: ["Crispy Fries"]
   },
   {
     id: "gravy",
@@ -430,26 +366,6 @@ export const menuItems = [
     description: "Smooth and creamy cheese sauce to elevate your meal.",
     image: "/images/dishes/0030.jpg",
     tags: ["Melted Dip"]
-  },
-  {
-    id: "caribbean-coleslaw",
-    categoryId: "sides",
-    name: "Caribbean Coleslaw",
-    price: 5.00,
-    priceDisplay: "$5.00",
-    description: "Crunchy hand-shredded cabbage and carrots tossed in tangy homemade dressing.",
-    image: "/images/dishes/0025.jpg",
-    tags: ["Fresh & Crisp"]
-  },
-  {
-    id: "macaroni-salad",
-    categoryId: "sides",
-    name: "Creamy Macaroni Salad",
-    price: 5.50,
-    priceDisplay: "$5.50",
-    description: "Chilled elbow macaroni tossed in rich seasoned creamy dressing.",
-    image: "/images/dishes/0024.jpg",
-    tags: ["Cool Side"]
   },
 
   // 7. SAUCES & DIPS

@@ -18,16 +18,6 @@ export const comboProteins = [
     altImage: "/images/dishes/0053.jpg",
     description: "Plump, juicy wings seasoned with Caribbean spices and fried to golden crisp perfection.",
     badge: "Most Popular"
-  },
-  {
-    id: "fried-chicken",
-    name: "Crispy Fried Chicken",
-    price: 16.85,
-    tagline: "Crunchy golden seasoned chicken",
-    image: "/images/dishes/fried-chicken.jpg",
-    altImage: "/images/dishes/fried-chicken.jpg",
-    description: "Deep-seasoned chicken drumsticks and thighs coated in our signature spiced crunchy crust.",
-    badge: "Crispy Favorite"
   }
 ];
 
@@ -41,18 +31,11 @@ export const comboSides = {
       description: "Crispy golden cut potato fries served hot and seasoned to perfection."
     },
     {
-      id: "coleslaw",
-      name: "Caribbean Coleslaw",
+      id: "veggie-and-dip",
+      name: "Veggie and Dip",
       type: "standard",
-      image: "/images/dishes/0025.jpg",
-      description: "Cool, crisp shredded cabbage and carrots in homemade tangy dressing."
-    },
-    {
-      id: "macaroni-salad",
-      name: "Creamy Macaroni Salad",
-      type: "standard",
-      image: "/images/dishes/0024.jpg",
-      description: "Rich and creamy chilled macaroni salad with subtle Island spice."
+      image: "/images/dishes/0020.jpg",
+      description: "Crunchy chilled vegetables served with a side of creamy ranch or blue cheese dip."
     }
   ]
 };
@@ -76,11 +59,11 @@ export const comboPremiumUpgrades = [
   },
   {
     id: "poutine",
-    name: "Canadian Poutine",
+    name: "Fries",
     price: 4.80,
     priceDisplay: "+$4.80",
     image: "/images/dishes/0026.jpg",
-    description: "Golden crispy fries topped with squeaky cheese curds and rich savoury brown gravy."
+    description: "Golden crispy fries cooked fresh and seasoned to perfection."
   },
   {
     id: "garlic-bread-cheese",

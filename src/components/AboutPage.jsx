@@ -136,7 +136,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-gray-900">Canadian Favourites, Jamaican Twist</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                We take beloved classics like crispy wings, fried chicken, and poutine and give them an authentic Jamaican twist.
+                We take beloved classics like crispy wings, jerk chicken, and crispy fries and give them an authentic Jamaican twist.
               </p>
             </div>
 
@@ -186,13 +186,13 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-gray-100">
-                  <img src="/images/dishes/fried-chicken.jpg" alt="Grandma’s Soul-Warming Fried Chicken" className="w-full h-full object-cover" />
+                  <img src="/images/dishes/0019.jpg" alt="Authentic Jamaican Jerk Chicken" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold uppercase text-gray-900">
-                  Grandma’s Soul-Warming Fried Chicken
+                  Authentic Jamaican Jerk Chicken
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Crispy on the outside, succulent on the inside, and seasoned down to the bone with Grandma Hazel’s secret spice blend.
+                  Succulent, slow-marinated chicken infused with Scotch bonnet, Jamaican pimento, and Miss Lyn's signature glaze.
                 </p>
               </div>
             </div>

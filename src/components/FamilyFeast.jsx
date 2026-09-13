@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Users, Sparkles, Check, Flame, ShoppingBag } from 'lucide-react';
 
 export default function FamilyFeast({ openOrderingModal, addToCart }) {
-  const [selectedProteins, setSelectedProteins] = useState(["Wings", "Jerk Chicken", "Fried Chicken"]);
-  const [selectedSides, setSelectedSides] = useState(["Fries", "Coleslaw", "Toasted Garlic Bread"]);
+  const [selectedProteins, setSelectedProteins] = useState(["Wings", "Jerk Chicken"]);
+  const [selectedSides, setSelectedSides] = useState(["Crispy Fries", "Veggie and Dip", "Toasted Garlic Bread"]);
   const [selectedDrinks, setSelectedDrinks] = useState(["Pop (Can)", "Ting Sparkling Grapefruit", "Bigga Pineapple", "D&G Cream Soda"]);
 
   const handleOrderFeast = () => {
@@ -52,7 +52,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
 
           <p className="text-base sm:text-lg text-gray-600">
             Feed the entire family with Hamilton’s most generous Caribbean bundle. 
-            <span className="font-bold text-gray-900"> 3 Proteins + 3 Comfort Sides + 4 Cold Drinks</span> made fresh to order!
+            <span className="font-bold text-gray-900"> Proteins + 3 Comfort Sides + 4 Cold Drinks</span> made fresh to order!
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
           {/* Numbered Bundle Breakdown Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8 pt-4">
             
-            {/* Step 1: 3 Proteins */}
+            {/* Step 1: Proteins */}
             <div className="relative rounded-2xl bg-orange-50/50 border border-orange-200/80 p-5 flex flex-col justify-between group hover:border-[#e02e07] transition-all">
               <div>
                 {/* Number Badge */}
@@ -84,7 +84,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                     1
                   </div>
                   <span className="text-xs font-black uppercase tracking-wider text-[#b45309] px-2.5 py-1 rounded-md bg-amber-100 border border-amber-200">
-                    3 PROTEINS
+                    SIGNATURE PROTEINS
                   </span>
                 </div>
 
@@ -99,16 +99,16 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
                   <div className="absolute bottom-2 left-2 right-2 text-left">
                     <span className="text-xs font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-                      Wings • Jerk Chicken • Fried Chicken
+                      Wings • Jerk Chicken
                     </span>
                   </div>
                 </div>
 
                 <h3 className="font-heading text-2xl font-bold text-gray-900 uppercase mb-2">
-                  CHOOSE 3 PROTEINS
+                  CHOOSE PROTEINS
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Mix and match juicy signature wings, authentic Jamaican jerk chicken, and golden crispy fried chicken.
+                  Mix and match juicy signature wings and authentic slow-marinated Jamaican jerk chicken.
                 </p>
               </div>
 
@@ -121,10 +121,6 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 <div className="flex items-center gap-1.5 text-[#b45309]">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Authentic Jerk Chicken</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-[#b45309]">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
-                  <span>Crispy Fried Chicken</span>
                 </div>
               </div>
             </div>
@@ -153,7 +149,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
                   <div className="absolute bottom-2 left-2 right-2 text-left">
                     <span className="text-xs font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-                      Fries • Garlic Bread • Coleslaw
+                      Fries • Garlic Bread • Veggie & Dip
                     </span>
                   </div>
                 </div>
@@ -162,7 +158,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   CHOOSE 3 SIDES
                 </h3>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Choose from crispy french fries, toasted garlic bread, cool coleslaw, or macaroni salad.
+                  Choose from crispy french fries, toasted garlic bread, or crunchy veggies and dip.
                 </p>
               </div>
 
@@ -174,7 +170,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 </div>
                 <div className="flex items-center gap-1.5 text-[#b45309]">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
-                  <span>Fresh Caribbean Coleslaw</span>
+                  <span>Fresh Veggie and Dip</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-[#b45309]">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />

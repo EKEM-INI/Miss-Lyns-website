@@ -8,7 +8,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
     "jerk-chicken-2pc",
     "spicy-beef-patty",
     "poutine",
-    "fried-chicken-4pc",
+    "garlic-bread-cheese",
     "garlic-bread"
   ];
 
