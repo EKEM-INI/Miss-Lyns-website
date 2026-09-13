@@ -4,8 +4,8 @@ export const menuCategories = [
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
   { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
-  { id: "sides", name: "Sides", icon: "Soup", count: 7 },
-  { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 2 },
+  { id: "sides", name: "Sides", icon: "Soup", count: 6 },
+  { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 1 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
 
@@ -347,39 +347,17 @@ export const menuItems = [
     image: "/images/dishes/0026.jpg",
     tags: ["Crispy Fries"]
   },
-  {
-    id: "gravy",
-    categoryId: "sides",
-    name: "Gravy",
-    price: 3.00,
-    priceDisplay: "$3.00",
-    description: "Rich and savory sauce to enhance your meal.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Warm Savoury"]
-  },
 
   // 7. SAUCES & DIPS
   {
-    id: "house-jerk-sauce",
+    id: "cheese-dip",
     categoryId: "sauces",
-    name: "Miss Lyn's House Jerk Sauce",
+    name: "Cheese",
     price: 1.25,
     priceDisplay: "$1.25",
-    description: "Our signature blend of scotch bonnet, allspice, thyme, garlic, and Island cane sugar.",
+    description: "Creamy rich melted cheese dip to enhance your wings and sides.",
     image: "/images/dishes/0028.jpg",
-    tags: ["Signature Sauce"],
-    spiceLevel: 3
-  },
-  {
-    id: "mango-pepper-sauce",
-    categoryId: "sauces",
-    name: "Mango Scotch Bonnet Pepper Dip",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Sweet tropical mango balanced with fiery fresh scotch bonnet peppers.",
-    image: "/images/dishes/0029.jpg",
-    tags: ["Sweet & Hot"],
-    spiceLevel: 3
+    tags: ["Signature Dip"]
   },
 
   // 8. DRINKS
