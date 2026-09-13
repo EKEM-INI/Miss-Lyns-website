@@ -4,7 +4,7 @@ export const menuCategories = [
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
   { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
-  { id: "sides", name: "Sides", icon: "Soup", count: 8 },
+  { id: "sides", name: "Sides", icon: "Soup", count: 7 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 2 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
@@ -356,16 +356,6 @@ export const menuItems = [
     description: "Rich and savory sauce to enhance your meal.",
     image: "/images/dishes/0028.jpg",
     tags: ["Warm Savoury"]
-  },
-  {
-    id: "cheese-side",
-    categoryId: "sides",
-    name: "Cheese Sauce",
-    price: 3.00,
-    priceDisplay: "$3.00",
-    description: "Smooth and creamy cheese sauce to elevate your meal.",
-    image: "/images/dishes/0030.jpg",
-    tags: ["Melted Dip"]
   },
 
   // 7. SAUCES & DIPS
