@@ -7,12 +7,31 @@ export const getMaxSaucesForItem = (item) => {
   const id = (item.id || '').toLowerCase();
   const name = (item.name || '').toLowerCase();
   
-  if (id.includes('fp5') || name.includes('5 lb') || name.includes('5 pound') || name.includes('5 lbs')) {
+  // Combo 6: 5 sauces
+  if (id === 'combo-6' || name.includes('combo 6') || name.includes('6 - half pound') || name.includes('5 sauce') || name.includes('5 sauces')) {
+    return 5;
+  }
+
+  // FP5: 5 Lbs Wings: 3 sauces
+  if (id === 'fp5-wings' || id.includes('fp5') || /\b5\s*(lb|lbs|pound|pounds)\b/i.test(name)) {
     return 3;
   }
-  if (id.includes('fp3') || name.includes('3 lb') || name.includes('3 pound') || name.includes('3 lbs') || id.includes('family-feast') || name.includes('family feast')) {
+
+  // FP3 (3 Lbs Wings), Combo 3 (1.5 Lbs Wings), Family Feast: 2 sauces
+  if (
+    id === 'combo-3' ||
+    id === 'fp3-wings' ||
+    id.includes('fp3') ||
+    id.includes('family-feast') ||
+    name.includes('family feast') ||
+    name.includes('1.5 lb') ||
+    name.includes('1.5 lbs') ||
+    name.includes('1.5 pound') ||
+    /\b3\s*(lb|lbs|pound|pounds)\b/i.test(name)
+  ) {
     return 2;
   }
+
   return 1;
 };
 

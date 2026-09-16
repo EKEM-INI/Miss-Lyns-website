@@ -83,10 +83,10 @@ export const menuItems = [
   {
     id: "combo-3",
     categoryId: "combos",
-    name: "3 - 1.5 Lbs Wings (1 Sauce) Combo",
+    name: "3 - 1.5 Lbs Wings (2 Sauces) Combo",
     price: 33.40,
     priceDisplay: "$33.40",
-    description: "1 medium side, 1 pop, 1 sauce per order. 1.5 lbs of crispy wings with side and drink.",
+    description: "1 medium side, 1 pop, 2 sauces per order. 1.5 lbs of crispy wings with side and drink.",
     image: "/images/dishes/0053.jpg",
     tags: ["Big Appetite"],
     spiceLevel: 2
@@ -116,10 +116,10 @@ export const menuItems = [
   {
     id: "combo-6",
     categoryId: "combos",
-    name: "6 - Half Pound Wings + 2 Pcs Jerk Chicken (1 Sauce) Combo",
+    name: "6 - Half Pound Wings + 2 Pcs Jerk Chicken (5 Sauces) Combo",
     price: 25.80,
     priceDisplay: "$25.80",
-    description: "1 medium side, 1 pop, 1 sauce per order. Half pound of crispy wings plus 2 pieces of authentic jerk chicken.",
+    description: "1 medium side, 1 pop, 5 sauces per order. Half pound of crispy wings plus 2 pieces of authentic jerk chicken.",
     image: "/images/dishes/0053.jpg",
     tags: ["Best of Both"],
     spiceLevel: 3
