@@ -45,6 +45,117 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
     openOrderingModal('all', comboItem);
   };
 
+  const renderPreviewTray = (isBottom = false) => (
+    <div className={`${isBottom ? 'mt-12' : 'mb-14'} rounded-3xl bg-neutral-900 border-2 border-neutral-800 p-5 sm:p-7 shadow-2xl relative overflow-hidden`}>
+      
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-neutral-800">
+        <div className="flex items-center gap-2.5">
+          <span className="text-xl">✨</span>
+          <div>
+            <h3 className="font-heading text-2xl font-bold uppercase text-white tracking-wide leading-none">
+              LIVE COMBO PREVIEW
+            </h3>
+            <p className="text-xs text-neutral-400">Updates in real-time with your selections</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="text-right">
+            <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-bold block">Combo Total</span>
+            <span className="font-heading text-3xl font-black text-[#ff481f] leading-none">${totalComboPrice}</span>
+          </div>
+          <button
+            onClick={handleAddComboToOrder}
+            className="px-5 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#e02e07]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            <span>ADD COMBO TO ORDER</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 3 Tray Preview Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+        
+        {/* Live Protein Slot */}
+        <div className="relative rounded-2xl bg-neutral-950 border-2 border-red-900/60 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+            <img
+              src={selectedProtein.image}
+              alt={selectedProtein.name}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          <div>
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ff481f] block">
+              STEP 1 • PROTEIN
+            </span>
+            <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-white leading-tight">
+              {selectedProtein.name}
+            </h4>
+            <p className="text-xs text-neutral-400 line-clamp-1">{selectedProtein.tagline}</p>
+          </div>
+        </div>
+
+        {/* Live Side Slot */}
+        <div className="relative rounded-2xl bg-neutral-950 border-2 border-amber-900/60 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+            <img
+              src={selectedUpgrade ? selectedUpgrade.image : selectedSide.image}
+              alt={selectedUpgrade ? selectedUpgrade.name : selectedSide.name}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          <div>
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#d97706] block">
+              STEP 2 • SIDE
+            </span>
+            <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-white leading-tight">
+              {selectedSide.name}
+            </h4>
+            {selectedUpgrade && (
+              <span className="text-[10px] font-extrabold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800 inline-block mt-0.5">
+                Upgraded to {selectedUpgrade.name} (+$3.00)
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Live Drink & Upgrade Slot */}
+        <div className={`relative rounded-2xl bg-neutral-950 border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
+          selectedUpgrade ? 'border-amber-700 bg-neutral-950' : 'border-emerald-800/80'
+        }`}>
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+            <img
+              src={selectedDrink.image}
+              alt={selectedDrink.name}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          <div>
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#059669] block">
+              STEP 3 • DRINK & UPGRADE
+            </span>
+            <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-white leading-tight">
+              {selectedDrink.name}
+            </h4>
+            <div className="flex flex-wrap gap-1 mt-1">
+              <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                Drink Included
+              </span>
+              {selectedUpgrade && (
+                <span className="text-[10px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+                  +{selectedUpgrade.name} (+$3.00)
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+
   return (
     <section id="combo-builder" className="py-16 lg:py-24 bg-black text-white relative overflow-hidden">
       
@@ -67,114 +178,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         </div>
 
         {/* LIVE COMBO PREVIEW TRAY (Black Theme) */}
-        <div className="mb-14 rounded-3xl bg-neutral-900 border-2 border-neutral-800 p-5 sm:p-7 shadow-2xl relative overflow-hidden">
-          
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-neutral-800">
-            <div className="flex items-center gap-2.5">
-              <span className="text-xl">✨</span>
-              <div>
-                <h3 className="font-heading text-2xl font-bold uppercase text-white tracking-wide leading-none">
-                  LIVE COMBO PREVIEW
-                </h3>
-                <p className="text-xs text-neutral-400">Updates in real-time with your selections</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <div className="text-right">
-                <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-bold block">Combo Total</span>
-                <span className="font-heading text-3xl font-black text-[#ff481f] leading-none">${totalComboPrice}</span>
-              </div>
-              <button
-                onClick={handleAddComboToOrder}
-                className="px-5 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#e02e07]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
-              >
-                <ShoppingBag className="w-4 h-4" />
-                <span>ADD COMBO TO ORDER</span>
-              </button>
-            </div>
-          </div>
-
-          {/* 3 Tray Preview Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
-            
-            {/* Live Protein Slot */}
-            <div className="relative rounded-2xl bg-neutral-950 border-2 border-red-900/60 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
-                <img
-                  src={selectedProtein.image}
-                  alt={selectedProtein.name}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ff481f] block">
-                  STEP 1 • PROTEIN
-                </span>
-                <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-white leading-tight">
-                  {selectedProtein.name}
-                </h4>
-                <p className="text-xs text-neutral-400 line-clamp-1">{selectedProtein.tagline}</p>
-              </div>
-            </div>
-
-            {/* Live Side Slot */}
-            <div className="relative rounded-2xl bg-neutral-950 border-2 border-amber-900/60 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
-                <img
-                  src={selectedUpgrade ? selectedUpgrade.image : selectedSide.image}
-                  alt={selectedUpgrade ? selectedUpgrade.name : selectedSide.name}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#d97706] block">
-                  STEP 2 • SIDE
-                </span>
-                <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-white leading-tight">
-                  {selectedSide.name}
-                </h4>
-                {selectedUpgrade && (
-                  <span className="text-[10px] font-extrabold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800 inline-block mt-0.5">
-                    Upgraded to {selectedUpgrade.name} (+$3.00)
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {/* Live Drink & Upgrade Slot */}
-            <div className={`relative rounded-2xl bg-neutral-950 border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
-              selectedUpgrade ? 'border-amber-700 bg-neutral-950' : 'border-emerald-800/80'
-            }`}>
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
-                <img
-                  src={selectedDrink.image}
-                  alt={selectedDrink.name}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#059669] block">
-                  STEP 3 • DRINK & UPGRADE
-                </span>
-                <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-white leading-tight">
-                  {selectedDrink.name}
-                </h4>
-                <div className="flex flex-wrap gap-1 mt-1">
-                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
-                    Drink Included
-                  </span>
-                  {selectedUpgrade && (
-                    <span className="text-[10px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
-                      +{selectedUpgrade.name} (+$3.00)
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        {renderPreviewTray(false)}
 
 
         {/* CONFIGURATION STEPS */}
@@ -517,10 +521,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 })}
               </div>
             </div>
-
           </div>
 
         </div>
+
+        {/* REPEATED LIVE COMBO PREVIEW TRAY AT BOTTOM */}
+        {renderPreviewTray(true)}
 
       </div>
     </section>

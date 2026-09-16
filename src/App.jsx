@@ -23,9 +23,7 @@ export default function App() {
   const openOrderingModal = (tab = 'all', item = null) => {
     setOrderingModalTab(tab);
     if (item) {
-      // Add or highlight item
       setSelectedOrderItem(item);
-      addToCart(item);
     }
     setOrderingModalOpen(true);
   };
