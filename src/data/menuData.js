@@ -6,7 +6,6 @@ export const menuCategories = [
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Regular Sides", icon: "Soup", count: 5 },
   { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 2 },
-  { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 1 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
 
@@ -359,18 +358,6 @@ export const menuItems = [
     description: "Rich, buttery bread smothered in melted cheese and garlic herbs.",
     image: "/images/dishes/0030.jpg",
     tags: ["Melted Cheese"]
-  },
-
-  // 7. SAUCES & DIPS
-  {
-    id: "cheese-dip",
-    categoryId: "sauces",
-    name: "Cheese",
-    price: 1.25,
-    priceDisplay: "$1.25",
-    description: "Creamy rich melted cheese dip to enhance your wings and sides.",
-    image: "/images/dishes/0028.jpg",
-    tags: ["Signature Dip"]
   },
 
   // 8. DRINKS
