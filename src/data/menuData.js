@@ -4,7 +4,8 @@ export const menuCategories = [
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
   { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
-  { id: "sides", name: "Sides", icon: "Soup", count: 5 },
+  { id: "sides", name: "Regular Sides", icon: "Soup", count: 5 },
+  { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 2 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 1 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
@@ -286,7 +287,7 @@ export const menuItems = [
     spiceLevel: 2
   },
 
-  // 6. SIDES & UPGRADES
+  // 6. REGULAR SIDES
   {
     id: "french-fries",
     categoryId: "sides",
@@ -298,14 +299,14 @@ export const menuItems = [
     tags: ["Standard Side"]
   },
   {
-    id: "veggie-and-dip",
+    id: "mac-salad",
     categoryId: "sides",
-    name: "Veggie and Dip",
+    name: "Mac Salad",
     price: 6.00,
     priceDisplay: "$6.00",
-    description: "Crunchy chilled vegetables served with a side of creamy ranch or blue cheese dip.",
-    image: "/images/dishes/0020.jpg",
-    tags: ["Cool Crunch"]
+    description: "Creamy elbow macaroni salad with diced bell peppers and carrots in our signature island dressing.",
+    image: "/images/dishes/macaroni-salad.jpg",
+    tags: ["Cool & Creamy"]
   },
   {
     id: "garlic-bread",
@@ -318,24 +319,46 @@ export const menuItems = [
     tags: ["Toasted Warm"]
   },
   {
-    id: "garlic-bread-cheese",
+    id: "caribbean-coleslaw",
     categoryId: "sides",
+    name: "Coleslaw",
+    price: 6.00,
+    priceDisplay: "$6.00",
+    description: "Crisp shredded green and red cabbage and carrots tossed in a refreshing tangy Caribbean dressing.",
+    image: "/images/dishes/coleslaw.jpg",
+    tags: ["Fresh Crunch"]
+  },
+  {
+    id: "veggie-and-dip",
+    categoryId: "sides",
+    name: "Veggie and Dip",
+    price: 6.00,
+    priceDisplay: "$6.00",
+    description: "Crunchy chilled vegetables served with a side of creamy ranch or blue cheese dip.",
+    image: "/images/dishes/0020.jpg",
+    tags: ["Cool Crunch"]
+  },
+
+  // 7. PREMIUM SIDES
+  {
+    id: "onion-rings",
+    categoryId: "premium-sides",
+    name: "Onion Rings",
+    price: 9.60,
+    priceDisplay: "$9.60",
+    description: "Crispy onion slices in a golden crunchy batter.",
+    image: "/images/dishes/0015.jpg",
+    tags: ["Premium Side"]
+  },
+  {
+    id: "garlic-bread-cheese",
+    categoryId: "premium-sides",
     name: "Garlic Bread with Cheese",
     price: 9.60,
     priceDisplay: "$9.60",
     description: "Rich, buttery bread smothered in melted cheese and garlic herbs.",
     image: "/images/dishes/0030.jpg",
     tags: ["Melted Cheese"]
-  },
-  {
-    id: "onion-rings",
-    categoryId: "sides",
-    name: "Onion Rings",
-    price: 9.60,
-    priceDisplay: "$9.60",
-    description: "Crispy onion slices in a golden crunchy batter.",
-    image: "/images/dishes/0015.jpg",
-    tags: ["Crispy Side"]
   },
 
   // 7. SAUCES & DIPS

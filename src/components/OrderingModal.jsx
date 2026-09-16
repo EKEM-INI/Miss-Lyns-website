@@ -49,6 +49,8 @@ export default function OrderingModal({
       const qty = item.quantity || 1;
       summary += `${index + 1}. ${qty}x ${item.name} ($${(item.price * qty).toFixed(2)})\n`;
       if (item.details) {
+        if (item.details.style) summary += `   • Style: ${item.details.style}\n`;
+        if (item.details.sauce) summary += `   • Sauce: ${item.details.sauce}\n`;
         if (item.details.protein) summary += `   • Protein: ${item.details.protein}\n`;
         if (item.details.side) summary += `   • Side: ${item.details.side}\n`;
         if (item.details.drink) summary += `   • Drink: ${item.details.drink}\n`;
@@ -424,6 +426,8 @@ export default function OrderingModal({
                           </h4>
                           {item.details && (
                             <p className="text-[10px] text-neutral-400 leading-tight truncate">
+                              {item.details.sauce && <strong className="text-amber-400 font-bold">{item.details.sauce} • </strong>}
+                              {item.details.style && `${item.details.style} • `}
                               {item.details.protein && `${item.details.protein} • `}
                               {item.details.side && `${item.details.side} • `}
                               {item.details.drink && `${item.details.drink}`}

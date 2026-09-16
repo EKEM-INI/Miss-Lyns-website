@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Check, Sparkles, ShoppingBag, Layers } from 'lucide-react';
+import { Check, Sparkles, ShoppingBag, Layers, Flame } from 'lucide-react';
 import { comboProteins, comboSides, comboPremiumUpgrades, comboDrinks } from '../data/comboOptions';
+import { wingSauces, wingStyles } from '../data/saucesData';
 
 export default function ComboBuilder({ openOrderingModal, addToCart }) {
   const [selectedProtein, setSelectedProtein] = useState(comboProteins[0]);
+  const [selectedWingStyle, setSelectedWingStyle] = useState(wingStyles[0]);
+  const [selectedWingSauce, setSelectedWingSauce] = useState(wingSauces[6]); // Honey Garlic
   const [selectedSide, setSelectedSide] = useState(comboSides.standard[0]);
   const [selectedUpgrade, setSelectedUpgrade] = useState(null); // null or one of comboPremiumUpgrades
   const selectedDrink = comboDrinks.standard[0];
@@ -17,14 +20,20 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
       ? `${selectedSide.name} (Upgraded to ${selectedUpgrade.name} +$${upgradeCost.toFixed(2)})`
       : selectedSide.name;
 
+    const isWing = selectedProtein.id === 'wings-half-lb';
+    const proteinLabel = isWing 
+      ? `${selectedProtein.name} (${selectedWingStyle.name}, ${selectedWingSauce.name})`
+      : selectedProtein.name;
+
     const comboItem = {
       id: `custom-combo-${Date.now()}`,
-      name: `Custom Combo (${selectedProtein.name} + ${selectedUpgrade ? selectedUpgrade.name : selectedSide.name} + ${selectedDrink.name})`,
+      name: `Custom Combo (${proteinLabel} + ${selectedUpgrade ? selectedUpgrade.name : selectedSide.name} + ${selectedDrink.name})`,
       price: parseFloat(totalComboPrice),
       priceDisplay: `$${totalComboPrice}`,
       image: selectedProtein.image,
       details: {
-        protein: selectedProtein.name,
+        protein: proteinLabel,
+        ...(isWing ? { sauce: selectedWingSauce.name, style: selectedWingStyle.name } : {}),
         side: sideDisplay,
         upgrade: selectedUpgrade ? `${selectedUpgrade.name} (+$${upgradeCost.toFixed(2)} Premium Upgrade)` : 'None (Standard Side)',
         drink: `${selectedDrink.name} (Included)`
@@ -239,6 +248,81 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 );
               })}
             </div>
+
+            {/* If Wings are selected, show Style & Sauce Selector */}
+            {selectedProtein.id === 'wings-half-lb' && (
+              <div className="mt-5 p-5 rounded-2xl bg-neutral-950 border border-red-900/60 shadow-lg space-y-4 animate-fadeIn">
+                <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+                  <div>
+                    <h4 className="font-heading text-lg font-black uppercase text-white flex items-center gap-2">
+                      <span>🍗 CHOOSE WING STYLE & SAUCE</span>
+                      <span className="text-xs font-normal text-[#ff481f]">({wingSauces.length} sauce flavours)</span>
+                    </h4>
+                    <p className="text-xs text-neutral-400">Select how your wings are prepared and tossed</p>
+                  </div>
+                  <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                    Included with Combo
+                  </span>
+                </div>
+
+                {/* Style Toggle */}
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-bold uppercase text-neutral-400 shrink-0">Style:</span>
+                  <div className="grid grid-cols-2 gap-2 flex-1">
+                    {wingStyles.map((style) => (
+                      <button
+                        key={style.id}
+                        type="button"
+                        onClick={() => setSelectedWingStyle(style)}
+                        className={`py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border ${
+                          selectedWingStyle.id === style.id
+                            ? 'bg-[#e02e07] border-[#e02e07] text-white shadow'
+                            : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                        }`}
+                      >
+                        {style.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sauce Selection Grid */}
+                <div>
+                  <span className="text-xs font-bold uppercase text-neutral-400 block mb-2">
+                    Pick Your Sauce (Selected: <strong className="text-amber-400">{selectedWingSauce.name}</strong>):
+                  </span>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-48 overflow-y-auto pr-1">
+                    {wingSauces.map((sauce) => {
+                      const isChosen = selectedWingSauce.id === sauce.id;
+                      return (
+                        <button
+                          key={sauce.id}
+                          type="button"
+                          onClick={() => setSelectedWingSauce(sauce)}
+                          className={`p-2.5 rounded-xl text-left border transition-all flex flex-col justify-between ${
+                            isChosen
+                              ? 'bg-amber-950/70 border-amber-500 text-white shadow'
+                              : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between gap-1">
+                            <span className={`font-heading text-sm font-bold uppercase ${isChosen ? 'text-amber-400' : 'text-white'}`}>
+                              {sauce.name}
+                            </span>
+                            {sauce.spiceLevel > 0 && (
+                              <span className="text-[9px]">{'🌶️'.repeat(sauce.spiceLevel)}</span>
+                            )}
+                          </div>
+                          <span className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                            {sauce.tag}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
 
