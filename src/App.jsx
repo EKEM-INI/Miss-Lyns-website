@@ -74,7 +74,7 @@ export default function App() {
   const totalCartCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col justify-between selection:bg-[#e02e07] selection:text-white">
+    <div className="min-h-screen bg-black text-white flex flex-col justify-between selection:bg-[#e02e07] selection:text-white">
       
       {/* Top Sticky Navbar */}
       <Navbar

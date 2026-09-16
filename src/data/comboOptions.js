@@ -58,14 +58,6 @@ export const comboPremiumUpgrades = [
     description: "Thick-cut sweet onion rings in golden crispy batter."
   },
   {
-    id: "poutine",
-    name: "Fries",
-    price: 4.80,
-    priceDisplay: "+$4.80",
-    image: "/images/dishes/0026.jpg",
-    description: "Golden crispy fries cooked fresh and seasoned to perfection."
-  },
-  {
     id: "garlic-bread-cheese",
     name: "Garlic Bread with Cheese",
     price: 3.60,

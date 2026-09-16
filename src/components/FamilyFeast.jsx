@@ -3,8 +3,7 @@ import { Users, Sparkles, Check, Flame, ShoppingBag } from 'lucide-react';
 
 export default function FamilyFeast({ openOrderingModal, addToCart }) {
   const [selectedProteins, setSelectedProteins] = useState(["Wings", "Jerk Chicken"]);
-  const [selectedSides, setSelectedSides] = useState(["Crispy Fries", "Veggie and Dip", "Toasted Garlic Bread"]);
-  const [selectedDrinks, setSelectedDrinks] = useState(["Pop (Can)", "Ting Sparkling Grapefruit", "Bigga Pineapple", "D&G Cream Soda"]);
+  const [selectedSides, setSelectedSides] = useState(["Crispy French Fries", "Fresh Veggie and Dip", "Toasted Garlic Bread"]);
 
   const handleOrderFeast = () => {
     const feastItem = {
@@ -15,8 +14,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
       image: "/images/dishes/0053.jpg",
       details: {
         proteins: selectedProteins,
-        sides: selectedSides,
-        drinks: selectedDrinks
+        sides: selectedSides
       }
     };
     if (addToCart) {
@@ -26,38 +24,38 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
   };
 
   return (
-    <section id="family-feast" className="relative py-16 lg:py-24 bg-[#fffaf5] overflow-hidden border-y border-orange-100">
+    <section id="family-feast" className="relative py-16 lg:py-24 bg-black text-white overflow-hidden border-y border-neutral-850">
       
       {/* Background Graphic Lines */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-orange-200/40"></div>
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-orange-200/40"></div>
-        <div className="absolute top-1/3 right-10 w-96 h-96 bg-red-100/40 rounded-full blur-[140px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-neutral-850/40"></div>
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-neutral-850/40"></div>
+        <div className="absolute top-1/3 right-10 w-96 h-96 bg-red-950/20 rounded-full blur-[140px]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 border border-red-200 text-[#e02e07] text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
             <Sparkles className="w-4 h-4 text-[#d97706]" />
             <span>TOP VALUE PROMOTION</span>
           </div>
 
           <div className="flex items-center justify-center gap-3">
-            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-gray-900 leading-none">
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
               THE FAMILY <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#d97706] to-[#b45309]">FEAST</span>
             </h2>
           </div>
 
-          <p className="text-base sm:text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-neutral-400">
             Feed the entire family with Hamilton’s most generous Caribbean bundle. 
-            <span className="font-bold text-gray-900"> Proteins + 3 Comfort Sides + 4 Cold Drinks</span> made fresh to order!
+            <span className="font-bold text-white"> Proteins + 3 Comfort Sides</span> made fresh to order!
           </p>
         </div>
 
-        {/* The Dominant Feast Showcase Card */}
-        <div className="relative rounded-3xl bg-white border-2 border-orange-300 p-5 sm:p-8 lg:p-10 shadow-2xl shadow-orange-900/10">
+        {/* The Dominant Feast Showcase Card (Black Theme) */}
+        <div className="relative rounded-3xl bg-neutral-900 border-2 border-neutral-800 p-5 sm:p-8 lg:p-10 shadow-2xl">
           
           {/* Prominent Angled Ribbon Price Tag */}
           <div className="absolute -top-4 right-4 sm:right-8 z-30">
@@ -67,29 +65,29 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               </div>
               <div className="font-heading text-3xl sm:text-5xl font-black text-white leading-none pt-1">
                 $49.99
-                <span className="text-xs sm:text-sm font-sans font-bold text-gray-100 ml-1">+tax</span>
+                <span className="text-xs sm:text-sm font-sans font-bold text-gray-200 ml-1">+tax</span>
               </div>
             </div>
           </div>
 
-          {/* Numbered Bundle Breakdown Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8 pt-4">
+          {/* Numbered Bundle Breakdown Grid (2 Columns: Proteins + Sides) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8 pt-4">
             
             {/* Step 1: Proteins */}
-            <div className="relative rounded-2xl bg-orange-50/50 border border-orange-200/80 p-5 flex flex-col justify-between group hover:border-[#e02e07] transition-all">
+            <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-between group hover:border-[#e02e07] transition-all">
               <div>
                 {/* Number Badge */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-9 h-9 rounded-full bg-[#e52516] text-white font-heading text-xl font-black flex items-center justify-center shadow-md">
                     1
                   </div>
-                  <span className="text-xs font-black uppercase tracking-wider text-[#b45309] px-2.5 py-1 rounded-md bg-amber-100 border border-amber-200">
+                  <span className="text-xs font-black uppercase tracking-wider text-amber-300 px-2.5 py-1 rounded-md bg-amber-950/80 border border-amber-800">
                     SIGNATURE PROTEINS
                   </span>
                 </div>
 
                 {/* Protein Platter Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-gray-100 shadow-sm">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-neutral-900 shadow-sm">
                   <img
                     src="/images/dishes/0053.jpg"
                     alt="Platter of Wings and Jerk Chicken"
@@ -104,21 +102,21 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   </div>
                 </div>
 
-                <h3 className="font-heading text-2xl font-bold text-gray-900 uppercase mb-2">
+                <h3 className="font-heading text-2xl font-bold text-white uppercase mb-2">
                   CHOOSE PROTEINS
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-neutral-400 leading-relaxed">
                   Mix and match juicy signature wings and authentic slow-marinated Jamaican jerk chicken.
                 </p>
               </div>
 
               {/* Selected List */}
-              <div className="mt-4 pt-3 border-t border-orange-200/60 space-y-1.5 text-xs font-bold text-gray-700">
-                <div className="flex items-center gap-1.5 text-[#b45309]">
+              <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
+                <div className="flex items-center gap-1.5 text-amber-300">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Jumbo Signature Wings (1 lb)</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[#b45309]">
+                <div className="flex items-center gap-1.5 text-amber-300">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Authentic Jerk Chicken</span>
                 </div>
@@ -126,20 +124,20 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
             </div>
 
             {/* Step 2: 3 Sides */}
-            <div className="relative rounded-2xl bg-orange-50/50 border border-orange-200/80 p-5 flex flex-col justify-between group hover:border-[#d97706] transition-all">
+            <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-between group hover:border-[#d97706] transition-all">
               <div>
                 {/* Number Badge */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-9 h-9 rounded-full bg-[#f59e0b] text-white font-heading text-xl font-black flex items-center justify-center shadow-md">
                     2
                   </div>
-                  <span className="text-xs font-black uppercase tracking-wider text-[#b45309] px-2.5 py-1 rounded-md bg-amber-100 border border-amber-200">
+                  <span className="text-xs font-black uppercase tracking-wider text-amber-300 px-2.5 py-1 rounded-md bg-amber-950/80 border border-amber-800">
                     3 SIDES
                   </span>
                 </div>
 
                 {/* Side Platter Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-gray-100 shadow-sm">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-neutral-900 shadow-sm">
                   <img
                     src="/images/dishes/0021.jpg"
                     alt="Golden French Fries and Garlic Toast"
@@ -154,77 +152,27 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   </div>
                 </div>
 
-                <h3 className="font-heading text-2xl font-bold text-gray-900 uppercase mb-2">
+                <h3 className="font-heading text-2xl font-bold text-white uppercase mb-2">
                   CHOOSE 3 SIDES
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-neutral-400 leading-relaxed">
                   Choose from crispy french fries, toasted garlic bread, or crunchy veggies and dip.
                 </p>
               </div>
 
               {/* Selected List */}
-              <div className="mt-4 pt-3 border-t border-orange-200/60 space-y-1.5 text-xs font-bold text-gray-700">
-                <div className="flex items-center gap-1.5 text-[#b45309]">
+              <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
+                <div className="flex items-center gap-1.5 text-amber-300">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Crispy French Fries</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[#b45309]">
+                <div className="flex items-center gap-1.5 text-amber-300">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Fresh Veggie and Dip</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[#b45309]">
+                <div className="flex items-center gap-1.5 text-amber-300">
                   <Check className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Toasted Garlic Bread</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 3: 4 Drinks */}
-            <div className="relative rounded-2xl bg-orange-50/50 border border-orange-200/80 p-5 flex flex-col justify-between group hover:border-[#059669] transition-all">
-              <div>
-                {/* Number Badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-9 h-9 rounded-full bg-[#10b981] text-white font-heading text-xl font-black flex items-center justify-center shadow-md">
-                    3
-                  </div>
-                  <span className="text-xs font-black uppercase tracking-wider text-[#059669] px-2.5 py-1 rounded-md bg-emerald-100 border border-emerald-200">
-                    4 DRINKS
-                  </span>
-                </div>
-
-                {/* Drinks Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-gray-100 shadow-sm">
-                  <img
-                    src="/images/dishes/drinks.png"
-                    alt="Chilled Island Drinks, Bigga, Cran Wata and Sodas"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-2 left-2 right-2 text-left">
-                    <span className="text-xs font-bold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-                      Ting • Bigga • D&G • Soft Drinks
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="font-heading text-2xl font-bold text-gray-900 uppercase mb-2">
-                  CHOOSE 4 DRINKS
-                </h3>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  Quench your thirst with ice-cold Jamaican Island sodas (Ting, Bigga, D&G) or standard canned sodas.
-                </p>
-              </div>
-
-              {/* Selected List */}
-              <div className="mt-4 pt-3 border-t border-orange-200/60 space-y-1.5 text-xs font-bold text-gray-700">
-                <div className="flex items-center gap-1.5 text-[#059669]">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
-                  <span>4 Chilled Cans or Island Sodas</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-gray-500">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
-                  <span>Served cold with cups upon request</span>
                 </div>
               </div>
             </div>
@@ -232,17 +180,17 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
           </div>
 
           {/* Big Action Bar */}
-          <div className="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+          <div className="pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
             <div className="space-y-1">
               <div className="flex items-center justify-center sm:justify-start gap-2">
-                <span className="font-heading text-2xl font-bold text-gray-900 uppercase">
+                <span className="font-heading text-2xl font-bold text-white uppercase">
                   READY TO FEED THE WHOLE CREW?
                 </span>
-                <span className="hidden md:inline-block text-xs font-bold text-[#b45309] px-2.5 py-0.5 bg-amber-100 rounded border border-amber-200">
+                <span className="hidden md:inline-block text-xs font-bold text-amber-300 px-2.5 py-0.5 bg-amber-950/80 rounded border border-amber-800">
                   FEEDS 4–6 PEOPLE
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-500">
+              <p className="text-xs sm:text-sm text-neutral-400">
                 Order directly for quick pickup at 677 King St East or fast delivery to your door.
               </p>
             </div>

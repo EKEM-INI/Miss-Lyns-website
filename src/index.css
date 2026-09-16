@@ -8,8 +8,8 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #ffffff;
-    color: #111827;
+    background-color: #000000;
+    color: #ffffff;
     overflow-x: hidden;
   }
 
@@ -21,11 +21,11 @@
 
 /* Custom food colors and Caribbean accents */
 .bg-caribbean-dark {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .bg-caribbean-card {
-  background-color: #ffffff;
+  background-color: #121212;
 }
 
 .text-caribbean-orange {
@@ -75,11 +75,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #121212;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #333333;
   border-radius: 4px;
 }
 

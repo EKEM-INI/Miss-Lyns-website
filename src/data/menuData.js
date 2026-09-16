@@ -4,7 +4,7 @@ export const menuCategories = [
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
   { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
-  { id: "sides", name: "Sides", icon: "Soup", count: 6 },
+  { id: "sides", name: "Sides", icon: "Soup", count: 5 },
   { id: "sauces", name: "Sauces & Dips", icon: "Droplet", count: 1 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
@@ -50,7 +50,7 @@ export const menuItems = [
     name: "Family Feast Promotional Bundle",
     price: 49.99,
     priceDisplay: "$49.99",
-    description: "The ultimate Caribbean feast! Includes your choice of 2 Proteins (Wings, Jerk Chicken) + 3 Comfort Sides + 4 Cold Drinks. Serves 4-6.",
+    description: "The ultimate Caribbean feast! Includes your choice of Proteins (Wings, Jerk Chicken) + 3 Comfort Sides. Serves 4-6.",
     image: "/images/dishes/0053.jpg",
     altImages: ["/images/dishes/0019.jpg", "/images/dishes/0021.jpg"],
     tags: ["Best Value", "Feeds 4-6", "Special Promotion"],
@@ -336,16 +336,6 @@ export const menuItems = [
     description: "Crispy onion slices in a golden crunchy batter.",
     image: "/images/dishes/0015.jpg",
     tags: ["Crispy Side"]
-  },
-  {
-    id: "poutine",
-    categoryId: "sides",
-    name: "Fries",
-    price: 10.80,
-    priceDisplay: "$10.80",
-    description: "Crispy golden cut french fries served hot and seasoned to perfection.",
-    image: "/images/dishes/0026.jpg",
-    tags: ["Crispy Fries"]
   },
 
   // 7. SAUCES & DIPS

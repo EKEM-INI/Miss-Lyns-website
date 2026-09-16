@@ -7,7 +7,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
     "wings-1lb",
     "jerk-chicken-2pc",
     "spicy-beef-patty",
-    "poutine",
+    "french-fries",
     "garlic-bread-cheese",
     "garlic-bread"
   ];
@@ -22,20 +22,20 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-black text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 border-b border-gray-200 pb-8 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 border-b border-neutral-800 pb-8 text-center md:text-left">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200 text-[#e02e07] text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
               <span>FRESH FROM THE KITCHEN</span>
             </div>
-            <h2 className="font-heading text-4xl sm:text-5xl font-black uppercase text-gray-900 tracking-tight">
+            <h2 className="font-heading text-4xl sm:text-5xl font-black uppercase text-white tracking-tight">
               POPULAR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#d97706]">FAVORITES</span>
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 mt-1">
+            <p className="text-sm sm:text-base text-neutral-400 mt-1">
               A quick taste of our bestsellers. Browse the full menu for all sizes, combos, and sides.
             </p>
           </div>
@@ -54,11 +54,11 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
           {highlightedItems.map((item) => (
             <div
               key={item.id}
-              className="rounded-2xl bg-white border border-gray-200 hover:border-red-300 p-4 transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-lg"
+              className="rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-red-600 p-4 transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-lg"
             >
               <div>
                 {/* Food Image */}
-                <div className="aspect-4/3 rounded-xl overflow-hidden mb-4 bg-gray-100 relative">
+                <div className="aspect-4/3 rounded-xl overflow-hidden mb-4 bg-neutral-950 relative">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -68,7 +68,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
                   
                   {/* Price Tag Badge */}
                   <div className="absolute top-2.5 right-2.5">
-                    <span className="font-heading text-lg font-black text-gray-900 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md border border-gray-200 shadow-md">
+                    <span className="font-heading text-lg font-black text-white px-2.5 py-1 rounded-lg bg-black/90 backdrop-blur-md border border-neutral-700 shadow-md">
                       {item.priceDisplay}
                     </span>
                   </div>
@@ -86,23 +86,23 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
 
                 {/* Info */}
                 <div className="space-y-1">
-                  <h3 className="font-heading text-2xl font-bold uppercase text-gray-900 group-hover:text-[#e02e07] transition-colors leading-tight">
+                  <h3 className="font-heading text-2xl font-bold uppercase text-white group-hover:text-[#ff481f] transition-colors leading-tight">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
+                  <p className="text-xs text-neutral-400 leading-relaxed line-clamp-2">
                     {item.description}
                   </p>
                 </div>
               </div>
 
               {/* Bottom Card Action */}
-              <div className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between">
-                <span className="text-xs font-semibold text-gray-500">
+              <div className="mt-5 pt-3 border-t border-neutral-800 flex items-center justify-between">
+                <span className="text-xs font-semibold text-neutral-400">
                   {item.tags?.[0] || "Made Fresh"}
                 </span>
                 <button
                   onClick={() => handleQuickAdd(item)}
-                  className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-50 hover:bg-[#e02e07] text-[#e02e07] hover:text-white transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-950/60 hover:bg-[#e02e07] text-[#ff481f] hover:text-white transition-colors flex items-center gap-1.5 border border-red-900"
                 >
                   <ShoppingBag className="w-3.5 h-3.5" />
                   <span>Order</span>
@@ -113,18 +113,18 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
         </div>
 
         {/* Bottom Menu Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-orange-50/60 border border-orange-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="mt-12 p-6 rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
           <div>
-            <h4 className="font-heading text-2xl font-bold uppercase text-gray-900">
+            <h4 className="font-heading text-2xl font-bold uppercase text-white">
               LOOKING FOR MORE SIZES, COMBOS & DRINKS?
             </h4>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-neutral-400">
               Browse our complete categorized menu including Jamaican patties, sides, and chilled Island sodas.
             </p>
           </div>
           <button
             onClick={() => setCurrentView('menu')}
-            className="px-6 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gray-900 text-white hover:bg-black transition-colors shrink-0 shadow"
+            className="px-6 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-neutral-800 text-white hover:bg-neutral-700 transition-colors shrink-0 shadow border border-neutral-700"
           >
             OPEN FULL MENU PAGE →
           </button>
