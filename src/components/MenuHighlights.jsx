@@ -7,7 +7,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   const [wingCustomizingItem, setWingCustomizingItem] = useState(null);
 
   const highlightIds = [
-    "wings-1lb",
+    "fp2-wings",
     "jerk-chicken-2pc",
     "spicy-beef-patty",
     "french-fries",

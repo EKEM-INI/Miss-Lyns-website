@@ -1,6 +1,5 @@
 export const menuCategories = [
   { id: "family-meals", name: "Family Packs & Feasts", icon: "Users", count: 4 },
-  { id: "wings", name: "Wings (Just Wings)", icon: "Flame", count: 6 },
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
   { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
@@ -58,75 +57,7 @@ export const menuItems = [
     spiceLevel: 2
   },
 
-  // 2. WINGS (JUST WINGS)
-  {
-    id: "wings-1lb",
-    categoryId: "wings",
-    name: "1 Lb Wings",
-    price: 18.00,
-    priceDisplay: "$18.00",
-    description: "Crispy breaded chicken wings, 1 lb. Fresh, juicy wings fried to golden crispness or tossed in your choice of sauce.",
-    image: "/images/dishes/0053.jpg",
-    tags: ["#1 Most Liked", "Fresh Never Frozen"],
-    spiceLevel: 2
-  },
-  {
-    id: "wings-1-5lb",
-    categoryId: "wings",
-    name: "1.5 Lbs Wings",
-    price: 26.40,
-    priceDisplay: "$26.40",
-    description: "Crispy fried chicken wings, 1.5 lb portion cooked fresh to order.",
-    image: "/images/dishes/0053.jpg",
-    tags: ["Popular Size"],
-    spiceLevel: 2
-  },
-  {
-    id: "wings-2lb",
-    categoryId: "wings",
-    name: "2 Lbs Wings",
-    price: 34.80,
-    priceDisplay: "$34.80",
-    description: "Crispy fried chicken wings, 2 lb portion. Two full pounds of famous wings.",
-    image: "/images/dishes/0053.jpg",
-    tags: ["#2 Most Liked", "Great to Share"],
-    spiceLevel: 2
-  },
-  {
-    id: "wings-3lb",
-    categoryId: "wings",
-    name: "3 Lbs Wings",
-    price: 51.60,
-    priceDisplay: "$51.60",
-    description: "Crispy fried chicken wings, 3 lb portion. Three pounds of golden wings tossed in signature flavours.",
-    image: "/images/dishes/0053.jpg",
-    tags: ["Crowd Pleaser"],
-    spiceLevel: 2
-  },
-  {
-    id: "wings-5lb",
-    categoryId: "wings",
-    name: "5 Lbs Wings",
-    price: 84.60,
-    priceDisplay: "$84.60",
-    description: "Chicken wings, 5 lb portion. Generous platter for sharing with family and friends.",
-    image: "/images/dishes/0053.jpg",
-    tags: ["Party Size"],
-    spiceLevel: 2
-  },
-  {
-    id: "wings-10lb",
-    categoryId: "wings",
-    name: "10 Lbs Wings",
-    price: 156.00,
-    priceDisplay: "$156.00",
-    description: "10 lb order of chicken wings, ideal for sharing, game nights, and celebrations.",
-    image: "/images/dishes/0053.jpg",
-    tags: ["Ultimate Feast"],
-    spiceLevel: 2
-  },
-
-  // 3. COMBOS
+  // 2. COMBOS
   {
     id: "combo-1",
     categoryId: "combos",
