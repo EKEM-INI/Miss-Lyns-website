@@ -1,6 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Flame, Check, Sparkles, ShoppingBag, Plus, Minus } from 'lucide-react';
 import { wingSauces, wingStyles } from '../data/saucesData';
+
+export const getMaxSaucesForItem = (item) => {
+  if (!item) return 1;
+  const id = (item.id || '').toLowerCase();
+  const name = (item.name || '').toLowerCase();
+  
+  if (id.includes('fp5') || name.includes('5 lb') || name.includes('5 pound')) {
+    return 3;
+  }
+  if (id.includes('fp3') || name.includes('3 lb') || name.includes('3 pound') || id.includes('family-feast') || name.includes('family feast')) {
+    return 2;
+  }
+  return 1;
+};
 
 export default function WingCustomizationModal({
   isOpen,
@@ -8,15 +22,47 @@ export default function WingCustomizationModal({
   wingItem,
   onConfirm
 }) {
+  const maxSauces = getMaxSaucesForItem(wingItem);
   const [selectedStyle, setSelectedStyle] = useState(wingStyles[0]); // default: Breaded
-  const [selectedSauce, setSelectedSauce] = useState(wingSauces[6]); // default: Honey Garlic
+  const [selectedSauces, setSelectedSauces] = useState([wingSauces[6]]); // default: Honey Garlic
   const [quantity, setQuantity] = useState(1);
+
+  // Reset or update selections when item opens
+  useEffect(() => {
+    if (wingItem) {
+      setSelectedStyle(wingStyles[0]);
+      setSelectedSauces([wingSauces[6]]); // Honey Garlic default
+      setQuantity(1);
+    }
+  }, [wingItem]);
 
   if (!isOpen || !wingItem) return null;
 
   const price = (wingItem.price || 16.00) * quantity;
 
+  const handleToggleSauce = (sauce) => {
+    if (maxSauces === 1) {
+      setSelectedSauces([sauce]);
+      return;
+    }
+
+    const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
+    if (alreadySelected) {
+      if (selectedSauces.length > 1) {
+        setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
+      }
+    } else {
+      if (selectedSauces.length < maxSauces) {
+        setSelectedSauces([...selectedSauces, sauce]);
+      } else {
+        // Replace the oldest selection
+        setSelectedSauces([...selectedSauces.slice(1), sauce]);
+      }
+    }
+  };
+
   const handleConfirm = () => {
+    const sauceNames = selectedSauces.map(s => s.name).join(', ');
     const customizedItem = {
       ...wingItem,
       quantity,
@@ -24,8 +70,8 @@ export default function WingCustomizationModal({
       details: {
         ...(wingItem.details || {}),
         style: selectedStyle.name,
-        sauce: selectedSauce.name,
-        spiceLevel: selectedSauce.spiceLevel
+        sauce: sauceNames,
+        saucesList: selectedSauces.map(s => s.name)
       }
     };
     onConfirm(customizedItem);
@@ -57,7 +103,7 @@ export default function WingCustomizationModal({
           <div className="flex-1 pr-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-[#ff481f] text-[10px] font-bold uppercase tracking-wider border border-red-900 mb-1">
               <Sparkles className="w-3 h-3 text-yellow-400" />
-              <span>Customize Your Wings</span>
+              <span>Wing Sauce & Style Selection</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
               {wingItem.name}
@@ -118,26 +164,30 @@ export default function WingCustomizationModal({
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
-                <span>2. SELECT YOUR SAUCE</span>
+                <span>2. SELECT YOUR SAUCE{maxSauces > 1 ? 'S' : ''}</span>
                 <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
               </h4>
-              <span className="text-xs text-neutral-400 font-medium">Pick 1 Sauce</span>
+              <span className="text-xs font-bold text-amber-400 bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-800">
+                {maxSauces === 1 ? 'Pick 1 Sauce' : `Pick up to ${maxSauces} Sauces (${selectedSauces.length}/${maxSauces})`}
+              </span>
             </div>
             <p className="text-xs text-neutral-400 mb-3">
-              Tossed fresh in your choice of signature scratch-made island sauce or dry rub:
+              {maxSauces > 1 
+                ? `You can select up to ${maxSauces} different sauces for this order portion:`
+                : 'Tossed fresh in your choice of signature scratch-made island sauce or dry rub:'}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-64 overflow-y-auto pr-1">
               {wingSauces.map((sauce) => {
-                const isSelected = selectedSauce.id === sauce.id;
+                const isSelected = selectedSauces.some(s => s.id === sauce.id);
                 return (
                   <button
                     key={sauce.id}
                     type="button"
-                    onClick={() => setSelectedSauce(sauce)}
+                    onClick={() => handleToggleSauce(sauce)}
                     className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between gap-2 ${
                       isSelected
-                        ? 'bg-amber-950/50 border-amber-500 text-white shadow-md'
+                        ? 'bg-amber-950/60 border-amber-500 text-white shadow-md ring-1 ring-amber-500/50'
                         : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
                     }`}
                   >
