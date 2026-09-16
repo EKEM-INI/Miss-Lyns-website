@@ -1,13 +1,23 @@
 export const comboProteins = [
   {
     id: "jerk-chicken",
-    name: "2 Pcs Jerk Chicken",
+    name: "3 Pcs Jerk Chicken",
     price: 16.85,
     tagline: "Authentic slow-marinated Jamaican jerk (Combo #4)",
     image: "/images/dishes/0019.jpg",
     altImage: "/images/dishes/0039.jpg",
     description: "Tender chicken infused with Miss Lyn's house jerk marinade, pimento, and scotch bonnet peppers.",
     badge: "House Specialty"
+  },
+  {
+    id: "fried-chicken",
+    name: "3 Pcs Fried Chicken",
+    price: 16.85,
+    tagline: "Crispy Caribbean-spiced golden fried chicken",
+    image: "/images/dishes/fried-chicken.jpg",
+    altImage: "/images/dishes/fried-chicken.jpg",
+    description: "Crunchy golden fried chicken pieces seasoned with island spices and fried fresh to order.",
+    badge: "Crispy & Juicy"
   },
   {
     id: "wings-half-lb",
@@ -42,26 +52,42 @@ export const comboSides = {
 
 export const comboPremiumUpgrades = [
   {
-    id: "garlic-bread",
-    name: "Garlic Bread",
+    id: "mac-pie",
+    name: "Baked Mac Pie",
     price: 3.00,
     priceDisplay: "+$3.00",
-    image: "/images/dishes/garlic-bread.jpg",
-    description: "Buttery toasted Texas bread infused with garlic herbs."
+    image: "/images/dishes/mac-pie.jpg",
+    description: "Authentic Caribbean baked macaroni pie with melted cheddar crust."
+  },
+  {
+    id: "poutine",
+    name: "Classic Poutine",
+    price: 3.00,
+    priceDisplay: "+$3.00",
+    image: "/images/dishes/poutine.jpg",
+    description: "Crispy fries loaded with cheese curds and savory rich gravy."
+  },
+  {
+    id: "festival",
+    name: "Festival Dumplings",
+    price: 3.00,
+    priceDisplay: "+$3.00",
+    image: "/images/dishes/festivals.jpg",
+    description: "Sweet fried Jamaican cornmeal dumplings, crispy outside and soft inside."
   },
   {
     id: "onion-rings",
     name: "Crispy Onion Rings",
-    price: 3.60,
-    priceDisplay: "+$3.60",
+    price: 3.00,
+    priceDisplay: "+$3.00",
     image: "/images/dishes/0015.jpg",
     description: "Thick-cut sweet onion rings in golden crispy batter."
   },
   {
     id: "garlic-bread-cheese",
     name: "Garlic Bread with Cheese",
-    price: 3.60,
-    priceDisplay: "+$3.60",
+    price: 3.00,
+    priceDisplay: "+$3.00",
     image: "/images/dishes/0030.jpg",
     description: "Garlic Texas toast smothered in melted cheddar and mozzarella cheese."
   }

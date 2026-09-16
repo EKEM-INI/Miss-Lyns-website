@@ -1,10 +1,10 @@
 export const menuCategories = [
   { id: "family-meals", name: "Family Packs & Feasts", icon: "Users", count: 4 },
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
-  { id: "chicken", name: "Jerk Chicken", icon: "Utensils", count: 3 },
+  { id: "chicken", name: "Chicken & Proteins", icon: "Utensils", count: 4 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Regular Sides", icon: "Soup", count: 5 },
-  { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 2 },
+  { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 5 },
   { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
 ];
 
@@ -125,39 +125,50 @@ export const menuItems = [
     spiceLevel: 3
   },
 
-  // 4. JERK CHICKEN
+  // 3. CHICKEN & PROTEINS
   {
-    id: "jerk-chicken-2pc",
+    id: "jerk-chicken-3pc",
     categoryId: "chicken",
-    name: "2 Pcs Jerk Chicken (1 Sauce)",
-    price: 9.60,
-    priceDisplay: "$9.60",
-    description: "Tender jerk seasoned chicken pieces served with a side of sauce. Marinated in Jamaican pimento and scotch bonnet peppers.",
+    name: "3 Pcs Jerk Chicken",
+    price: 9.00,
+    priceDisplay: "$9.00",
+    description: "Tender jerk seasoned chicken pieces marinated in Jamaican pimento, scallions, and scotch bonnet peppers.",
     image: "/images/dishes/0019.jpg",
-    tags: ["Authentic Jerk"],
-    spiceLevel: 3
-  },
-  {
-    id: "jerk-chicken-4pc",
-    categoryId: "chicken",
-    name: "4 Pcs Jerk Chicken (2 Sauce)",
-    price: 18.00,
-    priceDisplay: "$18.00",
-    description: "Jerk seasoned chicken pieces served with two sauces. Basted in rich spicy house jerk glaze.",
-    image: "/images/dishes/0039.jpg",
     tags: ["Authentic Jerk"],
     spiceLevel: 3
   },
   {
     id: "jerk-chicken-6pc",
     categoryId: "chicken",
-    name: "6 Pcs Jerk Chicken (2 Sauce)",
-    price: 26.40,
-    priceDisplay: "$26.40",
-    description: "Jerk seasoned chicken pieces served with two sauces. Six succulent pieces perfect for sharing.",
+    name: "6 Pcs Jerk Chicken",
+    price: 16.00,
+    priceDisplay: "$16.00",
+    description: "Six succulent pieces of Jamaican jerk chicken basted in spicy house jerk glaze.",
     image: "/images/dishes/0040.jpg",
-    tags: ["Family Portion"],
+    tags: ["Authentic Jerk", "Family Portion"],
     spiceLevel: 3
+  },
+  {
+    id: "fried-chicken-3pc",
+    categoryId: "chicken",
+    name: "3 Pcs Fried Chicken",
+    price: 9.00,
+    priceDisplay: "$9.00",
+    description: "Crispy golden fried chicken pieces seasoned with Caribbean herbs and spices, fried fresh and crunchy.",
+    image: "/images/dishes/fried-chicken.jpg",
+    tags: ["Golden & Crispy", "Fresh Fried"],
+    spiceLevel: 1
+  },
+  {
+    id: "fried-chicken-6pc",
+    categoryId: "chicken",
+    name: "6 Pcs Fried Chicken",
+    price: 16.00,
+    priceDisplay: "$16.00",
+    description: "Six pieces of juicy, crunchy golden fried chicken seasoned in Caribbean island spices.",
+    image: "/images/dishes/fried-chicken.jpg",
+    tags: ["Golden & Crispy", "Family Portion"],
+    spiceLevel: 1
   },
 
   // 5. JAMAICAN PATTIES
@@ -269,13 +280,43 @@ export const menuItems = [
     tags: ["Cool Crunch"]
   },
 
-  // 7. PREMIUM SIDES
+  // 6. PREMIUM SIDES
+  {
+    id: "mac-pie",
+    categoryId: "premium-sides",
+    name: "Mac Pie",
+    price: 8.50,
+    priceDisplay: "$8.50",
+    description: "Authentic Caribbean baked macaroni pie layered with rich melted cheddar cheese baked golden brown.",
+    image: "/images/dishes/mac-pie.jpg",
+    tags: ["Baked Mac Pie", "Island Comfort"]
+  },
+  {
+    id: "poutine",
+    categoryId: "premium-sides",
+    name: "Poutine",
+    price: 8.50,
+    priceDisplay: "$8.50",
+    description: "Crispy golden french fries loaded with real cheese curds and smothered in rich savory hot gravy.",
+    image: "/images/dishes/poutine.jpg",
+    tags: ["Cheesy & Savory", "Canadian Classic"]
+  },
+  {
+    id: "festival",
+    categoryId: "premium-sides",
+    name: "Festival",
+    price: 8.50,
+    priceDisplay: "$8.50",
+    description: "Traditional Jamaican sweet fried cornmeal dumplings, golden and crispy on the outside and fluffy soft inside.",
+    image: "/images/dishes/festivals.jpg",
+    tags: ["Jamaican Sweet Dumplings", "Authentic Favorite"]
+  },
   {
     id: "onion-rings",
     categoryId: "premium-sides",
     name: "Onion Rings",
-    price: 9.60,
-    priceDisplay: "$9.60",
+    price: 8.50,
+    priceDisplay: "$8.50",
     description: "Crispy onion slices in a golden crunchy batter.",
     image: "/images/dishes/0015.jpg",
     tags: ["Premium Side"]
@@ -284,8 +325,8 @@ export const menuItems = [
     id: "garlic-bread-cheese",
     categoryId: "premium-sides",
     name: "Garlic Bread with Cheese",
-    price: 9.60,
-    priceDisplay: "$9.60",
+    price: 8.50,
+    priceDisplay: "$8.50",
     description: "Rich, buttery bread smothered in melted cheese and garlic herbs.",
     image: "/images/dishes/0030.jpg",
     tags: ["Melted Cheese"]

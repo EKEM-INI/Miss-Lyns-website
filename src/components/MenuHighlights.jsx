@@ -8,11 +8,11 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
 
   const highlightIds = [
     "fp2-wings",
-    "jerk-chicken-2pc",
+    "jerk-chicken-3pc",
+    "fried-chicken-3pc",
     "spicy-beef-patty",
-    "french-fries",
-    "garlic-bread-cheese",
-    "garlic-bread"
+    "mac-pie",
+    "french-fries"
   ];
 
   const highlightedItems = menuItems.filter(item => highlightIds.includes(item.id));
