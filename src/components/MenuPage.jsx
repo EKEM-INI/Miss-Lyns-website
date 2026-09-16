@@ -1,11 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { Flame, ShoppingBag, Search, ArrowLeft, Sparkles } from 'lucide-react';
 import { menuCategories, menuItems } from '../data/menuData';
+import WingCustomizationModal from './WingCustomizationModal';
 
 export default function MenuPage({ setCurrentView, openOrderingModal, addToCart }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItemDetail, setSelectedItemDetail] = useState(null);
+  const [wingCustomizingItem, setWingCustomizingItem] = useState(null);
 
   const filteredItems = useMemo(() => {
     return menuItems.filter(item => {
@@ -17,11 +19,27 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
     });
   }, [activeCategory, searchQuery]);
 
+  const isWingItem = (item) => {
+    return item.categoryId === 'wings' || item.id.includes('wing') || item.categoryId === 'family-meals';
+  };
+
   const handleItemOrder = (item) => {
+    if (isWingItem(item)) {
+      setWingCustomizingItem(item);
+      return;
+    }
+
     if (addToCart) {
       addToCart(item);
     }
     openOrderingModal('all', item);
+  };
+
+  const handleWingCustomizedConfirm = (customizedItem) => {
+    if (addToCart) {
+      addToCart(customizedItem);
+    }
+    openOrderingModal('all', customizedItem);
   };
 
   return (
@@ -259,6 +277,14 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
           </div>
         </div>
       )}
+
+      {/* Wing Sauce & Style Customization Modal */}
+      <WingCustomizationModal
+        isOpen={Boolean(wingCustomizingItem)}
+        onClose={() => setWingCustomizingItem(null)}
+        wingItem={wingCustomizingItem}
+        onConfirm={handleWingCustomizedConfirm}
+      />
 
     </div>
   );
