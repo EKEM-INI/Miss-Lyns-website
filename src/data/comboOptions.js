@@ -42,14 +42,6 @@ export const comboSides = {
 
 export const comboPremiumUpgrades = [
   {
-    id: "garlic-bread",
-    name: "Garlic Bread",
-    price: 3.00,
-    priceDisplay: "+$3.00",
-    image: "/images/dishes/garlic-bread.jpg",
-    description: "Buttery toasted Texas bread infused with garlic herbs."
-  },
-  {
     id: "onion-rings",
     name: "Crispy Onion Rings",
     price: 3.60,
