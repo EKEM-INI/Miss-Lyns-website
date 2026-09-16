@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Flame, Sparkles, ShoppingBag } from 'lucide-react';
 import { menuItems } from '../data/menuData';
-import WingCustomizationModal from './WingCustomizationModal';
+import WingCustomizationModal, { isWingCustomizableItem } from './WingCustomizationModal';
 
 export default function MenuHighlights({ setCurrentView, openOrderingModal, addToCart }) {
   const [wingCustomizingItem, setWingCustomizingItem] = useState(null);
@@ -18,7 +18,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   const highlightedItems = menuItems.filter(item => highlightIds.includes(item.id));
 
   const handleQuickAdd = (item) => {
-    if (item.categoryId === 'wings' || item.id.includes('wing') || item.categoryId === 'family-meals') {
+    if (isWingCustomizableItem(item)) {
       setWingCustomizingItem(item);
       return;
     }

@@ -16,7 +16,7 @@ export const menuItems = [
     name: "Fp2 - 2 Lbs Wings (1 Sauce)",
     price: 46.80,
     priceDisplay: "$46.80",
-    description: "2 medium sides, 2 pop, 2 sauce max per order. Plump crispy wings cooked fresh.",
+    description: "2 medium sides, 2 pop, 1 sauce max per order. Plump crispy wings cooked fresh.",
     image: "/images/dishes/0053.jpg",
     tags: ["Family Size", "Includes 2 Sides & 2 Drinks"],
     spiceLevel: 2
@@ -24,10 +24,10 @@ export const menuItems = [
   {
     id: "fp3-wings",
     categoryId: "family-meals",
-    name: "Fp3 - 3 Lbs Wings (1 Sauce)",
+    name: "Fp3 - 3 Lbs Wings (2 Sauces)",
     price: 69.60,
     priceDisplay: "$69.60",
-    description: "3 medium sides, 3 pop, 3 sauce max per order. Plump crispy wings tossed in your favourite sauce.",
+    description: "3 medium sides, 3 pop, 2 sauce max per order. Plump crispy wings tossed in your favourite sauce.",
     image: "/images/dishes/0053.jpg",
     tags: ["Family Size", "Includes 3 Sides & 3 Drinks"],
     spiceLevel: 2
@@ -35,10 +35,10 @@ export const menuItems = [
   {
     id: "fp5-wings",
     categoryId: "family-meals",
-    name: "Fp5 - 5 Lbs Wings (1 Sauce)",
+    name: "Fp5 - 5 Lbs Wings (3 Sauces)",
     price: 114.60,
     priceDisplay: "$114.60",
-    description: "5 medium sides, 5 pop, 5 sauce max per order. Jumbo party portion for groups and families.",
+    description: "5 medium sides, 5 pop, 3 sauce max per order. Jumbo party portion for groups and families.",
     image: "/images/dishes/0053.jpg",
     tags: ["Mega Pack", "Includes 5 Sides & 5 Drinks"],
     spiceLevel: 2

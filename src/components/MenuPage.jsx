@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Flame, ShoppingBag, Search, ArrowLeft, Sparkles } from 'lucide-react';
 import { menuCategories, menuItems } from '../data/menuData';
-import WingCustomizationModal from './WingCustomizationModal';
+import WingCustomizationModal, { isWingCustomizableItem } from './WingCustomizationModal';
 
 export default function MenuPage({ setCurrentView, openOrderingModal, addToCart }) {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -19,12 +19,8 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
     });
   }, [activeCategory, searchQuery]);
 
-  const isWingItem = (item) => {
-    return item.categoryId === 'wings' || item.id.includes('wing') || item.categoryId === 'family-meals';
-  };
-
   const handleItemOrder = (item) => {
-    if (isWingItem(item)) {
+    if (isWingCustomizableItem(item)) {
       setWingCustomizingItem(item);
       return;
     }

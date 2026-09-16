@@ -7,13 +7,29 @@ export const getMaxSaucesForItem = (item) => {
   const id = (item.id || '').toLowerCase();
   const name = (item.name || '').toLowerCase();
   
-  if (id.includes('fp5') || name.includes('5 lb') || name.includes('5 pound')) {
+  if (id.includes('fp5') || name.includes('5 lb') || name.includes('5 pound') || name.includes('5 lbs')) {
     return 3;
   }
-  if (id.includes('fp3') || name.includes('3 lb') || name.includes('3 pound') || id.includes('family-feast') || name.includes('family feast')) {
+  if (id.includes('fp3') || name.includes('3 lb') || name.includes('3 pound') || name.includes('3 lbs') || id.includes('family-feast') || name.includes('family feast')) {
     return 2;
   }
   return 1;
+};
+
+export const isWingCustomizableItem = (item) => {
+  if (!item) return false;
+  const id = (item.id || '').toLowerCase();
+  const name = (item.name || '').toLowerCase();
+  const cat = (item.categoryId || '').toLowerCase();
+
+  return (
+    cat === 'wings' ||
+    cat === 'family-meals' ||
+    id.includes('wing') ||
+    name.includes('wing') ||
+    id.startsWith('fp') ||
+    ['combo-1', 'combo-2', 'combo-3', 'combo-6'].includes(id)
+  );
 };
 
 export default function WingCustomizationModal({
