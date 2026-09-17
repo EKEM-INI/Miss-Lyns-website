@@ -129,10 +129,10 @@ export const menuItems = [
   {
     id: "jerk-chicken-3pc",
     categoryId: "chicken",
-    name: "3 Pcs Jerk Chicken",
+    name: "3 Pcs Jerk Chicken (1 Sauce)",
     price: 9.00,
     priceDisplay: "$9.00",
-    description: "Tender jerk seasoned chicken pieces marinated in Jamaican pimento, scallions, and scotch bonnet peppers.",
+    description: "1 sauce per order. Tender jerk seasoned chicken pieces marinated in Jamaican pimento, scallions, and scotch bonnet peppers.",
     image: "/images/dishes/0019.jpg",
     tags: ["Authentic Jerk"],
     spiceLevel: 3
@@ -140,10 +140,10 @@ export const menuItems = [
   {
     id: "jerk-chicken-6pc",
     categoryId: "chicken",
-    name: "6 Pcs Jerk Chicken",
+    name: "6 Pcs Jerk Chicken (2 Sauces)",
     price: 16.00,
     priceDisplay: "$16.00",
-    description: "Six succulent pieces of Jamaican jerk chicken basted in spicy house jerk glaze.",
+    description: "2 sauces per order. Six succulent pieces of Jamaican jerk chicken basted in spicy house jerk glaze.",
     image: "/images/dishes/0040.jpg",
     tags: ["Authentic Jerk", "Family Portion"],
     spiceLevel: 3
@@ -151,10 +151,10 @@ export const menuItems = [
   {
     id: "fried-chicken-3pc",
     categoryId: "chicken",
-    name: "3 Pcs Fried Chicken",
+    name: "3 Pcs Fried Chicken (1 Sauce)",
     price: 9.00,
     priceDisplay: "$9.00",
-    description: "Crispy golden fried chicken pieces seasoned with Caribbean herbs and spices, fried fresh and crunchy.",
+    description: "1 sauce per order. Crispy golden fried chicken pieces seasoned with Caribbean herbs and spices, fried fresh and crunchy.",
     image: "/images/dishes/fried-chicken.jpg",
     tags: ["Golden & Crispy", "Fresh Fried"],
     spiceLevel: 1
@@ -162,10 +162,10 @@ export const menuItems = [
   {
     id: "fried-chicken-6pc",
     categoryId: "chicken",
-    name: "6 Pcs Fried Chicken",
+    name: "6 Pcs Fried Chicken (2 Sauces)",
     price: 16.00,
     priceDisplay: "$16.00",
-    description: "Six pieces of juicy, crunchy golden fried chicken seasoned in Caribbean island spices.",
+    description: "2 sauces per order. Six pieces of juicy, crunchy golden fried chicken seasoned in Caribbean island spices.",
     image: "/images/dishes/fried-chicken.jpg",
     tags: ["Golden & Crispy", "Family Portion"],
     spiceLevel: 1

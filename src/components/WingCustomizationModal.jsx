@@ -12,6 +12,11 @@ export const getMaxSaucesForItem = (item) => {
     return 5;
   }
 
+  // FP5: 5 Lbs Wings: 3 sauces
+  if (id === 'fp5-wings' || id.includes('fp5') || /(^|[^\d.])5\s*(lb|lbs|pound|pounds)\b/i.test(name)) {
+    return 3;
+  }
+
   // Combo 3 (1.5 Lbs Wings): 2 sauces
   if (
     id === 'combo-3' ||
@@ -35,11 +40,16 @@ export const getMaxSaucesForItem = (item) => {
     return 2;
   }
 
-  // FP5: 5 Lbs Wings: 3 sauces
-  if (id === 'fp5-wings' || id.includes('fp5') || /(^|[^\d.])5\s*(lb|lbs|pound|pounds)\b/i.test(name)) {
-    return 3;
+  // 6 Pcs Jerk Chicken & 6 Pcs Fried Chicken: 2 sauces
+  if (
+    id === 'jerk-chicken-6pc' ||
+    id === 'fried-chicken-6pc' ||
+    (id.includes('6pc') || name.includes('6 pcs') || name.includes('6 pc'))
+  ) {
+    return 2;
   }
 
+  // 3 Pcs Jerk Chicken & 3 Pcs Fried Chicken & Combo 1, 2, 4, 5, FP2: 1 sauce
   return 1;
 };
 
@@ -52,10 +62,16 @@ export const isWingCustomizableItem = (item) => {
   return (
     cat === 'wings' ||
     cat === 'family-meals' ||
+    cat === 'chicken' ||
+    cat === 'combos' ||
     id.includes('wing') ||
     name.includes('wing') ||
+    id.includes('jerk') ||
+    name.includes('jerk') ||
+    id.includes('fried') ||
+    name.includes('fried') ||
     id.startsWith('fp') ||
-    ['combo-1', 'combo-2', 'combo-3', 'combo-6'].includes(id)
+    ['combo-1', 'combo-2', 'combo-3', 'combo-4', 'combo-5', 'combo-6'].includes(id)
   );
 };
 
@@ -69,6 +85,13 @@ export default function WingCustomizationModal({
   const [selectedStyle, setSelectedStyle] = useState(wingStyles[0]); // default: Breaded
   const [selectedSauces, setSelectedSauces] = useState([wingSauces[6]]); // default: Honey Garlic
   const [quantity, setQuantity] = useState(1);
+
+  const isWing = wingItem && (
+    (wingItem.name || '').toLowerCase().includes('wing') ||
+    (wingItem.id || '').toLowerCase().includes('wing') ||
+    (wingItem.id || '').toLowerCase().startsWith('fp') ||
+    ['combo-1', 'combo-2', 'combo-3', 'combo-6'].includes((wingItem.id || '').toLowerCase())
+  );
 
   // Reset or update selections when item opens
   useEffect(() => {
@@ -112,7 +135,7 @@ export default function WingCustomizationModal({
       price: wingItem.price,
       details: {
         ...(wingItem.details || {}),
-        style: selectedStyle.name,
+        ...(isWing ? { style: selectedStyle.name } : {}),
         sauce: sauceNames,
         saucesList: selectedSauces.map(s => s.name)
       }
@@ -146,7 +169,7 @@ export default function WingCustomizationModal({
           <div className="flex-1 pr-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-[#ff481f] text-[10px] font-bold uppercase tracking-wider border border-red-900 mb-1">
               <Sparkles className="w-3 h-3 text-yellow-400" />
-              <span>Wing Sauce & Style Selection</span>
+              <span>{isWing ? 'Wing Sauce & Style Selection' : 'Sauce Selection'}</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
               {wingItem.name}
@@ -162,52 +185,54 @@ export default function WingCustomizationModal({
 
         <div className="space-y-6 pt-4">
           
-          {/* SECTION 1: PREPARATION STYLE */}
-          <div>
-            <div className="flex items-center justify-between mb-2.5">
-              <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white">
-                1. CHOOSE WING STYLE
-              </h4>
-              <span className="text-xs text-neutral-400 font-medium">Required</span>
+          {/* SECTION 1: PREPARATION STYLE (Only for wings) */}
+          {isWing && (
+            <div>
+              <div className="flex items-center justify-between mb-2.5">
+                <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white">
+                  1. CHOOSE WING STYLE
+                </h4>
+                <span className="text-xs text-neutral-400 font-medium">Required</span>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {wingStyles.map((style) => {
+                  const isSelected = selectedStyle.id === style.id;
+                  return (
+                    <button
+                      key={style.id}
+                      type="button"
+                      onClick={() => setSelectedStyle(style)}
+                      className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between ${
+                        isSelected
+                          ? 'bg-red-950/40 border-[#e02e07] text-white shadow-md'
+                          : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                      }`}
+                    >
+                      <div>
+                        <div className="font-heading text-base font-bold uppercase text-white">
+                          {style.name}
+                        </div>
+                        <div className="text-[11px] text-neutral-400">
+                          {style.description}
+                        </div>
+                      </div>
+                      {isSelected && (
+                        <div className="w-5 h-5 rounded-full bg-[#e02e07] text-white flex items-center justify-center shrink-0">
+                          <Check className="w-3.5 h-3.5" />
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              {wingStyles.map((style) => {
-                const isSelected = selectedStyle.id === style.id;
-                return (
-                  <button
-                    key={style.id}
-                    type="button"
-                    onClick={() => setSelectedStyle(style)}
-                    className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between ${
-                      isSelected
-                        ? 'bg-red-950/40 border-[#e02e07] text-white shadow-md'
-                        : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
-                    }`}
-                  >
-                    <div>
-                      <div className="font-heading text-base font-bold uppercase text-white">
-                        {style.name}
-                      </div>
-                      <div className="text-[11px] text-neutral-400">
-                        {style.description}
-                      </div>
-                    </div>
-                    {isSelected && (
-                      <div className="w-5 h-5 rounded-full bg-[#e02e07] text-white flex items-center justify-center shrink-0">
-                        <Check className="w-3.5 h-3.5" />
-                      </div>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          )}
 
           {/* SECTION 2: SAUCE SELECTION (13 Store Sauces) */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
-                <span>2. SELECT YOUR SAUCE{maxSauces > 1 ? 'S' : ''}</span>
+                <span>{isWing ? '2. ' : ''}SELECT YOUR SAUCE{maxSauces > 1 ? 'S' : ''}</span>
                 <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
               </h4>
               <span className="text-xs font-bold text-amber-400 bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-800">

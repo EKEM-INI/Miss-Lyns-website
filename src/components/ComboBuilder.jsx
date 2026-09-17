@@ -177,7 +177,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           </p>
         </div>
 
-        {/* LIVE COMBO PREVIEW TRAY (Black Theme) */}
+        {/* LIVE COMBO PREVIEW TRAY (Top) */}
         {renderPreviewTray(false)}
 
 
@@ -344,7 +344,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {comboSides.standard.map((side) => {
                 const isSelected = selectedSide.id === side.id;
                 return (
@@ -393,7 +393,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           </div>
 
 
-          {/* STEP 3: DRINKS & PREMIUM UPGRADES (Garlic Bread, Fries, Onion Rings) */}
+          {/* STEP 3: DRINKS & PREMIUM UPGRADES */}
           <div className="space-y-6 pt-4">
             <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
               <div className="w-8 h-8 rounded-full bg-[#10b981] text-white font-heading text-lg font-bold flex items-center justify-center">
@@ -451,7 +451,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               </div>
             </div>
 
-            {/* PART 2: PREMIUM UPGRADES (Garlic Bread, Fries, Onion Rings) */}
+            {/* PART 2: PREMIUM UPGRADES */}
             <div className="pt-2">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-black uppercase tracking-widest text-[#fbbf24] flex items-center gap-1.5">

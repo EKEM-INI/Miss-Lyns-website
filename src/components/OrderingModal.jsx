@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Phone, ShoppingBag, ExternalLink, MapPin, Clock, Sparkles, Check, Copy, Plus, Minus, Trash2, ArrowRight } from 'lucide-react';
+import { X, Phone, ShoppingBag, ExternalLink, MapPin, Clock, Sparkles, Check, Copy, Plus, Minus, Trash2, ArrowRight, MessageSquare } from 'lucide-react';
 import { restaurantInfo } from '../data/restaurantInfo';
 
 export default function OrderingModal({ 
@@ -38,8 +38,12 @@ export default function OrderingModal({
   const tax = subtotal * 0.13;
   const total = subtotal + tax;
 
-  // Generate clean order text summary for delivery app notes or phone call
+  // Generate clean order text summary for SMS or copying
   const generateOrderSummaryText = () => {
+    if (activeItems.length === 0) {
+      return `Hi Miss Lyn's Wings, I would like to place a pickup order at 677 King Street East.`;
+    }
+
     let summary = `🍗 MISS LYN'S WINGS ORDER\n`;
     summary += `---------------------------\n`;
     summary += `Order Type: ${activeTab === 'pickup' ? 'PICKUP' : 'DELIVERY'}\n`;
@@ -61,6 +65,7 @@ export default function OrderingModal({
     summary += `Subtotal: $${subtotal.toFixed(2)}\n`;
     summary += `HST (13%): $${tax.toFixed(2)}\n`;
     summary += `Estimated Total: $${total.toFixed(2)}\n`;
+    summary += `\nPickup Location: 677 King Street East, Hamilton\n`;
     return summary;
   };
 
@@ -296,29 +301,37 @@ export default function OrderingModal({
         {activeTab === 'pickup' && (
           <div className="space-y-4 animate-fadeIn text-left">
             
-            {/* Primary Call-in Action Card */}
+            {/* Primary Call & Text Action Card */}
             <div className="p-6 rounded-3xl bg-neutral-950 text-white space-y-4 shadow-xl border border-neutral-800">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-yellow-400">
                 <Phone className="w-4 h-4" />
-                <span>Call Store Ahead for Fast Pickup</span>
+                <span>Call or Text Store for Fast Pickup</span>
               </div>
               
               <div>
                 <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
-                  CALL (905) 522-5967
+                  (905) 522-5967
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-300 mt-1">
-                  Call our kitchen directly to place your order. Everything is prepared hot, fresh, and ready when you arrive.
+                  Call or send an SMS text message to our kitchen directly to place your pickup order. When texting, your order summary is pre-filled automatically!
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
                   href="tel:9055225967"
-                  className="flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-gray-950 font-heading text-lg font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2.5 transition-all"
+                  className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-gray-950 font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call (905) 522-5967</span>
+                </a>
+
+                <a
+                  href={`sms:+19055225967?&body=${encodeURIComponent(generateOrderSummaryText())}`}
+                  className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
+                >
+                  <MessageSquare className="w-5 h-5" />
+                  <span>Text Order (SMS)</span>
                 </a>
               </div>
             </div>

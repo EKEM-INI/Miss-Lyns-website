@@ -35,10 +35,31 @@ export const comboSides = {
   standard: [
     {
       id: "fries",
-      name: "Crispy Fries",
+      name: "Fries",
       type: "standard",
       image: "/images/dishes/0021.jpg",
       description: "Crispy golden cut potato fries served hot and seasoned to perfection."
+    },
+    {
+      id: "mac-salad",
+      name: "Mac Salad",
+      type: "standard",
+      image: "/images/dishes/macaroni-salad.jpg",
+      description: "Creamy elbow macaroni salad with diced bell peppers and carrots in our signature island dressing."
+    },
+    {
+      id: "garlic-bread",
+      name: "Garlic Bread",
+      type: "standard",
+      image: "/images/dishes/garlic-bread.jpg",
+      description: "Buttery toasted Texas bread infused with garlic herbs and toasted golden."
+    },
+    {
+      id: "coleslaw",
+      name: "Coleslaw",
+      type: "standard",
+      image: "/images/dishes/coleslaw.jpg",
+      description: "Crisp shredded green and red cabbage and carrots tossed in tangy Caribbean dressing."
     },
     {
       id: "veggie-and-dip",
