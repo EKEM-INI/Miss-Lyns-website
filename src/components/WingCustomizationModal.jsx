@@ -8,16 +8,24 @@ export const getIncludedSaucesForItem = (item) => {
   const name = (item.name || '').toLowerCase();
   const id = (item.id || '').toLowerCase();
   
-  // Specific item ID matches
+  // Combo 3 (3 - 1.5 Lbs Wings Combo): Strictly 2 free sauces
+  if (id === 'combo-3' || id.includes('combo-3') || name.includes('1.5 lbs') || name.includes('1.5 lb') || name.startsWith('3 - 1.5')) {
+    return 2;
+  }
+
+  // Combo 6: 5 sauces included
   if (id === 'combo-6' || name.includes('combo 6') || name.includes('5 sauces') || desc.includes('5 sauce')) {
     return 5;
   }
-  if (id === 'fp5-wings' || name.includes('fp5') || name.includes('5 lbs') || desc.includes('3 sauce')) {
+
+  // FP5: 5 Lbs Wings: 3 sauces included
+  if (id === 'fp5-wings' || id.includes('fp5') || name.includes('5 lbs') || (desc.includes('3 sauce') && !name.includes('1.5'))) {
     return 3;
   }
+
+  // FP3, 6 Pcs Jerk/Fried: 2 sauces included
   if (
     id === 'fp3-wings' ||
-    id === 'combo-3' ||
     id === 'jerk-chicken-6pc' ||
     id === 'fried-chicken-6pc' ||
     name.includes('2 sauces') ||
@@ -25,13 +33,13 @@ export const getIncludedSaucesForItem = (item) => {
   ) {
     return 2;
   }
+
   if (id === 'family-feast-bundle' || name.includes('family feast')) {
     return 2;
   }
 
   // Regex extraction from description or name (e.g. "1 sauce", "2 sauces", "3 sauces", "5 sauces")
-  const text = `${name} ${desc}`;
-  const match = text.match(/(\d+)\s*sauce/i);
+  const match = (desc + ' ' + name).match(/(\d+)\s*sauce/i);
   if (match && match[1]) {
     const num = parseInt(match[1], 10);
     if (!isNaN(num) && num > 0) {
@@ -40,9 +48,9 @@ export const getIncludedSaucesForItem = (item) => {
   }
 
   // Wing size & piece counts fallback:
-  if (/(^|[^\d.])5\s*(lb|lbs)/i.test(text)) return 3;
-  if (/(^|[^\d.])3\s*(lb|lbs)/i.test(text) || /(^|[^\d.])1\.5\s*(lb|lbs)/i.test(text) || /(^|[^\d.])6\s*(pc|pcs)/i.test(text)) return 2;
-  if (/(^|[^\d.])2\s*(lb|lbs)/i.test(text) || /(^|[^\d.])1\s*(lb|lbs)/i.test(text) || /(^|[^\d.])0\.5\s*(lb|lbs)/i.test(text) || /(^|[^\d.])half\s*pound/i.test(text) || /(^|[^\d.])3\s*(pc|pcs)/i.test(text)) return 1;
+  if (/(^|[^\d.])5\s*(lb|lbs)/i.test(name)) return 3;
+  if (/(^|[^\d.])3\s*(lb|lbs)/i.test(name) || /(^|[^\d.])1\.5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])6\s*(pc|pcs)/i.test(name)) return 2;
+  if (/(^|[^\d.])2\s*(lb|lbs)/i.test(name) || /(^|[^\d.])1\s*(lb|lbs)/i.test(name) || /(^|[^\d.])0\.5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])half\s*pound/i.test(name) || /(^|[^\d.])3\s*(pc|pcs)/i.test(name)) return 1;
 
   return 1;
 };
