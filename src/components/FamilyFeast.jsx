@@ -1,20 +1,43 @@
 import React, { useState } from 'react';
 import { Users, Sparkles, Check, Flame, ShoppingBag } from 'lucide-react';
+import { wingSauces } from '../data/saucesData';
 
 export default function FamilyFeast({ openOrderingModal, addToCart }) {
   const [selectedProteins, setSelectedProteins] = useState(["Wings", "Jerk Chicken"]);
   const [selectedSides, setSelectedSides] = useState(["Crispy French Fries", "Fresh Veggie and Dip", "Toasted Garlic Bread"]);
+  const [selectedSauces, setSelectedSauces] = useState([wingSauces[6], wingSauces[8]]); // Honey Garlic, Jerk (2 included)
+
+  const extraSaucesCount = Math.max(0, selectedSauces.length - 2);
+  const extraSaucesCost = extraSaucesCount * 1.25;
+  const totalPrice = (49.99 + extraSaucesCost).toFixed(2);
+
+  const handleToggleSauce = (sauce) => {
+    const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
+    if (alreadySelected) {
+      if (selectedSauces.length > 1) {
+        setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
+      }
+    } else {
+      setSelectedSauces([...selectedSauces, sauce]);
+    }
+  };
 
   const handleOrderFeast = () => {
+    const sauceNames = selectedSauces.map(s => s.name).join(', ');
+    const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra Sauces: +$${extraSaucesCost.toFixed(2)})` : '';
     const feastItem = {
       id: `family-feast-${Date.now()}`,
       name: "Family Feast Promotional Bundle",
-      price: 49.99,
-      priceDisplay: "$49.99",
+      price: parseFloat(totalPrice),
+      priceDisplay: `$${totalPrice}`,
       image: "/images/dishes/0053.jpg",
       details: {
         proteins: selectedProteins,
-        sides: selectedSides
+        sides: selectedSides,
+        sauce: `${sauceNames}${extraSauceText}`,
+        saucesList: selectedSauces.map(s => s.name),
+        extraSaucesCount,
+        extraSaucesCost
       }
     };
     if (addToCart) {
@@ -50,7 +73,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
 
           <p className="text-base sm:text-lg text-neutral-400">
             Feed the entire family with Hamilton’s most generous Caribbean bundle. 
-            <span className="font-bold text-white"> Proteins + 3 Comfort Sides</span> made fresh to order!
+            <span className="font-bold text-white"> 2 Proteins + 3 Comfort Sides + 2 Included Sauces</span> made fresh to order!
           </p>
         </div>
 
@@ -64,7 +87,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 COMPLETE BUNDLE
               </div>
               <div className="font-heading text-3xl sm:text-5xl font-black text-white leading-none pt-1">
-                $49.99
+                ${totalPrice}
                 <span className="text-xs sm:text-sm font-sans font-bold text-gray-200 ml-1">+tax</span>
               </div>
             </div>
@@ -179,6 +202,98 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
 
           </div>
 
+          {/* STEP 3: SAUCE SELECTION (2 Included Free + Extra at $1.25) */}
+          <div className="mb-8 p-6 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-lg space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-800 pb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#10b981] text-white font-heading text-lg font-bold flex items-center justify-center">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-heading text-xl sm:text-2xl font-black uppercase text-white leading-tight">
+                    STEP 3 — CHOOSE YOUR SAUCES
+                  </h4>
+                  <p className="text-xs text-neutral-400">
+                    2 Sauces included with the feast. Pick any extra sauces for <strong className="text-amber-400 font-bold">+$1.25 each</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
+                extraSaucesCount > 0 
+                  ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
+                  : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+              }`}>
+                {extraSaucesCount > 0 
+                  ? `2 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 
+                  : '2 Sauces Included (Free)'}
+              </span>
+            </div>
+
+            {/* 13 Sauces Selection Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 max-h-56 overflow-y-auto pr-1">
+              {wingSauces.map((sauce) => {
+                const isSelected = selectedSauces.some(s => s.id === sauce.id);
+                const selectedIndex = selectedSauces.findIndex(s => s.id === sauce.id);
+                const isExtra = isSelected && selectedIndex >= 2;
+                const willBeExtra = !isSelected && selectedSauces.length >= 2;
+
+                return (
+                  <button
+                    key={sauce.id}
+                    type="button"
+                    onClick={() => handleToggleSauce(sauce)}
+                    className={`p-2.5 rounded-xl text-left border transition-all flex flex-col justify-between ${
+                      isSelected
+                        ? isExtra
+                          ? 'bg-amber-950/70 border-amber-400 text-white shadow ring-1 ring-amber-400/50'
+                          : 'bg-red-950/70 border-[#e02e07] text-white shadow ring-1 ring-[#e02e07]/50'
+                        : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-1">
+                        <span className={`font-heading text-sm font-bold uppercase ${
+                          isSelected ? (isExtra ? 'text-amber-400' : 'text-[#ff481f]') : 'text-white'
+                        }`}>
+                          {sauce.name}
+                        </span>
+                        {sauce.spiceLevel > 0 && (
+                          <span className="text-[9px]">{'🌶️'.repeat(sauce.spiceLevel)}</span>
+                        )}
+                      </div>
+                      <span className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                        {sauce.tag}
+                      </span>
+                    </div>
+
+                    <div className="mt-2 flex items-center justify-between">
+                      {isSelected ? (
+                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
+                          isExtra ? 'bg-amber-400/20 text-amber-300 border border-amber-500/50' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                        }`}>
+                          {isExtra ? '+$1.25' : 'Included'}
+                        </span>
+                      ) : (
+                        <span className="text-[9px] text-neutral-500">
+                          {willBeExtra ? '+$1.25' : 'Included'}
+                        </span>
+                      )}
+
+                      {isSelected && (
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
+                          isExtra ? 'bg-amber-400 text-gray-950' : 'bg-[#e02e07] text-white'
+                        }`}>
+                          <Check className="w-3 h-3 stroke-[3]" />
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Big Action Bar */}
           <div className="pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
             <div className="space-y-1">
@@ -200,7 +315,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               className="w-full sm:w-auto px-10 py-5 rounded-2xl font-heading text-2xl font-black uppercase tracking-wider bg-gradient-to-r from-[#e52516] via-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-xl shadow-[#e52516]/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 animate-pulse-subtle"
             >
               <ShoppingBag className="w-6 h-6" />
-              <span>GET THE FAMILY FEAST ($49.99)</span>
+              <span>GET THE FAMILY FEAST (${totalPrice})</span>
             </button>
           </div>
 

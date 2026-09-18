@@ -1,13 +1,13 @@
 export const comboProteins = [
   {
-    id: "jerk-chicken",
-    name: "3 Pcs Jerk Chicken",
-    price: 16.85,
-    tagline: "Authentic slow-marinated Jamaican jerk (Combo #4)",
-    image: "/images/dishes/0019.jpg",
-    altImage: "/images/dishes/0039.jpg",
-    description: "Tender chicken infused with Miss Lyn's house jerk marinade, pimento, and scotch bonnet peppers.",
-    badge: "House Specialty"
+    id: "wings-half-lb",
+    name: "Half Pound Wings",
+    price: 17.10,
+    tagline: "Crispy or sauced in your favorite flavour (Combo #1)",
+    image: "/images/dishes/0053.jpg",
+    altImage: "/images/dishes/0053.jpg",
+    description: "Plump, juicy wings seasoned with Caribbean spices and fried to golden crisp perfection.",
+    badge: "Most Popular"
   },
   {
     id: "fried-chicken",
@@ -20,14 +20,14 @@ export const comboProteins = [
     badge: "Crispy & Juicy"
   },
   {
-    id: "wings-half-lb",
-    name: "Half Pound Wings",
-    price: 17.10,
-    tagline: "Crispy or sauced in your favorite flavour (Combo #1)",
-    image: "/images/dishes/0053.jpg",
-    altImage: "/images/dishes/0053.jpg",
-    description: "Plump, juicy wings seasoned with Caribbean spices and fried to golden crisp perfection.",
-    badge: "Most Popular"
+    id: "jerk-chicken",
+    name: "3 Pcs Jerk Chicken",
+    price: 16.85,
+    tagline: "Authentic slow-marinated Jamaican jerk (Combo #4)",
+    image: "/images/dishes/0019.jpg",
+    altImage: "/images/dishes/0039.jpg",
+    description: "Tender chicken infused with Miss Lyn's house jerk marinade, pimento, and scotch bonnet peppers.",
+    badge: "House Specialty"
   }
 ];
 

@@ -55,7 +55,9 @@ export default function OrderingModal({
       if (item.details) {
         if (item.details.style) summary += `   • Style: ${item.details.style}\n`;
         if (item.details.sauce) summary += `   • Sauce: ${item.details.sauce}\n`;
+        if (item.details.proteins) summary += `   • Proteins: ${Array.isArray(item.details.proteins) ? item.details.proteins.join(', ') : item.details.proteins}\n`;
         if (item.details.protein) summary += `   • Protein: ${item.details.protein}\n`;
+        if (item.details.sides) summary += `   • Sides: ${Array.isArray(item.details.sides) ? item.details.sides.join(', ') : item.details.sides}\n`;
         if (item.details.side) summary += `   • Side: ${item.details.side}\n`;
         if (item.details.drink) summary += `   • Drink: ${item.details.drink}\n`;
       }
@@ -441,7 +443,9 @@ export default function OrderingModal({
                             <p className="text-[10px] text-neutral-400 leading-tight truncate">
                               {item.details.sauce && <strong className="text-amber-400 font-bold">{item.details.sauce} • </strong>}
                               {item.details.style && `${item.details.style} • `}
+                              {item.details.proteins && `${Array.isArray(item.details.proteins) ? item.details.proteins.join(', ') : item.details.proteins} • `}
                               {item.details.protein && `${item.details.protein} • `}
+                              {item.details.sides && `${Array.isArray(item.details.sides) ? item.details.sides.join(', ') : item.details.sides} • `}
                               {item.details.side && `${item.details.side} • `}
                               {item.details.drink && `${item.details.drink}`}
                             </p>

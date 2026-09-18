@@ -2,56 +2,53 @@ import React, { useState, useEffect } from 'react';
 import { X, Flame, Check, Sparkles, ShoppingBag, Plus, Minus } from 'lucide-react';
 import { wingSauces, wingStyles } from '../data/saucesData';
 
-export const getMaxSaucesForItem = (item) => {
-  if (!item) return 1;
+export const getIncludedSaucesForItem = (item) => {
+  if (!item) return 2;
   const id = (item.id || '').toLowerCase();
   const name = (item.name || '').toLowerCase();
+  const cat = (item.categoryId || '').toLowerCase();
   
-  // Combo 6: 5 sauces
+  // Combo 6: 5 sauces included
   if (id === 'combo-6' || name.includes('combo 6') || name.includes('6 - half pound')) {
     return 5;
   }
 
-  // FP5: 5 Lbs Wings: 3 sauces
-  if (id === 'fp5-wings' || id.includes('fp5') || /(^|[^\d.])5\s*(lb|lbs|pound|pounds)\b/i.test(name)) {
+  // FP5: 5 Lbs Wings: 3 sauces included
+  if (id === 'fp5-wings' || id.includes('fp5') || /(^|[^\d.])5\s*(lb|lbs|pound|pounds)/i.test(name)) {
     return 3;
   }
 
-  // Combo 3 (1.5 Lbs Wings): 2 sauces
+  // Combos, Family Meals, Family Feast, 1.5 Lbs Wings, 3 Lbs Wings, 6 Pcs Chicken: 2 sauces included
   if (
+    cat === 'combos' ||
+    cat === 'family-meals' ||
+    id.includes('combo') ||
+    id.includes('fp') ||
+    id.includes('family') ||
+    name.includes('combo') ||
+    name.includes('family') ||
+    name.includes('feast') ||
     id === 'combo-3' ||
-    name.includes('combo-3') ||
-    name.includes('combo 3') ||
-    name.includes('1.5 lb') ||
-    name.includes('1.5 lbs') ||
-    name.includes('1.5 pound')
-  ) {
-    return 2;
-  }
-
-  // FP3 (3 Lbs Wings) & Family Feast: 2 sauces
-  if (
     id === 'fp3-wings' ||
-    id.includes('fp3') ||
-    id.includes('family-feast') ||
-    name.includes('family feast') ||
-    /(^|[^\d.])3\s*(lb|lbs|pound|pounds)\b/i.test(name)
-  ) {
-    return 2;
-  }
-
-  // 6 Pcs Jerk Chicken & 6 Pcs Fried Chicken: 2 sauces
-  if (
     id === 'jerk-chicken-6pc' ||
     id === 'fried-chicken-6pc' ||
-    (id.includes('6pc') || name.includes('6 pcs') || name.includes('6 pc'))
+    id.includes('6pc') ||
+    name.includes('6 pcs') ||
+    name.includes('6 pc')
   ) {
     return 2;
   }
 
-  // 3 Pcs Jerk Chicken & 3 Pcs Fried Chicken & Combo 1, 2, 4, 5, FP2: 1 sauce
-  return 1;
+  // 3 Pcs Chicken single order: 1 sauce included
+  if (id.includes('3pc') || name.includes('3 pcs') || name.includes('3 pc')) {
+    return 1;
+  }
+
+  return 2;
 };
+
+// Backwards-compatible alias for existing imports
+export const getMaxSaucesForItem = getIncludedSaucesForItem;
 
 export const isWingCustomizableItem = (item) => {
   if (!item) return false;
@@ -71,7 +68,7 @@ export const isWingCustomizableItem = (item) => {
     id.includes('fried') ||
     name.includes('fried') ||
     id.startsWith('fp') ||
-    ['combo-1', 'combo-2', 'combo-3', 'combo-4', 'combo-5', 'combo-6'].includes(id)
+    ['combo-1', 'combo-2', 'combo-3', 'combo-4', 'combo-5', 'combo-6', 'family-feast-bundle'].includes(id)
   );
 };
 
@@ -81,7 +78,7 @@ export default function WingCustomizationModal({
   wingItem,
   onConfirm
 }) {
-  const maxSauces = getMaxSaucesForItem(wingItem);
+  const includedSaucesCount = getIncludedSaucesForItem(wingItem);
   const [selectedStyle, setSelectedStyle] = useState(wingStyles[0]); // default: Breaded
   const [selectedSauces, setSelectedSauces] = useState([wingSauces[6]]); // default: Honey Garlic
   const [quantity, setQuantity] = useState(1);
@@ -93,51 +90,55 @@ export default function WingCustomizationModal({
     ['combo-1', 'combo-2', 'combo-3', 'combo-6'].includes((wingItem.id || '').toLowerCase())
   );
 
+  // Calculate extra sauce fee ($1.25 each for any sauces beyond the included count)
+  const extraSaucesCount = Math.max(0, selectedSauces.length - includedSaucesCount);
+  const extraSaucesCost = extraSaucesCount * 1.25;
+  const unitPrice = (wingItem?.price || 16.00) + extraSaucesCost;
+  const totalPrice = unitPrice * quantity;
+
   // Reset or update selections when item opens
   useEffect(() => {
     if (wingItem) {
       setSelectedStyle(wingStyles[0]);
-      setSelectedSauces([wingSauces[6]]); // Honey Garlic default
+      const incCount = getIncludedSaucesForItem(wingItem);
+      if (incCount >= 2) {
+        setSelectedSauces([wingSauces[6], wingSauces[8]]); // Honey Garlic & Jerk (2 included)
+      } else {
+        setSelectedSauces([wingSauces[6]]); // Honey Garlic (1 included)
+      }
       setQuantity(1);
     }
   }, [wingItem]);
 
   if (!isOpen || !wingItem) return null;
 
-  const price = (wingItem.price || 16.00) * quantity;
-
   const handleToggleSauce = (sauce) => {
-    if (maxSauces === 1) {
-      setSelectedSauces([sauce]);
-      return;
-    }
-
     const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
     if (alreadySelected) {
       if (selectedSauces.length > 1) {
         setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
       }
     } else {
-      if (selectedSauces.length < maxSauces) {
-        setSelectedSauces([...selectedSauces, sauce]);
-      } else {
-        // Replace the oldest selection
-        setSelectedSauces([...selectedSauces.slice(1), sauce]);
-      }
+      setSelectedSauces([...selectedSauces, sauce]);
     }
   };
 
   const handleConfirm = () => {
     const sauceNames = selectedSauces.map(s => s.name).join(', ');
+    const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra Sauces: +$${extraSaucesCost.toFixed(2)})` : '';
     const customizedItem = {
       ...wingItem,
       quantity,
-      price: wingItem.price,
+      price: unitPrice,
+      basePrice: wingItem.price,
+      extraSauceCost: extraSaucesCost,
       details: {
         ...(wingItem.details || {}),
         ...(isWing ? { style: selectedStyle.name } : {}),
-        sauce: sauceNames,
-        saucesList: selectedSauces.map(s => s.name)
+        sauce: `${sauceNames}${extraSauceText}`,
+        saucesList: selectedSauces.map(s => s.name),
+        extraSaucesCount,
+        extraSaucesCost
       }
     };
     onConfirm(customizedItem);
@@ -177,9 +178,16 @@ export default function WingCustomizationModal({
             <p className="text-xs text-neutral-400 mt-0.5 line-clamp-2">
               {wingItem.description}
             </p>
-            <span className="font-heading text-xl font-black text-[#ff481f] mt-1 inline-block">
-              {wingItem.priceDisplay || `$${wingItem.price?.toFixed(2)}`}
-            </span>
+            <div className="flex items-center gap-2 mt-1">
+              <span className="font-heading text-xl font-black text-[#ff481f]">
+                ${unitPrice.toFixed(2)}
+              </span>
+              {extraSaucesCount > 0 && (
+                <span className="text-[11px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+                  Includes +${extraSaucesCost.toFixed(2)} ({extraSaucesCount} Extra Sauce{extraSaucesCount > 1 ? 's' : ''})
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
@@ -228,26 +236,35 @@ export default function WingCustomizationModal({
             </div>
           )}
 
-          {/* SECTION 2: SAUCE SELECTION (13 Store Sauces) */}
+          {/* SECTION 2: SAUCE SELECTION (13 Store Sauces with 2 Free + Extra $1.25) */}
           <div>
-            <div className="flex items-center justify-between mb-1.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
               <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
-                <span>{isWing ? '2. ' : ''}SELECT YOUR SAUCE{maxSauces > 1 ? 'S' : ''}</span>
+                <span>{isWing ? '2. ' : ''}CHOOSE YOUR SAUCES</span>
                 <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
               </h4>
-              <span className="text-xs font-bold text-amber-400 bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-800">
-                {maxSauces === 1 ? 'Pick 1 Sauce' : `Pick up to ${maxSauces} Sauces (${selectedSauces.length}/${maxSauces})`}
+              <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
+                extraSaucesCount > 0 
+                  ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
+                  : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+              }`}>
+                {extraSaucesCount > 0 
+                  ? `${includedSaucesCount} Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})`
+                  : `${includedSaucesCount} Sauces Included (Free)`}
               </span>
             </div>
             <p className="text-xs text-neutral-400 mb-3">
-              {maxSauces > 1 
-                ? `You can select up to ${maxSauces} different sauces for this order portion:`
-                : 'Tossed fresh in your choice of signature scratch-made island sauce or dry rub:'}
+              Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauces</strong>. 
+              You can pick any additional sauce from our 13 flavours for only <strong className="text-amber-400 font-bold">+$1.25 each</strong>:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-64 overflow-y-auto pr-1">
               {wingSauces.map((sauce) => {
                 const isSelected = selectedSauces.some(s => s.id === sauce.id);
+                const selectedIndex = selectedSauces.findIndex(s => s.id === sauce.id);
+                const isExtra = isSelected && selectedIndex >= includedSaucesCount;
+                const willBeExtra = !isSelected && selectedSauces.length >= includedSaucesCount;
+
                 return (
                   <button
                     key={sauce.id}
@@ -255,18 +272,34 @@ export default function WingCustomizationModal({
                     onClick={() => handleToggleSauce(sauce)}
                     className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between gap-2 ${
                       isSelected
-                        ? 'bg-amber-950/60 border-amber-500 text-white shadow-md ring-1 ring-amber-500/50'
+                        ? isExtra
+                          ? 'bg-amber-950/70 border-amber-400 text-white shadow-md ring-1 ring-amber-400/50'
+                          : 'bg-red-950/60 border-[#e02e07] text-white shadow-md ring-1 ring-[#e02e07]/50'
                         : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
                     }`}
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className={`font-heading text-base font-bold uppercase ${isSelected ? 'text-amber-400' : 'text-white'}`}>
+                        <span className={`font-heading text-base font-bold uppercase ${
+                          isSelected ? (isExtra ? 'text-amber-400' : 'text-[#ff481f]') : 'text-white'
+                        }`}>
                           {sauce.name}
                         </span>
                         {sauce.spiceLevel > 0 && (
                           <span className="inline-flex items-center text-[10px] font-extrabold text-red-400 bg-red-950/80 px-1.5 py-0.2 rounded border border-red-900">
                             {'🌶️'.repeat(sauce.spiceLevel)}
+                          </span>
+                        )}
+                        {isSelected && (
+                          <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
+                            isExtra ? 'bg-amber-400/20 text-amber-300 border border-amber-500/50' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                          }`}>
+                            {isExtra ? '+$1.25 Extra' : 'Included'}
+                          </span>
+                        )}
+                        {!isSelected && willBeExtra && (
+                          <span className="text-[10px] font-bold text-neutral-400 bg-neutral-900 px-1.5 py-0.2 rounded border border-neutral-800">
+                            +$1.25
                           </span>
                         )}
                       </div>
@@ -277,7 +310,7 @@ export default function WingCustomizationModal({
 
                     <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
                       isSelected
-                        ? 'bg-amber-500 border-amber-500 text-gray-950'
+                        ? isExtra ? 'bg-amber-400 border-amber-400 text-gray-950' : 'bg-[#e02e07] border-[#e02e07] text-white'
                         : 'border-neutral-700 bg-neutral-900'
                     }`}>
                       {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -324,7 +357,7 @@ export default function WingCustomizationModal({
               className="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg flex items-center justify-center gap-2 transition-all"
             >
               <ShoppingBag className="w-5 h-5" />
-              <span>Add to Order • ${price.toFixed(2)}</span>
+              <span>Add to Order • ${totalPrice.toFixed(2)}</span>
             </button>
 
           </div>
