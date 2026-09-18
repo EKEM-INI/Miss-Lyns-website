@@ -61,7 +61,7 @@ export const menuItems = [
   {
     id: "combo-1",
     categoryId: "combos",
-    name: "1 - Half Pound Wings Combo",
+    name: "1 - Half Pound Wings (1 Sauce) Combo",
     price: 17.10,
     priceDisplay: "$17.10",
     description: "1 medium side, 1 pop or water, 1 sauce per order. Crispy wings with hot side and drink.",

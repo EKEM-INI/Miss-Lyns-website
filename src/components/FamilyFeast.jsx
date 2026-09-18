@@ -5,7 +5,7 @@ import { wingSauces } from '../data/saucesData';
 export default function FamilyFeast({ openOrderingModal, addToCart }) {
   const [selectedProteins, setSelectedProteins] = useState(["Wings", "Jerk Chicken"]);
   const [selectedSides, setSelectedSides] = useState(["Crispy French Fries", "Fresh Veggie and Dip", "Toasted Garlic Bread"]);
-  const [selectedSauces, setSelectedSauces] = useState([wingSauces[6], wingSauces[8]]); // Honey Garlic, Jerk (2 included)
+  const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default // Honey Garlic, Jerk (2 included)
 
   const extraSaucesCount = Math.max(0, selectedSauces.length - 2);
   const extraSaucesCost = extraSaucesCount * 1.25;
@@ -23,7 +23,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
   };
 
   const handleOrderFeast = () => {
-    const sauceNames = selectedSauces.map(s => s.name).join(', ');
+    const sauceNames = selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Plain / No Sauce';
     const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra Sauces: +$${extraSaucesCost.toFixed(2)})` : '';
     const feastItem = {
       id: `family-feast-${Date.now()}`,
@@ -222,11 +222,11 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
                 extraSaucesCount > 0 
                   ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
-                  : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+                  : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
               }`}>
                 {extraSaucesCount > 0 
                   ? `2 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 
-                  : '2 Sauces Included (Free)'}
+                  : (selectedSauces.length > 0 ? `${selectedSauces.length}/2 Sauces Selected (Free)` : '2 Sauces Included (Free)')}
               </span>
             </div>
 

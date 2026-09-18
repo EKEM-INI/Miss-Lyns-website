@@ -3,48 +3,48 @@ import { X, Flame, Check, Sparkles, ShoppingBag, Plus, Minus } from 'lucide-reac
 import { wingSauces, wingStyles } from '../data/saucesData';
 
 export const getIncludedSaucesForItem = (item) => {
-  if (!item) return 2;
-  const id = (item.id || '').toLowerCase();
+  if (!item) return 1;
+  const desc = (item.description || '').toLowerCase();
   const name = (item.name || '').toLowerCase();
-  const cat = (item.categoryId || '').toLowerCase();
+  const id = (item.id || '').toLowerCase();
   
-  // Combo 6: 5 sauces included
-  if (id === 'combo-6' || name.includes('combo 6') || name.includes('6 - half pound')) {
+  // Specific item ID matches
+  if (id === 'combo-6' || name.includes('combo 6') || name.includes('5 sauces') || desc.includes('5 sauce')) {
     return 5;
   }
-
-  // FP5: 5 Lbs Wings: 3 sauces included
-  if (id === 'fp5-wings' || id.includes('fp5') || /(^|[^\d.])5\s*(lb|lbs|pound|pounds)/i.test(name)) {
+  if (id === 'fp5-wings' || name.includes('fp5') || name.includes('5 lbs') || desc.includes('3 sauce')) {
     return 3;
   }
-
-  // Combos, Family Meals, Family Feast, 1.5 Lbs Wings, 3 Lbs Wings, 6 Pcs Chicken: 2 sauces included
   if (
-    cat === 'combos' ||
-    cat === 'family-meals' ||
-    id.includes('combo') ||
-    id.includes('fp') ||
-    id.includes('family') ||
-    name.includes('combo') ||
-    name.includes('family') ||
-    name.includes('feast') ||
-    id === 'combo-3' ||
     id === 'fp3-wings' ||
+    id === 'combo-3' ||
     id === 'jerk-chicken-6pc' ||
     id === 'fried-chicken-6pc' ||
-    id.includes('6pc') ||
-    name.includes('6 pcs') ||
-    name.includes('6 pc')
+    name.includes('2 sauces') ||
+    desc.includes('2 sauce')
   ) {
     return 2;
   }
-
-  // 3 Pcs Chicken single order: 1 sauce included
-  if (id.includes('3pc') || name.includes('3 pcs') || name.includes('3 pc')) {
-    return 1;
+  if (id === 'family-feast-bundle' || name.includes('family feast')) {
+    return 2;
   }
 
-  return 2;
+  // Regex extraction from description or name (e.g. "1 sauce", "2 sauces", "3 sauces", "5 sauces")
+  const text = `${name} ${desc}`;
+  const match = text.match(/(\d+)\s*sauce/i);
+  if (match && match[1]) {
+    const num = parseInt(match[1], 10);
+    if (!isNaN(num) && num > 0) {
+      return num;
+    }
+  }
+
+  // Wing size & piece counts fallback:
+  if (/(^|[^\d.])5\s*(lb|lbs)/i.test(text)) return 3;
+  if (/(^|[^\d.])3\s*(lb|lbs)/i.test(text) || /(^|[^\d.])1\.5\s*(lb|lbs)/i.test(text) || /(^|[^\d.])6\s*(pc|pcs)/i.test(text)) return 2;
+  if (/(^|[^\d.])2\s*(lb|lbs)/i.test(text) || /(^|[^\d.])1\s*(lb|lbs)/i.test(text) || /(^|[^\d.])0\.5\s*(lb|lbs)/i.test(text) || /(^|[^\d.])half\s*pound/i.test(text) || /(^|[^\d.])3\s*(pc|pcs)/i.test(text)) return 1;
+
+  return 1;
 };
 
 // Backwards-compatible alias for existing imports
@@ -80,7 +80,7 @@ export default function WingCustomizationModal({
 }) {
   const includedSaucesCount = getIncludedSaucesForItem(wingItem);
   const [selectedStyle, setSelectedStyle] = useState(wingStyles[0]); // default: Breaded
-  const [selectedSauces, setSelectedSauces] = useState([wingSauces[6]]); // default: Honey Garlic
+  const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default
   const [quantity, setQuantity] = useState(1);
 
   const isWing = wingItem && (
@@ -96,16 +96,11 @@ export default function WingCustomizationModal({
   const unitPrice = (wingItem?.price || 16.00) + extraSaucesCost;
   const totalPrice = unitPrice * quantity;
 
-  // Reset or update selections when item opens
+  // Reset selections when item opens
   useEffect(() => {
     if (wingItem) {
       setSelectedStyle(wingStyles[0]);
-      const incCount = getIncludedSaucesForItem(wingItem);
-      if (incCount >= 2) {
-        setSelectedSauces([wingSauces[6], wingSauces[8]]); // Honey Garlic & Jerk (2 included)
-      } else {
-        setSelectedSauces([wingSauces[6]]); // Honey Garlic (1 included)
-      }
+      setSelectedSauces([]); // No sauce picked by default
       setQuantity(1);
     }
   }, [wingItem]);
@@ -115,16 +110,16 @@ export default function WingCustomizationModal({
   const handleToggleSauce = (sauce) => {
     const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
     if (alreadySelected) {
-      if (selectedSauces.length > 1) {
-        setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
-      }
+      setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
     } else {
       setSelectedSauces([...selectedSauces, sauce]);
     }
   };
 
   const handleConfirm = () => {
-    const sauceNames = selectedSauces.map(s => s.name).join(', ');
+    const sauceNames = selectedSauces.length > 0 
+      ? selectedSauces.map(s => s.name).join(', ') 
+      : 'Plain / No Sauce';
     const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra Sauces: +$${extraSaucesCost.toFixed(2)})` : '';
     const customizedItem = {
       ...wingItem,
@@ -236,7 +231,7 @@ export default function WingCustomizationModal({
             </div>
           )}
 
-          {/* SECTION 2: SAUCE SELECTION (13 Store Sauces with 2 Free + Extra $1.25) */}
+          {/* SECTION 2: SAUCE SELECTION */}
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
               <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
@@ -246,15 +241,17 @@ export default function WingCustomizationModal({
               <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
                 extraSaucesCount > 0 
                   ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
-                  : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+                  : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
               }`}>
                 {extraSaucesCount > 0 
                   ? `${includedSaucesCount} Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})`
-                  : `${includedSaucesCount} Sauces Included (Free)`}
+                  : (selectedSauces.length > 0 
+                      ? `${selectedSauces.length}/${includedSaucesCount} Free Sauce${includedSaucesCount > 1 ? 's' : ''} Chosen`
+                      : `${includedSaucesCount} Sauce${includedSaucesCount > 1 ? 's' : ''} Included (Free)`)}
               </span>
             </div>
             <p className="text-xs text-neutral-400 mb-3">
-              Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauces</strong>. 
+              Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
               You can pick any additional sauce from our 13 flavours for only <strong className="text-amber-400 font-bold">+$1.25 each</strong>:
             </p>
 

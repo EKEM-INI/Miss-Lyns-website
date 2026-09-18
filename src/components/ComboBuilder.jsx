@@ -6,12 +6,12 @@ import { wingSauces, wingStyles } from '../data/saucesData';
 export default function ComboBuilder({ openOrderingModal, addToCart }) {
   const [selectedProtein, setSelectedProtein] = useState(comboProteins[0]); // Wings first
   const [selectedWingStyle, setSelectedWingStyle] = useState(wingStyles[0]); // Breaded
-  const [selectedSauces, setSelectedSauces] = useState([wingSauces[6], wingSauces[8]]); // Honey Garlic, Jerk (2 included)
+  const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default // Honey Garlic, Jerk (2 included)
   const [selectedSide, setSelectedSide] = useState(comboSides.standard[0]);
   const [selectedUpgrade, setSelectedUpgrade] = useState(null); // null or one of comboPremiumUpgrades
   const selectedDrink = comboDrinks.standard[0];
 
-  const extraSaucesCount = Math.max(0, selectedSauces.length - 2);
+  const extraSaucesCount = Math.max(0, selectedSauces.length - 1);
   const extraSaucesCost = extraSaucesCount * 1.25;
 
   const basePrice = selectedProtein?.price || 17.10;
@@ -35,7 +35,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
       : selectedSide.name;
 
     const isWing = selectedProtein.id === 'wings-half-lb';
-    const sauceNames = selectedSauces.map(s => s.name).join(', ');
+    const sauceNames = selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Plain / No Sauce';
     const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra: +$${extraSaucesCost.toFixed(2)})` : '';
     
     const proteinLabel = isWing 
@@ -116,7 +116,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             </h4>
             <div className="flex flex-wrap items-center gap-1 mt-0.5">
               <span className="text-[11px] font-bold text-amber-400 truncate max-w-full">
-                {selectedSauces.map(s => s.name).join(', ')}
+                {selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Select Sauce (1 Free)'}
               </span>
               {extraSaucesCount > 0 && (
                 <span className="text-[9px] font-bold text-amber-300 bg-amber-950/80 px-1.5 py-0.2 rounded border border-amber-800">
@@ -292,17 +292,17 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     <span className="text-xs font-normal text-[#ff481f]">({wingSauces.length} sauce flavours)</span>
                   </h4>
                   <p className="text-xs text-neutral-400">
-                    2 Sauces included with combo. Pick any extra sauces for <strong className="text-amber-400 font-bold">+$1.25 each</strong>.
+                    1 Sauce included with combo. Pick any extra sauces for <strong className="text-amber-400 font-bold">+$1.25 each</strong>.
                   </p>
                 </div>
                 <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
                   extraSaucesCount > 0 
                     ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
-                    : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+                    : (selectedSauces.length === 1 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
                 }`}>
                   {extraSaucesCount > 0 
-                    ? `2 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 
-                    : '2 Sauces Included (Free)'}
+                    ? `1 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 
+                    : (selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)')}
                 </span>
               </div>
 
@@ -332,14 +332,14 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               {/* Sauce Selection Grid */}
               <div>
                 <span className="text-xs font-bold uppercase text-neutral-400 block mb-2">
-                  Select Sauces (Selected: <strong className="text-amber-400">{selectedSauces.map(s => s.name).join(', ')}</strong>):
+                  Select Sauces (Selected: <strong className="text-amber-400">{selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Select Sauce (1 Free)'}</strong>):
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-52 overflow-y-auto pr-1">
                   {wingSauces.map((sauce) => {
                     const isChosen = selectedSauces.some(s => s.id === sauce.id);
                     const selectedIdx = selectedSauces.findIndex(s => s.id === sauce.id);
-                    const isExtra = isChosen && selectedIdx >= 2;
-                    const willBeExtra = !isChosen && selectedSauces.length >= 2;
+                    const isExtra = isChosen && selectedIdx >= 1;
+                    const willBeExtra = !isChosen && selectedSauces.length >= 1;
 
                     return (
                       <button
