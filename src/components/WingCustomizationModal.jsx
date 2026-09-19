@@ -98,8 +98,15 @@ export default function WingCustomizationModal({
     ['combo-1', 'combo-2', 'combo-3', 'combo-6'].includes((wingItem.id || '').toLowerCase())
   );
 
-  // Calculate extra sauce fee ($1.25 each for any sauces beyond the included count)
-  const extraSaucesCount = Math.max(0, selectedSauces.length - includedSaucesCount);
+  // Check if this is the "1 - Half Pound Wings (1 Sauce) Combo" (single sauce only, no extra sauces allowed)
+  const isSingleSauceOnlyItem = wingItem && (
+    wingItem.id === 'combo-1' ||
+    (wingItem.name || '').toLowerCase().includes('half pound wings') ||
+    (wingItem.name || '').toLowerCase().startsWith('1 - half pound')
+  );
+
+  // Calculate extra sauce fee ($1.25 each for any sauces beyond the included count, unless single-sauce-only item)
+  const extraSaucesCount = isSingleSauceOnlyItem ? 0 : Math.max(0, selectedSauces.length - includedSaucesCount);
   const extraSaucesCost = extraSaucesCount * 1.25;
   const unitPrice = (wingItem?.price || 16.00) + extraSaucesCost;
   const totalPrice = unitPrice * quantity;
@@ -116,6 +123,16 @@ export default function WingCustomizationModal({
   if (!isOpen || !wingItem) return null;
 
   const handleToggleSauce = (sauce) => {
+    if (isSingleSauceOnlyItem) {
+      const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
+      if (alreadySelected) {
+        setSelectedSauces([]);
+      } else {
+        setSelectedSauces([sauce]);
+      }
+      return;
+    }
+
     const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
     if (alreadySelected) {
       setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
@@ -241,34 +258,57 @@ export default function WingCustomizationModal({
 
           {/* SECTION 2: SAUCE SELECTION */}
           <div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
-              <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
-                <span>{isWing ? '2. ' : ''}CHOOSE YOUR SAUCES</span>
-                <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
-              </h4>
-              <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
-                extraSaucesCount > 0 
-                  ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
-                  : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
-              }`}>
-                {extraSaucesCount > 0 
-                  ? `${includedSaucesCount} Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})`
-                  : (selectedSauces.length > 0 
-                      ? `${selectedSauces.length}/${includedSaucesCount} Free Sauce${includedSaucesCount > 1 ? 's' : ''} Chosen`
-                      : `${includedSaucesCount} Sauce${includedSaucesCount > 1 ? 's' : ''} Included (Free)`)}
-              </span>
-            </div>
-            <p className="text-xs text-neutral-400 mb-3">
-              Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
-              You can pick any additional sauce from our 13 flavours for only <strong className="text-amber-400 font-bold">+$1.25 each</strong>:
-            </p>
+            {isSingleSauceOnlyItem ? (
+              <>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
+                  <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
+                    <span>{isWing ? '2. ' : ''}CHOOSE YOUR SAUCE</span>
+                    <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
+                  </h4>
+                  <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
+                    selectedSauces.length === 1 
+                      ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' 
+                      : 'text-neutral-300 bg-neutral-800/80 border-neutral-700'
+                  }`}>
+                    {selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)'}
+                  </span>
+                </div>
+                <p className="text-xs text-neutral-400 mb-3">
+                  Your order includes <strong className="text-emerald-400 font-bold">1 free sauce</strong>. Select 1 flavour from our signature scratch-made sauces:
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
+                  <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
+                    <span>{isWing ? '2. ' : ''}CHOOSE YOUR SAUCES</span>
+                    <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
+                  </h4>
+                  <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
+                    extraSaucesCount > 0 
+                      ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
+                      : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
+                  }`}>
+                    {extraSaucesCount > 0 
+                      ? `${includedSaucesCount} Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})`
+                      : (selectedSauces.length > 0 
+                          ? `${selectedSauces.length}/${includedSaucesCount} Free Sauce${includedSaucesCount > 1 ? 's' : ''} Chosen`
+                          : `${includedSaucesCount} Sauce${includedSaucesCount > 1 ? 's' : ''} Included (Free)`)}
+                  </span>
+                </div>
+                <p className="text-xs text-neutral-400 mb-3">
+                  Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
+                  You can pick any additional sauce from our 13 flavours for only <strong className="text-amber-400 font-bold">+$1.25 each</strong>:
+                </p>
+              </>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-64 overflow-y-auto pr-1">
               {wingSauces.map((sauce) => {
                 const isSelected = selectedSauces.some(s => s.id === sauce.id);
                 const selectedIndex = selectedSauces.findIndex(s => s.id === sauce.id);
-                const isExtra = isSelected && selectedIndex >= includedSaucesCount;
-                const willBeExtra = !isSelected && selectedSauces.length >= includedSaucesCount;
+                const isExtra = !isSingleSauceOnlyItem && isSelected && selectedIndex >= includedSaucesCount;
+                const willBeExtra = !isSingleSauceOnlyItem && !isSelected && selectedSauces.length >= includedSaucesCount;
 
                 return (
                   <button

@@ -6,26 +6,21 @@ import { wingSauces, wingStyles } from '../data/saucesData';
 export default function ComboBuilder({ openOrderingModal, addToCart }) {
   const [selectedProtein, setSelectedProtein] = useState(comboProteins[0]); // Wings first
   const [selectedWingStyle, setSelectedWingStyle] = useState(wingStyles[0]); // Breaded
-  const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default // Honey Garlic, Jerk (2 included)
+  const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default
   const [selectedSide, setSelectedSide] = useState(comboSides.standard[0]);
   const [selectedUpgrade, setSelectedUpgrade] = useState(null); // null or one of comboPremiumUpgrades
   const selectedDrink = comboDrinks.standard[0];
 
-  const extraSaucesCount = Math.max(0, selectedSauces.length - 1);
-  const extraSaucesCost = extraSaucesCount * 1.25;
-
   const basePrice = selectedProtein?.price || 17.10;
   const upgradeCost = selectedUpgrade ? selectedUpgrade.price : 0;
-  const totalComboPrice = (basePrice + upgradeCost + extraSaucesCost).toFixed(2);
+  const totalComboPrice = (basePrice + upgradeCost).toFixed(2);
 
   const handleToggleSauce = (sauce) => {
     const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
     if (alreadySelected) {
-      if (selectedSauces.length > 1) {
-        setSelectedSauces(selectedSauces.filter(s => s.id !== sauce.id));
-      }
+      setSelectedSauces([]);
     } else {
-      setSelectedSauces([...selectedSauces, sauce]);
+      setSelectedSauces([sauce]); // Single sauce only, no extra sauces
     }
   };
 
@@ -36,11 +31,10 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
     const isWing = selectedProtein.id === 'wings-half-lb';
     const sauceNames = selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Plain / No Sauce';
-    const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra: +$${extraSaucesCost.toFixed(2)})` : '';
     
     const proteinLabel = isWing 
-      ? `${selectedProtein.name} (${selectedWingStyle.name}, ${sauceNames}${extraSauceText})`
-      : `${selectedProtein.name} (${sauceNames}${extraSauceText})`;
+      ? `${selectedProtein.name} (${selectedWingStyle.name}, ${sauceNames})`
+      : `${selectedProtein.name} (${sauceNames})`;
 
     const comboItem = {
       id: `custom-combo-${Date.now()}`,
@@ -50,14 +44,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
       image: selectedProtein.image,
       details: {
         protein: proteinLabel,
-        sauce: `${sauceNames}${extraSauceText}`,
+        sauce: sauceNames,
         saucesList: selectedSauces.map(s => s.name),
         ...(isWing ? { style: selectedWingStyle.name } : {}),
         side: sideDisplay,
         upgrade: selectedUpgrade ? `${selectedUpgrade.name} (+$${upgradeCost.toFixed(2)} Premium Upgrade)` : 'None (Standard Side)',
-        drink: `${selectedDrink.name} (Included)`,
-        extraSaucesCount,
-        extraSaucesCost
+        drink: `${selectedDrink.name} (Included)`
       }
     };
     if (addToCart) {
@@ -116,13 +108,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             </h4>
             <div className="flex flex-wrap items-center gap-1 mt-0.5">
               <span className="text-[11px] font-bold text-amber-400 truncate max-w-full">
-                {selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Select Sauce (1 Free)'}
+                {selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Select Sauce (1 Included)'}
               </span>
-              {extraSaucesCount > 0 && (
-                <span className="text-[9px] font-bold text-amber-300 bg-amber-950/80 px-1.5 py-0.2 rounded border border-amber-800">
-                  +{extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})
-                </span>
-              )}
             </div>
           </div>
         </div>
@@ -198,20 +185,18 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             <span>INTERACTIVE FOOD CONFIGURATOR</span>
           </div>
 
-          <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
+          <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
             BUILD YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#d97706] to-[#b45309]">COMBO</span>
           </h2>
-
           <p className="text-base sm:text-lg text-neutral-400">
-            Create your custom meal in 3 simple steps. Pick your protein, choose your sauces and sides, and select your drinks & premium upgrades.
+            Create your custom meal in 3 simple steps. Pick your protein, choose your sauce and sides, and select your drinks & premium upgrades.
           </p>
         </div>
 
-        {/* LIVE COMBO PREVIEW TRAY (Top) */}
+        {/* TOP LIVE COMBO PREVIEW TRAY */}
         {renderPreviewTray(false)}
 
-
-        {/* CONFIGURATION STEPS */}
+        {/* 3 Steps Stacked Grid */}
         <div className="space-y-12">
           
           {/* STEP 1: PROTEINS & SAUCES */}
@@ -224,10 +209,11 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
                   STEP 1 — CHOOSE YOUR MAIN PROTEIN
                 </h3>
-                <p className="text-xs text-neutral-400">Pick the centerpiece of your Caribbean meal</p>
+                <p className="text-xs text-neutral-400">Select 1 core protein dish for your combo platter</p>
               </div>
             </div>
 
+            {/* Protein Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {comboProteins.map((protein) => {
                 const isSelected = selectedProtein.id === protein.id;
@@ -235,17 +221,20 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                   <button
                     key={protein.id}
                     onClick={() => setSelectedProtein(protein)}
-                    className={`relative text-left rounded-2xl p-4 transition-all duration-300 group flex flex-col justify-between ${
+                    className={`relative text-left rounded-3xl p-5 sm:p-6 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-red-950/40 border-2 border-[#e02e07] shadow-lg shadow-red-950/20 scale-[1.02]'
-                        : 'bg-neutral-900 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-850 shadow-sm'
+                        ? 'bg-red-950/40 border-2 border-[#e02e07] shadow-xl shadow-red-950/30 scale-[1.02]'
+                        : 'bg-neutral-900 border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
-                    {protein.badge && (
-                      <span className="absolute top-3 left-3 z-10 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-gradient-to-r from-[#e02e07] to-[#d97706] text-white shadow-sm">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-black uppercase px-2.5 py-1 rounded-full bg-red-950/80 text-[#ff481f] border border-red-900">
                         {protein.badge}
                       </span>
-                    )}
+                      <span className="font-heading text-2xl font-black text-white">
+                        ${protein.price.toFixed(2)}
+                      </span>
+                    </div>
 
                     {isSelected && (
                       <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-[#e02e07] text-white flex items-center justify-center font-bold text-xs shadow">
@@ -288,21 +277,19 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-800 pb-3">
                 <div>
                   <h4 className="font-heading text-lg sm:text-xl font-black uppercase text-white flex items-center gap-2">
-                    <span>🍗 CHOOSE YOUR COMBO SAUCES</span>
+                    <span>🍗 CHOOSE YOUR COMBO SAUCE</span>
                     <span className="text-xs font-normal text-[#ff481f]">({wingSauces.length} sauce flavours)</span>
                   </h4>
                   <p className="text-xs text-neutral-400">
-                    1 Sauce included with combo. Pick any extra sauces for <strong className="text-amber-400 font-bold">+$1.25 each</strong>.
+                    1 Sauce included with combo. Select 1 flavour from our signature sauces.
                   </p>
                 </div>
                 <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
-                  extraSaucesCount > 0 
-                    ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
-                    : (selectedSauces.length === 1 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
+                  selectedSauces.length === 1 
+                    ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' 
+                    : 'text-neutral-300 bg-neutral-800/80 border-neutral-700'
                 }`}>
-                  {extraSaucesCount > 0 
-                    ? `1 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 
-                    : (selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)')}
+                  {selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)'}
                 </span>
               </div>
 
@@ -332,14 +319,11 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               {/* Sauce Selection Grid */}
               <div>
                 <span className="text-xs font-bold uppercase text-neutral-400 block mb-2">
-                  Select Sauces (Selected: <strong className="text-amber-400">{selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Select Sauce (1 Free)'}</strong>):
+                  Select Sauce (Selected: <strong className="text-amber-400">{selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'None selected'}</strong>):
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-52 overflow-y-auto pr-1">
                   {wingSauces.map((sauce) => {
                     const isChosen = selectedSauces.some(s => s.id === sauce.id);
-                    const selectedIdx = selectedSauces.findIndex(s => s.id === sauce.id);
-                    const isExtra = isChosen && selectedIdx >= 1;
-                    const willBeExtra = !isChosen && selectedSauces.length >= 1;
 
                     return (
                       <button
@@ -348,16 +332,14 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         onClick={() => handleToggleSauce(sauce)}
                         className={`p-2.5 rounded-xl text-left border transition-all flex flex-col justify-between ${
                           isChosen
-                            ? isExtra
-                              ? 'bg-amber-950/70 border-amber-400 text-white shadow ring-1 ring-amber-400/50'
-                              : 'bg-amber-950/70 border-amber-500 text-white shadow'
+                            ? 'bg-amber-950/70 border-amber-500 text-white shadow ring-1 ring-amber-500/50'
                             : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                         }`}
                       >
                         <div>
                           <div className="flex items-center justify-between gap-1">
                             <span className={`font-heading text-sm font-bold uppercase ${
-                              isChosen ? (isExtra ? 'text-amber-400' : 'text-white') : 'text-white'
+                              isChosen ? 'text-amber-400' : 'text-white'
                             }`}>
                               {sauce.name}
                             </span>
@@ -372,21 +354,17 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
                         <div className="mt-2 flex items-center justify-between">
                           {isChosen ? (
-                            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
-                              isExtra ? 'bg-amber-400/20 text-amber-300 border border-amber-500/50' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
-                            }`}>
-                              {isExtra ? '+$1.25' : 'Included'}
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                              Included
                             </span>
                           ) : (
                             <span className="text-[9px] text-neutral-500">
-                              {willBeExtra ? '+$1.25' : 'Included'}
+                              Included
                             </span>
                           )}
 
                           {isChosen && (
-                            <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
-                              isExtra ? 'bg-amber-400 text-gray-950' : 'bg-amber-500 text-gray-950'
-                            }`}>
+                            <div className="w-4 h-4 rounded-full flex items-center justify-center bg-amber-400 text-gray-950">
                               <Check className="w-3 h-3 stroke-[3]" />
                             </div>
                           )}
