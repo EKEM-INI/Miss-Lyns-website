@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, Flame, Check, Sparkles, ShoppingBag, Plus, Minus } from 'lucide-react';
+import { X, Flame, Check, Sparkles, ShoppingBag, Plus, Minus, Coffee } from 'lucide-react';
 import { wingSauces, wingStyles } from '../data/saucesData';
+import { comboDrinks, allComboDrinksList } from '../data/comboOptions';
 
 export const getIncludedSaucesForItem = (item) => {
   if (!item) return 1;
@@ -55,6 +56,21 @@ export const getIncludedSaucesForItem = (item) => {
   return 1;
 };
 
+export const getIncludedDrinksForItem = (item) => {
+  if (!item) return 0;
+  const id = (item.id || '').toLowerCase();
+  const name = (item.name || '').toLowerCase();
+  const desc = (item.description || '').toLowerCase();
+  const cat = (item.categoryId || '').toLowerCase();
+
+  if (id === 'fp5-wings' || name.includes('fp5') || desc.includes('5 pop')) return 5;
+  if (id === 'fp3-wings' || name.includes('fp3') || desc.includes('3 pop')) return 3;
+  if (id === 'fp2-wings' || name.includes('fp2') || desc.includes('2 pop')) return 2;
+  if (cat === 'combos' || id.startsWith('combo') || name.includes('combo') || desc.includes('1 pop')) return 1;
+
+  return 0;
+};
+
 // Backwards-compatible alias for existing imports
 export const getMaxSaucesForItem = getIncludedSaucesForItem;
 
@@ -87,8 +103,11 @@ export default function WingCustomizationModal({
   onConfirm
 }) {
   const includedSaucesCount = getIncludedSaucesForItem(wingItem);
+  const includedDrinksCount = getIncludedDrinksForItem(wingItem);
   const [selectedStyle, setSelectedStyle] = useState(wingStyles[0]); // default: Breaded
   const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default
+  const [selectedDrink, setSelectedDrink] = useState(comboDrinks.standard[0]); // Default: Coke
+  const [selectedDrinksList, setSelectedDrinksList] = useState([]); // For multi-drink family packs
   const [quantity, setQuantity] = useState(1);
 
   const isWing = wingItem && (
@@ -108,7 +127,15 @@ export default function WingCustomizationModal({
   // Calculate extra sauce fee ($1.25 each for any sauces beyond the included count, unless single-sauce-only item)
   const extraSaucesCount = isSingleSauceOnlyItem ? 0 : Math.max(0, selectedSauces.length - includedSaucesCount);
   const extraSaucesCost = extraSaucesCount * 1.25;
-  const unitPrice = (wingItem?.price || 16.00) + extraSaucesCost;
+
+  // Calculate drink upgrade fee
+  const drinkUpgradeCost = includedDrinksCount === 1 
+    ? (selectedDrink?.price || 0) 
+    : (includedDrinksCount > 1 
+        ? selectedDrinksList.reduce((acc, d) => acc + (d.price || 0), 0)
+        : 0);
+
+  const unitPrice = (wingItem?.price || 16.00) + extraSaucesCost + drinkUpgradeCost;
   const totalPrice = unitPrice * quantity;
 
   // Reset selections when item opens
@@ -116,6 +143,15 @@ export default function WingCustomizationModal({
     if (wingItem) {
       setSelectedStyle(wingStyles[0]);
       setSelectedSauces([]); // No sauce picked by default
+      setSelectedDrink(comboDrinks.standard[0]);
+      const drinkCount = getIncludedDrinksForItem(wingItem);
+      if (drinkCount > 1) {
+        // Pre-fill family pack with standard drinks (e.g. Cokes)
+        const defaultList = Array(drinkCount).fill(comboDrinks.standard[0]);
+        setSelectedDrinksList(defaultList);
+      } else {
+        setSelectedDrinksList([]);
+      }
       setQuantity(1);
     }
   }, [wingItem]);
@@ -141,22 +177,38 @@ export default function WingCustomizationModal({
     }
   };
 
+  const handleUpdateFamilyDrink = (index, drink) => {
+    const updated = [...selectedDrinksList];
+    updated[index] = drink;
+    setSelectedDrinksList(updated);
+  };
+
   const handleConfirm = () => {
     const sauceNames = selectedSauces.length > 0 
       ? selectedSauces.map(s => s.name).join(', ') 
       : 'Plain / No Sauce';
     const extraSauceText = extraSaucesCount > 0 ? ` (+${extraSaucesCount} Extra Sauces: +$${extraSaucesCost.toFixed(2)})` : '';
+    
+    let drinkDisplay = '';
+    if (includedDrinksCount === 1) {
+      drinkDisplay = selectedDrink.price > 0 ? `${selectedDrink.name} (+$${selectedDrink.price.toFixed(2)})` : `${selectedDrink.name} (Included)`;
+    } else if (includedDrinksCount > 1) {
+      drinkDisplay = selectedDrinksList.map(d => d.name).join(', ');
+    }
+
     const customizedItem = {
       ...wingItem,
       quantity,
       price: unitPrice,
       basePrice: wingItem.price,
       extraSauceCost: extraSaucesCost,
+      drinkUpgradeCost,
       details: {
         ...(wingItem.details || {}),
         ...(isWing ? { style: selectedStyle.name } : {}),
         sauce: `${sauceNames}${extraSauceText}`,
         saucesList: selectedSauces.map(s => s.name),
+        ...(includedDrinksCount > 0 ? { drink: drinkDisplay } : {}),
         extraSaucesCount,
         extraSaucesCost
       }
@@ -190,7 +242,7 @@ export default function WingCustomizationModal({
           <div className="flex-1 pr-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-[#ff481f] text-[10px] font-bold uppercase tracking-wider border border-red-900 mb-1">
               <Sparkles className="w-3 h-3 text-yellow-400" />
-              <span>{isWing ? 'Wing Sauce & Style Selection' : 'Sauce Selection'}</span>
+              <span>{isWing ? 'Wing Sauce & Style Selection' : 'Customization & Drink'}</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
               {wingItem.name}
@@ -198,13 +250,18 @@ export default function WingCustomizationModal({
             <p className="text-xs text-neutral-400 mt-0.5 line-clamp-2">
               {wingItem.description}
             </p>
-            <div className="flex items-center gap-2 mt-1">
+            <div className="flex items-center gap-2 mt-1 flex-wrap">
               <span className="font-heading text-xl font-black text-[#ff481f]">
                 ${unitPrice.toFixed(2)}
               </span>
               {extraSaucesCount > 0 && (
                 <span className="text-[11px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
-                  Includes +${extraSaucesCost.toFixed(2)} ({extraSaucesCount} Extra Sauce{extraSaucesCount > 1 ? 's' : ''})
+                  +${extraSaucesCost.toFixed(2)} ({extraSaucesCount} Extra Sauce{extraSaucesCount > 1 ? 's' : ''})
+                </span>
+              )}
+              {drinkUpgradeCost > 0 && (
+                <span className="text-[11px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+                  +${drinkUpgradeCost.toFixed(2)} (Drink Upgrade)
                 </span>
               )}
             </div>
@@ -303,7 +360,7 @@ export default function WingCustomizationModal({
               </>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-64 overflow-y-auto pr-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-56 overflow-y-auto pr-1">
               {wingSauces.map((sauce) => {
                 const isSelected = selectedSauces.some(s => s.id === sauce.id);
                 const selectedIndex = selectedSauces.findIndex(s => s.id === sauce.id);
@@ -365,6 +422,144 @@ export default function WingCustomizationModal({
               })}
             </div>
           </div>
+
+          {/* SECTION 3: DRINK SELECTION (If combo or family pack includes drinks) */}
+          {includedDrinksCount > 0 && (
+            <div className="pt-2 border-t border-neutral-800">
+              
+              {/* Single Combo Drink Selector */}
+              {includedDrinksCount === 1 && (
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                    <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
+                      <span>{isWing ? '3. ' : '2. '}CHOOSE YOUR DRINK</span>
+                      <span className="text-xs font-normal text-emerald-400">(1 Pop / Drink Included)</span>
+                    </h4>
+                    <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-800 w-fit">
+                      Selected: {selectedDrink.name} {selectedDrink.price > 0 && `(+$${selectedDrink.price.toFixed(2)})`}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-neutral-400 mb-3">
+                    Choose 1 chilled drink for your combo meal, or upgrade to an authentic Jamaican Bigga soda:
+                  </p>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 max-h-56 overflow-y-auto pr-1">
+                    {allComboDrinksList.map((drink) => {
+                      const isSelected = selectedDrink.id === drink.id;
+                      return (
+                        <button
+                          key={drink.id}
+                          type="button"
+                          onClick={() => setSelectedDrink(drink)}
+                          className={`p-2.5 rounded-2xl text-left border transition-all flex flex-col justify-between ${
+                            isSelected
+                              ? drink.price > 0
+                                ? 'bg-amber-950/70 border-amber-400 text-white shadow ring-1 ring-amber-400/50'
+                                : 'bg-emerald-950/60 border-emerald-500 text-white shadow ring-1 ring-emerald-500/50'
+                              : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
+                          }`}
+                        >
+                          <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-neutral-900 border border-neutral-800">
+                            <img
+                              src={drink.image}
+                              alt={drink.name}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+
+                          <div>
+                            <div className="flex items-center justify-between gap-1">
+                              <span className={`font-heading text-xs font-bold uppercase truncate ${
+                                isSelected ? (drink.price > 0 ? 'text-amber-400' : 'text-emerald-400') : 'text-white'
+                              }`}>
+                                {drink.name}
+                              </span>
+                            </div>
+                            <span className="text-[9px] text-neutral-400 block truncate">
+                              {drink.category}
+                            </span>
+                          </div>
+
+                          <div className="mt-2 flex items-center justify-between">
+                            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
+                              drink.price > 0
+                                ? 'bg-amber-400/20 text-amber-300 border border-amber-500/50'
+                                : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                            }`}>
+                              {drink.price > 0 ? '+$2.50' : 'Included'}
+                            </span>
+
+                            {isSelected && (
+                              <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
+                                drink.price > 0 ? 'bg-amber-400 text-gray-950' : 'bg-emerald-500 text-gray-950'
+                              }`}>
+                                <Check className="w-3 h-3 stroke-[3]" />
+                              </div>
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Family Pack Multi-Drink Picker */}
+              {includedDrinksCount > 1 && (
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                    <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
+                      <span>{isWing ? '3. ' : '2. '}CHOOSE YOUR {includedDrinksCount} DRINKS</span>
+                    </h4>
+                    <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-800 w-fit">
+                      {includedDrinksCount} Drinks Included
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-neutral-400 mb-3">
+                    Select your {includedDrinksCount} drinks for this family pack:
+                  </p>
+
+                  <div className="space-y-2.5">
+                    {selectedDrinksList.map((curDrink, slotIdx) => (
+                      <div key={slotIdx} className="p-3 rounded-2xl bg-neutral-950 border border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 rounded-full bg-emerald-900 text-emerald-300 text-xs font-black flex items-center justify-center shrink-0">
+                            {slotIdx + 1}
+                          </span>
+                          <div className="w-10 h-10 rounded-lg overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+                            <img src={curDrink.image} alt={curDrink.name} className="w-full h-full object-cover" />
+                          </div>
+                          <div>
+                            <div className="font-heading text-sm font-bold text-white uppercase">{curDrink.name}</div>
+                            <span className="text-[10px] text-neutral-400">{curDrink.category}</span>
+                          </div>
+                        </div>
+
+                        <select
+                          value={curDrink.id}
+                          onChange={(e) => {
+                            const found = allComboDrinksList.find(d => d.id === e.target.value) || comboDrinks.standard[0];
+                            handleUpdateFamilyDrink(slotIdx, found);
+                          }}
+                          className="bg-neutral-900 border border-neutral-700 text-white text-xs font-bold rounded-xl px-3 py-2 focus:outline-none focus:border-emerald-500"
+                        >
+                          {allComboDrinksList.map(d => (
+                            <option key={d.id} value={d.id}>
+                              {d.name} {d.price > 0 ? '(+$2.50)' : '(Included)'}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          )}
 
           {/* Quantity & Summary Footer */}
           <div className="pt-3 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">

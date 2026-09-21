@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Check, Sparkles, ShoppingBag, Layers, Flame } from 'lucide-react';
-import { comboProteins, comboSides, comboPremiumUpgrades, comboDrinks } from '../data/comboOptions';
+import { Check, Sparkles, ShoppingBag, Layers, Flame, Coffee } from 'lucide-react';
+import { comboProteins, comboSides, comboPremiumUpgrades, comboDrinks, allComboDrinksList } from '../data/comboOptions';
 import { wingSauces, wingStyles } from '../data/saucesData';
 
 export default function ComboBuilder({ openOrderingModal, addToCart }) {
@@ -9,11 +9,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
   const [selectedSauces, setSelectedSauces] = useState([]); // No sauce picked by default
   const [selectedSide, setSelectedSide] = useState(comboSides.standard[0]);
   const [selectedUpgrade, setSelectedUpgrade] = useState(null); // null or one of comboPremiumUpgrades
-  const selectedDrink = comboDrinks.standard[0];
+  const [selectedDrink, setSelectedDrink] = useState(comboDrinks.standard[0]); // Coke by default
 
   const basePrice = selectedProtein?.price || 17.10;
   const upgradeCost = selectedUpgrade ? selectedUpgrade.price : 0;
-  const totalComboPrice = (basePrice + upgradeCost).toFixed(2);
+  const drinkUpgradeCost = selectedDrink?.price || 0;
+  const totalComboPrice = (basePrice + upgradeCost + drinkUpgradeCost).toFixed(2);
 
   const handleToggleSauce = (sauce) => {
     const alreadySelected = selectedSauces.some(s => s.id === sauce.id);
@@ -36,6 +37,10 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
       ? `${selectedProtein.name} (${selectedWingStyle.name}, ${sauceNames})`
       : `${selectedProtein.name} (${sauceNames})`;
 
+    const drinkLabel = drinkUpgradeCost > 0 
+      ? `${selectedDrink.name} (+$${drinkUpgradeCost.toFixed(2)} Upgrade)`
+      : `${selectedDrink.name} (Included)`;
+
     const comboItem = {
       id: `custom-combo-${Date.now()}`,
       name: `Custom Combo (${proteinLabel} + ${selectedUpgrade ? selectedUpgrade.name : selectedSide.name} + ${selectedDrink.name})`,
@@ -49,7 +54,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         ...(isWing ? { style: selectedWingStyle.name } : {}),
         side: sideDisplay,
         upgrade: selectedUpgrade ? `${selectedUpgrade.name} (+$${upgradeCost.toFixed(2)} Premium Upgrade)` : 'None (Standard Side)',
-        drink: `${selectedDrink.name} (Included)`
+        drink: drinkLabel,
+        drinkItem: selectedDrink
       }
     };
     if (addToCart) {
@@ -140,7 +146,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
         {/* Live Drink & Upgrade Slot */}
         <div className={`relative rounded-2xl bg-neutral-950 border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
-          selectedUpgrade ? 'border-amber-700 bg-neutral-950' : 'border-emerald-800/80'
+          drinkUpgradeCost > 0 ? 'border-amber-600 bg-neutral-950' : 'border-emerald-800/80'
         }`}>
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
             <img
@@ -149,16 +155,20 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#059669] block">
-              STEP 3 • DRINK & UPGRADE
+              STEP 3 • DRINK SELECTION
             </span>
-            <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-white leading-tight">
+            <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-white leading-tight truncate">
               {selectedDrink.name}
             </h4>
             <div className="flex flex-wrap gap-1 mt-1">
-              <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
-                Drink Included
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${
+                drinkUpgradeCost > 0
+                  ? 'text-amber-300 bg-amber-950/80 border-amber-700'
+                  : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+              }`}>
+                {drinkUpgradeCost > 0 ? `+${selectedDrink.name} (+$2.50)` : 'Drink Included'}
               </span>
               {selectedUpgrade && (
                 <span className="text-[10px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
@@ -442,7 +452,9 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
 
           {/* STEP 3: DRINKS & PREMIUM UPGRADES */}
-          <div className="space-y-6 pt-4">
+          <div className="space-y-8 pt-4">
+            
+            {/* Step 3 Header */}
             <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
               <div className="w-8 h-8 rounded-full bg-[#10b981] text-white font-heading text-lg font-bold flex items-center justify-center">
                 3
@@ -451,56 +463,142 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
                   STEP 3 — CHOOSE YOUR DRINK & PREMIUM UPGRADE
                 </h3>
-                <p className="text-xs text-neutral-400">Drink is included with your combo. Upgrade your side to fries, toasted garlic bread, or onion rings!</p>
+                <p className="text-xs text-neutral-400">Select your drink with small thumbnail pictures, and optionally upgrade your side!</p>
               </div>
             </div>
 
-            {/* PART 1: THE INCLUDED DRINK SPOT (Clean Menu Style) */}
-            <div className="rounded-3xl bg-neutral-900 border-2 border-emerald-800/80 p-5 sm:p-6 shadow-md text-white transition-all">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
-                
-                {/* Authentic Drinks Photography */}
-                <div className="md:col-span-4">
-                  <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-neutral-950 border border-neutral-800 shadow-sm group">
-                    <img
-                      src={selectedDrink.image}
-                      alt="Authentic Jamaican Island Drinks, Cran Wata and Sodas"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-2.5 left-2.5">
-                      <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-emerald-600 text-white shadow-sm">
-                        🌴 Included with Combo
-                      </span>
-                    </div>
-                  </div>
+            {/* PART 1: DRINK SELECTION WITH REAL PICTURES */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-black uppercase tracking-widest text-[#10b981] flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-[#10b981]" />
+                  <span>CHOOSE YOUR DRINK (1 INCLUDED)</span>
+                </span>
+                <span className="text-xs text-neutral-400">
+                  Selected: <strong className="text-emerald-400 font-bold">{selectedDrink.name}</strong>
+                  {drinkUpgradeCost > 0 && <span className="text-amber-400 font-bold"> (+$2.50)</span>}
+                </span>
+              </div>
+
+              {/* Standard Cans & Water (Included) */}
+              <div>
+                <span className="text-[11px] font-bold uppercase text-neutral-400 block mb-2">
+                  Standard Chilled Drinks (Included with Combo):
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                  {comboDrinks.standard.map((drink) => {
+                    const isSelected = selectedDrink.id === drink.id;
+                    return (
+                      <button
+                        key={drink.id}
+                        type="button"
+                        onClick={() => setSelectedDrink(drink)}
+                        className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
+                          isSelected
+                            ? 'bg-emerald-950/50 border-2 border-emerald-500 shadow-md ring-1 ring-emerald-500/50 scale-[1.02]'
+                            : 'bg-neutral-900 border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
+                        }`}
+                      >
+                        {isSelected && (
+                          <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-emerald-500 text-gray-950 flex items-center justify-center font-bold text-xs shadow">
+                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                          </div>
+                        )}
+
+                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-neutral-950 border border-neutral-800/80">
+                          <img
+                            src={drink.image}
+                            alt={drink.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <div>
+                          <h4 className={`font-heading text-sm font-bold uppercase leading-tight truncate ${
+                            isSelected ? 'text-emerald-400' : 'text-white'
+                          }`}>
+                            {drink.name}
+                          </h4>
+                          <p className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                            {drink.category}
+                          </p>
+                        </div>
+
+                        <div className={`mt-2 w-full py-1 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
+                          isSelected ? 'bg-emerald-500 text-gray-950 font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                        }`}>
+                          {isSelected ? 'SELECTED' : 'INCLUDED'}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
+              </div>
 
-                {/* Drinks Description */}
-                <div className="md:col-span-8 space-y-2 text-left">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-950/80 text-emerald-400 text-[11px] font-bold uppercase tracking-wide border border-emerald-800">
-                    <Sparkles className="w-3 h-3 text-emerald-400" />
-                    <span>INCLUDED BEVERAGE SPOT</span>
-                  </div>
-                  
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <h4 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-none">
-                      Cold Drinks & Island Sodas
-                    </h4>
-                    <span className="font-heading text-sm font-black text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-xl border border-emerald-800 w-fit">
-                      ✓ Included in Base Combo
-                    </span>
-                  </div>
+              {/* Imported Jamaican Bigga Sodas (+$2.50 Upgrade) */}
+              <div className="pt-2">
+                <span className="text-[11px] font-bold uppercase text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🌴 Imported Jamaican Island Sodas (+$2.50 Upgrade):</span>
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {comboDrinks.premium.map((drink) => {
+                    const isSelected = selectedDrink.id === drink.id;
+                    return (
+                      <button
+                        key={drink.id}
+                        type="button"
+                        onClick={() => setSelectedDrink(drink)}
+                        className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
+                          isSelected
+                            ? 'bg-amber-950/60 border-2 border-amber-400 shadow-md ring-1 ring-amber-400/50 scale-[1.02]'
+                            : 'bg-neutral-900 border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
+                        }`}
+                      >
+                        <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-500 text-gray-950 shadow-sm">
+                          +$2.50
+                        </span>
 
-                  <p className="text-xs text-neutral-400 leading-relaxed">
-                    Your combo meal comes with your choice of any refreshing chilled canned soft drink, bottled spring water, Cran Wata, or authentic imported Jamaican Island soda (Bigga, Ting, D&G) with no extra upgrade fee.
-                  </p>
+                        {isSelected && (
+                          <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-amber-400 text-gray-950 flex items-center justify-center font-bold text-xs shadow">
+                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                          </div>
+                        )}
+
+                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-neutral-950 border border-neutral-800/80 mt-4">
+                          <img
+                            src={drink.image}
+                            alt={drink.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <div>
+                          <h4 className={`font-heading text-sm font-bold uppercase leading-tight truncate ${
+                            isSelected ? 'text-amber-400' : 'text-white'
+                          }`}>
+                            {drink.name}
+                          </h4>
+                          <p className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                            Jamaican Import (600ml)
+                          </p>
+                        </div>
+
+                        <div className={`mt-2 w-full py-1 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
+                          isSelected ? 'bg-amber-400 text-gray-950 font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                        }`}>
+                          {isSelected ? 'SELECTED (+ $2.50)' : 'UPGRADE (+ $2.50)'}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
-
               </div>
             </div>
 
-            {/* PART 2: PREMIUM UPGRADES */}
-            <div className="pt-2">
+            {/* PART 2: PREMIUM SIDE UPGRADES */}
+            <div className="pt-4 border-t border-neutral-850">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-black uppercase tracking-widest text-[#fbbf24] flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-[#d97706]" />
@@ -508,6 +606,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 </span>
                 {selectedUpgrade && (
                   <button
+                    type="button"
                     onClick={() => setSelectedUpgrade(null)}
                     className="text-xs font-bold text-neutral-400 hover:text-red-400 underline"
                   >
@@ -516,12 +615,13 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
                 {comboPremiumUpgrades.map((upgrade) => {
                   const isSelected = selectedUpgrade?.id === upgrade.id;
                   return (
                     <button
                       key={upgrade.id}
+                      type="button"
                       onClick={() => setSelectedUpgrade(isSelected ? null : upgrade)}
                       className={`relative text-left rounded-2xl p-3.5 transition-all duration-200 group flex flex-col justify-between ${
                         isSelected

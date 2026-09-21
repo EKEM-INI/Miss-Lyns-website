@@ -117,11 +117,98 @@ export const comboPremiumUpgrades = [
 export const comboDrinks = {
   standard: [
     {
-      id: "included-drink",
-      name: "Cold Drink / Island Soda",
-      type: "standard",
-      image: "/images/dishes/drinks.png",
-      description: "Any refreshing chilled canned soft drink (Coke, Sprite, Ginger Ale, Ice T, Water) or imported Jamaican Island soda (Bigga) included with your combo."
+      id: "coke",
+      name: "Coke",
+      category: "Canned Pop",
+      price: 0,
+      priceDisplay: "Included",
+      image: "/images/drinks/coke.jpg",
+      description: "Classic Coca-Cola chilled 355ml can."
+    },
+    {
+      id: "diet-coke",
+      name: "Diet Coke",
+      category: "Canned Pop",
+      price: 0,
+      priceDisplay: "Included",
+      image: "/images/drinks/diet-coke.jpg",
+      description: "Sugar-free crisp Diet Coke chilled 355ml can."
+    },
+    {
+      id: "sprite",
+      name: "Sprite",
+      category: "Canned Pop",
+      price: 0,
+      priceDisplay: "Included",
+      image: "/images/drinks/sprite.jpg",
+      description: "Refreshing lemon-lime Sprite chilled 355ml can."
+    },
+    {
+      id: "ginger-ale",
+      name: "Ginger Ale",
+      category: "Canned Pop",
+      price: 0,
+      priceDisplay: "Included",
+      image: "/images/drinks/ginger-ale.jpg",
+      description: "Canada Dry Ginger Ale chilled 355ml can."
+    },
+    {
+      id: "iced-tea",
+      name: "Iced Tea",
+      category: "Canned Pop",
+      price: 0,
+      priceDisplay: "Included",
+      image: "/images/drinks/iced-tea.jpg",
+      description: "Refreshing lemon iced tea chilled 355ml can."
+    },
+    {
+      id: "bottled-water",
+      name: "Bottled Water",
+      category: "Spring Water",
+      price: 0,
+      priceDisplay: "Included",
+      image: "/images/drinks/water.jpg",
+      description: "Pure natural spring bottled water (500ml)."
+    }
+  ],
+  premium: [
+    {
+      id: "pineapple-bigga",
+      name: "Pineapple Bigga",
+      category: "Jamaican Island Soda",
+      price: 2.50,
+      priceDisplay: "+$2.50",
+      image: "/images/drinks/bigga-pineapple.jpg",
+      description: "Authentic imported Jamaican pineapple sparkling soda (600ml)."
+    },
+    {
+      id: "fruit-punch-bigga",
+      name: "Fruit Punch Bigga",
+      category: "Jamaican Island Soda",
+      price: 2.50,
+      priceDisplay: "+$2.50",
+      image: "/images/drinks/bigga-fruit-punch.jpg",
+      description: "Authentic imported Jamaican fruit punch tropical soda (600ml)."
+    },
+    {
+      id: "jamaican-kola-bigga",
+      name: "Jamaican Kola Bigga",
+      category: "Jamaican Island Soda",
+      price: 2.50,
+      priceDisplay: "+$2.50",
+      image: "/images/drinks/bigga-kola.jpg",
+      description: "Authentic imported Jamaican kola champagne sparkling soda (600ml)."
+    },
+    {
+      id: "apple-bigga",
+      name: "Apple Bigga",
+      category: "Jamaican Island Soda",
+      price: 2.50,
+      priceDisplay: "+$2.50",
+      image: "/images/drinks/bigga-apple.jpg",
+      description: "Authentic imported Jamaican sparkling apple soda (600ml)."
     }
   ]
 };
+
+export const allComboDrinksList = [...comboDrinks.standard, ...comboDrinks.premium];

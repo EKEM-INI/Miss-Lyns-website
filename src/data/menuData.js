@@ -5,7 +5,7 @@ export const menuCategories = [
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Regular Sides", icon: "Soup", count: 5 },
   { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 5 },
-  { id: "drinks", name: "Drinks", icon: "Coffee", count: 4 }
+  { id: "drinks", name: "Drinks", icon: "Coffee", count: 10 }
 ];
 
 export const menuItems = [
@@ -334,44 +334,103 @@ export const menuItems = [
 
   // 8. DRINKS
   {
-    id: "canned-pop",
+    id: "coke-can",
     categoryId: "drinks",
-    name: "Canned Pop & Bottled Water",
+    name: "Coke",
     price: 2.50,
     priceDisplay: "$2.50",
-    description: "Chilled canned drinks (Coke, Diet Coke, Sprite, Ginger Ale, Ice T) and refreshing pure bottled water.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Chilled Beverages"]
+    description: "Classic crisp Coca-Cola chilled 355ml can.",
+    image: "/images/drinks/coke.jpg",
+    tags: ["Canned Pop", "Chilled"]
   },
   {
-    id: "bigga-island-soda",
+    id: "diet-coke-can",
     categoryId: "drinks",
-    name: "Bigga Jamaican Island Soda",
-    price: 4.00,
-    priceDisplay: "$4.00",
-    description: "Authentic imported Jamaican sodas in Pineapple Bigga, Fruit Punch Bigga, and Jamaican Kola Bigga.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Direct Jamaican Import"]
-  },
-  {
-    id: "gatorade-drink",
-    categoryId: "drinks",
-    name: "Gatorade Sports Drink",
-    price: 4.00,
-    priceDisplay: "$4.00",
-    description: "Refreshing sports drinks in popular flavors including Cool Blue, Fruit Punch, and Orange.",
-    image: "/images/dishes/drinks.png",
-    tags: ["Electrolyte Refreshment"]
-  },
-  {
-    id: "island-drinks-selection",
-    categoryId: "drinks",
-    name: "Cold Drinks & Island Sodas Spotlight",
+    name: "Diet Coke",
     price: 2.50,
-    priceDisplay: "$2.50 – $4.00",
-    description: "All cold drinks and refreshing beverages in one spot! Includes authentic imported Jamaican Island sodas (Bigga, Ting, D&G), refreshing water, Gatorade, and chilled canned soft drinks.",
-    image: "/images/dishes/drinks.png",
-    tags: ["All Beverages Included", "Direct Jamaican Imports"],
-    isDrinksSpotlight: true
+    priceDisplay: "$2.50",
+    description: "Refreshing sugar-free Diet Coke chilled 355ml can.",
+    image: "/images/drinks/diet-coke.jpg",
+    tags: ["Canned Pop", "Zero Calorie"]
+  },
+  {
+    id: "sprite-can",
+    categoryId: "drinks",
+    name: "Sprite",
+    price: 2.50,
+    priceDisplay: "$2.50",
+    description: "Crisp lemon-lime Sprite chilled 355ml can.",
+    image: "/images/drinks/sprite.jpg",
+    tags: ["Canned Pop", "Lemon-Lime"]
+  },
+  {
+    id: "ginger-ale-can",
+    categoryId: "drinks",
+    name: "Ginger Ale",
+    price: 2.50,
+    priceDisplay: "$2.50",
+    description: "Canada Dry Ginger Ale chilled 355ml can.",
+    image: "/images/drinks/ginger-ale.jpg",
+    tags: ["Canned Pop", "Real Ginger"]
+  },
+  {
+    id: "iced-tea-can",
+    categoryId: "drinks",
+    name: "Iced Tea",
+    price: 2.50,
+    priceDisplay: "$2.50",
+    description: "Sweet lemon iced tea chilled 355ml can.",
+    image: "/images/drinks/iced-tea.jpg",
+    tags: ["Canned Pop", "Lemon Tea"]
+  },
+  {
+    id: "bottled-water",
+    categoryId: "drinks",
+    name: "Bottled Water",
+    price: 2.50,
+    priceDisplay: "$2.50",
+    description: "Pure refreshing natural spring bottled water (500ml).",
+    image: "/images/drinks/water.jpg",
+    tags: ["Spring Water", "Chilled"]
+  },
+  {
+    id: "pineapple-bigga",
+    categoryId: "drinks",
+    name: "Pineapple Bigga",
+    price: 4.00,
+    priceDisplay: "$4.00",
+    description: "Authentic imported Jamaican sparkling pineapple soda (600ml bottle).",
+    image: "/images/drinks/bigga-pineapple.jpg",
+    tags: ["Jamaican Island Soda", "Direct Import"]
+  },
+  {
+    id: "fruit-punch-bigga",
+    categoryId: "drinks",
+    name: "Fruit Punch Bigga",
+    price: 4.00,
+    priceDisplay: "$4.00",
+    description: "Authentic imported Jamaican sparkling tropical fruit punch soda (600ml bottle).",
+    image: "/images/drinks/bigga-fruit-punch.jpg",
+    tags: ["Jamaican Island Soda", "Direct Import"]
+  },
+  {
+    id: "jamaican-kola-bigga",
+    categoryId: "drinks",
+    name: "Jamaican Kola Bigga",
+    price: 4.00,
+    priceDisplay: "$4.00",
+    description: "Authentic imported Jamaican sparkling kola champagne soda (600ml bottle).",
+    image: "/images/drinks/bigga-kola.jpg",
+    tags: ["Jamaican Island Soda", "Direct Import"]
+  },
+  {
+    id: "apple-bigga",
+    categoryId: "drinks",
+    name: "Apple Bigga",
+    price: 4.00,
+    priceDisplay: "$4.00",
+    description: "Authentic imported Jamaican sparkling crisp apple soda (600ml bottle).",
+    image: "/images/drinks/bigga-apple.jpg",
+    tags: ["Jamaican Island Soda", "Direct Import"]
   }
 ];
