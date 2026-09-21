@@ -154,44 +154,27 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                       <span className="text-xs font-bold text-neutral-400">{itemsInCat.length} {itemsInCat.length === 1 ? 'item' : 'items'}</span>
                     </div>
 
-                    {cat.id === 'drinks' ? (
-                      /* SINGLE SPOT FOR DRINKS WITH DARK DESIGN */
-                      <DrinksSpotlightCard 
-                        item={itemsInCat[0]} 
-                        onOrder={() => handleItemOrder(itemsInCat[0])} 
-                      />
-                    ) : (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {itemsInCat.map((item) => (
-                          <MenuItemCard 
-                            key={item.id} 
-                            item={item} 
-                            onOrder={() => handleItemOrder(item)} 
-                            onDetail={() => setSelectedItemDetail(item)}
-                          />
-                        ))}
-                      </div>
-                    )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {itemsInCat.map((item) => (
+                        <MenuItemCard 
+                          key={item.id} 
+                          item={item} 
+                          onOrder={() => handleItemOrder(item)} 
+                          onDetail={() => setSelectedItemDetail(item)}
+                        />
+                      ))}
+                    </div>
                   </div>
                 );
               })
             ) : (
-              activeCategory === 'drinks' ? (
-                /* SINGLE SPOT FOR DRINKS WHEN FILTERED */
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
-                    <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white tracking-wide flex items-center gap-2">
-                      <span>Island Sodas & Drinks</span>
-                    </h2>
-                  </div>
-                  {filteredItems[0] && (
-                    <DrinksSpotlightCard 
-                      item={filteredItems[0]} 
-                      onOrder={() => handleItemOrder(filteredItems[0])} 
-                    />
-                  )}
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
+                  <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white tracking-wide flex items-center gap-2">
+                    <span>{menuCategories.find(c => c.id === activeCategory)?.name || "Menu Items"}</span>
+                  </h2>
+                  <span className="text-xs font-bold text-neutral-400">{filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'}</span>
                 </div>
-              ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredItems.map((item) => (
                     <MenuItemCard 
@@ -202,7 +185,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                     />
                   ))}
                 </div>
-              )
+              </div>
             )}
 
           </div>
@@ -286,66 +269,6 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
   );
 }
 
-// Dedicated single spot for drinks with clean dark design
-function DrinksSpotlightCard({ item, onOrder }) {
-  return (
-    <div className="rounded-3xl bg-neutral-900 border-2 border-neutral-800 p-6 sm:p-8 shadow-md hover:shadow-lg transition-all text-white">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-        
-        {/* Left: Authentic Drinks Photography */}
-        <div className="md:col-span-5 lg:col-span-4">
-          <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-neutral-950 border border-neutral-800 shadow-sm group">
-            <img
-              src={item.image}
-              alt="Authentic Jamaican Island Drinks, Cran Wata and Sodas"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute top-2.5 left-2.5">
-              <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-emerald-600 text-white shadow-sm">
-                🌴 All Cold Drinks Included
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Unified Drinks Spotlight Details */}
-        <div className="md:col-span-7 lg:col-span-8 space-y-3 text-left">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-red-950/80 text-[#ff481f] text-[11px] font-bold uppercase tracking-wide border border-red-900">
-            <Sparkles className="w-3 h-3 text-[#d97706]" />
-            <span>OFFICIAL DRINKS SPOT</span>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <h3 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white leading-none">
-              Cold Drinks & Island Sodas
-            </h3>
-            <span className="font-heading text-2xl font-black text-[#ff481f] bg-neutral-950 px-3 py-1 rounded-xl border border-neutral-800 shadow-sm w-fit">
-              $1.75 – $3.50
-            </span>
-          </div>
-
-          <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-2xl">
-            {item.description}
-          </p>
-
-          <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <span className="text-xs font-semibold text-neutral-400">
-              * Served ice-cold with cups upon request
-            </span>
-            <button
-              onClick={onOrder}
-              className="px-6 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-[#e02e07] hover:bg-[#ff481f] text-white shadow-md flex items-center justify-center gap-2 transition-all shrink-0"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              <span>Order Drinks</span>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
-}
 
 // Sub-component for individual dish cards
 function MenuItemCard({ item, onOrder, onDetail }) {
