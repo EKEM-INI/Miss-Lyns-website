@@ -37,18 +37,18 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-black text-white relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-[#141518] text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 border-b border-neutral-800 pb-8 text-center md:text-left">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#e02e07]" />
               <span>FRESH FROM THE KITCHEN</span>
             </div>
             <h2 className="font-heading text-4xl sm:text-5xl font-black uppercase text-white tracking-tight">
-              POPULAR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#d97706]">FAVORITES</span>
+              POPULAR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">FAVORITES</span>
             </h2>
             <p className="text-sm sm:text-base text-neutral-400 mt-1">
               A quick taste of our bestsellers. Browse the full menu for all sizes, combos, and sides.
@@ -69,7 +69,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
           {highlightedItems.map((item) => (
             <div
               key={item.id}
-              className="rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-red-600 p-4 transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-lg"
+              className="rounded-2xl bg-[#1e2025] border border-neutral-800 hover:border-red-600 p-4 transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-lg"
             >
               <div>
                 {/* Food Image */}
@@ -92,7 +92,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
                   {item.spiceLevel > 0 && (
                     <div className="absolute top-2.5 left-2.5">
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#e52516] text-white flex items-center gap-1 shadow">
-                        <Flame className="w-3 h-3 text-yellow-300" />
+                        <Flame className="w-3 h-3 text-white" />
                         {item.spiceLevel === 3 ? 'Extra Hot' : item.spiceLevel === 2 ? 'Medium Spicy' : 'Mild'}
                       </span>
                     </div>
@@ -128,7 +128,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
         </div>
 
         {/* Bottom Menu Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="mt-12 p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
           <div>
             <h4 className="font-heading text-2xl font-bold uppercase text-white">
               LOOKING FOR MORE SIZES, COMBOS & DRINKS?

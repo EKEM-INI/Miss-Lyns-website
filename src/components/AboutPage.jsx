@@ -3,16 +3,16 @@ import { ArrowLeft, Flame, Heart, Sparkles, MapPin, Phone, ShoppingBag, Utensils
 
 export default function AboutPage({ setCurrentView, openOrderingModal }) {
   return (
-    <div className="min-h-screen bg-black text-white pt-6 pb-24">
+    <div className="min-h-screen bg-[#141518] text-white pt-6 pb-24">
       
       {/* Top Banner */}
-      <div className="bg-black border-b border-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#141518] border-b border-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           
           <div className="flex justify-center mb-6">
             <button
               onClick={() => setCurrentView('home')}
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white bg-neutral-900 px-4 py-2 rounded-xl border border-neutral-700 shadow-sm transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white bg-[#1e2025] px-4 py-2 rounded-xl border border-neutral-700 shadow-sm transition-colors"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Homepage
             </button>
@@ -24,10 +24,10 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
-            MISS LYN’S <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#d97706] to-[#b45309]">WINGS</span>
+            MISS LYN’S <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">WINGS</span>
           </h1>
 
-          <p className="font-heading text-2xl sm:text-3xl font-bold text-amber-400 uppercase tracking-wide mt-3">
+          <p className="font-heading text-2xl sm:text-3xl font-bold text-white uppercase tracking-wide mt-3">
             Canadian Comfort. Jamaican Soul. Made with Love.
           </p>
 
@@ -70,7 +70,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
               <p>
                 When setting out to open a restaurant of our own, our team turned to the master herself. In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
               </p>
-              <p className="font-semibold text-amber-300 bg-neutral-900 p-4 rounded-xl border border-amber-800/60">
+              <p className="font-semibold text-white bg-[#1e2025] p-4 rounded-xl border border-neutral-700">
                 Miss Lyn’s Wings was born to carry that spirit forward—serving soulful, unforgettable comfort food that makes you feel right at home.
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
             <span className="text-2xl">🍳</span>
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#d97706] block">OUR KITCHEN PHILOSOPHY</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#e02e07] block">OUR KITCHEN PHILOSOPHY</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
                 The Saturday Secret
               </h2>
@@ -103,8 +103,8 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           {/* Quote Banner */}
-          <div className="p-6 rounded-2xl bg-neutral-900 border-2 border-amber-800/60 text-center shadow-sm">
-            <p className="font-heading text-2xl sm:text-3xl font-extrabold text-amber-300 leading-tight">
+          <div className="p-6 rounded-2xl bg-[#1e2025] border-2 border-neutral-700 text-center shadow-sm">
+            <p className="font-heading text-2xl sm:text-3xl font-extrabold text-white leading-tight">
               «“Grandma’s Sunday dinner tasted so good because the preparation started on Saturday.”»
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
             
-            <div className="p-5 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-sm space-y-2">
+            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
               <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#ff481f]">
                 <Flame className="w-5 h-5" />
               </div>
@@ -130,8 +130,8 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-amber-950/80 flex items-center justify-center text-[#d97706]">
+            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#e02e07]">
                 <Utensils className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Canadian Favourites, Jamaican Twist</h3>
@@ -140,7 +140,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-sm space-y-2">
+            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
               <div className="w-10 h-10 rounded-xl bg-emerald-950/80 flex items-center justify-center text-[#059669]">
                 <Sparkles className="w-5 h-5" />
               </div>
@@ -168,7 +168,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Item 1 */}
-            <div className="p-5 rounded-2xl bg-neutral-900 border border-neutral-800 space-y-3 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-neutral-950">
                   <img src="/images/dishes/0053.jpg" alt="Signature Wings & Jerk Sauces" className="w-full h-full object-cover" />
@@ -183,7 +183,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
 
             {/* Item 2 */}
-            <div className="p-5 rounded-2xl bg-neutral-900 border border-neutral-800 space-y-3 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-neutral-950">
                   <img src="/images/dishes/0019.jpg" alt="Authentic Jamaican Jerk Chicken" className="w-full h-full object-cover" />
@@ -198,7 +198,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
 
             {/* Item 3 */}
-            <div className="p-5 rounded-2xl bg-neutral-900 border border-neutral-800 space-y-3 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-neutral-950">
                   <img src="/images/dishes/garlic-bread.jpg" alt="Toasted Garlic Bread" className="w-full h-full object-cover" />
@@ -243,14 +243,14 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           {/* Customer Family Banner */}
-          <div className="p-8 rounded-3xl bg-neutral-900 border-2 border-amber-800/60 text-center space-y-3 shadow-md">
+          <div className="p-8 rounded-3xl bg-[#1e2025] border-2 border-neutral-700 text-center space-y-3 shadow-md">
             <h3 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
               You’re Not Just a Customer. <span className="text-[#ff481f]">You’re Family.</span>
             </h3>
             <p className="text-base text-neutral-300 max-w-xl mx-auto leading-relaxed">
               When you walk up to our counter, you’re not just a customer—you’re sitting down at Miss Lyn’s table.
             </p>
-            <p className="font-heading text-2xl font-bold text-amber-400 uppercase tracking-wide">
+            <p className="font-heading text-2xl font-bold text-[#ff481f] uppercase tracking-wide">
               Come hungry. Leave with a full heart.
             </p>
             <div className="pt-2">

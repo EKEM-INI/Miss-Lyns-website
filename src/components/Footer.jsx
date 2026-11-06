@@ -34,18 +34,18 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
   };
 
   return (
-    <footer className="bg-black text-white border-t border-neutral-900 pt-16 pb-24 lg:pb-16">
+    <footer className="bg-[#101114] text-white border-t border-neutral-850 pt-16 pb-24 lg:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-neutral-900 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-neutral-800 text-left">
           
           {/* Col 1: Brand & Tagline */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🍗</span>
               <span className="font-heading text-3xl font-black tracking-wider text-white">
-                MISS LYN’S <span className="text-[#fbbf24]">WINGS</span>
+                MISS LYN’S <span className="text-[#ff481f]">WINGS</span>
               </span>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
@@ -61,7 +61,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
 
           {/* Col 2: Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-[#fbbf24]">
+            <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-white">
               QUICK NAVIGATION
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-gray-400">
@@ -76,7 +76,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'family-feast')} className="hover:text-white transition-colors text-yellow-400 font-semibold">
+                <button onClick={() => handleNav('home', 'family-feast')} className="hover:text-white transition-colors text-red-400 font-semibold">
                   Family Feast Bundle ($49.99)
                 </button>
               </li>
@@ -109,7 +109,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
               >
                 <span>Direct Pickup Order</span>
-                <Phone className="w-3.5 h-3.5 text-[#fbbf24]" />
+                <Phone className="w-3.5 h-3.5 text-white" />
               </button>
 
               {restaurantInfo.deliveryLinks.map((d) => (
@@ -141,21 +141,21 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#fbbf24] shrink-0" />
+                <Phone className="w-4 h-4 text-white shrink-0" />
                 <a href="tel:9055225967" className="hover:text-white font-bold text-gray-200">
                   (905) 522-5967
                 </a>
               </div>
               <div className="flex items-center gap-2 pt-0.5">
-                <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
+                <InstagramIcon className="w-4 h-4 text-white shrink-0" />
                 <a
                   href={restaurantInfo.social.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-300 font-bold text-gray-200 flex items-center gap-1 transition-colors group"
+                  className="hover:text-red-400 font-bold text-gray-200 flex items-center gap-1 transition-colors group"
                 >
-                  <span className="text-gray-400 group-hover:text-pink-300">IG:</span>
-                  <span className="text-pink-400 group-hover:underline">{restaurantInfo.social.instagram.handle}</span>
+                  <span className="text-gray-400 group-hover:text-red-400">IG:</span>
+                  <span className="text-white group-hover:text-red-400 group-hover:underline">{restaurantInfo.social.instagram.handle}</span>
                 </a>
               </div>
               <div className="pt-2 text-[11px] text-gray-400">
@@ -176,7 +176,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
               href={restaurantInfo.social.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-pink-400 hover:text-pink-300 transition-colors font-medium"
+              className="flex items-center gap-1.5 text-neutral-300 hover:text-red-400 transition-colors font-medium"
             >
               <InstagramIcon className="w-4 h-4" />
               <span>{restaurantInfo.social.instagram.handle}</span>

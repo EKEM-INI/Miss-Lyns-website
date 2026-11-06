@@ -3,12 +3,12 @@ import { Flame, ShoppingBag, Phone, ArrowRight, Sparkles, Clock } from 'lucide-r
 
 export default function Hero({ openOrderingModal, setCurrentView }) {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-black pt-8 pb-16 lg:py-20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#141518] pt-8 pb-16 lg:py-20">
       
       {/* Background Decorative Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-gradient-to-tr from-red-950/30 to-amber-950/20 rounded-full blur-[140px] -z-10"></div>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-950/20 rounded-full blur-[100px] -z-10"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-gradient-to-tr from-red-950/30 to-neutral-900/30 rounded-full blur-[140px] -z-10"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-neutral-800/20 rounded-full blur-[100px] -z-10"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
@@ -21,15 +21,15 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
               <Flame className="w-4 h-4 text-[#ff481f] animate-bounce" />
               <span>Authentic Jamaican & Caribbean Heat</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#d97706]"></span>
-              <span className="text-[#d97706] font-extrabold">Hamilton, ON</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#e02e07]"></span>
+              <span className="text-white font-extrabold">Hamilton, ON</span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-2">
               <h1 className="font-heading text-5xl sm:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-[1.0] uppercase">
                 BUILD YOUR <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#d97706] to-[#b45309]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">
                   COMBO
                 </span>
               </h1>
@@ -44,9 +44,9 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* ORDER PICKUP */}
               <button
                 onClick={() => openOrderingModal('pickup')}
-                className="px-7 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-700 shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
+                className="px-7 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-[#1e2025] hover:bg-neutral-800 text-white border border-neutral-700 shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
               >
-                <Phone className="w-5 h-5 text-yellow-400 group-hover:rotate-12 transition-transform" />
+                <Phone className="w-5 h-5 text-white group-hover:rotate-12 transition-transform" />
                 <span>ORDER PICKUP</span>
               </button>
 
@@ -62,7 +62,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* VIEW MENU */}
               <button
                 onClick={() => setCurrentView('menu')}
-                className="px-6 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider text-neutral-200 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 transition-all flex items-center justify-center gap-2"
+                className="px-6 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider text-neutral-200 hover:text-white bg-[#1e2025] hover:bg-neutral-800 border border-neutral-700 transition-all flex items-center justify-center gap-2"
               >
                 <span>VIEW MENU</span>
                 <ArrowRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-1 transition-transform" />
@@ -83,8 +83,8 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-amber-950/60 border border-amber-900 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4 text-[#d97706]" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-red-950/60 border border-red-900 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-[#e02e07]" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Authentic Jerk</div>
@@ -93,8 +93,8 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-emerald-950/60 border border-emerald-900 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 text-[#059669]" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-neutral-300" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Hot & Fast</div>
@@ -110,15 +110,15 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Glow Behind Dish */}
-              <div className="absolute inset-4 bg-gradient-to-br from-red-900/30 to-amber-900/20 rounded-3xl blur-2xl -z-10"></div>
+              <div className="absolute inset-4 bg-gradient-to-br from-red-900/30 to-neutral-900/30 rounded-3xl blur-2xl -z-10"></div>
 
               {/* Main Visual Card */}
-              <div className="relative rounded-3xl bg-neutral-900 border-2 border-neutral-800 p-3 sm:p-4 shadow-2xl overflow-hidden group">
+              <div className="relative rounded-3xl bg-[#1e2025] border-2 border-neutral-800 p-3 sm:p-4 shadow-2xl overflow-hidden group">
                 
                 {/* Ribbon Tag */}
                 <div className="absolute top-4 left-4 z-20">
                   <div className="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center gap-1.5 bg-[#e02e07] text-white shadow-md">
-                    <Flame className="w-4 h-4 text-yellow-300" />
+                    <Flame className="w-4 h-4 text-white" />
                     <span>CHEF’S SIGNATURE</span>
                   </div>
                 </div>

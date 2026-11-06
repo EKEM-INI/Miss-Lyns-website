@@ -132,7 +132,7 @@ export default function OrderingModal({
                 : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
             }`}
           >
-            <Phone className="w-4 h-4 text-yellow-400" />
+            <Phone className="w-4 h-4 text-white" />
             <span>Pickup</span>
           </button>
 
@@ -142,7 +142,7 @@ export default function OrderingModal({
               onClick={() => setActiveTab('cart')}
               className={`col-span-2 sm:col-span-1 py-2.5 px-3 rounded-xl font-heading text-sm sm:text-base font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === 'cart'
-                  ? 'bg-amber-600 text-white shadow-md'
+                  ? 'bg-[#e02e07] text-white shadow-md'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
               }`}
             >
@@ -183,7 +183,7 @@ export default function OrderingModal({
                   </div>
                 </div>
 
-                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-emerald-950 font-heading text-sm font-black uppercase tracking-wider group-hover:bg-yellow-300 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
+                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-emerald-950 font-heading text-sm font-black uppercase tracking-wider group-hover:bg-neutral-200 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
                   <span>Order on Uber Eats</span>
                   <ExternalLink className="w-4 h-4" />
                 </div>
@@ -201,19 +201,19 @@ export default function OrderingModal({
                     <ShoppingBag className="w-6 h-6 text-[#FF3008]" />
                   </div>
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/25 text-[10px] font-bold uppercase tracking-wider text-orange-100 mb-0.5">
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/25 text-[10px] font-bold uppercase tracking-wider text-white mb-0.5">
                       <span>✨ Official Delivery Partner</span>
                     </div>
                     <h3 className="font-heading text-2xl font-black uppercase text-white leading-tight">
                       DoorDash
                     </h3>
-                    <p className="text-xs text-orange-100">
+                    <p className="text-xs text-white">
                       Direct store page with custom combo delivery
                     </p>
                   </div>
                 </div>
 
-                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-[#FF3008] font-heading text-sm font-black uppercase tracking-wider group-hover:bg-yellow-300 group-hover:text-gray-900 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
+                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-[#FF3008] font-heading text-sm font-black uppercase tracking-wider group-hover:bg-neutral-200 group-hover:text-gray-900 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
                   <span>Order on DoorDash</span>
                   <ExternalLink className="w-4 h-4" />
                 </div>
@@ -243,7 +243,7 @@ export default function OrderingModal({
                   </div>
                 </div>
 
-                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-[#D41D24] font-heading text-sm font-black uppercase tracking-wider group-hover:bg-yellow-300 group-hover:text-gray-900 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
+                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-[#D41D24] font-heading text-sm font-black uppercase tracking-wider group-hover:bg-neutral-200 group-hover:text-gray-900 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
                   <span>Order on SkipTheDishes</span>
                   <ExternalLink className="w-4 h-4" />
                 </div>
@@ -255,7 +255,7 @@ export default function OrderingModal({
             {activeItems.length > 0 && (
               <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800 mt-4 space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-wider text-amber-400">
+                  <span className="text-xs font-black uppercase tracking-wider text-white">
                     📋 Your Configured Dishes ({activeItems.length})
                   </span>
                   <button
@@ -269,7 +269,7 @@ export default function OrderingModal({
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5 text-amber-400" />
+                        <Copy className="w-3.5 h-3.5 text-white" />
                         <span>Copy Order Details</span>
                       </>
                     )}
@@ -290,7 +290,7 @@ export default function OrderingModal({
             <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-2 mt-4">
               <span>Have questions about menu items or delivery?</span>
               <a href="tel:9055225967" className="font-bold text-white hover:text-[#e02e07] flex items-center gap-1">
-                <Phone className="w-3.5 h-3.5 text-[#fbbf24]" />
+                <Phone className="w-3.5 h-3.5 text-white" />
                 <span>Call Store: (905) 522-5967</span>
               </a>
             </div>
@@ -305,7 +305,7 @@ export default function OrderingModal({
             
             {/* Primary Call & Text Action Card */}
             <div className="p-6 rounded-3xl bg-neutral-950 text-white space-y-4 shadow-xl border border-neutral-800">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-yellow-400">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white">
                 <Phone className="w-4 h-4" />
                 <span>Call or Text Store for Fast Pickup</span>
               </div>
@@ -322,7 +322,7 @@ export default function OrderingModal({
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
                   href="tel:9055225967"
-                  className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-gray-950 font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
+                  className="py-3.5 px-5 rounded-2xl bg-[#e02e07] hover:bg-[#ff481f] text-white font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call (905) 522-5967</span>
@@ -341,8 +341,8 @@ export default function OrderingModal({
             {/* Store Location & Hours */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase text-amber-400 mb-1">
-                  <MapPin className="w-4 h-4 text-amber-400" />
+                <div className="flex items-center gap-2 text-xs font-bold uppercase text-white mb-1">
+                  <MapPin className="w-4 h-4 text-white" />
                   <span>Pickup Location</span>
                 </div>
                 <div className="text-sm font-bold text-white">677 King Street East</div>
@@ -350,8 +350,8 @@ export default function OrderingModal({
               </div>
 
               <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase text-amber-400 mb-1">
-                  <Clock className="w-4 h-4 text-amber-400" />
+                <div className="flex items-center gap-2 text-xs font-bold uppercase text-white mb-1">
+                  <Clock className="w-4 h-4 text-white" />
                   <span>Pickup Hours</span>
                 </div>
                 <div className="text-xs font-bold text-white">Mon – Fri: 11:00 AM – 9:00 PM</div>
@@ -363,7 +363,7 @@ export default function OrderingModal({
             {activeItems.length > 0 && (
               <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-2.5 shadow-sm">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-wider text-amber-400">
+                  <span className="text-xs font-black uppercase tracking-wider text-white">
                     📋 Your Order for the Call ({activeItems.length} Items)
                   </span>
                   <button
@@ -377,7 +377,7 @@ export default function OrderingModal({
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5 text-amber-400" />
+                        <Copy className="w-3.5 h-3.5 text-white" />
                         <span>Copy Details</span>
                       </>
                     )}
@@ -441,7 +441,7 @@ export default function OrderingModal({
                           </h4>
                           {item.details && (
                             <p className="text-[10px] text-neutral-400 leading-tight truncate">
-                              {item.details.sauce && <strong className="text-amber-400 font-bold">{item.details.sauce} • </strong>}
+                              {item.details.sauce && <strong className="text-red-400 font-bold">{item.details.sauce} • </strong>}
                               {item.details.style && `${item.details.style} • `}
                               {item.details.proteins && `${Array.isArray(item.details.proteins) ? item.details.proteins.join(', ') : item.details.proteins} • `}
                               {item.details.protein && `${item.details.protein} • `}
@@ -521,7 +521,7 @@ export default function OrderingModal({
                     onClick={() => setActiveTab('pickup')}
                     className="py-3 px-4 rounded-xl font-heading text-sm font-black uppercase tracking-wider bg-neutral-800 hover:bg-neutral-700 text-white shadow-md border border-neutral-700 flex items-center justify-center gap-1.5 transition-all"
                   >
-                    <Phone className="w-4 h-4 text-yellow-400" />
+                    <Phone className="w-4 h-4 text-white" />
                     <span>Order Pickup ((905) 522-5967)</span>
                   </button>
                 </div>

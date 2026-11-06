@@ -8,7 +8,7 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #000000;
+    background-color: #141518;
     color: #ffffff;
     overflow-x: hidden;
   }
@@ -19,29 +19,21 @@
   }
 }
 
-/* Custom food colors and Caribbean accents */
+/* Custom food colors and theme accents (Black, Red, White, Gray) */
 .bg-caribbean-dark {
-  background-color: #000000;
+  background-color: #141518;
 }
 
 .bg-caribbean-card {
-  background-color: #121212;
+  background-color: #1e2025;
 }
 
-.text-caribbean-orange {
+.text-brand-red {
   color: #e02e07;
 }
 
-.bg-caribbean-orange {
+.bg-brand-red {
   background-color: #e02e07;
-}
-
-.text-caribbean-yellow {
-  color: #d97706;
-}
-
-.bg-caribbean-yellow {
-  background-color: #f59e0b;
 }
 
 /* Ribbon badge styling matching reference image */
@@ -75,7 +67,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #141518;
 }
 
 ::-webkit-scrollbar-thumb {

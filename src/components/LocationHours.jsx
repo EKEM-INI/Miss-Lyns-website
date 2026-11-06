@@ -4,17 +4,17 @@ import { restaurantInfo } from '../data/restaurantInfo';
 
 export default function LocationHours({ openOrderingModal }) {
   return (
-    <section id="location-hours" className="py-16 lg:py-24 bg-black text-white relative overflow-hidden border-t border-neutral-900">
+    <section id="location-hours" className="py-16 lg:py-24 bg-[#141518] text-white relative overflow-hidden border-t border-neutral-850">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-800 text-emerald-400 text-xs font-bold uppercase tracking-widest shadow-sm">
-            <MapPin className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/80 border border-red-800 text-white text-xs font-bold uppercase tracking-widest shadow-sm">
+            <MapPin className="w-3.5 h-3.5 text-[#e02e07]" />
             <span>VISIT OR ORDER DIRECT</span>
           </div>
           <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase text-white tracking-tight">
-            LOCATION & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#d97706]">HOURS</span>
+            LOCATION & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">HOURS</span>
           </h2>
           <p className="text-sm sm:text-base text-neutral-400">
             Conveniently located in the heart of Hamilton on King Street East.
@@ -28,7 +28,7 @@ export default function LocationHours({ openOrderingModal }) {
           <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
             
             {/* Address Box */}
-            <div className="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-[#ff481f]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
@@ -48,17 +48,17 @@ export default function LocationHours({ openOrderingModal }) {
                   rel="noopener noreferrer"
                   className="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-neutral-800 hover:bg-neutral-700 text-white border border-neutral-700 transition-colors inline-flex items-center gap-1.5"
                 >
-                  <Navigation className="w-3.5 h-3.5 text-[#d97706]" />
+                  <Navigation className="w-3.5 h-3.5 text-white" />
                   <span>Get Directions</span>
                 </a>
               </div>
             </div>
 
             {/* Hours Box */}
-            <div className="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 text-left space-y-3 shadow-sm">
-              <div className="flex items-center gap-3 text-[#d97706]">
-                <div className="w-10 h-10 rounded-xl bg-amber-950/80 flex items-center justify-center">
-                  <Clock className="w-5 h-5" />
+            <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
+              <div className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 rounded-xl bg-neutral-800 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <span className="text-xs uppercase tracking-wider text-neutral-400 font-bold block">Opening Hours</span>
@@ -70,7 +70,7 @@ export default function LocationHours({ openOrderingModal }) {
                 {restaurantInfo.hours.map((h, i) => (
                   <div key={i} className="flex items-center justify-between text-xs sm:text-sm py-1.5 border-b border-neutral-800 last:border-0">
                     <span className="font-bold text-neutral-300">{h.days}</span>
-                    <span className={h.isOpenToday ? "text-amber-400 font-bold" : "text-red-400 font-semibold"}>
+                    <span className={h.isOpenToday ? "text-white font-bold" : "text-red-400 font-semibold"}>
                       {h.time}
                     </span>
                   </div>
@@ -79,13 +79,13 @@ export default function LocationHours({ openOrderingModal }) {
             </div>
 
             {/* Clickable Phone Call Box */}
-            <div className="p-6 rounded-2xl bg-neutral-900 border-2 border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl bg-[#1e2025] border-2 border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-[#ff481f]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-amber-400 font-bold block">Order Ahead By Phone</span>
+                  <span className="text-xs uppercase tracking-wider text-neutral-400 font-bold block">Order Ahead By Phone</span>
                   <h3 className="font-heading text-2xl font-black text-white">CALL TO PLACE PICKUP</h3>
                 </div>
               </div>
@@ -95,10 +95,10 @@ export default function LocationHours({ openOrderingModal }) {
                   <a
                     key={idx}
                     href={`tel:${p.raw}`}
-                    className="p-3.5 rounded-xl bg-neutral-950 hover:bg-[#e02e07] hover:text-white text-white transition-all flex items-center justify-between border border-neutral-800 group shadow-sm"
+                    className="p-3.5 rounded-xl bg-[#141518] hover:bg-[#e02e07] hover:text-white text-white transition-all flex items-center justify-between border border-neutral-800 group shadow-sm"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Phone className="w-5 h-5 text-[#d97706] group-hover:text-white" />
+                      <Phone className="w-5 h-5 text-white group-hover:text-white" />
                       <div>
                         <div className="font-heading text-xl font-bold leading-none text-white">{p.number}</div>
                         <div className="text-xs text-neutral-400 group-hover:text-white/80">{p.label}</div>
@@ -116,7 +116,7 @@ export default function LocationHours({ openOrderingModal }) {
 
           {/* Interactive Map Embed Column */}
           <div className="lg:col-span-6 flex flex-col">
-            <div className="relative rounded-2xl overflow-hidden bg-neutral-900 border-2 border-neutral-800 shadow-md flex-1 min-h-[380px] flex flex-col justify-between">
+            <div className="relative rounded-2xl overflow-hidden bg-[#1e2025] border-2 border-neutral-800 shadow-md flex-1 min-h-[380px] flex flex-col justify-between">
               
               {/* Stylized Google Map iframe */}
               <iframe
@@ -129,7 +129,7 @@ export default function LocationHours({ openOrderingModal }) {
               ></iframe>
 
               {/* Overlay Badge */}
-              <div className="p-4 bg-neutral-900/95 backdrop-blur-md border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="p-4 bg-[#1e2025]/95 backdrop-blur-md border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                 <div>
                   <h4 className="font-heading text-xl font-bold uppercase text-white">
                     MISS LYN’S WINGS • HAMILTON

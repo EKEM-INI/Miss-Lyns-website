@@ -75,40 +75,40 @@ export const comboPremiumUpgrades = [
   {
     id: "mac-pie",
     name: "Baked Mac Pie",
-    price: 3.00,
-    priceDisplay: "+$3.00",
+    price: 2.50,
+    priceDisplay: "+$2.50",
     image: "/images/dishes/mac-pie.jpg",
     description: "Authentic Caribbean baked macaroni pie with melted cheddar crust."
   },
   {
     id: "poutine",
     name: "Classic Poutine",
-    price: 3.00,
-    priceDisplay: "+$3.00",
+    price: 2.50,
+    priceDisplay: "+$2.50",
     image: "/images/dishes/poutine.jpg",
     description: "Crispy fries loaded with cheese curds and savory rich gravy."
   },
   {
     id: "festival",
     name: "Festival Dumplings",
-    price: 3.00,
-    priceDisplay: "+$3.00",
+    price: 2.50,
+    priceDisplay: "+$2.50",
     image: "/images/dishes/festivals.jpg",
     description: "Sweet fried Jamaican cornmeal dumplings, crispy outside and soft inside."
   },
   {
     id: "onion-rings",
     name: "Crispy Onion Rings",
-    price: 3.00,
-    priceDisplay: "+$3.00",
+    price: 2.50,
+    priceDisplay: "+$2.50",
     image: "/images/dishes/0015.jpg",
     description: "Thick-cut sweet onion rings in golden crispy batter."
   },
   {
     id: "garlic-bread-cheese",
     name: "Garlic Bread with Cheese",
-    price: 3.00,
-    priceDisplay: "+$3.00",
+    price: 2.50,
+    priceDisplay: "+$2.50",
     image: "/images/dishes/0030.jpg",
     description: "Garlic Texas toast smothered in melted cheddar and mozzarella cheese."
   }

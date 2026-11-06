@@ -219,7 +219,7 @@ export default function WingCustomizationModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[92vh] rounded-3xl bg-neutral-900 border border-neutral-700 shadow-2xl overflow-y-auto text-white p-5 sm:p-7 text-left">
+      <div className="relative w-full max-w-2xl max-h-[92vh] rounded-3xl bg-[#1a1c21] border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7 text-left">
         
         {/* Close Button */}
         <button
@@ -241,7 +241,7 @@ export default function WingCustomizationModal({
           </div>
           <div className="flex-1 pr-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-[#ff481f] text-[10px] font-bold uppercase tracking-wider border border-red-900 mb-1">
-              <Sparkles className="w-3 h-3 text-yellow-400" />
+              <Sparkles className="w-3 h-3 text-[#ff481f]" />
               <span>{isWing ? 'Wing Sauce & Style Selection' : 'Customization & Drink'}</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
@@ -255,12 +255,12 @@ export default function WingCustomizationModal({
                 ${unitPrice.toFixed(2)}
               </span>
               {extraSaucesCount > 0 && (
-                <span className="text-[11px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+                <span className="text-[11px] font-bold text-red-300 bg-red-950/80 px-2 py-0.5 rounded border border-red-800">
                   +${extraSaucesCost.toFixed(2)} ({extraSaucesCount} Extra Sauce{extraSaucesCount > 1 ? 's' : ''})
                 </span>
               )}
               {drinkUpgradeCost > 0 && (
-                <span className="text-[11px] font-bold text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+                <span className="text-[11px] font-bold text-red-300 bg-red-950/80 px-2 py-0.5 rounded border border-red-800">
                   +${drinkUpgradeCost.toFixed(2)} (Drink Upgrade)
                 </span>
               )}
@@ -343,7 +343,7 @@ export default function WingCustomizationModal({
                   </h4>
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
                     extraSaucesCount > 0 
-                      ? 'text-amber-300 bg-amber-950/80 border-amber-700' 
+                      ? 'text-red-300 bg-red-950/80 border-red-800' 
                       : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
                   }`}>
                     {extraSaucesCount > 0 
@@ -355,7 +355,7 @@ export default function WingCustomizationModal({
                 </div>
                 <p className="text-xs text-neutral-400 mb-3">
                   Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
-                  You can pick any additional sauce from our 13 flavours for only <strong className="text-amber-400 font-bold">+$1.25 each</strong>:
+                  You can pick any additional sauce from our 13 flavours for only <strong className="text-red-400 font-bold">+$1.25 each</strong>:
                 </p>
               </>
             )}
@@ -375,7 +375,7 @@ export default function WingCustomizationModal({
                     className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between gap-2 ${
                       isSelected
                         ? isExtra
-                          ? 'bg-amber-950/70 border-amber-400 text-white shadow-md ring-1 ring-amber-400/50'
+                          ? 'bg-red-950/70 border-red-500 text-white shadow-md ring-1 ring-red-500/50'
                           : 'bg-red-950/60 border-[#e02e07] text-white shadow-md ring-1 ring-[#e02e07]/50'
                         : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
                     }`}
@@ -383,7 +383,7 @@ export default function WingCustomizationModal({
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <span className={`font-heading text-base font-bold uppercase ${
-                          isSelected ? (isExtra ? 'text-amber-400' : 'text-[#ff481f]') : 'text-white'
+                          isSelected ? (isExtra ? 'text-red-400' : 'text-[#ff481f]') : 'text-white'
                         }`}>
                           {sauce.name}
                         </span>
@@ -394,7 +394,7 @@ export default function WingCustomizationModal({
                         )}
                         {isSelected && (
                           <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
-                            isExtra ? 'bg-amber-400/20 text-amber-300 border border-amber-500/50' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                            isExtra ? 'bg-red-950 text-red-300 border border-red-800' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
                           }`}>
                             {isExtra ? '+$1.25 Extra' : 'Included'}
                           </span>
@@ -412,7 +412,7 @@ export default function WingCustomizationModal({
 
                     <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
                       isSelected
-                        ? isExtra ? 'bg-amber-400 border-amber-400 text-gray-950' : 'bg-[#e02e07] border-[#e02e07] text-white'
+                        ? isExtra ? 'bg-red-600 border-red-600 text-white' : 'bg-[#e02e07] border-[#e02e07] text-white'
                         : 'border-neutral-700 bg-neutral-900'
                     }`}>
                       {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -455,8 +455,8 @@ export default function WingCustomizationModal({
                           className={`p-2.5 rounded-2xl text-left border transition-all flex flex-col justify-between ${
                             isSelected
                               ? drink.price > 0
-                                ? 'bg-amber-950/70 border-amber-400 text-white shadow ring-1 ring-amber-400/50'
-                                : 'bg-emerald-950/60 border-emerald-500 text-white shadow ring-1 ring-emerald-500/50'
+                                ? 'bg-red-950/70 border-red-500 text-white shadow ring-1 ring-red-500/50'
+                                : 'bg-neutral-800 border-white text-white shadow ring-1 ring-white/50'
                               : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
                           }`}
                         >
@@ -472,7 +472,7 @@ export default function WingCustomizationModal({
                           <div>
                             <div className="flex items-center justify-between gap-1">
                               <span className={`font-heading text-xs font-bold uppercase truncate ${
-                                isSelected ? (drink.price > 0 ? 'text-amber-400' : 'text-emerald-400') : 'text-white'
+                                isSelected ? (drink.price > 0 ? 'text-red-400' : 'text-white') : 'text-white'
                               }`}>
                                 {drink.name}
                               </span>
@@ -485,15 +485,15 @@ export default function WingCustomizationModal({
                           <div className="mt-2 flex items-center justify-between">
                             <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
                               drink.price > 0
-                                ? 'bg-amber-400/20 text-amber-300 border border-amber-500/50'
-                                : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                                ? 'bg-red-950 text-red-300 border border-red-800'
+                                : 'bg-neutral-800 text-neutral-300 border border-neutral-700'
                             }`}>
                               {drink.price > 0 ? '+$2.50' : 'Included'}
                             </span>
 
                             {isSelected && (
                               <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
-                                drink.price > 0 ? 'bg-amber-400 text-gray-950' : 'bg-emerald-500 text-gray-950'
+                                drink.price > 0 ? 'bg-red-600 text-white' : 'bg-white text-black'
                               }`}>
                                 <Check className="w-3 h-3 stroke-[3]" />
                               </div>

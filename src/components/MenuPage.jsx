@@ -39,15 +39,15 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
   };
 
   return (
-    <div className="min-h-screen bg-black pt-6 pb-24 text-white">
+    <div className="min-h-screen bg-[#141518] pt-6 pb-24 text-white">
       
       {/* Header Banner */}
-      <div className="bg-black border-b border-neutral-800 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#141518] border-b border-neutral-800 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           
           <button
             onClick={() => setCurrentView('home')}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white mb-4 bg-neutral-900 px-3.5 py-2 rounded-lg border border-neutral-700 shadow-sm transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white mb-4 bg-[#1e2025] px-3.5 py-2 rounded-lg border border-neutral-700 shadow-sm transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Homepage
           </button>
@@ -58,7 +58,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 <span>AUTHENTIC RESTAURANT MENU</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
-                OUR COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#d97706] to-[#b45309]">MENU</span>
+                OUR COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">MENU</span>
               </h1>
               <p className="text-sm sm:text-base text-neutral-400 max-w-xl mt-2">
                 Every dish is cooked fresh to order using authentic Jamaican spices and high-quality fresh chicken.
@@ -73,7 +73,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 placeholder="Search dishes, wings, sides..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#e02e07] shadow-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#e02e07] shadow-sm"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
       </div>
 
       {/* Sticky Category Filter Tabs Bar */}
-      <div className="sticky top-[69px] z-30 bg-black/95 backdrop-blur-md border-b border-neutral-800 py-3 shadow-md">
+      <div className="sticky top-[69px] z-30 bg-[#141518]/95 backdrop-blur-md border-b border-neutral-800 py-3 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             
@@ -273,7 +273,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
 // Sub-component for individual dish cards
 function MenuItemCard({ item, onOrder, onDetail }) {
   return (
-    <div className="rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-red-600 p-4 transition-all duration-200 group flex flex-col justify-between shadow-sm hover:shadow-lg">
+    <div className="rounded-2xl bg-[#1e2025] border border-neutral-800 hover:border-red-600 p-4 transition-all duration-200 group flex flex-col justify-between shadow-sm hover:shadow-lg">
       <div>
         
         {/* Photo Container */}
@@ -298,7 +298,7 @@ function MenuItemCard({ item, onOrder, onDetail }) {
           {/* Tag */}
           {item.tags?.[0] && (
             <div className="absolute top-2.5 left-2.5">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-black/75 text-yellow-300 backdrop-blur-sm shadow">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-black/75 text-white backdrop-blur-sm shadow">
                 {item.tags[0]}
               </span>
             </div>

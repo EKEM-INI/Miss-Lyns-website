@@ -32,25 +32,25 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
   return (
     <>
       {/* Top Notification Announcement Bar */}
-      <div className="bg-gradient-to-r from-[#991b1b] via-[#e52516] to-[#d97706] text-white py-2 px-4 text-xs font-semibold tracking-wide text-center flex items-center justify-center gap-2 shadow-inner">
-        <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-[11px] font-bold uppercase tracking-wider text-yellow-300">
+      <div className="bg-gradient-to-r from-[#991b1b] to-[#dc2626] text-white py-2 px-4 text-xs font-semibold tracking-wide text-center flex items-center justify-center gap-2 shadow-inner">
+        <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-black/25 text-[11px] font-bold uppercase tracking-wider text-white">
           🔥 Hamilton, ON
         </span>
         <span>Always Fresh • Made To Order • 677 King St East</span>
         <a 
           href="tel:9055225967" 
-          className="hidden md:inline-flex items-center gap-1 font-bold underline hover:text-yellow-200 ml-2"
+          className="hidden md:inline-flex items-center gap-1 font-bold underline hover:text-neutral-200 ml-2"
         >
           <Phone className="w-3 h-3" /> (905) 522-5967
         </a>
       </div>
 
-      {/* Main Sticky Navigation Bar (Black Theme) */}
+      {/* Main Sticky Navigation Bar (Refined Dark Theme) */}
       <header 
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-black/95 backdrop-blur-md shadow-lg border-b border-neutral-800 py-3' 
-            : 'bg-black/90 backdrop-blur-sm border-b border-neutral-900 py-4'
+            ? 'bg-[#141518]/95 backdrop-blur-md shadow-lg border-b border-neutral-800 py-3' 
+            : 'bg-[#141518]/90 backdrop-blur-sm border-b border-neutral-800 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -60,8 +60,8 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 group text-left"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#ff481f] via-[#e52516] to-[#f59e0b] p-0.5 shadow-md group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#ff481f] to-[#dc2626] p-0.5 shadow-md group-hover:scale-105 transition-transform">
+              <div className="w-full h-full bg-[#1e2025] rounded-[10px] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black">🍗</span>
               </div>
             </div>
@@ -192,9 +192,9 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
         </div>
       </header>
 
-      {/* Mobile Drawer Menu (Black Theme) */}
+      {/* Mobile Drawer Menu (Refined Dark Theme) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-between bg-black/98 backdrop-blur-xl animate-fadeIn text-white">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-between bg-[#141518]/98 backdrop-blur-xl animate-fadeIn text-white">
           {/* Mobile Header */}
           <div className="p-4 flex items-center justify-between border-b border-neutral-800">
             <div className="flex items-center gap-2">
