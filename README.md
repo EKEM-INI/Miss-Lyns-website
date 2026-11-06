@@ -3,6 +3,8 @@
 > **Always Fresh. Made To Order. Bold Flavour Every Time.**  
 > Authentic Caribbean and Jamaican-inspired restaurant website in Hamilton, Ontario.
 
+🌐 **Live Website**: [https://miss-lyns-website.vercel.app](https://miss-lyns-website.vercel.app)
+
 ---
 
 ## 🌟 Features
