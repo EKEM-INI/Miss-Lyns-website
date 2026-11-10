@@ -80,7 +80,7 @@ export default function OrderingModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[90vh] rounded-3xl bg-neutral-900 border border-neutral-700 shadow-2xl overflow-y-auto text-white p-5 sm:p-7">
+      <div className="relative w-full max-w-2xl max-h-[90vh] rounded-3xl bg-[#1a1c20] border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7">
         
         {/* Close Button */}
         <button

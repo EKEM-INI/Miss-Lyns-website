@@ -3,12 +3,12 @@ import { Flame, ShoppingBag, Phone, ArrowRight, Sparkles, Clock } from 'lucide-r
 
 export default function Hero({ openOrderingModal, setCurrentView }) {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#141518] pt-8 pb-16 lg:py-20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-black pt-8 pb-16 lg:py-20">
       
       {/* Background Decorative Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-gradient-to-tr from-red-950/30 to-neutral-900/30 rounded-full blur-[140px] -z-10"></div>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-neutral-800/20 rounded-full blur-[100px] -z-10"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-gradient-to-tr from-red-950/20 to-neutral-900/20 rounded-full blur-[140px] -z-10"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-neutral-900/20 rounded-full blur-[100px] -z-10"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
@@ -18,9 +18,9 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
           <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
             
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
-              <Flame className="w-4 h-4 text-[#ff481f] animate-bounce" />
-              <span>Authentic Jamaican & Caribbean Heat</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1e2025] border border-neutral-800 text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
+              <Flame className="w-4 h-4 text-[#e02e07] animate-bounce" />
+              <span className="text-[#ea580c]">Canadian Favourites. Done The Jamaican Way.</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#e02e07]"></span>
               <span className="text-white font-extrabold">Hamilton, ON</span>
             </div>
@@ -28,13 +28,13 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             {/* Main Headline */}
             <div className="space-y-2">
               <h1 className="font-heading text-5xl sm:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-[1.0] uppercase">
-                BUILD YOUR <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">
-                  COMBO
+                MISS LYN’S <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#ea580c] to-[#ef4444]">
+                  WINGS
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-2xl font-normal leading-relaxed pt-2">
-                Hamilton’s favorite destination for deep-marinated Jamaican jerk chicken, crispy jumbo wings tossed in signature sauces, and authentic Caribbean comfort feast combos.
+                <span className="italic font-semibold text-white underline decoration-[#e02e07] decoration-2">Always Fresh. Made To Order.</span> Bold Caribbean flavour in every bite. Authentic jerk chicken, wings, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
             </div>
 

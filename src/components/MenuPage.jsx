@@ -39,10 +39,10 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
   };
 
   return (
-    <div className="min-h-screen bg-[#141518] pt-6 pb-24 text-white">
+    <div className="min-h-screen bg-black pt-6 pb-24 text-white">
       
       {/* Header Banner */}
-      <div className="bg-[#141518] border-b border-neutral-800 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="bg-black border-b border-neutral-800 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           
           <button
@@ -82,7 +82,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
       </div>
 
       {/* Sticky Category Filter Tabs Bar */}
-      <div className="sticky top-[69px] z-30 bg-[#141518]/95 backdrop-blur-md border-b border-neutral-800 py-3 shadow-md">
+      <div className="sticky top-[69px] z-30 bg-black/95 backdrop-blur-md border-b border-neutral-800 py-3 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             

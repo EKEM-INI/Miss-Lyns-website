@@ -9,7 +9,7 @@ export default function FloatingOrderBar({ openOrderingModal }) {
           onClick={() => openOrderingModal('pickup')}
           className="py-3 px-4 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-neutral-900 text-white border border-neutral-700 flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm"
         >
-          <Phone className="w-4 h-4 text-[#d97706]" />
+          <Phone className="w-4 h-4 text-[#e02e07]" />
           <span>PICKUP</span>
         </button>
 

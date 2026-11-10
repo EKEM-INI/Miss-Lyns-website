@@ -3,10 +3,10 @@ import { ArrowLeft, Flame, Heart, Sparkles, MapPin, Phone, ShoppingBag, Utensils
 
 export default function AboutPage({ setCurrentView, openOrderingModal }) {
   return (
-    <div className="min-h-screen bg-[#141518] text-white pt-6 pb-24">
+    <div className="min-h-screen bg-black text-white pt-6 pb-24">
       
       {/* Top Banner */}
-      <div className="bg-[#141518] border-b border-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-black border-b border-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           
           <div className="flex justify-center mb-6">

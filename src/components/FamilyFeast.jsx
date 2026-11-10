@@ -47,7 +47,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
   };
 
   return (
-    <section id="family-feast" className="relative py-16 lg:py-24 bg-[#141518] text-white overflow-hidden border-y border-neutral-850">
+    <section id="family-feast" className="relative py-16 lg:py-24 bg-black text-white overflow-hidden border-y border-neutral-850">
       
       {/* Background Graphic Lines */}
       <div className="absolute inset-0 pointer-events-none">

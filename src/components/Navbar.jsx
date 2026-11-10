@@ -45,12 +45,12 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
         </a>
       </div>
 
-      {/* Main Sticky Navigation Bar (Refined Dark Theme) */}
+      {/* Main Sticky Navigation Bar (Black Theme) */}
       <header 
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#141518]/95 backdrop-blur-md shadow-lg border-b border-neutral-800 py-3' 
-            : 'bg-[#141518]/90 backdrop-blur-sm border-b border-neutral-800 py-4'
+            ? 'bg-black/95 backdrop-blur-md shadow-lg border-b border-neutral-850 py-3' 
+            : 'bg-black/90 backdrop-blur-sm border-b border-neutral-850 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -60,7 +60,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 group text-left"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#ff481f] to-[#dc2626] p-0.5 shadow-md group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#e02e07] to-[#ea580c] p-0.5 shadow-md group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-[#1e2025] rounded-[10px] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black">🍗</span>
               </div>
@@ -70,12 +70,12 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                 <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-white leading-none group-hover:text-[#e02e07] transition-colors">
                   MISS LYN’S
                 </span>
-                <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-[#d97706] leading-none">
+                <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-[#e02e07] leading-none">
                   WINGS
                 </span>
               </div>
               <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-neutral-400 uppercase">
-                Caribbean & Comfort Food
+                Canadian Favourites. Done The Jamaican Way.
               </p>
             </div>
           </button>
@@ -98,9 +98,9 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             </button>
             <button 
               onClick={() => handleNavClick('home', 'family-feast')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#d97706] hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#f97316] hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
             >
-              <span className="w-2 h-2 rounded-full bg-[#e52516] animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-[#e02e07] animate-ping"></span>
               FAMILY FEAST
             </button>
             <button 
@@ -192,120 +192,170 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
         </div>
       </header>
 
-      {/* Mobile Drawer Menu (Refined Dark Theme) */}
+      {/* Mobile Drawer Menu (Pure Black Theme Matching Reference Screenshot) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-between bg-[#141518]/98 backdrop-blur-xl animate-fadeIn text-white">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-between bg-black animate-fadeIn text-white overflow-y-auto">
           {/* Mobile Header */}
-          <div className="p-4 flex items-center justify-between border-b border-neutral-800">
+          <div className="p-4 flex items-center justify-between border-b border-neutral-900 bg-black sticky top-0 z-10">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🍗</span>
-              <span className="font-heading text-2xl font-black text-white">MISS LYN’S WINGS</span>
+              <div className="flex items-center gap-1.5 font-heading text-2xl font-black tracking-wide">
+                <span className="text-white">MISS LYN’S</span>
+                <span className="text-[#e02e07]">WINGS</span>
+              </div>
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-lg bg-neutral-900 text-neutral-300 hover:text-white"
+              className="p-2 rounded-xl bg-[#1e2025] border border-neutral-800 text-neutral-300 hover:text-white"
             >
               <X className="w-6 h-6" />
             </button>
           </div>
 
-          {/* Mobile Links */}
-          <div className="px-6 py-6 space-y-4 overflow-y-auto">
-            <button
-              onClick={() => handleNavClick('home')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-neutral-850 text-white flex items-center justify-between"
-            >
-              <span>HOME</span>
-              <ChevronRight className="w-5 h-5 text-neutral-500" />
-            </button>
-
-            <button
-              onClick={() => handleNavClick('home', 'combo-builder')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-neutral-850 text-[#e02e07] flex items-center justify-between"
-            >
-              <span>BUILD YOUR COMBO</span>
-              <ChevronRight className="w-5 h-5 text-neutral-500" />
-            </button>
-
-            <button
-              onClick={() => handleNavClick('home', 'family-feast')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-neutral-850 text-[#d97706] flex items-center justify-between"
-            >
-              <span className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#e52516] animate-pulse"></span>
-                FAMILY FEAST ($49.99)
-              </span>
-              <ChevronRight className="w-5 h-5 text-neutral-500" />
-            </button>
-
-            <button
-              onClick={() => handleNavClick('menu')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-neutral-850 text-white flex items-center justify-between"
-            >
-              <span>FULL MENU & PRICING</span>
-              <ChevronRight className="w-5 h-5 text-neutral-500" />
-            </button>
-
-            <button
-              onClick={() => handleNavClick('about')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-neutral-850 text-white flex items-center justify-between"
-            >
-              <span>ABOUT MISS LYN’S</span>
-              <ChevronRight className="w-5 h-5 text-neutral-500" />
-            </button>
-
-            <button
-              onClick={() => handleNavClick('home', 'location-hours')}
-              className="w-full text-left font-heading text-2xl font-bold py-2 border-b border-neutral-850 text-white flex items-center justify-between"
-            >
-              <span>LOCATION & HOURS</span>
-              <ChevronRight className="w-5 h-5 text-neutral-500" />
-            </button>
-
-            {/* Quick Phone Call */}
-            <div className="pt-4 pb-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Call In Orders:</p>
-              <a 
-                href="tel:9055225967"
-                className="flex items-center gap-3 p-3.5 rounded-xl bg-neutral-900 border border-neutral-800 text-white font-bold"
-              >
-                <Phone className="w-5 h-5 text-[#d97706]" />
-                <div>
-                  <div className="text-sm">(905) 522-5967</div>
-                  <div className="text-xs text-neutral-400 font-normal">Tap to call restaurant</div>
-                </div>
-              </a>
+          {/* Drawer Content */}
+          <div className="px-5 py-6 space-y-6">
+            
+            {/* Header branding in drawer */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🍗</span>
+                <h3 className="font-heading text-3xl font-black uppercase tracking-tight">
+                  <span className="text-white">MISS LYN’S </span>
+                  <span className="text-[#e02e07]">WINGS</span>
+                </h3>
+              </div>
+              <p className="font-heading text-base font-bold uppercase tracking-wider text-[#ea580c]">
+                CANADIAN FAVOURITES. DONE THE JAMAICAN WAY.
+              </p>
+              <p className="text-sm text-neutral-300 leading-relaxed pt-1">
+                <strong className="text-white italic underline decoration-[#e02e07] decoration-2">Always Fresh. Made To Order.</strong> Bold Caribbean flavour in every bite. Authentic jerk chicken, wings, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
+              </p>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1e2025] border border-neutral-800 text-xs font-semibold text-neutral-200 mt-2">
+                <span className="text-[#e02e07]">🔥</span>
+                <span>100% Fresh Never Frozen Chicken</span>
+              </div>
             </div>
+
+            {/* QUICK NAVIGATION */}
+            <div className="space-y-3 pt-2">
+              <h4 className="font-heading text-xl font-black uppercase tracking-wider text-[#e02e07]">
+                QUICK NAVIGATION
+              </h4>
+              <div className="space-y-2.5 text-base">
+                <button
+                  onClick={() => handleNavClick('home')}
+                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                >
+                  Home Page
+                </button>
+                <button
+                  onClick={() => handleNavClick('home', 'combo-builder')}
+                  className="w-full text-left font-bold text-[#e02e07] hover:text-[#ff481f] py-1 transition-colors block"
+                >
+                  Interactive Combo Builder
+                </button>
+                <button
+                  onClick={() => handleNavClick('home', 'family-feast')}
+                  className="w-full text-left font-bold text-[#e02e07] hover:text-[#ff481f] py-1 transition-colors block"
+                >
+                  Family Feast Bundle ($49.99)
+                </button>
+                <button
+                  onClick={() => handleNavClick('menu')}
+                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                >
+                  Complete Restaurant Menu
+                </button>
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                >
+                  About Miss Lyn’s
+                </button>
+                <button
+                  onClick={() => handleNavClick('home', 'location-hours')}
+                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                >
+                  Location & Store Hours
+                </button>
+              </div>
+            </div>
+
+            {/* ONLINE ORDERING */}
+            <div className="space-y-3 pt-2">
+              <h4 className="font-heading text-xl font-black uppercase tracking-wider text-[#e02e07]">
+                ONLINE ORDERING
+              </h4>
+              <div className="space-y-2.5">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openOrderingModal('pickup');
+                  }}
+                  className="w-full p-4 rounded-2xl bg-[#1a1c20] hover:bg-[#22252a] border border-neutral-800 text-white font-medium flex items-center justify-between text-left transition-colors"
+                >
+                  <span>Direct Pickup Order</span>
+                  <Phone className="w-5 h-5 text-[#e02e07]" />
+                </button>
+                <a
+                  href="https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full p-4 rounded-2xl bg-[#1a1c20] hover:bg-[#22252a] border border-neutral-800 text-white font-medium flex items-center justify-between text-left transition-colors"
+                >
+                  <span>Order on Uber Eats</span>
+                  <span className="text-neutral-400">↗</span>
+                </a>
+              </div>
+            </div>
+
           </div>
 
-          {/* Mobile Bottom CTAs */}
-          <div className="p-6 border-t border-neutral-800 bg-neutral-950 space-y-3">
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openOrderingModal('pickup');
-                }}
-                className="w-full py-3.5 rounded-xl font-extrabold uppercase text-sm bg-neutral-900 text-white border border-neutral-700 shadow-sm"
-              >
-                Order Pickup
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openOrderingModal('delivery');
-                }}
-                className="w-full py-3.5 rounded-xl font-extrabold uppercase text-xs sm:text-sm bg-gradient-to-r from-[#e52516] to-[#ff481f] text-white shadow-md text-center"
-              >
-                Order Delivery
-              </button>
-            </div>
-            <p className="text-center text-xs text-neutral-400">
-              📍 677 King Street East, Hamilton, ON
-            </p>
+          {/* Mobile Bottom Fixed Buttons */}
+          <div className="p-4 border-t border-neutral-900 bg-black sticky bottom-0 z-10 grid grid-cols-2 gap-3">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openOrderingModal('pickup');
+              }}
+              className="w-full py-4 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-[#1a1c20] hover:bg-[#22252a] text-white border border-neutral-800 flex items-center justify-center gap-2 shadow transition-all active:scale-95"
+            >
+              <Phone className="w-4 h-4 text-[#e02e07]" />
+              <span>PICKUP</span>
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openOrderingModal('delivery');
+              }}
+              className="w-full py-4 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg shadow-red-950/50 flex items-center justify-center gap-2 transition-all active:scale-95"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              <span>DELIVERY</span>
+            </button>
           </div>
         </div>
       )}
+
+      {/* Floating Bottom Navigation Bar for Mobile (Always Visible matching screenshot) */}
+      <div className="fixed bottom-0 left-0 right-0 z-30 lg:hidden p-3 bg-black/95 backdrop-blur-md border-t border-neutral-850">
+        <div className="max-w-md mx-auto grid grid-cols-2 gap-3">
+          <button
+            onClick={() => openOrderingModal('pickup')}
+            className="w-full py-3.5 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-[#1a1c20] hover:bg-[#22252a] text-white border border-neutral-800 flex items-center justify-center gap-2 shadow active:scale-95 transition-all"
+          >
+            <Phone className="w-4 h-4 text-[#e02e07]" />
+            <span>PICKUP</span>
+          </button>
+          <button
+            onClick={() => openOrderingModal('delivery')}
+            className="w-full py-3.5 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg shadow-red-950/50 flex items-center justify-center gap-2 active:scale-95 transition-all"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            <span>DELIVERY</span>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

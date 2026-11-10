@@ -34,7 +34,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
   };
 
   return (
-    <footer className="bg-[#101114] text-white border-t border-neutral-850 pt-16 pb-24 lg:pb-16">
+    <footer className="bg-black text-white border-t border-neutral-850 pt-16 pb-24 lg:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Footer Grid */}

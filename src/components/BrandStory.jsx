@@ -3,7 +3,7 @@ import { Heart, Flame, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export default function BrandStory({ setCurrentView }) {
   return (
-    <section id="about-story" className="py-16 lg:py-24 bg-[#141518] text-white relative overflow-hidden border-t border-neutral-850">
+    <section id="about-story" className="py-16 lg:py-24 bg-black text-white relative overflow-hidden border-t border-neutral-850">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

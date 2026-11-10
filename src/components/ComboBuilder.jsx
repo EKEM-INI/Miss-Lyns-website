@@ -184,7 +184,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
   );
 
   return (
-    <section id="combo-builder" className="py-16 lg:py-24 bg-[#141518] text-white relative overflow-hidden">
+    <section id="combo-builder" className="py-16 lg:py-24 bg-black text-white relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -238,7 +238,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-black uppercase px-2.5 py-1 rounded-full bg-red-950/80 text-[#ff481f] border border-red-900">
+                      <span className="text-xs font-black uppercase px-2.5 py-1 rounded-full bg-orange-950/40 text-orange-400 border border-orange-600/70">
                         {protein.badge}
                       </span>
                       <span className="font-heading text-2xl font-black text-white">
@@ -440,7 +440,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     </div>
 
                     <div className={`mt-3 w-full py-1.5 rounded-lg text-center text-xs font-bold uppercase tracking-wider ${
-                      isSelected ? 'bg-[#d97706] text-white' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                      isSelected ? 'bg-[#ea580c] text-white' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
                     }`}>
                       {isSelected ? 'SELECTED (INCLUDED)' : 'SELECT SIDE'}
                     </div>

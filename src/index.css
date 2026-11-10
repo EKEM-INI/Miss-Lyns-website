@@ -8,7 +8,7 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #141518;
+    background-color: #000000;
     color: #ffffff;
     overflow-x: hidden;
   }
@@ -19,9 +19,9 @@
   }
 }
 
-/* Custom food colors and theme accents (Black, Red, White, Gray) */
+/* Custom food colors and theme accents (Black, Red, White, Gray, Orange) */
 .bg-caribbean-dark {
-  background-color: #141518;
+  background-color: #000000;
 }
 
 .bg-caribbean-card {
@@ -34,6 +34,14 @@
 
 .bg-brand-red {
   background-color: #e02e07;
+}
+
+.text-brand-orange {
+  color: #f97316;
+}
+
+.bg-brand-orange {
+  background-color: #ea580c;
 }
 
 /* Ribbon badge styling matching reference image */
@@ -67,7 +75,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #141518;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {

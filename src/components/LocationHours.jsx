@@ -4,7 +4,7 @@ import { restaurantInfo } from '../data/restaurantInfo';
 
 export default function LocationHours({ openOrderingModal }) {
   return (
-    <section id="location-hours" className="py-16 lg:py-24 bg-[#141518] text-white relative overflow-hidden border-t border-neutral-850">
+    <section id="location-hours" className="py-16 lg:py-24 bg-black text-white relative overflow-hidden border-t border-neutral-850">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
@@ -95,7 +95,7 @@ export default function LocationHours({ openOrderingModal }) {
                   <a
                     key={idx}
                     href={`tel:${p.raw}`}
-                    className="p-3.5 rounded-xl bg-[#141518] hover:bg-[#e02e07] hover:text-white text-white transition-all flex items-center justify-between border border-neutral-800 group shadow-sm"
+                    className="p-3.5 rounded-xl bg-neutral-900 hover:bg-[#e02e07] hover:text-white text-white transition-all flex items-center justify-between border border-neutral-800 group shadow-sm"
                   >
                     <div className="flex items-center gap-2.5">
                       <Phone className="w-5 h-5 text-white group-hover:text-white" />
