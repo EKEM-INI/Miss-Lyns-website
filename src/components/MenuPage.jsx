@@ -58,7 +58,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 <span>AUTHENTIC RESTAURANT MENU</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
-                OUR COMPLETE <span className="text-[#ff2626]">MENU</span>
+                OUR COMPLETE <span className="text-[#FF1D23]">MENU</span>
               </h1>
               <p className="text-sm sm:text-base text-neutral-300 max-w-xl mt-2">
                 Every dish is cooked fresh to order using authentic Jamaican spices and high-quality fresh chicken.
@@ -73,7 +73,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 placeholder="Search dishes, wings, sides..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#e02e07] shadow-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF1D23] shadow-sm"
               />
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
               onClick={() => setActiveCategory("all")}
               className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                 activeCategory === "all"
-                  ? 'bg-[#e02e07] text-white shadow-md'
+                  ? 'bg-[#FF1D23] text-white shadow-md'
                   : 'bg-neutral-900 text-neutral-300 hover:bg-neutral-800 border border-neutral-800'
               }`}
             >
@@ -108,7 +108,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-[#e02e07] text-white shadow-md'
+                      ? 'bg-[#FF1D23] text-white shadow-md'
                       : 'bg-neutral-900 text-neutral-300 hover:bg-neutral-800 border border-neutral-800'
                   }`}
                 >
@@ -132,7 +132,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
             <p className="text-lg font-bold text-white">No menu items found matching "{searchQuery}"</p>
             <button
               onClick={() => { setSearchQuery(""); setActiveCategory("all"); }}
-              className="mt-4 px-4 py-2 rounded-xl text-xs font-bold uppercase bg-[#e02e07] text-white"
+              className="mt-4 px-4 py-2 rounded-xl text-xs font-bold uppercase bg-[#FF1D23] text-white"
             >
               Reset Filters
             </button>
@@ -220,7 +220,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
 
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-[#e02e07] text-white">
+                <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-[#FF1D23] text-white">
                   {selectedItemDetail.tags?.[0] || "Fresh Item"}
                 </span>
                 {selectedItemDetail.spiceLevel > 0 && (
@@ -245,7 +245,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                     handleItemOrder(selectedItemDetail);
                     setSelectedItemDetail(null);
                   }}
-                  className="flex-1 py-3.5 rounded-xl font-heading text-xl font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg flex items-center justify-center gap-2"
+                  className="flex-1 py-3.5 rounded-xl font-heading text-xl font-bold uppercase tracking-wider bg-gradient-to-r from-[#FF1D23] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg flex items-center justify-center gap-2"
                 >
                   <ShoppingBag className="w-5 h-5" />
                   <span>Order Now ({selectedItemDetail.priceDisplay})</span>
@@ -331,7 +331,7 @@ function MenuItemCard({ item, onOrder, onDetail }) {
 
         <button
           onClick={onOrder}
-          className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-950/60 hover:bg-[#e02e07] text-[#ff481f] hover:text-white transition-colors flex items-center gap-1.5 shadow-sm border border-red-900"
+          className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-950/60 hover:bg-[#FF1D23] text-[#ff481f] hover:text-white transition-colors flex items-center gap-1.5 shadow-sm border border-red-900"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
           <span>Add to Order</span>

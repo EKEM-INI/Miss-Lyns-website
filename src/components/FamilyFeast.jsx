@@ -61,13 +61,13 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
-            <Sparkles className="w-4 h-4 text-[#e02e07]" />
+            <Sparkles className="w-4 h-4 text-[#FF1D23]" />
             <span>TOP VALUE PROMOTION</span>
           </div>
 
           <div className="flex items-center justify-center gap-3">
             <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
-              THE FAMILY <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">FEAST</span>
+              THE FAMILY <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">FEAST</span>
             </h2>
           </div>
 
@@ -97,7 +97,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8 pt-4">
             
             {/* Step 1: Proteins */}
-            <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-between group hover:border-[#e02e07] transition-all">
+            <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-between group hover:border-[#FF1D23] transition-all">
               <div>
                 {/* Number Badge */}
                 <div className="flex items-center justify-between mb-4">
@@ -136,22 +136,22 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               {/* Selected List */}
               <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                  <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Jumbo Signature Wings (1 lb)</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                  <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Authentic Jerk Chicken</span>
                 </div>
               </div>
             </div>
 
             {/* Step 2: 3 Sides */}
-            <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-between group hover:border-[#ff2626] transition-all">
+            <div className="relative rounded-2xl bg-neutral-950 border border-neutral-800 p-6 flex flex-col justify-between group hover:border-[#FF1D23] transition-all">
               <div>
                 {/* Number Badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-9 h-9 rounded-full bg-[#ff2626] text-white font-heading text-xl font-black flex items-center justify-center shadow-md">
+                  <div className="w-9 h-9 rounded-full bg-[#FF1D23] text-white font-heading text-xl font-black flex items-center justify-center shadow-md">
                     2
                   </div>
                   <span className="text-xs font-black uppercase tracking-wider text-white px-2.5 py-1 rounded-md bg-red-950/80 border border-red-800">
@@ -186,15 +186,15 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               {/* Selected List */}
               <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                  <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Crispy French Fries</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                  <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Fresh Veggie and Dip</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                  <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Toasted Garlic Bread</span>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
           <div className="mb-8 p-6 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-lg space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-800 pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#ff2626] text-white font-heading text-lg font-bold flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-[#FF1D23] text-white font-heading text-lg font-bold flex items-center justify-center">
                   3
                 </div>
                 <div>
@@ -247,7 +247,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                       isSelected
                         ? isExtra
                           ? 'bg-red-950/70 border-red-600 text-white shadow ring-1 ring-red-600/50'
-                          : 'bg-red-950/70 border-[#e02e07] text-white shadow ring-1 ring-[#e02e07]/50'
+                          : 'bg-red-950/70 border-[#FF1D23] text-white shadow ring-1 ring-[#FF1D23]/50'
                         : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                     }`}
                   >
@@ -282,7 +282,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
 
                       {isSelected && (
                         <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
-                          isExtra ? 'bg-red-600 text-white' : 'bg-[#e02e07] text-white'
+                          isExtra ? 'bg-red-600 text-white' : 'bg-[#FF1D23] text-white'
                         }`}>
                           <Check className="w-3 h-3 stroke-[3]" />
                         </div>
@@ -312,7 +312,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
 
             <button
               onClick={handleOrderFeast}
-              className="w-full sm:w-auto px-10 py-5 rounded-2xl font-heading text-2xl font-black uppercase tracking-wider bg-gradient-to-r from-[#e52516] via-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-xl shadow-[#e52516]/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 animate-pulse-subtle"
+              className="w-full sm:w-auto px-10 py-5 rounded-2xl font-heading text-2xl font-black uppercase tracking-wider bg-gradient-to-r from-[#e52516] via-[#FF1D23] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-xl shadow-[#e52516]/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 animate-pulse-subtle"
             >
               <ShoppingBag className="w-6 h-6" />
               <span>GET THE FAMILY FEAST (${totalPrice})</span>

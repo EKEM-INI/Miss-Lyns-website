@@ -19,16 +19,16 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
-            <Heart className="w-3.5 h-3.5 text-[#e02e07] fill-current" />
+            <Heart className="w-3.5 h-3.5 text-[#FF1D23] fill-current" />
             <span>ABOUT US</span>
           </div>
 
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
-            MISS LYN’S <span className="text-[#ff2626]">WINGS</span>
+            MISS LYN’S <span className="text-[#FF1D23]">WINGS</span>
           </h1>
 
           <p className="font-heading text-2xl sm:text-3xl font-bold uppercase tracking-wide mt-3">
-            <span className="text-white">Canadian Comfort.</span> <span className="text-[#ff2626]">Jamaican Soul.</span> <span className="text-[#ff2626]">Made with Love.</span>
+            <span className="text-white">Canadian Comfort.</span> <span className="text-[#FF1D23]">Jamaican Soul.</span> <span className="text-[#FF1D23]">Made with Love.</span>
           </p>
 
           <p className="text-base sm:text-lg text-neutral-400 max-w-2xl mx-auto mt-4 leading-relaxed">
@@ -95,7 +95,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
             <span className="text-2xl">🍳</span>
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#e02e07] block">OUR KITCHEN PHILOSOPHY</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FF1D23] block">OUR KITCHEN PHILOSOPHY</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
                 The Saturday Secret
               </h2>
@@ -131,7 +131,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
 
             <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#e02e07]">
+              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#FF1D23]">
                 <Utensils className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Canadian Favourites, Jamaican Twist</h3>
@@ -141,7 +141,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
 
             <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#ff2626]">
+              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#FF1D23]">
                 <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Direct Jamaican Imports</h3>
@@ -220,7 +220,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
             <span className="text-2xl">📍</span>
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#ff2626] block">HAMILTON PRIDE</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FF1D23] block">HAMILTON PRIDE</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
                 Rooted in the Hamilton Community
               </h2>
@@ -255,9 +255,9 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </p>
             <div className="pt-2">
               <span className="font-heading text-3xl font-black text-white block">
-                MISS LYN’S <span className="text-[#ff2626]">WINGS</span>
+                MISS LYN’S <span className="text-[#FF1D23]">WINGS</span>
               </span>
-              <span className="text-xs uppercase font-bold tracking-widest text-[#ff2626]">
+              <span className="text-xs uppercase font-bold tracking-widest text-[#FF1D23]">
                 Canadian Comfort. Jamaican Soul. Made with Love.
               </span>
             </div>
@@ -267,7 +267,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => setCurrentView('menu')}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-[#e02e07] hover:bg-[#ff481f] text-white shadow-lg transition-all"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-[#FF1D23] hover:bg-[#ff481f] text-white shadow-lg transition-all"
             >
               View Full Menu
             </button>

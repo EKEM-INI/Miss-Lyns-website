@@ -115,7 +115,7 @@ export default function OrderingModal({
             onClick={() => setActiveTab('delivery')}
             className={`py-2.5 px-3 rounded-xl font-heading text-sm sm:text-base font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
               activeTab === 'delivery'
-                ? 'bg-gradient-to-r from-[#e52516] to-[#e02e07] text-white shadow-md'
+                ? 'bg-gradient-to-r from-[#e52516] to-[#FF1D23] text-white shadow-md'
                 : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
             }`}
           >
@@ -142,7 +142,7 @@ export default function OrderingModal({
               onClick={() => setActiveTab('cart')}
               className={`col-span-2 sm:col-span-1 py-2.5 px-3 rounded-xl font-heading text-sm sm:text-base font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === 'cart'
-                  ? 'bg-[#e02e07] text-white shadow-md'
+                  ? 'bg-[#FF1D23] text-white shadow-md'
                   : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
               }`}
             >
@@ -164,7 +164,7 @@ export default function OrderingModal({
                 href="https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#ff2626] to-[#dc2626] text-white hover:opacity-95 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-500 group"
+                className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#FF1D23] to-[#dc2626] text-white hover:opacity-95 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-500 group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-bold text-lg shadow-md shrink-0">
@@ -264,8 +264,8 @@ export default function OrderingModal({
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-[#ff2626]" />
-                        <span className="text-[#ff2626]">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
+                        <span className="text-[#FF1D23]">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -289,7 +289,7 @@ export default function OrderingModal({
             {/* Store Contact Info */}
             <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-2 mt-4">
               <span>Have questions about menu items or delivery?</span>
-              <a href="tel:9055225967" className="font-bold text-white hover:text-[#e02e07] flex items-center gap-1">
+              <a href="tel:9055225967" className="font-bold text-white hover:text-[#FF1D23] flex items-center gap-1">
                 <Phone className="w-3.5 h-3.5 text-white" />
                 <span>Call Store: (905) 522-5967</span>
               </a>
@@ -322,7 +322,7 @@ export default function OrderingModal({
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
                   href="tel:9055225967"
-                  className="py-3.5 px-5 rounded-2xl bg-[#e02e07] hover:bg-[#ff481f] text-white font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
+                  className="py-3.5 px-5 rounded-2xl bg-[#FF1D23] hover:bg-[#ff481f] text-white font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call (905) 522-5967</span>
@@ -330,7 +330,7 @@ export default function OrderingModal({
 
                 <a
                   href={`sms:+19055225967?&body=${encodeURIComponent(generateOrderSummaryText())}`}
-                  className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
+                  className="py-3.5 px-5 rounded-2xl bg-gradient-to-r from-[#FF1D23] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white font-heading text-base font-black uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
                 >
                   <MessageSquare className="w-5 h-5" />
                   <span>Text Order (SMS)</span>
@@ -372,8 +372,8 @@ export default function OrderingModal({
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-[#ff2626]" />
-                        <span className="text-[#ff2626]">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
+                        <span className="text-[#FF1D23]">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -415,7 +415,7 @@ export default function OrderingModal({
                 </p>
                 <button
                   onClick={onClose}
-                  className="px-5 py-2.5 rounded-xl font-heading text-sm font-bold uppercase bg-[#e02e07] text-white shadow hover:bg-[#c02604] transition-colors"
+                  className="px-5 py-2.5 rounded-xl font-heading text-sm font-bold uppercase bg-[#FF1D23] text-white shadow hover:bg-[#c02604] transition-colors"
                 >
                   Explore Menu
                 </button>
@@ -511,7 +511,7 @@ export default function OrderingModal({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                   <button
                     onClick={() => setActiveTab('delivery')}
-                    className="py-3 px-4 rounded-xl font-heading text-sm font-black uppercase tracking-wider bg-gradient-to-r from-[#e52516] to-[#e02e07] text-white shadow-md flex items-center justify-center gap-1.5 hover:from-[#d02012] hover:to-[#c02604] transition-all"
+                    className="py-3 px-4 rounded-xl font-heading text-sm font-black uppercase tracking-wider bg-gradient-to-r from-[#e52516] to-[#FF1D23] text-white shadow-md flex items-center justify-center gap-1.5 hover:from-[#d02012] hover:to-[#c02604] transition-all"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Order Delivery (Uber / DD / Skip)</span>

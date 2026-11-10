@@ -29,19 +29,19 @@
 }
 
 .text-brand-red {
-  color: #e02e07;
+  color: #FF1D23;
 }
 
 .bg-brand-red {
-  background-color: #e02e07;
+  background-color: #FF1D23;
 }
 
 .text-brand-orange {
-  color: #ff2626;
+  color: #FF1D23;
 }
 
 .bg-brand-orange {
-  background-color: #ff2626;
+  background-color: #FF1D23;
 }
 
 /* Ribbon badge styling matching reference image */
@@ -84,7 +84,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e02e07;
+  background: #FF1D23;
 }
 
 /* Animations */

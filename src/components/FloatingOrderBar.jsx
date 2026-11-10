@@ -9,13 +9,13 @@ export default function FloatingOrderBar({ openOrderingModal }) {
           onClick={() => openOrderingModal('pickup')}
           className="py-3 px-4 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-neutral-900 text-white border border-neutral-700 flex items-center justify-center gap-2 active:scale-95 transition-all shadow-sm"
         >
-          <Phone className="w-4 h-4 text-[#e02e07]" />
+          <Phone className="w-4 h-4 text-[#FF1D23]" />
           <span>PICKUP</span>
         </button>
 
         <button
           onClick={() => openOrderingModal('delivery')}
-          className="py-3 px-4 rounded-xl font-heading text-lg font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#e52516] to-[#e02e07] text-white flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md shadow-[#e52516]/25"
+          className="py-3 px-4 rounded-xl font-heading text-lg font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#e52516] to-[#FF1D23] text-white flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md shadow-[#e52516]/25"
         >
           <ShoppingBag className="w-4 h-4" />
           <span>DELIVERY</span>

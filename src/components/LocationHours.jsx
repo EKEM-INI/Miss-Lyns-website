@@ -10,11 +10,11 @@ export default function LocationHours({ openOrderingModal }) {
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/80 border border-red-800 text-white text-xs font-bold uppercase tracking-widest shadow-sm">
-            <MapPin className="w-3.5 h-3.5 text-[#e02e07]" />
+            <MapPin className="w-3.5 h-3.5 text-[#FF1D23]" />
             <span>VISIT OR ORDER DIRECT</span>
           </div>
           <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase text-white tracking-tight">
-            LOCATION & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">HOURS</span>
+            LOCATION & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">HOURS</span>
           </h2>
           <p className="text-sm sm:text-base text-neutral-400">
             Conveniently located in the heart of Hamilton on King Street East.
@@ -29,13 +29,13 @@ export default function LocationHours({ openOrderingModal }) {
             
             {/* Address Box */}
             <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
-              <div className="flex items-center gap-3 text-[#ff2626]">
+              <div className="flex items-center gap-3 text-[#FF1D23]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-[#ff2626]" />
+                  <MapPin className="w-5 h-5 text-[#FF1D23]" />
                 </div>
                 <div>
                   <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Restaurant Address</span>
-                  <h3 className="font-heading text-2xl font-black text-white">677 KING STREET <span className="text-[#ff2626]">EAST</span></h3>
+                  <h3 className="font-heading text-2xl font-black text-white">677 KING STREET <span className="text-[#FF1D23]">EAST</span></h3>
                 </div>
               </div>
               <p className="text-sm text-neutral-300 pl-13">
@@ -58,11 +58,11 @@ export default function LocationHours({ openOrderingModal }) {
             <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-white">
                 <div className="w-10 h-10 rounded-xl bg-neutral-800 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-[#ff2626]" />
+                  <Clock className="w-5 h-5 text-[#FF1D23]" />
                 </div>
                 <div>
                   <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Opening Hours</span>
-                  <h3 className="font-heading text-2xl font-black text-white">OPERATING <span className="text-[#ff2626]">SCHEDULE</span></h3>
+                  <h3 className="font-heading text-2xl font-black text-white">OPERATING <span className="text-[#FF1D23]">SCHEDULE</span></h3>
                 </div>
               </div>
               
@@ -80,13 +80,13 @@ export default function LocationHours({ openOrderingModal }) {
 
             {/* Clickable Phone Call Box */}
             <div className="p-6 rounded-2xl bg-[#1e2025] border-2 border-neutral-800 text-left space-y-3 shadow-sm">
-              <div className="flex items-center gap-3 text-[#ff2626]">
+              <div className="flex items-center gap-3 text-[#FF1D23]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-[#ff2626]" />
+                  <Phone className="w-5 h-5 text-[#FF1D23]" />
                 </div>
                 <div>
                   <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Order Ahead By Phone</span>
-                  <h3 className="font-heading text-2xl font-black text-white">CALL TO PLACE <span className="text-[#ff2626]">PICKUP</span></h3>
+                  <h3 className="font-heading text-2xl font-black text-white">CALL TO PLACE <span className="text-[#FF1D23]">PICKUP</span></h3>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ export default function LocationHours({ openOrderingModal }) {
                   <a
                     key={idx}
                     href={`tel:${p.raw}`}
-                    className="p-3.5 rounded-xl bg-neutral-900 hover:bg-[#e02e07] hover:text-white text-white transition-all flex items-center justify-between border border-neutral-800 group shadow-sm"
+                    className="p-3.5 rounded-xl bg-neutral-900 hover:bg-[#FF1D23] hover:text-white text-white transition-all flex items-center justify-between border border-neutral-800 group shadow-sm"
                   >
                     <div className="flex items-center gap-2.5">
                       <Phone className="w-5 h-5 text-white group-hover:text-white" />
@@ -138,7 +138,7 @@ export default function LocationHours({ openOrderingModal }) {
                 </div>
                 <button
                   onClick={() => openOrderingModal('pickup')}
-                  className="px-5 py-2.5 rounded-xl font-heading text-lg font-bold uppercase bg-[#e02e07] hover:bg-[#ff481f] text-white shadow-md shrink-0"
+                  className="px-5 py-2.5 rounded-xl font-heading text-lg font-bold uppercase bg-[#FF1D23] hover:bg-[#ff481f] text-white shadow-md shrink-0"
                 >
                   START PICKUP ORDER
                 </button>

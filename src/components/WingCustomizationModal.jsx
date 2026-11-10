@@ -289,7 +289,7 @@ export default function WingCustomizationModal({
                       onClick={() => setSelectedStyle(style)}
                       className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between ${
                         isSelected
-                          ? 'bg-red-950/40 border-[#e02e07] text-white shadow-md'
+                          ? 'bg-red-950/40 border-[#FF1D23] text-white shadow-md'
                           : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                       }`}
                     >
@@ -302,7 +302,7 @@ export default function WingCustomizationModal({
                         </div>
                       </div>
                       {isSelected && (
-                        <div className="w-5 h-5 rounded-full bg-[#e02e07] text-white flex items-center justify-center shrink-0">
+                        <div className="w-5 h-5 rounded-full bg-[#FF1D23] text-white flex items-center justify-center shrink-0">
                           <Check className="w-3.5 h-3.5" />
                         </div>
                       )}
@@ -376,7 +376,7 @@ export default function WingCustomizationModal({
                       isSelected
                         ? isExtra
                           ? 'bg-red-950/70 border-red-500 text-white shadow-md ring-1 ring-red-500/50'
-                          : 'bg-red-950/60 border-[#e02e07] text-white shadow-md ring-1 ring-[#e02e07]/50'
+                          : 'bg-red-950/60 border-[#FF1D23] text-white shadow-md ring-1 ring-[#FF1D23]/50'
                         : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
                     }`}
                   >
@@ -412,7 +412,7 @@ export default function WingCustomizationModal({
 
                     <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
                       isSelected
-                        ? isExtra ? 'bg-red-600 border-red-600 text-white' : 'bg-[#ff2626] border-[#ff2626] text-white'
+                        ? isExtra ? 'bg-red-600 border-red-600 text-white' : 'bg-[#FF1D23] border-[#FF1D23] text-white'
                         : 'border-neutral-700 bg-neutral-900'
                     }`}>
                       {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -544,7 +544,7 @@ export default function WingCustomizationModal({
                             const found = allComboDrinksList.find(d => d.id === e.target.value) || comboDrinks.standard[0];
                             handleUpdateFamilyDrink(slotIdx, found);
                           }}
-                          className="bg-neutral-900 border border-neutral-700 text-white text-xs font-bold rounded-xl px-3 py-2 focus:outline-none focus:border-[#ff2626]"
+                          className="bg-neutral-900 border border-neutral-700 text-white text-xs font-bold rounded-xl px-3 py-2 focus:outline-none focus:border-[#FF1D23]"
                         >
                           {allComboDrinksList.map(d => (
                             <option key={d.id} value={d.id}>
@@ -594,7 +594,7 @@ export default function WingCustomizationModal({
             <button
               type="button"
               onClick={handleConfirm}
-              className="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg flex items-center justify-center gap-2 transition-all"
+              className="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-gradient-to-r from-[#FF1D23] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-lg flex items-center justify-center gap-2 transition-all"
             >
               <ShoppingBag className="w-5 h-5" />
               <span>Add to Order • ${totalPrice.toFixed(2)}</span>

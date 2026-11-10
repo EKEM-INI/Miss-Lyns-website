@@ -58,19 +58,19 @@ export default function BrandStory({ setCurrentView }) {
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2 text-left">
             
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/80 border border-red-800 text-white text-xs font-black uppercase tracking-widest shadow-sm">
-              <Heart className="w-3.5 h-3.5 text-[#ff2626] fill-current" />
+              <Heart className="w-3.5 h-3.5 text-[#FF1D23] fill-current" />
               <span>ABOUT US</span>
             </div>
 
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[1.05]">
               CANADIAN COMFORT. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff2626] to-[#ef4444]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">
                 JAMAICAN SOUL. MADE WITH LOVE.
               </span>
             </h2>
 
             <p className="text-base sm:text-lg text-neutral-200 leading-relaxed">
-              Inspired by the warmth of <strong className="text-red-400 font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#ff2626] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
+              Inspired by the warmth of <strong className="text-red-400 font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#FF1D23] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
             </p>
 
             <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">

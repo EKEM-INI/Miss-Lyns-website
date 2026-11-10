@@ -85,7 +85,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           </div>
           <button
             onClick={handleAddComboToOrder}
-            className="px-5 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#e02e07]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            className="px-5 py-3 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-gradient-to-r from-[#FF1D23] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#FF1D23]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <ShoppingBag className="w-4 h-4" />
             <span>ADD COMBO TO ORDER</span>
@@ -156,7 +156,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             />
           </div>
           <div className="min-w-0 flex-1">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ff2626] block">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FF1D23] block">
               STEP 3 • DRINK SELECTION
             </span>
             <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-white leading-tight truncate">
@@ -191,12 +191,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-bold tracking-widest uppercase shadow-sm">
-            <Layers className="w-4 h-4 text-[#e02e07]" />
+            <Layers className="w-4 h-4 text-[#FF1D23]" />
             <span>INTERACTIVE FOOD CONFIGURATOR</span>
           </div>
 
           <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
-            BUILD YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">COMBO</span>
+            BUILD YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">COMBO</span>
           </h2>
           <p className="text-base sm:text-lg text-neutral-400">
             Create your custom meal in 3 simple steps. Pick your protein, choose your sauce and sides, and select your drinks & premium upgrades.
@@ -212,7 +212,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           {/* STEP 1: PROTEINS & SAUCES */}
           <div className="space-y-5">
             <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
-              <div className="w-8 h-8 rounded-full bg-[#e02e07] text-white font-heading text-lg font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-[#FF1D23] text-white font-heading text-lg font-bold flex items-center justify-center">
                 1
               </div>
               <div>
@@ -233,7 +233,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     onClick={() => setSelectedProtein(protein)}
                     className={`relative text-left rounded-3xl p-5 sm:p-6 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-red-950/40 border-2 border-[#e02e07] shadow-xl shadow-red-950/30 scale-[1.02]'
+                        ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-xl shadow-red-950/30 scale-[1.02]'
                         : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
@@ -247,7 +247,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     </div>
 
                     {isSelected && (
-                      <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-[#e02e07] text-white flex items-center justify-center font-bold text-xs shadow">
+                      <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-[#FF1D23] text-white flex items-center justify-center font-bold text-xs shadow">
                         <Check className="w-4 h-4" />
                       </div>
                     )}
@@ -272,7 +272,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
                     <div className={`mt-4 w-full py-2 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition-colors ${
                       isSelected
-                        ? 'bg-[#e02e07] text-white'
+                        ? 'bg-[#FF1D23] text-white'
                         : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
                     }`}>
                       {isSelected ? 'SELECTED' : 'SELECT THIS PROTEIN'}
@@ -315,7 +315,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         onClick={() => setSelectedWingStyle(style)}
                         className={`py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border ${
                           selectedWingStyle.id === style.id
-                            ? 'bg-[#e02e07] border-[#e02e07] text-white shadow'
+                            ? 'bg-[#FF1D23] border-[#FF1D23] text-white shadow'
                             : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                         }`}
                       >
@@ -391,7 +391,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
           {/* STEP 2: STANDARD SIDES */}
           <div className="space-y-5 pt-4">
             <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
-              <div className="w-8 h-8 rounded-full bg-[#ff2626] text-white font-heading text-lg font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-[#FF1D23] text-white font-heading text-lg font-bold flex items-center justify-center">
                 2
               </div>
               <div>
@@ -411,12 +411,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     onClick={() => setSelectedSide(side)}
                     className={`relative text-left rounded-2xl p-4 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-red-950/40 border-2 border-[#ff2626] shadow-md scale-[1.02]'
+                        ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-md scale-[1.02]'
                         : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
                     {isSelected && (
-                      <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-[#ff2626] text-white flex items-center justify-center font-bold text-xs shadow">
+                      <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-[#FF1D23] text-white flex items-center justify-center font-bold text-xs shadow">
                         <Check className="w-4 h-4" />
                       </div>
                     )}
@@ -440,7 +440,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     </div>
 
                     <div className={`mt-3 w-full py-1.5 rounded-lg text-center text-xs font-bold uppercase tracking-wider ${
-                      isSelected ? 'bg-[#ff2626] text-white' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                      isSelected ? 'bg-[#FF1D23] text-white' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
                     }`}>
                       {isSelected ? 'SELECTED (INCLUDED)' : 'SELECT SIDE'}
                     </div>
@@ -456,12 +456,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             
             {/* Step 3 Header */}
             <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
-              <div className="w-8 h-8 rounded-full bg-[#ff2626] text-white font-heading text-lg font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-[#FF1D23] text-white font-heading text-lg font-bold flex items-center justify-center">
                 3
               </div>
               <div>
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
-                  STEP 3 — CHOOSE YOUR <span className="text-[#ff2626]">DRINK</span> & <span className="text-[#ff2626]">PREMIUM UPGRADE</span>
+                  STEP 3 — CHOOSE YOUR <span className="text-[#FF1D23]">DRINK</span> & <span className="text-[#FF1D23]">PREMIUM UPGRADE</span>
                 </h3>
                 <p className="text-xs text-neutral-300">Select your drink with small thumbnail pictures, and optionally upgrade your side!</p>
               </div>
@@ -470,8 +470,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             {/* PART 1: DRINK SELECTION WITH REAL PICTURES */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black uppercase tracking-widest text-[#ff2626] flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#ff2626]" />
+                <span className="text-xs font-black uppercase tracking-widest text-[#FF1D23] flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-[#FF1D23]" />
                   <span>CHOOSE YOUR DRINK (1 INCLUDED)</span>
                 </span>
                 <span className="text-xs text-neutral-400">
@@ -495,12 +495,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         onClick={() => setSelectedDrink(drink)}
                         className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
                           isSelected
-                            ? 'bg-red-950/50 border-2 border-[#ff2626] shadow-md ring-1 ring-[#ff2626]/50 scale-[1.02]'
+                            ? 'bg-red-950/50 border-2 border-[#FF1D23] shadow-md ring-1 ring-[#FF1D23]/50 scale-[1.02]'
                             : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
                         }`}
                       >
                         {isSelected && (
-                          <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-[#ff2626] text-white flex items-center justify-center font-bold text-xs shadow">
+                          <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-[#FF1D23] text-white flex items-center justify-center font-bold text-xs shadow">
                             <Check className="w-3.5 h-3.5 stroke-[3]" />
                           </div>
                         )}
@@ -526,7 +526,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         </div>
 
                         <div className={`mt-2 w-full py-1 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                          isSelected ? 'bg-[#ff2626] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                          isSelected ? 'bg-[#FF1D23] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
                         }`}>
                           {isSelected ? 'SELECTED' : 'INCLUDED'}
                         </div>
@@ -601,7 +601,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             <div className="pt-4 border-t border-neutral-850">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-black uppercase tracking-widest text-white flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#e02e07]" />
+                  <Sparkles className="w-4 h-4 text-[#FF1D23]" />
                   <span>PREMIUM SIDE UPGRADES (+$2.50)</span>
                 </span>
                 {selectedUpgrade && (
@@ -625,16 +625,16 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       onClick={() => setSelectedUpgrade(isSelected ? null : upgrade)}
                       className={`relative text-left rounded-2xl p-3.5 transition-all duration-200 group flex flex-col justify-between ${
                         isSelected
-                          ? 'bg-red-950/40 border-2 border-[#e02e07] shadow-md scale-[1.02]'
+                          ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-md scale-[1.02]'
                           : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm'
                       }`}
                     >
-                      <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#e02e07] text-white shadow-sm">
+                      <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#FF1D23] text-white shadow-sm">
                         +$2.50
                       </span>
 
                       {isSelected && (
-                        <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-[#e02e07] text-white flex items-center justify-center font-bold text-xs shadow">
+                        <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-[#FF1D23] text-white flex items-center justify-center font-bold text-xs shadow">
                           <Check className="w-3.5 h-3.5" />
                         </div>
                       )}
@@ -660,7 +660,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       </div>
 
                       <div className={`mt-2 w-full py-1.5 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                        isSelected ? 'bg-[#e02e07] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                        isSelected ? 'bg-[#FF1D23] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
                       }`}>
                         {isSelected ? 'SELECTED (+ $2.50)' : 'UPGRADE (+ $2.50)'}
                       </div>
