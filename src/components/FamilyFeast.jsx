@@ -136,11 +136,11 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               {/* Selected List */}
               <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
+                  <Check className="w-3.5 h-3.5 text-[#ea580c]" />
                   <span>Jumbo Signature Wings (1 lb)</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
+                  <Check className="w-3.5 h-3.5 text-[#ea580c]" />
                   <span>Authentic Jerk Chicken</span>
                 </div>
               </div>
@@ -186,15 +186,15 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               {/* Selected List */}
               <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
+                  <Check className="w-3.5 h-3.5 text-[#ea580c]" />
                   <span>Crispy French Fries</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
+                  <Check className="w-3.5 h-3.5 text-[#ea580c]" />
                   <span>Fresh Veggie and Dip</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white">
-                  <Check className="w-3.5 h-3.5 text-[#059669]" />
+                  <Check className="w-3.5 h-3.5 text-[#ea580c]" />
                   <span>Toasted Garlic Bread</span>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
                 extraSaucesCount > 0 
                   ? 'text-white bg-red-950/80 border-red-800' 
-                  : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
+                  : (selectedSauces.length > 0 ? 'text-orange-400 bg-orange-950/80 border-orange-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
               }`}>
                 {extraSaucesCount > 0 
                   ? `2 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 

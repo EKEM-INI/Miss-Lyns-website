@@ -29,12 +29,12 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             <div className="space-y-2">
               <h1 className="font-heading text-5xl sm:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-[1.0] uppercase">
                 MISS LYN’S <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] via-[#ea580c] to-[#ef4444]">
+                <span className="text-[#e02e07]">
                   WINGS
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-2xl font-normal leading-relaxed pt-2">
-                <span className="italic font-semibold text-white underline decoration-[#e02e07] decoration-2">Always Fresh. Made To Order.</span> Bold Caribbean flavour in every bite. Authentic jerk chicken, wings, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
+                <span className="italic font-semibold text-white underline decoration-[#e02e07] decoration-2">Always Fresh. Made To Order.</span> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#e02e07] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
             </div>
 
@@ -137,13 +137,13 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 <div className="mt-3 px-2 py-1 flex items-center justify-between text-left">
                   <div>
                     <h3 className="font-heading text-xl sm:text-2xl font-black text-white leading-tight">
-                      FRESH COMBO PLATTER
+                      FRESH COMBO <span className="text-[#ea580c]">PLATTER</span>
                     </h3>
                     <p className="text-xs text-neutral-400">
-                      Crispy Wings, Jerk Chicken & Sides
+                      Crispy <span className="text-[#e02e07] font-semibold">Wings</span>, Jerk Chicken & Sides
                     </p>
                   </div>
-                  <span className="font-heading text-sm font-black text-[#ff481f] px-2.5 py-1 rounded-lg bg-red-950/60 border border-red-900">
+                  <span className="font-heading text-sm font-black text-[#ea580c] px-2.5 py-1 rounded-lg bg-orange-950/60 border border-orange-900">
                     HOT & FRESH
                   </span>
                 </div>

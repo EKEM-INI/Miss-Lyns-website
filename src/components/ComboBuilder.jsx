@@ -156,7 +156,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             />
           </div>
           <div className="min-w-0 flex-1">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#059669] block">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ea580c] block">
               STEP 3 • DRINK SELECTION
             </span>
             <h4 className="font-heading text-lg sm:text-xl font-bold uppercase text-white leading-tight truncate">
@@ -166,7 +166,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${
                 drinkUpgradeCost > 0
                   ? 'text-white bg-red-950/80 border-red-800'
-                  : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+                  : 'text-orange-400 bg-orange-950/80 border-orange-800'
               }`}>
                 {drinkUpgradeCost > 0 ? `+${selectedDrink.name} (+$2.50)` : 'Drink Included'}
               </span>
@@ -296,7 +296,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 </div>
                 <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
                   selectedSauces.length === 1 
-                    ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' 
+                    ? 'text-orange-400 bg-orange-950/80 border-orange-800' 
                     : 'text-neutral-300 bg-neutral-800/80 border-neutral-700'
                 }`}>
                   {selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)'}
@@ -364,7 +364,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
                         <div className="mt-2 flex items-center justify-between">
                           {isChosen ? (
-                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-orange-950 text-orange-400 border border-orange-800">
                               Included
                             </span>
                           ) : (
@@ -456,26 +456,26 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             
             {/* Step 3 Header */}
             <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
-              <div className="w-8 h-8 rounded-full bg-[#10b981] text-white font-heading text-lg font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-[#ea580c] text-white font-heading text-lg font-bold flex items-center justify-center">
                 3
               </div>
               <div>
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
-                  STEP 3 — CHOOSE YOUR DRINK & PREMIUM UPGRADE
+                  STEP 3 — CHOOSE YOUR <span className="text-[#e02e07]">DRINK</span> & <span className="text-[#ea580c]">PREMIUM UPGRADE</span>
                 </h3>
-                <p className="text-xs text-neutral-400">Select your drink with small thumbnail pictures, and optionally upgrade your side!</p>
+                <p className="text-xs text-orange-300">Select your drink with small thumbnail pictures, and optionally upgrade your side!</p>
               </div>
             </div>
 
             {/* PART 1: DRINK SELECTION WITH REAL PICTURES */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black uppercase tracking-widest text-[#10b981] flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#10b981]" />
+                <span className="text-xs font-black uppercase tracking-widest text-[#ea580c] flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-[#ea580c]" />
                   <span>CHOOSE YOUR DRINK (1 INCLUDED)</span>
                 </span>
                 <span className="text-xs text-neutral-400">
-                  Selected: <strong className="text-emerald-400 font-bold">{selectedDrink.name}</strong>
+                  Selected: <strong className="text-orange-400 font-bold">{selectedDrink.name}</strong>
                   {drinkUpgradeCost > 0 && <span className="text-red-400 font-bold"> (+$2.50)</span>}
                 </span>
               </div>
@@ -495,12 +495,12 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         onClick={() => setSelectedDrink(drink)}
                         className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
                           isSelected
-                            ? 'bg-emerald-950/50 border-2 border-emerald-500 shadow-md ring-1 ring-emerald-500/50 scale-[1.02]'
+                            ? 'bg-orange-950/50 border-2 border-[#ea580c] shadow-md ring-1 ring-[#ea580c]/50 scale-[1.02]'
                             : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
                         }`}
                       >
                         {isSelected && (
-                          <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-emerald-500 text-gray-950 flex items-center justify-center font-bold text-xs shadow">
+                          <div className="absolute top-2 right-2 z-10 w-5 h-5 rounded-full bg-[#ea580c] text-white flex items-center justify-center font-bold text-xs shadow">
                             <Check className="w-3.5 h-3.5 stroke-[3]" />
                           </div>
                         )}
@@ -516,7 +516,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
                         <div>
                           <h4 className={`font-heading text-sm font-bold uppercase leading-tight truncate ${
-                            isSelected ? 'text-emerald-400' : 'text-white'
+                            isSelected ? 'text-orange-400' : 'text-white'
                           }`}>
                             {drink.name}
                           </h4>
@@ -526,7 +526,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         </div>
 
                         <div className={`mt-2 w-full py-1 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                          isSelected ? 'bg-emerald-500 text-gray-950 font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                          isSelected ? 'bg-[#ea580c] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
                         }`}>
                           {isSelected ? 'SELECTED' : 'INCLUDED'}
                         </div>

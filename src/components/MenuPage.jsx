@@ -58,9 +58,9 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 <span>AUTHENTIC RESTAURANT MENU</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
-                OUR COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">MENU</span>
+                OUR COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ea580c]">MENU</span>
               </h1>
-              <p className="text-sm sm:text-base text-neutral-400 max-w-xl mt-2">
+              <p className="text-sm sm:text-base text-orange-200/90 max-w-xl mt-2">
                 Every dish is cooked fresh to order using authentic Jamaican spices and high-quality fresh chicken.
               </p>
             </div>

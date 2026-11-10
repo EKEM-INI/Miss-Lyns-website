@@ -133,7 +133,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               onClick={() => openOrderingModal('pickup')}
               className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wider uppercase bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-700 transition-all active:scale-95 shadow-sm flex items-center gap-1.5"
             >
-              <Phone className="w-3.5 h-3.5 text-[#d97706]" />
+              <Phone className="w-3.5 h-3.5 text-[#ea580c]" />
               Pickup
             </button>
             <button

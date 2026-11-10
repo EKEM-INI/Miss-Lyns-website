@@ -324,14 +324,14 @@ export default function WingCustomizationModal({
                   </h4>
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
                     selectedSauces.length === 1 
-                      ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' 
+                      ? 'text-orange-400 bg-orange-950/80 border-orange-800' 
                       : 'text-neutral-300 bg-neutral-800/80 border-neutral-700'
                   }`}>
                     {selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)'}
                   </span>
                 </div>
                 <p className="text-xs text-neutral-400 mb-3">
-                  Your order includes <strong className="text-emerald-400 font-bold">1 free sauce</strong>. Select 1 flavour from our signature scratch-made sauces:
+                  Your order includes <strong className="text-orange-400 font-bold">1 free sauce</strong>. Select 1 flavour from our signature scratch-made sauces:
                 </p>
               </>
             ) : (
@@ -344,7 +344,7 @@ export default function WingCustomizationModal({
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
                     extraSaucesCount > 0 
                       ? 'text-red-300 bg-red-950/80 border-red-800' 
-                      : (selectedSauces.length > 0 ? 'text-emerald-400 bg-emerald-950/80 border-emerald-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
+                      : (selectedSauces.length > 0 ? 'text-orange-400 bg-orange-950/80 border-orange-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
                   }`}>
                     {extraSaucesCount > 0 
                       ? `${includedSaucesCount} Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})`
@@ -354,7 +354,7 @@ export default function WingCustomizationModal({
                   </span>
                 </div>
                 <p className="text-xs text-neutral-400 mb-3">
-                  Your order includes <strong className="text-emerald-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
+                  Your order includes <strong className="text-orange-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
                   You can pick any additional sauce from our 13 flavours for only <strong className="text-red-400 font-bold">+$1.25 each</strong>:
                 </p>
               </>
@@ -394,7 +394,7 @@ export default function WingCustomizationModal({
                         )}
                         {isSelected && (
                           <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
-                            isExtra ? 'bg-red-950 text-red-300 border border-red-800' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                            isExtra ? 'bg-red-950 text-red-300 border border-red-800' : 'bg-orange-950 text-orange-400 border border-orange-800'
                           }`}>
                             {isExtra ? '+$1.25 Extra' : 'Included'}
                           </span>
@@ -433,9 +433,9 @@ export default function WingCustomizationModal({
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
                       <span>{isWing ? '3. ' : '2. '}CHOOSE YOUR DRINK</span>
-                      <span className="text-xs font-normal text-emerald-400">(1 Pop / Drink Included)</span>
+                      <span className="text-xs font-normal text-orange-400">(1 Pop / Drink Included)</span>
                     </h4>
-                    <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-800 w-fit">
+                    <span className="text-xs font-bold text-orange-400 bg-orange-950/80 px-2.5 py-0.5 rounded-full border border-orange-800 w-fit">
                       Selected: {selectedDrink.name} {selectedDrink.price > 0 && `(+$${selectedDrink.price.toFixed(2)})`}
                     </span>
                   </div>
@@ -513,7 +513,7 @@ export default function WingCustomizationModal({
                     <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
                       <span>{isWing ? '3. ' : '2. '}CHOOSE YOUR {includedDrinksCount} DRINKS</span>
                     </h4>
-                    <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-800 w-fit">
+                    <span className="text-xs font-bold text-orange-400 bg-orange-950/80 px-2.5 py-0.5 rounded-full border border-orange-800 w-fit">
                       {includedDrinksCount} Drinks Included
                     </span>
                   </div>
@@ -526,7 +526,7 @@ export default function WingCustomizationModal({
                     {selectedDrinksList.map((curDrink, slotIdx) => (
                       <div key={slotIdx} className="p-3 rounded-2xl bg-neutral-950 border border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-emerald-900 text-emerald-300 text-xs font-black flex items-center justify-center shrink-0">
+                          <span className="w-6 h-6 rounded-full bg-orange-900 text-orange-300 text-xs font-black flex items-center justify-center shrink-0">
                             {slotIdx + 1}
                           </span>
                           <div className="w-10 h-10 rounded-lg overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
@@ -544,7 +544,7 @@ export default function WingCustomizationModal({
                             const found = allComboDrinksList.find(d => d.id === e.target.value) || comboDrinks.standard[0];
                             handleUpdateFamilyDrink(slotIdx, found);
                           }}
-                          className="bg-neutral-900 border border-neutral-700 text-white text-xs font-bold rounded-xl px-3 py-2 focus:outline-none focus:border-emerald-500"
+                          className="bg-neutral-900 border border-neutral-700 text-white text-xs font-bold rounded-xl px-3 py-2 focus:outline-none focus:border-[#ea580c]"
                         >
                           {allComboDrinksList.map(d => (
                             <option key={d.id} value={d.id}>

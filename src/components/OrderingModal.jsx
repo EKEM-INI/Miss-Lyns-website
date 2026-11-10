@@ -164,26 +164,26 @@ export default function OrderingModal({
                 href="https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-700 text-white hover:from-emerald-500 hover:to-green-600 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-emerald-400 group"
+                className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#e02e07] via-[#ea580c] to-[#f97316] text-white hover:opacity-95 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-500 group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-bold text-lg shadow-md shrink-0">
-                    <ShoppingBag className="w-6 h-6 text-emerald-400" />
+                    <ShoppingBag className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/30 text-[10px] font-bold uppercase tracking-wider text-emerald-200 mb-0.5">
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-black/40 text-[10px] font-bold uppercase tracking-wider text-white mb-0.5">
                       <span>✨ Official Delivery Partner</span>
                     </div>
                     <h3 className="font-heading text-2xl font-black uppercase text-white leading-tight">
                       Uber Eats
                     </h3>
-                    <p className="text-xs text-emerald-100">
+                    <p className="text-xs text-orange-100 font-medium">
                       Direct store page with full menu & live tracking
                     </p>
                   </div>
                 </div>
 
-                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-emerald-950 font-heading text-sm font-black uppercase tracking-wider group-hover:bg-neutral-200 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
+                <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-red-950 font-heading text-sm font-black uppercase tracking-wider group-hover:bg-neutral-100 transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0">
                   <span>Order on Uber Eats</span>
                   <ExternalLink className="w-4 h-4" />
                 </div>
@@ -264,8 +264,8 @@ export default function OrderingModal({
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-emerald-400">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-orange-400" />
+                        <span className="text-orange-400">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -372,8 +372,8 @@ export default function OrderingModal({
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
-                        <span className="text-emerald-400">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-orange-400" />
+                        <span className="text-orange-400">Copied!</span>
                       </>
                     ) : (
                       <>

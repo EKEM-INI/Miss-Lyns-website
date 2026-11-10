@@ -69,15 +69,15 @@ export default function BrandStory({ setCurrentView }) {
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
-              Inspired by the warmth of <strong className="text-white font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s Wings is where Canadian comfort food meets authentic Jamaican soul.
+            <p className="text-base sm:text-lg text-neutral-200 leading-relaxed">
+              Inspired by the warmth of <strong className="text-orange-400 font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#e02e07] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
             </p>
 
-            <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-              Our restaurant is named in loving memory of <strong className="text-white font-semibold">Hazel Russell</strong>, known affectionately as <em>“Miss Lyn.”</em> In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              Our restaurant is named in loving memory of <strong className="text-white font-semibold">Hazel Russell</strong>, known affectionately as <em className="text-orange-300">“Miss Lyn.”</em> In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
             </p>
 
-            <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-neutral-200 font-medium italic">
+            <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-orange-200 font-medium italic">
               «“Grandma’s Sunday dinner tasted so good because the preparation started on Saturday.”»
             </div>
 
