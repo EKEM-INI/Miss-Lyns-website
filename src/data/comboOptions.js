@@ -12,7 +12,7 @@ export const comboProteins = [
   {
     id: "fried-chicken",
     name: "3 Pcs Fried Chicken",
-    price: 16.85,
+    price: 19.30,
     tagline: "Crispy Caribbean-spiced golden fried chicken",
     image: "/images/dishes/fried-chicken.jpg",
     altImage: "/images/dishes/fried-chicken.jpg",
@@ -22,7 +22,7 @@ export const comboProteins = [
   {
     id: "jerk-chicken",
     name: "3 Pcs Jerk Chicken",
-    price: 16.85,
+    price: 19.30,
     tagline: "Authentic slow-marinated Jamaican jerk (Combo #4)",
     image: "/images/dishes/0019.jpg",
     altImage: "/images/dishes/0039.jpg",
