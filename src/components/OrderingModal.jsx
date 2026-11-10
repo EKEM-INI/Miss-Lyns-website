@@ -164,7 +164,7 @@ export default function OrderingModal({
                 href="https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#e02e07] via-[#ea580c] to-[#f97316] text-white hover:opacity-95 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-500 group"
+                className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#ff2626] to-[#dc2626] text-white hover:opacity-95 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 shadow-lg border border-red-500 group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center font-bold text-lg shadow-md shrink-0">
@@ -177,7 +177,7 @@ export default function OrderingModal({
                     <h3 className="font-heading text-2xl font-black uppercase text-white leading-tight">
                       Uber Eats
                     </h3>
-                    <p className="text-xs text-orange-100 font-medium">
+                    <p className="text-xs text-white/90 font-medium">
                       Direct store page with full menu & live tracking
                     </p>
                   </div>
@@ -264,8 +264,8 @@ export default function OrderingModal({
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-orange-400" />
-                        <span className="text-orange-400">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                        <span className="text-[#ff2626]">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -372,8 +372,8 @@ export default function OrderingModal({
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-orange-400" />
-                        <span className="text-orange-400">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-[#ff2626]" />
+                        <span className="text-[#ff2626]">Copied!</span>
                       </>
                     ) : (
                       <>

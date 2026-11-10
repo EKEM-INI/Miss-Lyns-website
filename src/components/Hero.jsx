@@ -19,9 +19,9 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1e2025] border border-neutral-800 text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
-              <Flame className="w-4 h-4 text-[#e02e07] animate-bounce" />
-              <span className="text-[#ea580c]">Canadian Favourites. Done The Jamaican Way.</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e02e07]"></span>
+              <Flame className="w-4 h-4 text-[#ff2626] animate-bounce" />
+              <span className="text-[#ff2626]">Canadian Favourites. Done The Jamaican Way.</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff2626]"></span>
               <span className="text-white font-extrabold">Hamilton, ON</span>
             </div>
 
@@ -29,12 +29,12 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             <div className="space-y-2">
               <h1 className="font-heading text-5xl sm:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-[1.0] uppercase">
                 MISS LYN’S <br />
-                <span className="text-[#e02e07]">
+                <span className="text-[#ff2626]">
                   WINGS
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-2xl font-normal leading-relaxed pt-2">
-                <span className="italic font-semibold text-white underline decoration-[#e02e07] decoration-2">Always Fresh. Made To Order.</span> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#e02e07] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
+                <span className="italic font-semibold text-white underline decoration-[#ff2626] decoration-2">Always Fresh. Made To Order.</span> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#ff2626] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
             </div>
 
@@ -74,7 +74,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-neutral-800 max-w-xl mx-auto lg:mx-0 text-left">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-red-950/60 border border-red-900 flex items-center justify-center shrink-0">
-                  <Flame className="w-4 h-4 text-[#e02e07]" />
+                  <Flame className="w-4 h-4 text-[#ff2626]" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Fresh Chicken</div>
@@ -84,7 +84,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
 
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-red-950/60 border border-red-900 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4 text-[#e02e07]" />
+                  <Sparkles className="w-4 h-4 text-[#ff2626]" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Authentic Jerk</div>
@@ -117,7 +117,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 
                 {/* Ribbon Tag */}
                 <div className="absolute top-4 left-4 z-20">
-                  <div className="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center gap-1.5 bg-[#e02e07] text-white shadow-md">
+                  <div className="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center gap-1.5 bg-[#ff2626] text-white shadow-md">
                     <Flame className="w-4 h-4 text-white" />
                     <span>CHEF’S SIGNATURE</span>
                   </div>
@@ -137,13 +137,13 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 <div className="mt-3 px-2 py-1 flex items-center justify-between text-left">
                   <div>
                     <h3 className="font-heading text-xl sm:text-2xl font-black text-white leading-tight">
-                      FRESH COMBO <span className="text-[#ea580c]">PLATTER</span>
+                      FRESH COMBO <span className="text-[#ff2626]">PLATTER</span>
                     </h3>
                     <p className="text-xs text-neutral-400">
-                      Crispy <span className="text-[#e02e07] font-semibold">Wings</span>, Jerk Chicken & Sides
+                      Crispy <span className="text-[#ff2626] font-semibold">Wings</span>, Jerk Chicken & Sides
                     </p>
                   </div>
-                  <span className="font-heading text-sm font-black text-[#ea580c] px-2.5 py-1 rounded-lg bg-orange-950/60 border border-orange-900">
+                  <span className="font-heading text-sm font-black text-[#ff2626] px-2.5 py-1 rounded-lg bg-red-950/80 border border-red-700">
                     HOT & FRESH
                   </span>
                 </div>

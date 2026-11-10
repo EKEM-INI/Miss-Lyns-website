@@ -43,21 +43,21 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
         {/* Header */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 border-b border-neutral-800 pb-8 text-center md:text-left">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#e02e07]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/60 border border-red-800 text-[#ff2626] text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#ff2626]" />
               <span>FRESH FROM THE KITCHEN</span>
             </div>
             <h2 className="font-heading text-4xl sm:text-5xl font-black uppercase text-white tracking-tight">
-              POPULAR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ea580c]">FAVORITES</span>
+              POPULAR <span className="text-[#ff2626]">FAVORITES</span>
             </h2>
-            <p className="text-sm sm:text-base text-orange-200/90 mt-1">
+            <p className="text-sm sm:text-base text-neutral-300 mt-1">
               A quick taste of our bestsellers. Browse the full menu for all sizes, combos, and sides.
             </p>
           </div>
 
           <button
             onClick={() => setCurrentView('menu')}
-            className="px-6 py-3.5 rounded-xl font-heading text-xl font-bold uppercase tracking-wider bg-gradient-to-r from-[#e02e07] to-[#e52516] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-md shadow-[#e02e07]/25 transition-all flex items-center gap-2 group shrink-0"
+            className="px-6 py-3.5 rounded-xl font-heading text-xl font-bold uppercase tracking-wider bg-gradient-to-r from-[#ff2626] to-[#dc2626] hover:from-[#ff3838] hover:to-[#ef4444] text-white shadow-md shadow-red-950/50 transition-all flex items-center gap-2 group shrink-0"
           >
             <span>VIEW FULL MENU</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -131,9 +131,9 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
         <div className="mt-12 p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
           <div>
             <h4 className="font-heading text-2xl font-bold uppercase text-white">
-              LOOKING FOR MORE <span className="text-[#ea580c]">SIZES</span>, <span className="text-[#e02e07]">COMBOS</span> & <span className="text-orange-400">DRINKS</span>?
+              LOOKING FOR MORE <span className="text-[#ff2626]">SIZES</span>, <span className="text-[#ff2626]">COMBOS</span> & <span className="text-[#ff2626]">DRINKS</span>?
             </h4>
-            <p className="text-xs text-orange-200/80">
+            <p className="text-xs text-neutral-400">
               Browse our complete categorized menu including Jamaican patties, sides, and chilled Island sodas.
             </p>
           </div>

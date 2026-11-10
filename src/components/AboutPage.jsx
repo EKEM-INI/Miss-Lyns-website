@@ -24,11 +24,11 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
-            MISS LYN’S <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">WINGS</span>
+            MISS LYN’S <span className="text-[#ff2626]">WINGS</span>
           </h1>
 
           <p className="font-heading text-2xl sm:text-3xl font-bold uppercase tracking-wide mt-3">
-            <span className="text-white">Canadian Comfort.</span> <span className="text-[#ea580c]">Jamaican Soul.</span> <span className="text-[#e02e07]">Made with Love.</span>
+            <span className="text-white">Canadian Comfort.</span> <span className="text-[#ff2626]">Jamaican Soul.</span> <span className="text-[#ff2626]">Made with Love.</span>
           </p>
 
           <p className="text-base sm:text-lg text-neutral-400 max-w-2xl mx-auto mt-4 leading-relaxed">
@@ -141,7 +141,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
 
             <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-orange-950/80 flex items-center justify-center text-[#ea580c]">
+              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#ff2626]">
                 <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Direct Jamaican Imports</h3>
@@ -220,7 +220,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
             <span className="text-2xl">📍</span>
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#ea580c] block">HAMILTON PRIDE</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#ff2626] block">HAMILTON PRIDE</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
                 Rooted in the Hamilton Community
               </h2>
@@ -255,9 +255,9 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </p>
             <div className="pt-2">
               <span className="font-heading text-3xl font-black text-white block">
-                MISS LYN’S <span className="text-[#e02e07]">WINGS</span>
+                MISS LYN’S <span className="text-[#ff2626]">WINGS</span>
               </span>
-              <span className="text-xs uppercase font-bold tracking-widest text-orange-400">
+              <span className="text-xs uppercase font-bold tracking-widest text-[#ff2626]">
                 Canadian Comfort. Jamaican Soul. Made with Love.
               </span>
             </div>

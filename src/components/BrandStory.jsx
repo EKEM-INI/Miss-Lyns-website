@@ -58,26 +58,26 @@ export default function BrandStory({ setCurrentView }) {
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2 text-left">
             
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/80 border border-red-800 text-white text-xs font-black uppercase tracking-widest shadow-sm">
-              <Heart className="w-3.5 h-3.5 text-[#e02e07] fill-current" />
+              <Heart className="w-3.5 h-3.5 text-[#ff2626] fill-current" />
               <span>ABOUT US</span>
             </div>
 
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[1.05]">
               CANADIAN COMFORT. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e02e07] to-[#ef4444]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff2626] to-[#ef4444]">
                 JAMAICAN SOUL. MADE WITH LOVE.
               </span>
             </h2>
 
             <p className="text-base sm:text-lg text-neutral-200 leading-relaxed">
-              Inspired by the warmth of <strong className="text-orange-400 font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#e02e07] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
+              Inspired by the warmth of <strong className="text-red-400 font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#ff2626] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
             </p>
 
             <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Our restaurant is named in loving memory of <strong className="text-white font-semibold">Hazel Russell</strong>, known affectionately as <em className="text-orange-300">“Miss Lyn.”</em> In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
+              Our restaurant is named in loving memory of <strong className="text-white font-semibold">Hazel Russell</strong>, known affectionately as <em className="text-red-400 font-bold">“Miss Lyn.”</em> In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
             </p>
 
-            <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-orange-200 font-medium italic">
+            <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-neutral-200 font-medium italic">
               «“Grandma’s Sunday dinner tasted so good because the preparation started on Saturday.”»
             </div>
 

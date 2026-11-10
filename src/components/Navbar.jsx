@@ -60,17 +60,17 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 group text-left"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#e02e07] to-[#ea580c] p-0.5 shadow-md group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#ff2626] p-0.5 shadow-md group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-[#1e2025] rounded-[10px] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black">🍗</span>
               </div>
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-white leading-none group-hover:text-[#e02e07] transition-colors">
+                <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-white leading-none group-hover:text-[#ff2626] transition-colors">
                   MISS LYN’S
                 </span>
-                <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-[#e02e07] leading-none">
+                <span className="font-heading text-2xl sm:text-3xl font-extrabold tracking-wider text-[#ff2626] leading-none">
                   WINGS
                 </span>
               </div>
@@ -85,28 +85,28 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             <button 
               onClick={() => handleNavClick('home')}
               className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
-                currentView === 'home' ? 'text-[#e02e07] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                currentView === 'home' ? 'text-[#ff2626] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
               }`}
             >
               HOME
             </button>
             <button 
               onClick={() => handleNavClick('home', 'combo-builder')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#e02e07] hover:bg-neutral-800 transition-colors"
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#ff2626] hover:bg-neutral-800 transition-colors"
             >
               BUILD YOUR COMBO
             </button>
             <button 
               onClick={() => handleNavClick('home', 'family-feast')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#f97316] hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#ff2626] hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
             >
-              <span className="w-2 h-2 rounded-full bg-[#e02e07] animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-[#ff2626] animate-ping"></span>
               FAMILY FEAST
             </button>
             <button 
               onClick={() => handleNavClick('menu')}
               className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
-                currentView === 'menu' ? 'text-[#e02e07] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                currentView === 'menu' ? 'text-[#ff2626] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
               }`}
             >
               MENU
@@ -114,7 +114,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             <button 
               onClick={() => handleNavClick('about')}
               className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
-                currentView === 'about' ? 'text-[#e02e07] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                currentView === 'about' ? 'text-[#ff2626] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
               }`}
             >
               ABOUT
@@ -133,7 +133,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               onClick={() => openOrderingModal('pickup')}
               className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wider uppercase bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-700 transition-all active:scale-95 shadow-sm flex items-center gap-1.5"
             >
-              <Phone className="w-3.5 h-3.5 text-[#ea580c]" />
+              <Phone className="w-3.5 h-3.5 text-[#ff2626]" />
               Pickup
             </button>
             <button
@@ -201,7 +201,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               <span className="text-2xl">🍗</span>
               <div className="flex items-center gap-1.5 font-heading text-2xl font-black tracking-wide">
                 <span className="text-white">MISS LYN’S</span>
-                <span className="text-[#e02e07]">WINGS</span>
+                <span className="text-[#ff2626]">WINGS</span>
               </div>
             </div>
             <button 
@@ -221,60 +221,60 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                 <span className="text-2xl">🍗</span>
                 <h3 className="font-heading text-3xl font-black uppercase tracking-tight">
                   <span className="text-white">MISS LYN’S </span>
-                  <span className="text-[#e02e07]">WINGS</span>
+                  <span className="text-[#ff2626]">WINGS</span>
                 </h3>
               </div>
-              <p className="font-heading text-base font-bold uppercase tracking-wider text-[#ea580c]">
+              <p className="font-heading text-base font-bold uppercase tracking-wider text-[#ff2626]">
                 CANADIAN FAVOURITES. DONE THE JAMAICAN WAY.
               </p>
               <p className="text-sm text-neutral-300 leading-relaxed pt-1">
-                <strong className="text-white italic underline decoration-[#e02e07] decoration-2">Always Fresh. Made To Order.</strong> Bold Caribbean flavour in every bite. Authentic jerk chicken, wings, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
+                <strong className="text-white italic underline decoration-[#ff2626] decoration-2">Always Fresh. Made To Order.</strong> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#ff2626] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1e2025] border border-neutral-800 text-xs font-semibold text-neutral-200 mt-2">
-                <span className="text-[#e02e07]">🔥</span>
+                <span className="text-[#ff2626]">🔥</span>
                 <span>100% Fresh Never Frozen Chicken</span>
               </div>
             </div>
 
             {/* QUICK NAVIGATION */}
             <div className="space-y-3 pt-2">
-              <h4 className="font-heading text-xl font-black uppercase tracking-wider text-[#e02e07]">
+              <h4 className="font-heading text-xl font-black uppercase tracking-wider text-[#ff2626]">
                 QUICK NAVIGATION
               </h4>
               <div className="space-y-2.5 text-base">
                 <button
                   onClick={() => handleNavClick('home')}
-                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                  className="w-full text-left font-medium text-white hover:text-[#ff2626] py-1 transition-colors block"
                 >
                   Home Page
                 </button>
                 <button
                   onClick={() => handleNavClick('home', 'combo-builder')}
-                  className="w-full text-left font-bold text-[#e02e07] hover:text-[#ff481f] py-1 transition-colors block"
+                  className="w-full text-left font-bold text-[#ff2626] hover:text-red-400 py-1 transition-colors block"
                 >
                   Interactive Combo Builder
                 </button>
                 <button
                   onClick={() => handleNavClick('home', 'family-feast')}
-                  className="w-full text-left font-bold text-[#e02e07] hover:text-[#ff481f] py-1 transition-colors block"
+                  className="w-full text-left font-bold text-[#ff2626] hover:text-red-400 py-1 transition-colors block"
                 >
                   Family Feast Bundle ($49.99)
                 </button>
                 <button
                   onClick={() => handleNavClick('menu')}
-                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                  className="w-full text-left font-medium text-white hover:text-[#ff2626] py-1 transition-colors block"
                 >
                   Complete Restaurant Menu
                 </button>
                 <button
                   onClick={() => handleNavClick('about')}
-                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                  className="w-full text-left font-medium text-white hover:text-[#ff2626] py-1 transition-colors block"
                 >
                   About Miss Lyn’s
                 </button>
                 <button
                   onClick={() => handleNavClick('home', 'location-hours')}
-                  className="w-full text-left font-medium text-white hover:text-[#e02e07] py-1 transition-colors block"
+                  className="w-full text-left font-medium text-white hover:text-[#ff2626] py-1 transition-colors block"
                 >
                   Location & Store Hours
                 </button>
@@ -283,7 +283,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
 
             {/* ONLINE ORDERING */}
             <div className="space-y-3 pt-2">
-              <h4 className="font-heading text-xl font-black uppercase tracking-wider text-[#e02e07]">
+              <h4 className="font-heading text-xl font-black uppercase tracking-wider text-[#ff2626]">
                 ONLINE ORDERING
               </h4>
               <div className="space-y-2.5">
@@ -295,7 +295,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                   className="w-full p-4 rounded-2xl bg-[#1a1c20] hover:bg-[#22252a] border border-neutral-800 text-white font-medium flex items-center justify-between text-left transition-colors"
                 >
                   <span>Direct Pickup Order</span>
-                  <Phone className="w-5 h-5 text-[#e02e07]" />
+                  <Phone className="w-5 h-5 text-[#ff2626]" />
                 </button>
                 <a
                   href="https://www.ubereats.com/ca/store/miss-lyns-wings/yBWauh9NX4isUfrQt-wp4g?srsltid=AfmBOooSdT1IRgG79ndrOu6f-phUGzMRLmKZXXr_s5DVmOVpGoUdu_2L"
@@ -320,7 +320,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               }}
               className="w-full py-4 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-[#1a1c20] hover:bg-[#22252a] text-white border border-neutral-800 flex items-center justify-center gap-2 shadow transition-all active:scale-95"
             >
-              <Phone className="w-4 h-4 text-[#e02e07]" />
+              <Phone className="w-4 h-4 text-[#ff2626]" />
               <span>PICKUP</span>
             </button>
             <button
@@ -344,7 +344,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             onClick={() => openOrderingModal('pickup')}
             className="w-full py-3.5 rounded-2xl font-heading text-lg font-black uppercase tracking-wider bg-[#1a1c20] hover:bg-[#22252a] text-white border border-neutral-800 flex items-center justify-center gap-2 shadow active:scale-95 transition-all"
           >
-            <Phone className="w-4 h-4 text-[#e02e07]" />
+            <Phone className="w-4 h-4 text-[#ff2626]" />
             <span>PICKUP</span>
           </button>
           <button

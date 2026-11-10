@@ -45,15 +45,15 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
             <div className="flex items-center gap-2">
               <span className="text-2xl">🍗</span>
               <span className="font-heading text-3xl font-black tracking-wider text-white">
-                MISS LYN’S <span className="text-[#e02e07]">WINGS</span>
+                MISS LYN’S <span className="text-[#ff2626]">WINGS</span>
               </span>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              Always Fresh. Made To Order. Bold Flavour Every Time. Authentic Caribbean jerk chicken, <span className="text-[#e02e07] font-semibold">wings</span>, comfort sides, and golden flaky patties in Hamilton, Ontario.
+              Always Fresh. Made To Order. Bold Flavour Every Time. Authentic Caribbean jerk chicken, <span className="text-[#ff2626] font-semibold">wings</span>, comfort sides, and golden flaky patties in Hamilton, Ontario.
             </p>
             <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 w-fit">
-                <Flame className="w-3.5 h-3.5 text-[#e02e07]" />
+                <Flame className="w-3.5 h-3.5 text-[#ff2626]" />
                 <span>100% Fresh Never Frozen Chicken</span>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
           {/* Col 2: Quick Links */}
           <div className="space-y-3">
             <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-white">
-              QUICK <span className="text-[#ea580c]">NAVIGATION</span>
+              QUICK <span className="text-[#ff2626]">NAVIGATION</span>
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-gray-400">
               <li>
@@ -71,7 +71,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'combo-builder')} className="hover:text-white transition-colors text-[#ea580c] font-semibold">
+                <button onClick={() => handleNav('home', 'combo-builder')} className="hover:text-white transition-colors text-[#ff2626] font-semibold">
                   Interactive Combo Builder
                 </button>
               </li>
@@ -100,7 +100,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
 
           {/* Col 3: Order Online Links */}
           <div className="space-y-3">
-            <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-[#e02e07]">
+            <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-[#ff2626]">
               ONLINE ORDERING
             </h4>
             <div className="space-y-2 text-xs sm:text-sm">
@@ -130,11 +130,11 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
           {/* Col 4: Store Info */}
           <div className="space-y-3">
             <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-white">
-              VISIT <span className="text-[#ea580c]">US</span>
+              VISIT <span className="text-[#ff2626]">US</span>
             </h4>
             <div className="space-y-2 text-xs text-gray-400">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#e02e07] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#ff2626] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-white block">677 King Street East</strong>
                   <span>Hamilton, ON L8N 1E5</span>
@@ -169,7 +169,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <div>
-            © {new Date().getFullYear()} Miss Lyn’s <span className="text-[#e02e07] font-semibold">Wings</span>. All Rights Reserved. Hamilton, Ontario.
+            © {new Date().getFullYear()} Miss Lyn’s <span className="text-[#ff2626] font-semibold">Wings</span>. All Rights Reserved. Hamilton, Ontario.
           </div>
           <div className="flex items-center gap-4 text-gray-300">
             <a

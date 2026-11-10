@@ -29,13 +29,13 @@ export default function LocationHours({ openOrderingModal }) {
             
             {/* Address Box */}
             <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
-              <div className="flex items-center gap-3 text-[#ff481f]">
+              <div className="flex items-center gap-3 text-[#ff2626]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-[#ea580c]" />
+                  <MapPin className="w-5 h-5 text-[#ff2626]" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-orange-400 font-bold block">Restaurant Address</span>
-                  <h3 className="font-heading text-2xl font-black text-white">677 KING STREET <span className="text-[#ea580c]">EAST</span></h3>
+                  <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Restaurant Address</span>
+                  <h3 className="font-heading text-2xl font-black text-white">677 KING STREET <span className="text-[#ff2626]">EAST</span></h3>
                 </div>
               </div>
               <p className="text-sm text-neutral-300 pl-13">
@@ -58,11 +58,11 @@ export default function LocationHours({ openOrderingModal }) {
             <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-white">
                 <div className="w-10 h-10 rounded-xl bg-neutral-800 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-orange-400" />
+                  <Clock className="w-5 h-5 text-[#ff2626]" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-orange-400 font-bold block">Opening Hours</span>
-                  <h3 className="font-heading text-2xl font-black text-white">OPERATING <span className="text-[#ea580c]">SCHEDULE</span></h3>
+                  <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Opening Hours</span>
+                  <h3 className="font-heading text-2xl font-black text-white">OPERATING <span className="text-[#ff2626]">SCHEDULE</span></h3>
                 </div>
               </div>
               
@@ -80,13 +80,13 @@ export default function LocationHours({ openOrderingModal }) {
 
             {/* Clickable Phone Call Box */}
             <div className="p-6 rounded-2xl bg-[#1e2025] border-2 border-neutral-800 text-left space-y-3 shadow-sm">
-              <div className="flex items-center gap-3 text-[#ff481f]">
+              <div className="flex items-center gap-3 text-[#ff2626]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-[#e02e07]" />
+                  <Phone className="w-5 h-5 text-[#ff2626]" />
                 </div>
                 <div>
                   <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Order Ahead By Phone</span>
-                  <h3 className="font-heading text-2xl font-black text-white">CALL TO PLACE <span className="text-[#e02e07]">PICKUP</span></h3>
+                  <h3 className="font-heading text-2xl font-black text-white">CALL TO PLACE <span className="text-[#ff2626]">PICKUP</span></h3>
                 </div>
               </div>
 
