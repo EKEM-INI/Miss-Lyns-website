@@ -12,13 +12,13 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex justify-center mb-6">
             <button
               onClick={() => setCurrentView('home')}
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white bg-[#1e2025] px-4 py-2 rounded-xl border border-neutral-700 shadow-sm transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-white card-charcoal-slate px-4 py-2 rounded-xl border border-neutral-700 shadow-sm transition-colors"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Homepage
             </button>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#FF1D23] text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
             <Heart className="w-3.5 h-3.5 text-[#FF1D23] fill-current" />
             <span>ABOUT US</span>
           </div>
@@ -31,7 +31,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             <span className="text-white">Canadian Comfort.</span> <span className="text-[#FF1D23]">Jamaican Soul.</span> <span className="text-[#FF1D23]">Made with Love.</span>
           </p>
 
-          <p className="text-base sm:text-lg text-neutral-400 max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="text-base sm:text-lg text-white max-w-2xl mx-auto mt-4 leading-relaxed">
             Inspired by the warmth of Grandma Hazel’s kitchen and crafted for the Hamilton community, Miss Lyn’s Wings is where Canadian comfort food meets authentic Jamaican soul.
           </p>
 
@@ -46,7 +46,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
             <span className="text-2xl">👵🏾</span>
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#ff481f] block">OUR STORY</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FF1D23] block">OUR STORY</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
                 A Grandmother’s Legacy
               </h2>
@@ -54,7 +54,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-7 space-y-4 text-base text-neutral-300 leading-relaxed">
+            <div className="md:col-span-7 space-y-4 text-base text-white leading-relaxed">
               <p>
                 At Miss Lyn’s Wings, every recipe begins with family.
               </p>
@@ -70,7 +70,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
               <p>
                 When setting out to open a restaurant of our own, our team turned to the master herself. In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
               </p>
-              <p className="font-semibold text-white bg-[#1e2025] p-4 rounded-xl border border-neutral-700">
+              <p className="font-semibold text-white card-charcoal-slate p-4 rounded-xl border border-neutral-700">
                 Miss Lyn’s Wings was born to carry that spirit forward—serving soulful, unforgettable comfort food that makes you feel right at home.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-center text-xs text-neutral-400 italic">
+              <p className="text-center text-xs text-white italic">
                 Crafted with Hazel Russell’s authentic Jamaican recipes
               </p>
             </div>
@@ -103,13 +103,13 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           {/* Quote Banner */}
-          <div className="p-6 rounded-2xl bg-[#1e2025] border-2 border-neutral-700 text-center shadow-sm">
+          <div className="p-6 rounded-2xl card-charcoal-slate border-2 border-neutral-700 text-center shadow-sm">
             <p className="font-heading text-2xl sm:text-3xl font-extrabold text-white leading-tight">
               «“Grandma’s Sunday dinner tasted so good because the preparation started on Saturday.”»
             </p>
           </div>
 
-          <div className="space-y-4 text-base text-neutral-300 leading-relaxed">
+          <div className="space-y-4 text-base text-white leading-relaxed">
             <p>
               At Miss Lyn’s Wings, we don't believe in shortcuts.
             </p>
@@ -120,32 +120,32 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
             
-            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#ff481f]">
+            <div className="p-5 rounded-2xl card-charcoal-slate border border-neutral-800 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#FF1D23]">
                 <Flame className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Time-Honoured Marination</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <p className="text-xs text-white leading-relaxed">
                 We marinate our meats well in advance using traditional Caribbean herbs and seasonings, allowing the flavours to develop so every bite is juicy, tender, and packed with flavour right to the bone.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
+            <div className="p-5 rounded-2xl card-charcoal-slate border border-neutral-800 shadow-sm space-y-2">
               <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#FF1D23]">
                 <Utensils className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Canadian Favourites, Jamaican Twist</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <p className="text-xs text-white leading-relaxed">
                 We take beloved classics like crispy wings, jerk chicken, and crispy fries and give them an authentic Jamaican twist.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 shadow-sm space-y-2">
+            <div className="p-5 rounded-2xl card-charcoal-slate border border-neutral-800 shadow-sm space-y-2">
               <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center text-[#FF1D23]">
                 <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="font-heading text-xl font-bold uppercase text-white">Direct Jamaican Imports</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed">
+              <p className="text-xs text-white leading-relaxed">
                 We bring a taste of the island straight to Hamilton. From tropical favourites like Cran Wata and Ting to authentic Jamaican patties, we import directly from Jamaica for a genuine island experience.
               </p>
             </div>
@@ -158,7 +158,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="flex items-center gap-3 border-b border-neutral-800 pb-3">
             <span className="text-2xl">⭐</span>
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#ff481f] block">SIGNATURE DISHES</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FF1D23] block">SIGNATURE DISHES</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
                 What We’re Famous For
               </h2>
@@ -168,7 +168,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Item 1 */}
-            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 space-y-3 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl card-charcoal-slate border border-neutral-800 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-neutral-950">
                   <img src="/images/dishes/0053.jpg" alt="Signature Wings & Jerk Sauces" className="w-full h-full object-cover" />
@@ -176,14 +176,14 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
                 <h3 className="font-heading text-2xl font-bold uppercase text-white">
                   Signature Wings & Jerk Sauces
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-white leading-relaxed">
                   Our signature wings are tossed in your choice of scratch-made sauces, including our legendary Suicide Jerk—a slow-burn, time-release heat packed with rich island spices.
                 </p>
               </div>
             </div>
 
             {/* Item 2 */}
-            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 space-y-3 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl card-charcoal-slate border border-neutral-800 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-neutral-950">
                   <img src="/images/dishes/0019.jpg" alt="Authentic Jamaican Jerk Chicken" className="w-full h-full object-cover" />
@@ -191,14 +191,14 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
                 <h3 className="font-heading text-2xl font-bold uppercase text-white">
                   Authentic Jamaican Jerk Chicken
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-white leading-relaxed">
                   Succulent, slow-marinated chicken infused with Scotch bonnet, Jamaican pimento, and Miss Lyn's signature glaze.
                 </p>
               </div>
             </div>
 
             {/* Item 3 */}
-            <div className="p-5 rounded-2xl bg-[#1e2025] border border-neutral-800 space-y-3 flex flex-col justify-between">
+            <div className="p-5 rounded-2xl card-charcoal-slate border border-neutral-800 space-y-3 flex flex-col justify-between">
               <div className="space-y-2">
                 <div className="aspect-16/10 rounded-xl overflow-hidden bg-neutral-950">
                   <img src="/images/dishes/garlic-bread.jpg" alt="Toasted Garlic Bread" className="w-full h-full object-cover" />
@@ -206,7 +206,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
                 <h3 className="font-heading text-2xl font-bold uppercase text-white">
                   Toasted Garlic Bread
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-white leading-relaxed">
                   Thick-cut Texas toast brushed generously with aromatic garlic herb butter and toasted to golden, crispy perfection.
                 </p>
               </div>
@@ -227,7 +227,7 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
             </div>
           </div>
 
-          <div className="space-y-4 text-base text-neutral-300 leading-relaxed">
+          <div className="space-y-4 text-base text-white leading-relaxed">
             <p>
               Located on King Street near Wentworth, in the heart of Hamilton, we are proud to feed our neighbours and be part of the community we call home.
             </p>
@@ -243,14 +243,14 @@ export default function AboutPage({ setCurrentView, openOrderingModal }) {
           </div>
 
           {/* Customer Family Banner */}
-          <div className="p-8 rounded-3xl bg-[#1e2025] border-2 border-neutral-700 text-center space-y-3 shadow-md">
+          <div className="p-8 rounded-3xl card-charcoal-slate border-2 border-neutral-700 text-center space-y-3 shadow-md">
             <h3 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white">
-              You’re Not Just a Customer. <span className="text-[#ff481f]">You’re Family.</span>
+              You’re Not Just a Customer. <span className="text-[#FF1D23]">You’re Family.</span>
             </h3>
-            <p className="text-base text-neutral-300 max-w-xl mx-auto leading-relaxed">
+            <p className="text-base text-white max-w-xl mx-auto leading-relaxed">
               When you walk up to our counter, you’re not just a customer—you’re sitting down at Miss Lyn’s table.
             </p>
-            <p className="font-heading text-2xl font-bold text-[#ff481f] uppercase tracking-wide">
+            <p className="font-heading text-2xl font-bold text-[#FF1D23] uppercase tracking-wide">
               Come hungry. Leave with a full heart.
             </p>
             <div className="pt-2">

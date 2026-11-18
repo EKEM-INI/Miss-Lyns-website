@@ -13,7 +13,7 @@ export default function BrandStory({ setCurrentView }) {
             <div className="grid grid-cols-2 gap-4">
               
               <div className="space-y-4">
-                <div className="rounded-2xl overflow-hidden aspect-4/5 bg-[#1e2025] border border-neutral-800 shadow-md group">
+                <div className="rounded-2xl overflow-hidden aspect-4/5 card-charcoal-slate border border-neutral-800 shadow-md group">
                   <img
                     src="/images/dishes/0019.jpg"
                     alt="Authentic Jamaican Jerk Chicken"
@@ -21,18 +21,18 @@ export default function BrandStory({ setCurrentView }) {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-800 text-center shadow-sm">
+                <div className="p-4 rounded-xl card-charcoal-slate border border-neutral-800 text-center shadow-sm">
                   <span className="font-heading text-3xl font-black text-white block leading-none">100%</span>
-                  <span className="text-[11px] uppercase font-bold tracking-wider text-neutral-400">Fresh Never Frozen</span>
+                  <span className="text-[11px] uppercase font-bold tracking-wider text-white">Fresh Never Frozen</span>
                 </div>
               </div>
 
               <div className="space-y-4 pt-6">
-                <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-800 text-center shadow-sm">
-                  <span className="font-heading text-3xl font-black text-[#ff481f] block leading-none">HAMILTON</span>
-                  <span className="text-[11px] uppercase font-bold tracking-wider text-neutral-400">677 King St East</span>
+                <div className="p-4 rounded-xl card-charcoal-slate border border-neutral-800 text-center shadow-sm">
+                  <span className="font-heading text-3xl font-black text-[#FF1D23] block leading-none">HAMILTON</span>
+                  <span className="text-[11px] uppercase font-bold tracking-wider text-white">677 King St East</span>
                 </div>
-                <div className="rounded-2xl overflow-hidden aspect-4/5 bg-[#1e2025] border border-neutral-800 shadow-md group">
+                <div className="rounded-2xl overflow-hidden aspect-4/5 card-charcoal-slate border border-neutral-800 shadow-md group">
                   <img
                     src="/images/dishes/0057.jpg"
                     alt="Golden Flaky Jamaican Patties"
@@ -64,27 +64,27 @@ export default function BrandStory({ setCurrentView }) {
 
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[1.05]">
               CANADIAN COMFORT. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">
+              <span className="text-[#FF1D23]">
                 JAMAICAN SOUL. MADE WITH LOVE.
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-200 leading-relaxed">
-              Inspired by the warmth of <strong className="text-red-400 font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#FF1D23] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
+            <p className="text-base sm:text-lg text-white leading-relaxed">
+              Inspired by the warmth of <strong className="text-[#FF1D23] font-bold">Grandma Hazel’s kitchen</strong> and crafted for the Hamilton community, Miss Lyn’s <span className="text-[#FF1D23] font-bold">Wings</span> is where Canadian comfort food meets authentic Jamaican soul.
             </p>
 
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Our restaurant is named in loving memory of <strong className="text-white font-semibold">Hazel Russell</strong>, known affectionately as <em className="text-red-400 font-bold">“Miss Lyn.”</em> In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
+            <p className="text-sm sm:text-base text-white leading-relaxed">
+              Our restaurant is named in loving memory of <strong className="text-white font-semibold">Hazel Russell</strong>, known affectionately as <em className="text-[#FF1D23] font-bold">“Miss Lyn.”</em> In her final days, Miss Lyn worked alongside her family, sharing her techniques, secret spice blends, and the philosophy that great food cannot be rushed.
             </p>
 
-            <div className="p-4 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-neutral-200 font-medium italic">
+            <div className="p-4 rounded-xl card-charcoal-slate border border-neutral-700 text-sm text-white font-medium italic">
               «“Grandma’s Sunday dinner tasted so good because the preparation started on Saturday.”»
             </div>
 
             <div className="pt-2">
               <button
                 onClick={() => setCurrentView('about')}
-                className="px-6 py-3.5 rounded-xl font-heading text-lg font-bold uppercase tracking-wider bg-[#1e2025] hover:bg-neutral-800 text-white border border-neutral-700 shadow transition-all inline-flex items-center gap-2"
+                className="px-6 py-3.5 rounded-xl font-heading text-lg font-bold uppercase tracking-wider card-charcoal-slate hover:bg-neutral-800 text-white border border-neutral-700 shadow transition-all inline-flex items-center gap-2"
               >
                 <span>READ OUR FULL STORY & PHILOSOPHY</span>
                 <ArrowRight className="w-4 h-4 text-white" />

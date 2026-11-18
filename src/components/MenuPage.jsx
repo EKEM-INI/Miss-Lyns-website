@@ -47,33 +47,33 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
           
           <button
             onClick={() => setCurrentView('home')}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white mb-4 bg-[#1e2025] px-3.5 py-2 rounded-lg border border-neutral-700 shadow-sm transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-white mb-4 card-charcoal-slate px-3.5 py-2 rounded-lg border border-neutral-700 shadow-sm transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Homepage
           </button>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs font-bold uppercase tracking-widest mb-2 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/60 border border-red-800 text-[#FF1D23] text-xs font-bold uppercase tracking-widest mb-2 shadow-sm">
                 <span>AUTHENTIC RESTAURANT MENU</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
                 OUR COMPLETE <span className="text-[#FF1D23]">MENU</span>
               </h1>
-              <p className="text-sm sm:text-base text-neutral-300 max-w-xl mt-2">
+              <p className="text-sm sm:text-base text-white max-w-xl mt-2">
                 Every dish is cooked fresh to order using authentic Jamaican spices and high-quality fresh chicken.
               </p>
             </div>
 
             {/* Search Input */}
             <div className="relative w-full md:w-72">
-              <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-white absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search dishes, wings, sides..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#1e2025] border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF1D23] shadow-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl card-charcoal-slate border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF1D23] shadow-sm"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
               className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                 activeCategory === "all"
                   ? 'bg-[#FF1D23] text-white shadow-md'
-                  : 'bg-neutral-900 text-neutral-300 hover:bg-neutral-800 border border-neutral-800'
+                  : 'card-charcoal-slate text-white hover:border-[#FF1D23] border border-neutral-800'
               }`}
             >
               All Items ({menuItems.length})
@@ -109,11 +109,11 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                   className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 ${
                     isActive
                       ? 'bg-[#FF1D23] text-white shadow-md'
-                      : 'bg-neutral-900 text-neutral-300 hover:bg-neutral-800 border border-neutral-800'
+                      : 'card-charcoal-slate text-white hover:border-[#FF1D23] border border-neutral-800'
                   }`}
                 >
                   <span>{cat.name}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-black/40 text-white' : 'bg-neutral-800 text-neutral-400'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-black/40 text-white' : 'bg-neutral-800 text-white'}`}>
                     {count}
                   </span>
                 </button>
@@ -151,7 +151,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                       <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white tracking-wide flex items-center gap-2">
                         <span>{cat.name}</span>
                       </h2>
-                      <span className="text-xs font-bold text-neutral-400">{itemsInCat.length} {itemsInCat.length === 1 ? 'item' : 'items'}</span>
+                      <span className="text-xs font-bold text-white">{itemsInCat.length} {itemsInCat.length === 1 ? 'item' : 'items'}</span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -173,7 +173,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                   <h2 className="font-heading text-3xl sm:text-4xl font-black uppercase text-white tracking-wide flex items-center gap-2">
                     <span>{menuCategories.find(c => c.id === activeCategory)?.name || "Menu Items"}</span>
                   </h2>
-                  <span className="text-xs font-bold text-neutral-400">{filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'}</span>
+                  <span className="text-xs font-bold text-white">{filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'}</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredItems.map((item) => (
@@ -196,11 +196,11 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
       {/* Item Detail Modal */}
       {selectedItemDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="relative w-full max-w-lg rounded-3xl bg-neutral-900 border border-neutral-700 p-6 shadow-2xl overflow-hidden animate-fadeIn text-white">
+          <div className="relative w-full max-w-lg rounded-3xl card-charcoal-slate border border-white/20 p-6 shadow-2xl overflow-hidden animate-fadeIn text-white">
             
             <button
               onClick={() => setSelectedItemDetail(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-300"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white"
             >
               ✕
             </button>
@@ -224,8 +224,8 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                   {selectedItemDetail.tags?.[0] || "Fresh Item"}
                 </span>
                 {selectedItemDetail.spiceLevel > 0 && (
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-950/80 text-[#ff481f] flex items-center gap-1 border border-red-900">
-                    <Flame className="w-3 h-3 text-[#ff481f]" />
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-950/80 text-[#FF1D23] flex items-center gap-1 border border-red-900">
+                    <Flame className="w-3 h-3 text-[#FF1D23]" />
                     Spicy Level: {selectedItemDetail.spiceLevel}/3
                   </span>
                 )}
@@ -235,7 +235,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 {selectedItemDetail.name}
               </h3>
 
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <p className="text-sm text-white leading-relaxed">
                 {selectedItemDetail.description}
               </p>
 
@@ -273,7 +273,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
 // Sub-component for individual dish cards
 function MenuItemCard({ item, onOrder, onDetail }) {
   return (
-    <div className="rounded-2xl bg-[#1e2025] border border-neutral-800 hover:border-red-600 p-4 transition-all duration-200 group flex flex-col justify-between shadow-sm hover:shadow-lg">
+    <div className="rounded-2xl card-charcoal-slate border border-neutral-800 hover:border-red-600 p-4 transition-all duration-200 group flex flex-col justify-between shadow-sm hover:shadow-lg">
       <div>
         
         {/* Photo Container */}
@@ -309,11 +309,11 @@ function MenuItemCard({ item, onOrder, onDetail }) {
         <div className="space-y-1">
           <h3 
             onClick={onDetail}
-            className="font-heading text-2xl font-black uppercase text-white group-hover:text-[#ff481f] transition-colors leading-tight cursor-pointer"
+            className="font-heading text-2xl font-black uppercase text-white group-hover:text-[#FF1D23] transition-colors leading-tight cursor-pointer"
           >
             {item.name}
           </h3>
-          <p className="text-xs text-neutral-400 leading-relaxed line-clamp-2">
+          <p className="text-xs text-white leading-relaxed line-clamp-2">
             {item.description}
           </p>
         </div>
@@ -324,14 +324,14 @@ function MenuItemCard({ item, onOrder, onDetail }) {
       <div className="mt-4 pt-3 border-t border-neutral-800 flex items-center justify-between">
         <button
           onClick={onDetail}
-          className="text-xs text-neutral-400 hover:text-white font-medium underline"
+          className="text-xs text-white hover:text-white font-medium underline"
         >
           Details
         </button>
 
         <button
           onClick={onOrder}
-          className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-950/60 hover:bg-[#FF1D23] text-[#ff481f] hover:text-white transition-colors flex items-center gap-1.5 shadow-sm border border-red-900"
+          className="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-red-950/60 hover:bg-[#FF1D23] text-[#FF1D23] hover:text-white transition-colors flex items-center gap-1.5 shadow-sm border border-red-900"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
           <span>Add to Order</span>

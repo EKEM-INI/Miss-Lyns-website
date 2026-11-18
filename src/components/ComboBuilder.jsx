@@ -74,14 +74,14 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             <h3 className="font-heading text-2xl font-bold uppercase text-white tracking-wide leading-none">
               LIVE COMBO PREVIEW
             </h3>
-            <p className="text-xs text-neutral-400">Updates in real-time with your selections</p>
+            <p className="text-xs text-white">Updates in real-time with your selections</p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
           <div className="text-right">
-            <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-bold block">Combo Total</span>
-            <span className="font-heading text-3xl font-black text-[#ff481f] leading-none">${totalComboPrice}</span>
+            <span className="text-[11px] uppercase tracking-wider text-white font-bold block">Combo Total</span>
+            <span className="font-heading text-3xl font-black text-[#FF1D23] leading-none">${totalComboPrice}</span>
           </div>
           <button
             onClick={handleAddComboToOrder}
@@ -106,14 +106,14 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             />
           </div>
           <div className="min-w-0 flex-1">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ff481f] block">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FF1D23] block">
               STEP 1 • PROTEIN & SAUCE
             </span>
             <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-white leading-tight truncate">
               {selectedProtein.name}
             </h4>
             <div className="flex flex-wrap items-center gap-1 mt-0.5">
-              <span className="text-[11px] font-bold text-red-400 truncate max-w-full">
+              <span className="text-[11px] font-bold text-[#FF1D23] truncate max-w-full">
                 {selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'Select Sauce (1 Included)'}
               </span>
             </div>
@@ -121,7 +121,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         </div>
 
         {/* Live Side Slot */}
-        <div className="relative rounded-2xl bg-[#1e2025] border-2 border-neutral-800 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
+        <div className="relative rounded-2xl card-charcoal-slate border-2 border-neutral-800 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
             <img
               src={selectedUpgrade ? selectedUpgrade.image : selectedSide.image}
@@ -130,7 +130,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
             />
           </div>
           <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ff481f] block">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FF1D23] block">
               STEP 2 • SIDE
             </span>
             <h4 className="font-heading text-xl sm:text-2xl font-bold uppercase text-white leading-tight">
@@ -146,7 +146,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
         {/* Live Drink & Upgrade Slot */}
         <div className={`relative rounded-2xl bg-neutral-950 border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
-          drinkUpgradeCost > 0 ? 'border-red-600 bg-[#1e2025]' : 'border-neutral-700 bg-[#1e2025]'
+          drinkUpgradeCost > 0 ? 'border-red-600 card-charcoal-slate' : 'border-neutral-700 card-charcoal-slate'
         }`}>
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
             <img
@@ -166,7 +166,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${
                 drinkUpgradeCost > 0
                   ? 'text-white bg-red-950/80 border-red-800'
-                  : 'text-red-400 bg-red-950/80 border-red-800'
+                  : 'text-[#FF1D23] bg-red-950/80 border-red-800'
               }`}>
                 {drinkUpgradeCost > 0 ? `+${selectedDrink.name} (+$2.50)` : 'Drink Included'}
               </span>
@@ -190,15 +190,15 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-bold tracking-widest uppercase shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#FF1D23] text-xs sm:text-sm font-bold tracking-widest uppercase shadow-sm">
             <Layers className="w-4 h-4 text-[#FF1D23]" />
             <span>INTERACTIVE FOOD CONFIGURATOR</span>
           </div>
 
           <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
-            BUILD YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">COMBO</span>
+            BUILD YOUR <span className="text-[#FF1D23]">COMBO</span>
           </h2>
-          <p className="text-base sm:text-lg text-neutral-400">
+          <p className="text-base sm:text-lg text-white">
             Create your custom meal in 3 simple steps. Pick your protein, choose your sauce and sides, and select your drinks & premium upgrades.
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
                   STEP 1 — CHOOSE YOUR MAIN PROTEIN
                 </h3>
-                <p className="text-xs text-neutral-400">Select 1 core protein dish for your combo platter</p>
+                <p className="text-xs text-white">Select 1 core protein dish for your combo platter</p>
               </div>
             </div>
 
@@ -234,11 +234,11 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     className={`relative text-left rounded-3xl p-5 sm:p-6 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
                         ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-xl shadow-red-950/30 scale-[1.02]'
-                        : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm'
+                        : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-black uppercase px-2.5 py-1 rounded-full bg-red-950/40 text-red-400 border border-red-600/70">
+                      <span className="text-xs font-black uppercase px-2.5 py-1 rounded-full bg-red-950/40 text-[#FF1D23] border border-red-600/70">
                         {protein.badge}
                       </span>
                       <span className="font-heading text-2xl font-black text-white">
@@ -262,10 +262,10 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     </div>
 
                     <div>
-                      <h4 className={`font-heading text-2xl font-bold uppercase ${isSelected ? 'text-[#ff481f]' : 'text-white'}`}>
+                      <h4 className={`font-heading text-2xl font-bold uppercase ${isSelected ? 'text-[#FF1D23]' : 'text-white'}`}>
                         {protein.name}
                       </h4>
-                      <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                      <p className="text-xs text-white mt-1 leading-relaxed">
                         {protein.description}
                       </p>
                     </div>
@@ -273,7 +273,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     <div className={`mt-4 w-full py-2 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition-colors ${
                       isSelected
                         ? 'bg-[#FF1D23] text-white'
-                        : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                        : 'bg-neutral-800 text-white group-hover:bg-neutral-700'
                     }`}>
                       {isSelected ? 'SELECTED' : 'SELECT THIS PROTEIN'}
                     </div>
@@ -288,16 +288,16 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <div>
                   <h4 className="font-heading text-lg sm:text-xl font-black uppercase text-white flex items-center gap-2">
                     <span>🍗 CHOOSE YOUR COMBO SAUCE</span>
-                    <span className="text-xs font-normal text-[#ff481f]">({wingSauces.length} sauce flavours)</span>
+                    <span className="text-xs font-normal text-[#FF1D23]">({wingSauces.length} sauce flavours)</span>
                   </h4>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-xs text-white">
                     1 Sauce included with combo. Select 1 flavour from our signature sauces.
                   </p>
                 </div>
                 <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
                   selectedSauces.length === 1 
-                    ? 'text-red-400 bg-red-950/80 border-red-800' 
-                    : 'text-neutral-300 bg-neutral-800/80 border-neutral-700'
+                    ? 'text-[#FF1D23] bg-red-950/80 border-red-800' 
+                    : 'text-white bg-neutral-800/80 border-neutral-700'
                 }`}>
                   {selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)'}
                 </span>
@@ -306,7 +306,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
               {/* Style Toggle (If Wings) */}
               {selectedProtein.id === 'wings-half-lb' && (
                 <div className="flex items-center gap-3 pb-2 border-b border-neutral-900">
-                  <span className="text-xs font-bold uppercase text-neutral-400 shrink-0">Wing Style:</span>
+                  <span className="text-xs font-bold uppercase text-white shrink-0">Wing Style:</span>
                   <div className="grid grid-cols-2 gap-2 flex-1">
                     {wingStyles.map((style) => (
                       <button
@@ -316,7 +316,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         className={`py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border ${
                           selectedWingStyle.id === style.id
                             ? 'bg-[#FF1D23] border-[#FF1D23] text-white shadow'
-                            : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                            : 'bg-neutral-900 border-neutral-800 text-white hover:border-neutral-700'
                         }`}
                       >
                         {style.name}
@@ -328,8 +328,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
               {/* Sauce Selection Grid */}
               <div>
-                <span className="text-xs font-bold uppercase text-neutral-400 block mb-2">
-                  Select Sauce (Selected: <strong className="text-red-400">{selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'None selected'}</strong>):
+                <span className="text-xs font-bold uppercase text-white block mb-2">
+                  Select Sauce (Selected: <strong className="text-[#FF1D23]">{selectedSauces.length > 0 ? selectedSauces.map(s => s.name).join(', ') : 'None selected'}</strong>):
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-52 overflow-y-auto pr-1">
                   {wingSauces.map((sauce) => {
@@ -343,13 +343,13 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         className={`p-2.5 rounded-xl text-left border transition-all flex flex-col justify-between ${
                           isChosen
                             ? 'bg-red-950/70 border-red-600 text-white shadow ring-1 ring-red-600/50'
-                            : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                            : 'bg-neutral-900 border-neutral-800 text-white hover:border-neutral-700'
                         }`}
                       >
                         <div>
                           <div className="flex items-center justify-between gap-1">
                             <span className={`font-heading text-sm font-bold uppercase ${
-                              isChosen ? 'text-red-400' : 'text-white'
+                              isChosen ? 'text-[#FF1D23]' : 'text-white'
                             }`}>
                               {sauce.name}
                             </span>
@@ -357,18 +357,18 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                               <span className="text-[9px]">{'🌶️'.repeat(sauce.spiceLevel)}</span>
                             )}
                           </div>
-                          <span className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                          <span className="text-[10px] text-white line-clamp-1 mt-0.5">
                             {sauce.tag}
                           </span>
                         </div>
 
                         <div className="mt-2 flex items-center justify-between">
                           {isChosen ? (
-                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-red-950 text-red-400 border border-red-800">
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-red-950 text-[#FF1D23] border border-red-800">
                               Included
                             </span>
                           ) : (
-                            <span className="text-[9px] text-neutral-500">
+                            <span className="text-[9px] text-white">
                               Included
                             </span>
                           )}
@@ -398,7 +398,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
                   STEP 2 — CHOOSE YOUR INCLUDED SIDE
                 </h3>
-                <p className="text-xs text-neutral-400">Included in base combo price</p>
+                <p className="text-xs text-white">Included in base combo price</p>
               </div>
             </div>
 
@@ -412,7 +412,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     className={`relative text-left rounded-2xl p-4 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
                         ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-md scale-[1.02]'
-                        : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm'
+                        : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
                     {isSelected && (
@@ -434,13 +434,13 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       <h4 className={`font-heading text-xl font-bold uppercase ${isSelected ? 'text-white font-black' : 'text-white'}`}>
                         {side.name}
                       </h4>
-                      <p className="text-xs text-neutral-400 mt-1">
+                      <p className="text-xs text-white mt-1">
                         {side.description}
                       </p>
                     </div>
 
                     <div className={`mt-3 w-full py-1.5 rounded-lg text-center text-xs font-bold uppercase tracking-wider ${
-                      isSelected ? 'bg-[#FF1D23] text-white' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                      isSelected ? 'bg-[#FF1D23] text-white' : 'bg-neutral-800 text-white group-hover:bg-neutral-700'
                     }`}>
                       {isSelected ? 'SELECTED (INCLUDED)' : 'SELECT SIDE'}
                     </div>
@@ -463,7 +463,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide leading-none">
                   STEP 3 — CHOOSE YOUR <span className="text-[#FF1D23]">DRINK</span> & <span className="text-[#FF1D23]">PREMIUM UPGRADE</span>
                 </h3>
-                <p className="text-xs text-neutral-300">Select your drink with small thumbnail pictures, and optionally upgrade your side!</p>
+                <p className="text-xs text-white">Select your drink with small thumbnail pictures, and optionally upgrade your side!</p>
               </div>
             </div>
 
@@ -474,15 +474,15 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                   <Sparkles className="w-4 h-4 text-[#FF1D23]" />
                   <span>CHOOSE YOUR DRINK (1 INCLUDED)</span>
                 </span>
-                <span className="text-xs text-neutral-400">
-                  Selected: <strong className="text-red-400 font-bold">{selectedDrink.name}</strong>
-                  {drinkUpgradeCost > 0 && <span className="text-red-400 font-bold"> (+$2.50)</span>}
+                <span className="text-xs text-white">
+                  Selected: <strong className="text-[#FF1D23] font-bold">{selectedDrink.name}</strong>
+                  {drinkUpgradeCost > 0 && <span className="text-[#FF1D23] font-bold"> (+$2.50)</span>}
                 </span>
               </div>
 
               {/* Standard Cans & Water (Included) */}
               <div>
-                <span className="text-[11px] font-bold uppercase text-neutral-400 block mb-2">
+                <span className="text-[11px] font-bold uppercase text-white block mb-2">
                   Standard Chilled Drinks (Included with Combo):
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -496,7 +496,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
                           isSelected
                             ? 'bg-red-950/50 border-2 border-[#FF1D23] shadow-md ring-1 ring-[#FF1D23]/50 scale-[1.02]'
-                            : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
+                            : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
                         }`}
                       >
                         {isSelected && (
@@ -516,17 +516,17 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
                         <div>
                           <h4 className={`font-heading text-sm font-bold uppercase leading-tight truncate ${
-                            isSelected ? 'text-red-400' : 'text-white'
+                            isSelected ? 'text-[#FF1D23]' : 'text-white'
                           }`}>
                             {drink.name}
                           </h4>
-                          <p className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                          <p className="text-[10px] text-white line-clamp-1 mt-0.5">
                             {drink.category}
                           </p>
                         </div>
 
                         <div className={`mt-2 w-full py-1 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                          isSelected ? 'bg-[#FF1D23] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                          isSelected ? 'bg-[#FF1D23] text-white font-bold' : 'bg-neutral-800 text-white group-hover:bg-neutral-700'
                         }`}>
                           {isSelected ? 'SELECTED' : 'INCLUDED'}
                         </div>
@@ -538,7 +538,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
               {/* Imported Jamaican Bigga Sodas (+$2.50 Upgrade) */}
               <div className="pt-2">
-                <span className="text-[11px] font-bold uppercase text-red-400 flex items-center gap-1.5 mb-2">
+                <span className="text-[11px] font-bold uppercase text-[#FF1D23] flex items-center gap-1.5 mb-2">
                   <span>🌴 Imported Jamaican Island Sodas (+$2.50 Upgrade):</span>
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -552,7 +552,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
                           isSelected
                             ? 'bg-red-950/60 border-2 border-red-600 shadow-md ring-1 ring-red-600/50 scale-[1.02]'
-                            : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
+                            : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
                         }`}
                       >
                         <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-red-600 text-white shadow-sm">
@@ -576,17 +576,17 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
                         <div>
                           <h4 className={`font-heading text-sm font-bold uppercase leading-tight truncate ${
-                            isSelected ? 'text-red-400' : 'text-white'
+                            isSelected ? 'text-[#FF1D23]' : 'text-white'
                           }`}>
                             {drink.name}
                           </h4>
-                          <p className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                          <p className="text-[10px] text-white line-clamp-1 mt-0.5">
                             Jamaican Import (600ml)
                           </p>
                         </div>
 
                         <div className={`mt-2 w-full py-1 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                          isSelected ? 'bg-red-600 text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                          isSelected ? 'bg-red-600 text-white font-bold' : 'bg-neutral-800 text-white group-hover:bg-neutral-700'
                         }`}>
                           {isSelected ? 'SELECTED (+ $2.50)' : 'UPGRADE (+ $2.50)'}
                         </div>
@@ -608,7 +608,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                   <button
                     type="button"
                     onClick={() => setSelectedUpgrade(null)}
-                    className="text-xs font-bold text-neutral-400 hover:text-red-400 underline"
+                    className="text-xs font-bold text-white hover:text-[#FF1D23] underline"
                   >
                     Remove Upgrade
                   </button>
@@ -626,7 +626,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       className={`relative text-left rounded-2xl p-3.5 transition-all duration-200 group flex flex-col justify-between ${
                         isSelected
                           ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-md scale-[1.02]'
-                          : 'bg-[#1e2025] border border-neutral-800 hover:border-neutral-700 shadow-sm'
+                          : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm'
                       }`}
                     >
                       <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#FF1D23] text-white shadow-sm">
@@ -654,13 +654,13 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         }`}>
                           {upgrade.name}
                         </h4>
-                        <p className="text-[11px] text-neutral-400 line-clamp-2 mt-0.5">
+                        <p className="text-[11px] text-white line-clamp-2 mt-0.5">
                           {upgrade.description}
                         </p>
                       </div>
 
                       <div className={`mt-2 w-full py-1.5 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                        isSelected ? 'bg-[#FF1D23] text-white font-bold' : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700'
+                        isSelected ? 'bg-[#FF1D23] text-white font-bold' : 'bg-neutral-800 text-white group-hover:bg-neutral-700'
                       }`}>
                         {isSelected ? 'SELECTED (+ $2.50)' : 'UPGRADE (+ $2.50)'}
                       </div>

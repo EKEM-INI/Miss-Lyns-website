@@ -18,7 +18,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
           <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
             
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1e2025] border border-neutral-800 text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full card-charcoal-slate text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
               <Flame className="w-4 h-4 text-[#FF1D23] animate-bounce" />
               <span className="text-[#FF1D23]">Canadian Favourites. Done The Jamaican Way.</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF1D23]"></span>
@@ -33,7 +33,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                   WINGS
                 </span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-2xl font-normal leading-relaxed pt-2">
+              <p className="text-base sm:text-lg lg:text-xl text-white max-w-2xl font-normal leading-relaxed pt-2">
                 <span className="italic font-semibold text-white underline decoration-[#FF1D23] decoration-2">Always Fresh. Made To Order.</span> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#FF1D23] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
             </div>
@@ -44,7 +44,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* ORDER PICKUP */}
               <button
                 onClick={() => openOrderingModal('pickup')}
-                className="px-7 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-[#1e2025] hover:bg-neutral-800 text-white border border-neutral-700 shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
+                className="px-7 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider card-charcoal-slate hover:border-[#FF1D23] text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
               >
                 <Phone className="w-5 h-5 text-white group-hover:rotate-12 transition-transform" />
                 <span>ORDER PICKUP</span>
@@ -53,7 +53,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* ORDER DELIVERY */}
               <button
                 onClick={() => openOrderingModal('delivery')}
-                className="px-8 py-4 rounded-2xl font-heading text-xl font-extrabold uppercase tracking-wider bg-gradient-to-r from-[#FF1D23] via-[#e52516] to-[#d92212] hover:from-[#f03525] hover:to-[#ff481f] text-white shadow-xl shadow-[#e52516]/25 transition-all hover:scale-[1.03] active:scale-[0.98] flex items-center justify-center gap-2"
+                className="px-8 py-4 rounded-2xl font-heading text-xl font-extrabold uppercase tracking-wider bg-[#FF1D23] hover:bg-[#e0151b] text-white shadow-xl shadow-[#FF1D23]/25 transition-all hover:scale-[1.03] active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 <ShoppingBag className="w-5 h-5 text-white" />
                 <span>ORDER DELIVERY</span>
@@ -62,10 +62,10 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* VIEW MENU */}
               <button
                 onClick={() => setCurrentView('menu')}
-                className="px-6 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider text-neutral-200 hover:text-white bg-[#1e2025] hover:bg-neutral-800 border border-neutral-700 transition-all flex items-center justify-center gap-2"
+                className="px-6 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider text-white card-charcoal-slate hover:border-[#FF1D23] transition-all flex items-center justify-center gap-2"
               >
                 <span>VIEW MENU</span>
-                <ArrowRight className="w-4 h-4 text-neutral-400 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </button>
 
             </div>
@@ -73,32 +73,32 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
             {/* Trust Badges */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-neutral-800 max-w-xl mx-auto lg:mx-0 text-left">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-red-950/60 border border-red-900 flex items-center justify-center shrink-0">
-                  <Flame className="w-4 h-4 text-[#FF1D23]" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#FF1D23] flex items-center justify-center shrink-0">
+                  <Flame className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Fresh Chicken</div>
-                  <div className="text-[10px] sm:text-xs text-neutral-400">Never pre-cooked</div>
+                  <div className="text-[10px] sm:text-xs text-white">Never pre-cooked</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-red-950/60 border border-red-900 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4 text-[#FF1D23]" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#FF1D23] flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Authentic Jerk</div>
-                  <div className="text-[10px] sm:text-xs text-neutral-400">House recipe</div>
+                  <div className="text-[10px] sm:text-xs text-white">House recipe</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 text-neutral-300" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg card-charcoal-slate flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-white leading-tight">Hot & Fast</div>
-                  <div className="text-[10px] sm:text-xs text-neutral-400">Pickup & delivery</div>
+                  <div className="text-[10px] sm:text-xs text-white">Pickup & delivery</div>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               <div className="absolute inset-4 bg-gradient-to-br from-red-900/30 to-neutral-900/30 rounded-3xl blur-2xl -z-10"></div>
 
               {/* Main Visual Card */}
-              <div className="relative rounded-3xl bg-[#1e2025] border-2 border-neutral-800 p-3 sm:p-4 shadow-2xl overflow-hidden group">
+              <div className="relative rounded-3xl card-charcoal-slate p-3 sm:p-4 shadow-2xl overflow-hidden group">
                 
                 {/* Ribbon Tag */}
                 <div className="absolute top-4 left-4 z-20">
@@ -124,7 +124,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 </div>
 
                 {/* Combo Image with 100% Fit in Corner */}
-                <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-neutral-950 border border-neutral-800 p-1 flex items-center justify-center">
+                <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-black border border-white/10 p-1 flex items-center justify-center">
                   <img
                     src="/images/dishes/hero-combo.jpg"
                     alt="Miss Lyn's Custom Combo Platter"
@@ -139,11 +139,11 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                     <h3 className="font-heading text-xl sm:text-2xl font-black text-white leading-tight">
                       FRESH COMBO <span className="text-[#FF1D23]">PLATTER</span>
                     </h3>
-                    <p className="text-xs text-neutral-400">
+                    <p className="text-xs text-white">
                       Crispy <span className="text-[#FF1D23] font-semibold">Wings</span>, Jerk Chicken & Sides
                     </p>
                   </div>
-                  <span className="font-heading text-sm font-black text-[#FF1D23] px-2.5 py-1 rounded-lg bg-red-950/80 border border-red-700">
+                  <span className="font-heading text-sm font-black text-white px-2.5 py-1 rounded-lg bg-[#FF1D23] border border-[#FF1D23]">
                     HOT & FRESH
                   </span>
                 </div>

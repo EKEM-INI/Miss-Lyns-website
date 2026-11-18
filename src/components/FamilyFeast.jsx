@@ -60,25 +60,25 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#ff481f] text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/60 border border-red-800 text-[#FF1D23] text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
             <Sparkles className="w-4 h-4 text-[#FF1D23]" />
             <span>TOP VALUE PROMOTION</span>
           </div>
 
           <div className="flex items-center justify-center gap-3">
             <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none">
-              THE FAMILY <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">FEAST</span>
+              THE FAMILY <span className="text-[#FF1D23]">FEAST</span>
             </h2>
           </div>
 
-          <p className="text-base sm:text-lg text-neutral-400">
+          <p className="text-base sm:text-lg text-white">
             Feed the entire family with Hamilton’s most generous Caribbean bundle. 
             <span className="font-bold text-white"> 2 Proteins + 3 Comfort Sides + 2 Included Sauces</span> made fresh to order!
           </p>
         </div>
 
         {/* The Dominant Feast Showcase Card (Black Theme) */}
-        <div className="relative rounded-3xl bg-[#1e2025] border-2 border-neutral-800 p-5 sm:p-8 lg:p-10 shadow-2xl">
+        <div className="relative rounded-3xl card-charcoal-slate border-2 border-neutral-800 p-5 sm:p-8 lg:p-10 shadow-2xl">
           
           {/* Prominent Angled Ribbon Price Tag */}
           <div className="absolute -top-4 right-4 sm:right-8 z-30">
@@ -88,7 +88,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               </div>
               <div className="font-heading text-3xl sm:text-5xl font-black text-white leading-none pt-1">
                 ${totalPrice}
-                <span className="text-xs sm:text-sm font-sans font-bold text-gray-200 ml-1">+tax</span>
+                <span className="text-xs sm:text-sm font-sans font-bold text-white ml-1">+tax</span>
               </div>
             </div>
           </div>
@@ -128,13 +128,13 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl font-bold text-white uppercase mb-2">
                   CHOOSE PROTEINS
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-white leading-relaxed">
                   Mix and match juicy signature wings and authentic slow-marinated Jamaican jerk chicken.
                 </p>
               </div>
 
               {/* Selected List */}
-              <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
+              <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-white">
                 <div className="flex items-center gap-1.5 text-white">
                   <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Jumbo Signature Wings (1 lb)</span>
@@ -178,13 +178,13 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 <h3 className="font-heading text-2xl font-bold text-white uppercase mb-2">
                   CHOOSE 3 SIDES
                 </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed">
+                <p className="text-xs text-white leading-relaxed">
                   Choose from crispy french fries, toasted garlic bread, or crunchy veggies and dip.
                 </p>
               </div>
 
               {/* Selected List */}
-              <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-neutral-300">
+              <div className="mt-4 pt-3 border-t border-neutral-800 space-y-1.5 text-xs font-bold text-white">
                 <div className="flex items-center gap-1.5 text-white">
                   <Check className="w-3.5 h-3.5 text-[#FF1D23]" />
                   <span>Crispy French Fries</span>
@@ -213,8 +213,8 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   <h4 className="font-heading text-xl sm:text-2xl font-black uppercase text-white leading-tight">
                     STEP 3 — CHOOSE YOUR SAUCES
                   </h4>
-                  <p className="text-xs text-neutral-400">
-                    2 Sauces included with the feast. Pick any extra sauces for <strong className="text-red-400 font-bold">+$1.25 each</strong>.
+                  <p className="text-xs text-white">
+                    2 Sauces included with the feast. Pick any extra sauces for <strong className="text-[#FF1D23] font-bold">+$1.25 each</strong>.
                   </p>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
               <span className={`text-xs font-bold px-3 py-1 rounded-full border w-fit ${
                 extraSaucesCount > 0 
                   ? 'text-white bg-red-950/80 border-red-800' 
-                  : (selectedSauces.length > 0 ? 'text-red-400 bg-red-950/80 border-red-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
+                  : (selectedSauces.length > 0 ? 'text-[#FF1D23] bg-red-950/80 border-red-800' : 'text-white bg-neutral-800/80 border-neutral-700')
               }`}>
                 {extraSaucesCount > 0 
                   ? `2 Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})` 
@@ -248,13 +248,13 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                         ? isExtra
                           ? 'bg-red-950/70 border-red-600 text-white shadow ring-1 ring-red-600/50'
                           : 'bg-red-950/70 border-[#FF1D23] text-white shadow ring-1 ring-[#FF1D23]/50'
-                        : 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                        : 'bg-neutral-900 border-neutral-800 text-white hover:border-neutral-700'
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between gap-1">
                         <span className={`font-heading text-sm font-bold uppercase ${
-                          isSelected ? (isExtra ? 'text-red-400' : 'text-[#ff481f]') : 'text-white'
+                          isSelected ? (isExtra ? 'text-[#FF1D23]' : 'text-[#FF1D23]') : 'text-white'
                         }`}>
                           {sauce.name}
                         </span>
@@ -262,7 +262,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                           <span className="text-[9px]">{'🌶️'.repeat(sauce.spiceLevel)}</span>
                         )}
                       </div>
-                      <span className="text-[10px] text-neutral-400 line-clamp-1 mt-0.5">
+                      <span className="text-[10px] text-white line-clamp-1 mt-0.5">
                         {sauce.tag}
                       </span>
                     </div>
@@ -270,12 +270,12 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                     <div className="mt-2 flex items-center justify-between">
                       {isSelected ? (
                         <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
-                          isExtra ? 'bg-red-950 text-red-400 border border-red-800' : 'bg-neutral-900 text-white border border-neutral-700'
+                          isExtra ? 'bg-red-950 text-[#FF1D23] border border-red-800' : 'bg-neutral-900 text-white border border-neutral-700'
                         }`}>
                           {isExtra ? '+$1.25' : 'Included'}
                         </span>
                       ) : (
-                        <span className="text-[9px] text-neutral-500">
+                        <span className="text-[9px] text-white">
                           {willBeExtra ? '+$1.25' : 'Included'}
                         </span>
                       )}
@@ -305,7 +305,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                   FEEDS 4–6 PEOPLE
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-neutral-400">
+              <p className="text-xs sm:text-sm text-white">
                 Order directly for quick pickup at 677 King St East or fast delivery to your door.
               </p>
             </div>

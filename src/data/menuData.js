@@ -1,7 +1,7 @@
 export const menuCategories = [
   { id: "family-meals", name: "Family Packs & Feasts", icon: "Users", count: 4 },
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
-  { id: "chicken", name: "Chicken & Proteins", icon: "Utensils", count: 4 },
+  { id: "chicken", name: "Chicken & Proteins", icon: "Utensils", count: 6 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Regular Sides", icon: "Soup", count: 5 },
   { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 5 },
@@ -127,14 +127,25 @@ export const menuItems = [
 
   // 3. CHICKEN & PROTEINS
   {
-    id: "jerk-chicken-3pc",
+    id: "jerk-chicken-2pc",
     categoryId: "chicken",
-    name: "3 Pcs Jerk Chicken (1 Sauce)",
-    price: 14.40,
-    priceDisplay: "$14.40",
-    description: "1 sauce per order. Tender jerk seasoned chicken pieces marinated in Jamaican pimento, scallions, and scotch bonnet peppers.",
+    name: "2 Pcs Jerk Chicken (1 Sauce)",
+    price: 9.60,
+    priceDisplay: "$9.60",
+    description: "1 sauce per order. Authentic slow-marinated Jamaican jerk chicken pieces seasoned with scotch bonnet peppers and pimento.",
     image: "/images/dishes/0019.jpg",
-    tags: ["Authentic Jerk"],
+    tags: ["Authentic Jerk", "1 Sauce Included"],
+    spiceLevel: 3
+  },
+  {
+    id: "jerk-chicken-4pc",
+    categoryId: "chicken",
+    name: "4 Pcs Jerk Chicken (2 Sauces)",
+    price: 18.00,
+    priceDisplay: "$18.00",
+    description: "2 sauces per order. Four succulent pieces of Jamaican jerk chicken basted in spicy house jerk glaze.",
+    image: "/images/dishes/0039.jpg",
+    tags: ["Authentic Jerk", "2 Sauces Included"],
     spiceLevel: 3
   },
   {
@@ -145,18 +156,29 @@ export const menuItems = [
     priceDisplay: "$26.40",
     description: "2 sauces per order. Six succulent pieces of Jamaican jerk chicken basted in spicy house jerk glaze.",
     image: "/images/dishes/0040.jpg",
-    tags: ["Authentic Jerk", "Family Portion"],
+    tags: ["Authentic Jerk", "2 Sauces Included"],
     spiceLevel: 3
   },
   {
-    id: "fried-chicken-3pc",
+    id: "fried-chicken-2pc",
     categoryId: "chicken",
-    name: "3 Pcs Fried Chicken (1 Sauce)",
-    price: 14.40,
-    priceDisplay: "$14.40",
+    name: "2 Pcs Fried Chicken (1 Sauce)",
+    price: 9.60,
+    priceDisplay: "$9.60",
     description: "1 sauce per order. Crispy golden fried chicken pieces seasoned with Caribbean herbs and spices, fried fresh and crunchy.",
     image: "/images/dishes/fried-chicken.jpg",
-    tags: ["Golden & Crispy", "Fresh Fried"],
+    tags: ["Golden & Crispy", "1 Sauce Included"],
+    spiceLevel: 1
+  },
+  {
+    id: "fried-chicken-4pc",
+    categoryId: "chicken",
+    name: "4 Pcs Fried Chicken (2 Sauces)",
+    price: 18.00,
+    priceDisplay: "$18.00",
+    description: "2 sauces per order. Four pieces of crunchy golden fried chicken seasoned in Caribbean spices.",
+    image: "/images/dishes/fried-chicken.jpg",
+    tags: ["Golden & Crispy", "2 Sauces Included"],
     spiceLevel: 1
   },
   {
@@ -167,7 +189,7 @@ export const menuItems = [
     priceDisplay: "$26.40",
     description: "2 sauces per order. Six pieces of juicy, crunchy golden fried chicken seasoned in Caribbean island spices.",
     image: "/images/dishes/fried-chicken.jpg",
-    tags: ["Golden & Crispy", "Family Portion"],
+    tags: ["Golden & Crispy", "2 Sauces Included"],
     spiceLevel: 1
   },
 

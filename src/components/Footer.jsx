@@ -48,11 +48,11 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 MISS LYN’S <span className="text-[#FF1D23]">WINGS</span>
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-white leading-relaxed">
               Always Fresh. Made To Order. Bold Flavour Every Time. Authentic Caribbean jerk chicken, <span className="text-[#FF1D23] font-semibold">wings</span>, comfort sides, and golden flaky patties in Hamilton, Ontario.
             </p>
             <div className="pt-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 w-fit">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white w-fit">
                 <Flame className="w-3.5 h-3.5 text-[#FF1D23]" />
                 <span>100% Fresh Never Frozen Chicken</span>
               </div>
@@ -64,7 +64,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
             <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-white">
               QUICK <span className="text-[#FF1D23]">NAVIGATION</span>
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-gray-400">
+            <ul className="space-y-2 text-xs sm:text-sm text-white">
               <li>
                 <button onClick={() => handleNav('home')} className="hover:text-white transition-colors">
                   Home Page
@@ -76,7 +76,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home', 'family-feast')} className="hover:text-white transition-colors text-red-400 font-semibold">
+                <button onClick={() => handleNav('home', 'family-feast')} className="hover:text-white transition-colors text-[#FF1D23] font-semibold">
                   Family Feast Bundle ($49.99)
                 </button>
               </li>
@@ -106,7 +106,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
             <div className="space-y-2 text-xs sm:text-sm">
               <button
                 onClick={() => openOrderingModal('pickup')}
-                className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
+                className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-white hover:text-white flex items-center justify-between transition-colors"
               >
                 <span>Direct Pickup Order</span>
                 <Phone className="w-3.5 h-3.5 text-white" />
@@ -118,10 +118,10 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                   href={d.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-between transition-colors"
+                  className="w-full text-left p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-white hover:text-white flex items-center justify-between transition-colors"
                 >
                   <span>Order on {d.name}</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
+                  <ExternalLink className="w-3.5 h-3.5 text-white" />
                 </a>
               ))}
             </div>
@@ -132,7 +132,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
             <h4 className="font-heading text-xl font-bold uppercase tracking-wider text-white">
               VISIT <span className="text-[#FF1D23]">US</span>
             </h4>
-            <div className="space-y-2 text-xs text-gray-400">
+            <div className="space-y-2 text-xs text-white">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#FF1D23] shrink-0 mt-0.5" />
                 <div>
@@ -142,7 +142,7 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-white shrink-0" />
-                <a href="tel:9055225967" className="hover:text-white font-bold text-gray-200">
+                <a href="tel:9055225967" className="hover:text-white font-bold text-white">
                   (905) 522-5967
                 </a>
               </div>
@@ -152,13 +152,13 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
                   href={restaurantInfo.social.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-red-400 font-bold text-gray-200 flex items-center gap-1 transition-colors group"
+                  className="hover:text-[#FF1D23] font-bold text-white flex items-center gap-1 transition-colors group"
                 >
-                  <span className="text-gray-400 group-hover:text-red-400">IG:</span>
-                  <span className="text-white group-hover:text-red-400 group-hover:underline">{restaurantInfo.social.instagram.handle}</span>
+                  <span className="text-white group-hover:text-[#FF1D23]">IG:</span>
+                  <span className="text-white group-hover:text-[#FF1D23] group-hover:underline">{restaurantInfo.social.instagram.handle}</span>
                 </a>
               </div>
-              <div className="pt-2 text-[11px] text-gray-400">
+              <div className="pt-2 text-[11px] text-white">
                 Mon–Fri: 11am–9pm • Sat: 1pm–9pm • Sun: Closed
               </div>
             </div>
@@ -167,21 +167,21 @@ export default function Footer({ setCurrentView, openOrderingModal }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white">
           <div>
             © {new Date().getFullYear()} Miss Lyn’s <span className="text-[#FF1D23] font-semibold">Wings</span>. All Rights Reserved. Hamilton, Ontario.
           </div>
-          <div className="flex items-center gap-4 text-gray-300">
+          <div className="flex items-center gap-4 text-white">
             <a
               href={restaurantInfo.social.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-neutral-300 hover:text-red-400 transition-colors font-medium"
+              className="flex items-center gap-1.5 text-white hover:text-[#FF1D23] transition-colors font-medium"
             >
               <InstagramIcon className="w-4 h-4" />
               <span>{restaurantInfo.social.instagram.handle}</span>
             </a>
-            <span className="text-gray-600">•</span>
+            <span className="text-white">•</span>
             <span>Authentic Caribbean Food in Hamilton</span>
           </div>
         </div>

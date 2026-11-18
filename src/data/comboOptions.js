@@ -10,24 +10,24 @@ export const comboProteins = [
     badge: "Most Popular"
   },
   {
-    id: "fried-chicken",
-    name: "3 Pcs Fried Chicken",
-    price: 19.30,
-    tagline: "Crispy Caribbean-spiced golden fried chicken",
-    image: "/images/dishes/fried-chicken.jpg",
-    altImage: "/images/dishes/fried-chicken.jpg",
-    description: "Crunchy golden fried chicken pieces seasoned with island spices and fried fresh to order.",
-    badge: "Crispy & Juicy"
-  },
-  {
     id: "jerk-chicken",
-    name: "3 Pcs Jerk Chicken",
-    price: 19.30,
+    name: "2 Pcs Jerk Chicken",
+    price: 16.85,
     tagline: "Authentic slow-marinated Jamaican jerk (Combo #4)",
     image: "/images/dishes/0019.jpg",
     altImage: "/images/dishes/0039.jpg",
     description: "Tender chicken infused with Miss Lyn's house jerk marinade, pimento, and scotch bonnet peppers.",
     badge: "House Specialty"
+  },
+  {
+    id: "fried-chicken",
+    name: "2 Pcs Fried Chicken",
+    price: 16.85,
+    tagline: "Crispy Caribbean-spiced golden fried chicken",
+    image: "/images/dishes/fried-chicken.jpg",
+    altImage: "/images/dishes/fried-chicken.jpg",
+    description: "Crunchy golden fried chicken pieces seasoned with island spices and fried fresh to order.",
+    badge: "Crispy & Juicy"
   }
 ];
 

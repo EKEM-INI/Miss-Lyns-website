@@ -24,11 +24,13 @@ export const getIncludedSaucesForItem = (item) => {
     return 3;
   }
 
-  // FP3, 6 Pcs Jerk/Fried: 2 sauces included
+  // FP3, 4 Pcs & 6 Pcs Jerk/Fried: 2 sauces included
   if (
     id === 'fp3-wings' ||
     id === 'jerk-chicken-6pc' ||
     id === 'fried-chicken-6pc' ||
+    id === 'jerk-chicken-4pc' ||
+    id === 'fried-chicken-4pc' ||
     name.includes('2 sauces') ||
     desc.includes('2 sauce')
   ) {
@@ -49,9 +51,10 @@ export const getIncludedSaucesForItem = (item) => {
   }
 
   // Wing size & piece counts fallback:
-  if (/(^|[^\d.])5\s*(lb|lbs)/i.test(name)) return 3;
-  if (/(^|[^\d.])3\s*(lb|lbs)/i.test(name) || /(^|[^\d.])1\.5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])6\s*(pc|pcs)/i.test(name)) return 2;
-  if (/(^|[^\d.])2\s*(lb|lbs)/i.test(name) || /(^|[^\d.])1\s*(lb|lbs)/i.test(name) || /(^|[^\d.])0\.5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])half\s*pound/i.test(name) || /(^|[^\d.])3\s*(pc|pcs)/i.test(name)) return 1;
+  if (/(^|[^\d.])10\s*(lb|lbs)/i.test(name)) return 5;
+  if (/(^|[^\d.])5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])3\s*(lb|lbs)/i.test(name)) return 3;
+  if (/(^|[^\d.])1\.5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])6\s*(pc|pcs)/i.test(name) || /(^|[^\d.])4\s*(pc|pcs)/i.test(name)) return 2;
+  if (/(^|[^\d.])2\s*(lb|lbs)/i.test(name) || /(^|[^\d.])1\s*(lb|lbs)/i.test(name) || /(^|[^\d.])0\.5\s*(lb|lbs)/i.test(name) || /(^|[^\d.])half\s*pound/i.test(name) || /(^|[^\d.])2\s*(pc|pcs)/i.test(name)) return 1;
 
   return 1;
 };
@@ -219,12 +222,12 @@ export default function WingCustomizationModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[92vh] rounded-3xl bg-[#1a1c21] border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7 text-left">
+      <div className="relative w-full max-w-2xl max-h-[92vh] rounded-3xl card-charcoal-slate border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7 text-left">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors"
+          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white transition-colors"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
@@ -240,27 +243,27 @@ export default function WingCustomizationModal({
             />
           </div>
           <div className="flex-1 pr-6">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-[#ff481f] text-[10px] font-bold uppercase tracking-wider border border-red-900 mb-1">
-              <Sparkles className="w-3 h-3 text-[#ff481f]" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-950/80 text-[#FF1D23] text-[10px] font-bold uppercase tracking-wider border border-red-900 mb-1">
+              <Sparkles className="w-3 h-3 text-[#FF1D23]" />
               <span>{isWing ? 'Wing Sauce & Style Selection' : 'Customization & Drink'}</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
               {wingItem.name}
             </h3>
-            <p className="text-xs text-neutral-400 mt-0.5 line-clamp-2">
+            <p className="text-xs text-white mt-0.5 line-clamp-2">
               {wingItem.description}
             </p>
             <div className="flex items-center gap-2 mt-1 flex-wrap">
-              <span className="font-heading text-xl font-black text-[#ff481f]">
+              <span className="font-heading text-xl font-black text-[#FF1D23]">
                 ${unitPrice.toFixed(2)}
               </span>
               {extraSaucesCount > 0 && (
-                <span className="text-[11px] font-bold text-red-300 bg-red-950/80 px-2 py-0.5 rounded border border-red-800">
+                <span className="text-[11px] font-bold text-[#FF1D23] bg-red-950/80 px-2 py-0.5 rounded border border-red-800">
                   +${extraSaucesCost.toFixed(2)} ({extraSaucesCount} Extra Sauce{extraSaucesCount > 1 ? 's' : ''})
                 </span>
               )}
               {drinkUpgradeCost > 0 && (
-                <span className="text-[11px] font-bold text-red-300 bg-red-950/80 px-2 py-0.5 rounded border border-red-800">
+                <span className="text-[11px] font-bold text-[#FF1D23] bg-red-950/80 px-2 py-0.5 rounded border border-red-800">
                   +${drinkUpgradeCost.toFixed(2)} (Drink Upgrade)
                 </span>
               )}
@@ -277,7 +280,7 @@ export default function WingCustomizationModal({
                 <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white">
                   1. CHOOSE WING STYLE
                 </h4>
-                <span className="text-xs text-neutral-400 font-medium">Required</span>
+                <span className="text-xs text-white font-medium">Required</span>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {wingStyles.map((style) => {
@@ -290,14 +293,14 @@ export default function WingCustomizationModal({
                       className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between ${
                         isSelected
                           ? 'bg-red-950/40 border-[#FF1D23] text-white shadow-md'
-                          : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                          : 'bg-neutral-950 border-neutral-800 text-white hover:border-neutral-700'
                       }`}
                     >
                       <div>
                         <div className="font-heading text-base font-bold uppercase text-white">
                           {style.name}
                         </div>
-                        <div className="text-[11px] text-neutral-400">
+                        <div className="text-[11px] text-white">
                           {style.description}
                         </div>
                       </div>
@@ -320,18 +323,18 @@ export default function WingCustomizationModal({
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
                   <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
                     <span>{isWing ? '2. ' : ''}CHOOSE YOUR SAUCE</span>
-                    <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
+                    <span className="text-xs font-normal text-[#FF1D23] lowercase">({wingSauces.length} options)</span>
                   </h4>
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
                     selectedSauces.length === 1 
-                      ? 'text-red-400 bg-red-950/80 border-red-800' 
-                      : 'text-neutral-300 bg-neutral-800/80 border-neutral-700'
+                      ? 'text-[#FF1D23] bg-red-950/80 border-red-800' 
+                      : 'text-white bg-neutral-800/80 border-neutral-700'
                   }`}>
                     {selectedSauces.length === 1 ? '1 Sauce Selected (Free)' : '1 Sauce Included (Free)'}
                   </span>
                 </div>
-                <p className="text-xs text-neutral-400 mb-3">
-                  Your order includes <strong className="text-red-400 font-bold">1 free sauce</strong>. Select 1 flavour from our signature scratch-made sauces:
+                <p className="text-xs text-white mb-3">
+                  Your order includes <strong className="text-[#FF1D23] font-bold">1 free sauce</strong>. Select 1 flavour from our signature scratch-made sauces:
                 </p>
               </>
             ) : (
@@ -339,12 +342,12 @@ export default function WingCustomizationModal({
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
                   <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
                     <span>{isWing ? '2. ' : ''}CHOOSE YOUR SAUCES</span>
-                    <span className="text-xs font-normal text-[#ff481f] lowercase">({wingSauces.length} options)</span>
+                    <span className="text-xs font-normal text-[#FF1D23] lowercase">({wingSauces.length} options)</span>
                   </h4>
                   <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border w-fit ${
                     extraSaucesCount > 0 
-                      ? 'text-red-300 bg-red-950/80 border-red-800' 
-                      : (selectedSauces.length > 0 ? 'text-red-400 bg-red-950/80 border-red-800' : 'text-neutral-300 bg-neutral-800/80 border-neutral-700')
+                      ? 'text-[#FF1D23] bg-red-950/80 border-red-800' 
+                      : (selectedSauces.length > 0 ? 'text-[#FF1D23] bg-red-950/80 border-red-800' : 'text-white bg-neutral-800/80 border-neutral-700')
                   }`}>
                     {extraSaucesCount > 0 
                       ? `${includedSaucesCount} Included + ${extraSaucesCount} Extra (+$${extraSaucesCost.toFixed(2)})`
@@ -353,9 +356,9 @@ export default function WingCustomizationModal({
                           : `${includedSaucesCount} Sauce${includedSaucesCount > 1 ? 's' : ''} Included (Free)`)}
                   </span>
                 </div>
-                <p className="text-xs text-neutral-400 mb-3">
-                  Your order includes <strong className="text-red-400 font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
-                  You can pick any additional sauce from our 13 flavours for only <strong className="text-red-400 font-bold">+$1.25 each</strong>:
+                <p className="text-xs text-white mb-3">
+                  Your order includes <strong className="text-[#FF1D23] font-bold">{includedSaucesCount} free sauce{includedSaucesCount > 1 ? 's' : ''}</strong>. 
+                  You can pick any additional sauce from our 13 flavours for only <strong className="text-[#FF1D23] font-bold">+$1.25 each</strong>:
                 </p>
               </>
             )}
@@ -377,35 +380,35 @@ export default function WingCustomizationModal({
                         ? isExtra
                           ? 'bg-red-950/70 border-red-500 text-white shadow-md ring-1 ring-red-500/50'
                           : 'bg-red-950/60 border-[#FF1D23] text-white shadow-md ring-1 ring-[#FF1D23]/50'
-                        : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
+                        : 'bg-neutral-950 border-neutral-800 text-white hover:border-neutral-700 hover:bg-neutral-900'
                     }`}
                   >
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <span className={`font-heading text-base font-bold uppercase ${
-                          isSelected ? (isExtra ? 'text-red-400' : 'text-[#ff481f]') : 'text-white'
+                          isSelected ? (isExtra ? 'text-[#FF1D23]' : 'text-[#FF1D23]') : 'text-white'
                         }`}>
                           {sauce.name}
                         </span>
                         {sauce.spiceLevel > 0 && (
-                          <span className="inline-flex items-center text-[10px] font-extrabold text-red-400 bg-red-950/80 px-1.5 py-0.2 rounded border border-red-900">
+                          <span className="inline-flex items-center text-[10px] font-extrabold text-[#FF1D23] bg-red-950/80 px-1.5 py-0.2 rounded border border-red-900">
                             {'🌶️'.repeat(sauce.spiceLevel)}
                           </span>
                         )}
                         {isSelected && (
                           <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
-                            isExtra ? 'bg-red-950 text-red-300 border border-red-800' : 'bg-red-950 text-red-400 border border-red-800'
+                            isExtra ? 'bg-red-950 text-[#FF1D23] border border-red-800' : 'bg-red-950 text-[#FF1D23] border border-red-800'
                           }`}>
                             {isExtra ? '+$1.25 Extra' : 'Included'}
                           </span>
                         )}
                         {!isSelected && willBeExtra && (
-                          <span className="text-[10px] font-bold text-neutral-400 bg-neutral-900 px-1.5 py-0.2 rounded border border-neutral-800">
+                          <span className="text-[10px] font-bold text-white bg-neutral-900 px-1.5 py-0.2 rounded border border-neutral-800">
                             +$1.25
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] text-neutral-400 line-clamp-1 mt-0.5">
+                      <p className="text-[11px] text-white line-clamp-1 mt-0.5">
                         {sauce.description}
                       </p>
                     </div>
@@ -433,14 +436,14 @@ export default function WingCustomizationModal({
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
                       <span>{isWing ? '3. ' : '2. '}CHOOSE YOUR DRINK</span>
-                      <span className="text-xs font-normal text-red-400">(1 Pop / Drink Included)</span>
+                      <span className="text-xs font-normal text-[#FF1D23]">(1 Pop / Drink Included)</span>
                     </h4>
-                    <span className="text-xs font-bold text-red-400 bg-red-950/80 px-2.5 py-0.5 rounded-full border border-red-800 w-fit">
+                    <span className="text-xs font-bold text-[#FF1D23] bg-red-950/80 px-2.5 py-0.5 rounded-full border border-red-800 w-fit">
                       Selected: {selectedDrink.name} {selectedDrink.price > 0 && `(+$${selectedDrink.price.toFixed(2)})`}
                     </span>
                   </div>
 
-                  <p className="text-xs text-neutral-400 mb-3">
+                  <p className="text-xs text-white mb-3">
                     Choose 1 chilled drink for your combo meal, or upgrade to an authentic Jamaican Bigga soda:
                   </p>
 
@@ -457,7 +460,7 @@ export default function WingCustomizationModal({
                               ? drink.price > 0
                                 ? 'bg-red-950/70 border-red-500 text-white shadow ring-1 ring-red-500/50'
                                 : 'bg-neutral-800 border-white text-white shadow ring-1 ring-white/50'
-                              : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:bg-neutral-900'
+                              : 'bg-neutral-950 border-neutral-800 text-white hover:border-neutral-700 hover:bg-neutral-900'
                           }`}
                         >
                           <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-neutral-900 border border-neutral-800">
@@ -472,12 +475,12 @@ export default function WingCustomizationModal({
                           <div>
                             <div className="flex items-center justify-between gap-1">
                               <span className={`font-heading text-xs font-bold uppercase truncate ${
-                                isSelected ? (drink.price > 0 ? 'text-red-400' : 'text-white') : 'text-white'
+                                isSelected ? (drink.price > 0 ? 'text-[#FF1D23]' : 'text-white') : 'text-white'
                               }`}>
                                 {drink.name}
                               </span>
                             </div>
-                            <span className="text-[9px] text-neutral-400 block truncate">
+                            <span className="text-[9px] text-white block truncate">
                               {drink.category}
                             </span>
                           </div>
@@ -485,8 +488,8 @@ export default function WingCustomizationModal({
                           <div className="mt-2 flex items-center justify-between">
                             <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
                               drink.price > 0
-                                ? 'bg-red-950 text-red-300 border border-red-800'
-                                : 'bg-neutral-800 text-neutral-300 border border-neutral-700'
+                                ? 'bg-red-950 text-[#FF1D23] border border-red-800'
+                                : 'bg-neutral-800 text-white border border-neutral-700'
                             }`}>
                               {drink.price > 0 ? '+$2.50' : 'Included'}
                             </span>
@@ -513,12 +516,12 @@ export default function WingCustomizationModal({
                     <h4 className="font-heading text-lg font-black uppercase tracking-wide text-white flex items-center gap-2">
                       <span>{isWing ? '3. ' : '2. '}CHOOSE YOUR {includedDrinksCount} DRINKS</span>
                     </h4>
-                    <span className="text-xs font-bold text-red-400 bg-red-950/80 px-2.5 py-0.5 rounded-full border border-red-800 w-fit">
+                    <span className="text-xs font-bold text-[#FF1D23] bg-red-950/80 px-2.5 py-0.5 rounded-full border border-red-800 w-fit">
                       {includedDrinksCount} Drinks Included
                     </span>
                   </div>
 
-                  <p className="text-xs text-neutral-400 mb-3">
+                  <p className="text-xs text-white mb-3">
                     Select your {includedDrinksCount} drinks for this family pack:
                   </p>
 
@@ -526,7 +529,7 @@ export default function WingCustomizationModal({
                     {selectedDrinksList.map((curDrink, slotIdx) => (
                       <div key={slotIdx} className="p-3 rounded-2xl bg-neutral-950 border border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-red-900 text-red-300 text-xs font-black flex items-center justify-center shrink-0">
+                          <span className="w-6 h-6 rounded-full bg-red-900 text-[#FF1D23] text-xs font-black flex items-center justify-center shrink-0">
                             {slotIdx + 1}
                           </span>
                           <div className="w-10 h-10 rounded-lg overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
@@ -534,7 +537,7 @@ export default function WingCustomizationModal({
                           </div>
                           <div>
                             <div className="font-heading text-sm font-bold text-white uppercase">{curDrink.name}</div>
-                            <span className="text-[10px] text-neutral-400">{curDrink.category}</span>
+                            <span className="text-[10px] text-white">{curDrink.category}</span>
                           </div>
                         </div>
 
@@ -566,7 +569,7 @@ export default function WingCustomizationModal({
             
             {/* Quantity Selector */}
             <div className="flex items-center gap-3">
-              <span className="text-xs uppercase font-bold text-neutral-400">Qty:</span>
+              <span className="text-xs uppercase font-bold text-white">Qty:</span>
               <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-800 rounded-xl p-1">
                 <button
                   type="button"

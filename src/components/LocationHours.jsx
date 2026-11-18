@@ -14,9 +14,9 @@ export default function LocationHours({ openOrderingModal }) {
             <span>VISIT OR ORDER DIRECT</span>
           </div>
           <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase text-white tracking-tight">
-            LOCATION & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1D23] to-[#ef4444]">HOURS</span>
+            LOCATION & <span className="text-[#FF1D23]">HOURS</span>
           </h2>
-          <p className="text-sm sm:text-base text-neutral-400">
+          <p className="text-sm sm:text-base text-white">
             Conveniently located in the heart of Hamilton on King Street East.
           </p>
         </div>
@@ -28,17 +28,17 @@ export default function LocationHours({ openOrderingModal }) {
           <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
             
             {/* Address Box */}
-            <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl card-charcoal-slate border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-[#FF1D23]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-[#FF1D23]" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Restaurant Address</span>
+                  <span className="text-xs uppercase tracking-wider text-[#FF1D23] font-bold block">Restaurant Address</span>
                   <h3 className="font-heading text-2xl font-black text-white">677 KING STREET <span className="text-[#FF1D23]">EAST</span></h3>
                 </div>
               </div>
-              <p className="text-sm text-neutral-300 pl-13">
+              <p className="text-sm text-white pl-13">
                 Hamilton, Ontario L8N 1E5, Canada
               </p>
               <div className="pt-2 pl-13 flex flex-wrap gap-2">
@@ -55,13 +55,13 @@ export default function LocationHours({ openOrderingModal }) {
             </div>
 
             {/* Hours Box */}
-            <div className="p-6 rounded-2xl bg-[#1e2025] border border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl card-charcoal-slate border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-white">
                 <div className="w-10 h-10 rounded-xl bg-neutral-800 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-[#FF1D23]" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Opening Hours</span>
+                  <span className="text-xs uppercase tracking-wider text-[#FF1D23] font-bold block">Opening Hours</span>
                   <h3 className="font-heading text-2xl font-black text-white">OPERATING <span className="text-[#FF1D23]">SCHEDULE</span></h3>
                 </div>
               </div>
@@ -69,8 +69,8 @@ export default function LocationHours({ openOrderingModal }) {
               <div className="space-y-2 pt-1 pl-13">
                 {restaurantInfo.hours.map((h, i) => (
                   <div key={i} className="flex items-center justify-between text-xs sm:text-sm py-1.5 border-b border-neutral-800 last:border-0">
-                    <span className="font-bold text-neutral-300">{h.days}</span>
-                    <span className={h.isOpenToday ? "text-white font-bold" : "text-red-400 font-semibold"}>
+                    <span className="font-bold text-white">{h.days}</span>
+                    <span className={h.isOpenToday ? "text-white font-bold" : "text-[#FF1D23] font-semibold"}>
                       {h.time}
                     </span>
                   </div>
@@ -79,13 +79,13 @@ export default function LocationHours({ openOrderingModal }) {
             </div>
 
             {/* Clickable Phone Call Box */}
-            <div className="p-6 rounded-2xl bg-[#1e2025] border-2 border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl card-charcoal-slate border-2 border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-[#FF1D23]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
                   <Phone className="w-5 h-5 text-[#FF1D23]" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-red-400 font-bold block">Order Ahead By Phone</span>
+                  <span className="text-xs uppercase tracking-wider text-[#FF1D23] font-bold block">Order Ahead By Phone</span>
                   <h3 className="font-heading text-2xl font-black text-white">CALL TO PLACE <span className="text-[#FF1D23]">PICKUP</span></h3>
                 </div>
               </div>
@@ -101,10 +101,10 @@ export default function LocationHours({ openOrderingModal }) {
                       <Phone className="w-5 h-5 text-white group-hover:text-white" />
                       <div>
                         <div className="font-heading text-xl font-bold leading-none text-white">{p.number}</div>
-                        <div className="text-xs text-neutral-400 group-hover:text-white/80">{p.label}</div>
+                        <div className="text-xs text-white group-hover:text-white/80">{p.label}</div>
                       </div>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#ff481f] group-hover:text-white bg-red-950/80 group-hover:bg-white/20 px-3 py-1 rounded-lg border border-red-900/60 group-hover:border-transparent">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#FF1D23] group-hover:text-white bg-red-950/80 group-hover:bg-white/20 px-3 py-1 rounded-lg border border-red-900/60 group-hover:border-transparent">
                       Tap to Call
                     </span>
                   </a>
@@ -116,7 +116,7 @@ export default function LocationHours({ openOrderingModal }) {
 
           {/* Interactive Map Embed Column */}
           <div className="lg:col-span-6 flex flex-col">
-            <div className="relative rounded-2xl overflow-hidden bg-[#1e2025] border-2 border-neutral-800 shadow-md flex-1 min-h-[380px] flex flex-col justify-between">
+            <div className="relative rounded-2xl overflow-hidden card-charcoal-slate border-2 border-neutral-800 shadow-md flex-1 min-h-[380px] flex flex-col justify-between">
               
               {/* Stylized Google Map iframe */}
               <iframe
@@ -129,12 +129,12 @@ export default function LocationHours({ openOrderingModal }) {
               ></iframe>
 
               {/* Overlay Badge */}
-              <div className="p-4 bg-[#1e2025]/95 backdrop-blur-md border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="p-4 card-charcoal-slate/95 backdrop-blur-md border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                 <div>
                   <h4 className="font-heading text-xl font-bold uppercase text-white">
                     MISS LYN’S WINGS • HAMILTON
                   </h4>
-                  <p className="text-xs text-neutral-400">Street parking and curbside pickup available.</p>
+                  <p className="text-xs text-white">Street parking and curbside pickup available.</p>
                 </div>
                 <button
                   onClick={() => openOrderingModal('pickup')}

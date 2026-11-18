@@ -39,7 +39,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
         <span>Always Fresh • Made To Order • 677 King St East</span>
         <a 
           href="tel:9055225967" 
-          className="hidden md:inline-flex items-center gap-1 font-bold underline hover:text-neutral-200 ml-2"
+          className="hidden md:inline-flex items-center gap-1 font-bold underline hover:text-white ml-2"
         >
           <Phone className="w-3 h-3" /> (905) 522-5967
         </a>
@@ -61,7 +61,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             className="flex items-center gap-3 group text-left"
           >
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#FF1D23] p-0.5 shadow-md group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-[#1e2025] rounded-[10px] flex items-center justify-center">
+              <div className="w-full h-full card-charcoal-slate rounded-[10px] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black">🍗</span>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                   WINGS
                 </span>
               </div>
-              <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-neutral-400 uppercase">
+              <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-white uppercase">
                 Canadian Favourites. Done The Jamaican Way.
               </p>
             </div>
@@ -85,20 +85,20 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             <button 
               onClick={() => handleNavClick('home')}
               className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
-                currentView === 'home' ? 'text-[#FF1D23] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                currentView === 'home' ? 'text-[#FF1D23] bg-red-950/40' : 'text-white hover:text-white hover:bg-neutral-800'
               }`}
             >
               HOME
             </button>
             <button 
               onClick={() => handleNavClick('home', 'combo-builder')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#FF1D23] hover:bg-neutral-800 transition-colors"
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-white hover:text-[#FF1D23] hover:bg-neutral-800 transition-colors"
             >
               BUILD YOUR COMBO
             </button>
             <button 
               onClick={() => handleNavClick('home', 'family-feast')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-[#FF1D23] hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-white hover:text-[#FF1D23] hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
             >
               <span className="w-2 h-2 rounded-full bg-[#FF1D23] animate-ping"></span>
               FAMILY FEAST
@@ -106,7 +106,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             <button 
               onClick={() => handleNavClick('menu')}
               className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
-                currentView === 'menu' ? 'text-[#FF1D23] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                currentView === 'menu' ? 'text-[#FF1D23] bg-red-950/40' : 'text-white hover:text-white hover:bg-neutral-800'
               }`}
             >
               MENU
@@ -114,14 +114,14 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             <button 
               onClick={() => handleNavClick('about')}
               className={`px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide transition-colors ${
-                currentView === 'about' ? 'text-[#FF1D23] bg-red-950/40' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                currentView === 'about' ? 'text-[#FF1D23] bg-red-950/40' : 'text-white hover:text-white hover:bg-neutral-800'
               }`}
             >
               ABOUT
             </button>
             <button 
               onClick={() => handleNavClick('home', 'location-hours')}
-              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-neutral-300 hover:text-white hover:bg-neutral-800 transition-colors"
+              className="px-3.5 py-2 rounded-xl text-sm font-bold tracking-wide text-white hover:text-white hover:bg-neutral-800 transition-colors"
             >
               LOCATION
             </button>
@@ -148,7 +148,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             {cartCount > 0 && (
               <button
                 onClick={openCart}
-                className="relative p-2.5 rounded-xl bg-red-950/60 hover:bg-red-900/80 border border-red-800 text-[#ff481f] transition-all"
+                className="relative p-2.5 rounded-xl bg-red-950/60 hover:bg-red-900/80 border border-red-800 text-[#FF1D23] transition-all"
                 title="View Current Order"
               >
                 <ShoppingBag className="w-5 h-5" />
@@ -164,7 +164,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             {cartCount > 0 && (
               <button
                 onClick={openCart}
-                className="relative p-2 rounded-lg bg-red-950/60 text-[#ff481f]"
+                className="relative p-2 rounded-lg bg-red-950/60 text-[#FF1D23]"
               >
                 <ShoppingBag className="w-5 h-5" />
                 <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#e52516] text-white font-bold text-[9px] rounded-full flex items-center justify-center">
@@ -182,7 +182,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-neutral-900 text-neutral-300 hover:text-white"
+              className="p-2 rounded-lg bg-neutral-900 text-white hover:text-white"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -206,7 +206,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-xl bg-[#1e2025] border border-neutral-800 text-neutral-300 hover:text-white"
+              className="p-2 rounded-xl card-charcoal-slate border border-neutral-800 text-white hover:text-white"
             >
               <X className="w-6 h-6" />
             </button>
@@ -227,10 +227,10 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               <p className="font-heading text-base font-bold uppercase tracking-wider text-[#FF1D23]">
                 CANADIAN FAVOURITES. DONE THE JAMAICAN WAY.
               </p>
-              <p className="text-sm text-neutral-300 leading-relaxed pt-1">
+              <p className="text-sm text-white leading-relaxed pt-1">
                 <strong className="text-white italic underline decoration-[#FF1D23] decoration-2">Always Fresh. Made To Order.</strong> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#FF1D23] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1e2025] border border-neutral-800 text-xs font-semibold text-neutral-200 mt-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full card-charcoal-slate border border-neutral-800 text-xs font-semibold text-white mt-2">
                 <span className="text-[#FF1D23]">🔥</span>
                 <span>100% Fresh Never Frozen Chicken</span>
               </div>
@@ -250,13 +250,13 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                 </button>
                 <button
                   onClick={() => handleNavClick('home', 'combo-builder')}
-                  className="w-full text-left font-bold text-[#FF1D23] hover:text-red-400 py-1 transition-colors block"
+                  className="w-full text-left font-bold text-[#FF1D23] hover:text-[#FF1D23] py-1 transition-colors block"
                 >
                   Interactive Combo Builder
                 </button>
                 <button
                   onClick={() => handleNavClick('home', 'family-feast')}
-                  className="w-full text-left font-bold text-[#FF1D23] hover:text-red-400 py-1 transition-colors block"
+                  className="w-full text-left font-bold text-[#FF1D23] hover:text-[#FF1D23] py-1 transition-colors block"
                 >
                   Family Feast Bundle ($49.99)
                 </button>
@@ -304,7 +304,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
                   className="w-full p-4 rounded-2xl bg-[#1a1c20] hover:bg-[#22252a] border border-neutral-800 text-white font-medium flex items-center justify-between text-left transition-colors"
                 >
                   <span>Order on Uber Eats</span>
-                  <span className="text-neutral-400">↗</span>
+                  <span className="text-white">↗</span>
                 </a>
               </div>
             </div>
