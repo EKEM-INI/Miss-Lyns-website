@@ -78,7 +78,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
         </div>
 
         {/* The Dominant Feast Showcase Card (Black Theme) */}
-        <div className="relative rounded-3xl card-charcoal-slate border-2 border-neutral-800 p-5 sm:p-8 lg:p-10 shadow-2xl">
+        <div className="relative rounded-3xl bg-neutral-950 border-2 border-neutral-800 p-5 sm:p-8 lg:p-10 shadow-2xl">
           
           {/* Prominent Angled Ribbon Price Tag */}
           <div className="absolute -top-4 right-4 sm:right-8 z-30">
@@ -110,7 +110,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 </div>
 
                 {/* Protein Platter Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 card-charcoal-slate-img shadow-sm">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-black shadow-sm">
                   <img
                     src="/images/dishes/0053.jpg"
                     alt="Platter of Wings and Jerk Chicken"
@@ -160,7 +160,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 </div>
 
                 {/* Side Platter Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 card-charcoal-slate-img shadow-sm">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-black shadow-sm">
                   <img
                     src="/images/dishes/0021.jpg"
                     alt="Golden French Fries and Garlic Toast"

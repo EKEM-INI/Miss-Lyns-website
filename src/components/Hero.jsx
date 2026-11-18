@@ -18,7 +18,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
           <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
             
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full card-charcoal-slate text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-950 text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm">
               <Flame className="w-4 h-4 text-[#FF1D23] animate-bounce" />
               <span className="text-[#FF1D23]">Canadian Favourites. Done The Jamaican Way.</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF1D23]"></span>
@@ -44,7 +44,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* ORDER PICKUP */}
               <button
                 onClick={() => openOrderingModal('pickup')}
-                className="px-7 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider card-charcoal-slate hover:border-[#FF1D23] text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
+                className="px-7 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider bg-neutral-950 hover:border-[#FF1D23] text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
               >
                 <Phone className="w-5 h-5 text-white group-hover:rotate-12 transition-transform" />
                 <span>ORDER PICKUP</span>
@@ -62,7 +62,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               {/* VIEW MENU */}
               <button
                 onClick={() => setCurrentView('menu')}
-                className="px-6 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider text-white card-charcoal-slate hover:border-[#FF1D23] transition-all flex items-center justify-center gap-2"
+                className="px-6 py-4 rounded-2xl font-heading text-xl font-bold uppercase tracking-wider text-white bg-neutral-950 hover:border-[#FF1D23] transition-all flex items-center justify-center gap-2"
               >
                 <span>VIEW MENU</span>
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
@@ -93,7 +93,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg card-charcoal-slate flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-neutral-950 flex items-center justify-center shrink-0">
                   <Clock className="w-4 h-4 text-white" />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
               <div className="absolute inset-4 bg-gradient-to-br from-red-900/30 to-neutral-900/30 rounded-3xl blur-2xl -z-10"></div>
 
               {/* Main Visual Card */}
-              <div className="relative rounded-3xl card-charcoal-slate p-3 sm:p-4 shadow-2xl overflow-hidden group">
+              <div className="relative rounded-3xl bg-neutral-950 p-3 sm:p-4 shadow-2xl overflow-hidden group">
                 
                 {/* Ribbon Tag */}
                 <div className="absolute top-4 left-4 z-20">
@@ -124,7 +124,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 </div>
 
                 {/* Combo Image with 100% Fit in Corner */}
-                <div className="relative aspect-4/3 rounded-2xl overflow-hidden card-charcoal-slate-img border border-white/10 p-1 flex items-center justify-center">
+                <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-black border border-white/10 p-1 flex items-center justify-center">
                   <img
                     src="/images/dishes/hero-combo.jpg"
                     alt="Miss Lyn's Custom Combo Platter"

@@ -98,7 +98,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         
         {/* Live Protein Slot */}
         <div className="relative rounded-2xl bg-neutral-950 border-2 border-red-900/60 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-black shrink-0 border border-white/10">
             <img
               src={selectedProtein.image}
               alt={selectedProtein.name}
@@ -121,8 +121,8 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         </div>
 
         {/* Live Side Slot */}
-        <div className="relative rounded-2xl card-charcoal-slate border-2 border-neutral-800 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
+        <div className="relative rounded-2xl bg-neutral-950 border-2 border-neutral-800 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-black shrink-0 border border-white/10">
             <img
               src={selectedUpgrade ? selectedUpgrade.image : selectedSide.image}
               alt={selectedUpgrade ? selectedUpgrade.name : selectedSide.name}
@@ -146,9 +146,9 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
         {/* Live Drink & Upgrade Slot */}
         <div className={`relative rounded-2xl bg-neutral-950 border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
-          drinkUpgradeCost > 0 ? 'border-red-600 card-charcoal-slate' : 'border-neutral-700 card-charcoal-slate'
+          drinkUpgradeCost > 0 ? 'border-red-600 bg-neutral-950' : 'border-neutral-700 bg-neutral-950'
         }`}>
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-black shrink-0 border border-white/10">
             <img
               src={selectedDrink.image}
               alt={selectedDrink.name}
@@ -234,7 +234,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     className={`relative text-left rounded-3xl p-5 sm:p-6 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
                         ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-xl shadow-red-950/30 scale-[1.02]'
-                        : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm'
+                        : 'bg-neutral-950 border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
@@ -252,7 +252,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       </div>
                     )}
 
-                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 card-charcoal-slate-img relative mt-4">
+                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 bg-black relative mt-4">
                       <img
                         src={protein.image}
                         alt={protein.name}
@@ -412,7 +412,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                     className={`relative text-left rounded-2xl p-4 transition-all duration-300 group flex flex-col justify-between ${
                       isSelected
                         ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-md scale-[1.02]'
-                        : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm'
+                        : 'bg-neutral-950 border border-neutral-800 hover:border-neutral-700 shadow-sm'
                     }`}
                   >
                     {isSelected && (
@@ -421,7 +421,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       </div>
                     )}
 
-                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 card-charcoal-slate-img">
+                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 bg-black">
                       <img
                         src={side.image}
                         alt={side.name}
@@ -496,7 +496,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
                           isSelected
                             ? 'bg-red-950/50 border-2 border-[#FF1D23] shadow-md ring-1 ring-[#FF1D23]/50 scale-[1.02]'
-                            : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
+                            : 'bg-neutral-950 border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
                         }`}
                       >
                         {isSelected && (
@@ -505,7 +505,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                           </div>
                         )}
 
-                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 card-charcoal-slate-img border border-neutral-800/80">
+                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-black border border-neutral-800/80">
                           <img
                             src={drink.image}
                             alt={drink.name}
@@ -552,7 +552,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                         className={`relative text-left rounded-2xl p-3 transition-all duration-200 group flex flex-col justify-between ${
                           isSelected
                             ? 'bg-red-950/60 border-2 border-red-600 shadow-md ring-1 ring-red-600/50 scale-[1.02]'
-                            : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
+                            : 'bg-neutral-950 border border-neutral-800 hover:border-neutral-700 shadow-sm hover:bg-neutral-850'
                         }`}
                       >
                         <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-red-600 text-white shadow-sm">
@@ -565,7 +565,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                           </div>
                         )}
 
-                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 card-charcoal-slate-img border border-neutral-800/80 mt-4">
+                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-black border border-neutral-800/80 mt-4">
                           <img
                             src={drink.image}
                             alt={drink.name}
@@ -626,7 +626,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       className={`relative text-left rounded-2xl p-3.5 transition-all duration-200 group flex flex-col justify-between ${
                         isSelected
                           ? 'bg-red-950/40 border-2 border-[#FF1D23] shadow-md scale-[1.02]'
-                          : 'card-charcoal-slate border border-neutral-800 hover:border-neutral-700 shadow-sm'
+                          : 'bg-neutral-950 border border-neutral-800 hover:border-neutral-700 shadow-sm'
                       }`}
                     >
                       <span className="absolute top-2 left-2 z-10 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#FF1D23] text-white shadow-sm">

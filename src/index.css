@@ -27,21 +27,12 @@
 .bg-caribbean-card,
 .card-charcoal-slate,
 .bg-charcoal-slate {
-  background-color: #2e3033;
-  background-image: 
-    radial-gradient(ellipse at 20% 20%, rgba(255, 255, 255, 0.06), transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(0, 0, 0, 0.35), transparent 60%),
-    url('/images/textures/charcoal-slate.jpg');
-  background-size: auto, auto, 256px 256px;
-  background-repeat: no-repeat, no-repeat, repeat;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card-charcoal-slate-img {
-  background-color: #2e3033;
-  background-image: url('/images/textures/charcoal-slate.jpg');
-  background-size: 256px 256px;
-  background-repeat: repeat;
+  background-color: #000000;
 }
 
 .text-brand-red {

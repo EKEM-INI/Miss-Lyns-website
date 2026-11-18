@@ -47,7 +47,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
           
           <button
             onClick={() => setCurrentView('home')}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-white mb-4 card-charcoal-slate px-3.5 py-2 rounded-lg border border-neutral-700 shadow-sm transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-white mb-4 bg-neutral-950 px-3.5 py-2 rounded-lg border border-neutral-700 shadow-sm transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Homepage
           </button>
@@ -73,7 +73,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                 placeholder="Search dishes, wings, sides..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl card-charcoal-slate border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF1D23] shadow-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-700 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF1D23] shadow-sm"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
               className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
                 activeCategory === "all"
                   ? 'bg-[#FF1D23] text-white shadow-md'
-                  : 'card-charcoal-slate text-white hover:border-[#FF1D23] border border-neutral-800'
+                  : 'bg-neutral-950 text-white hover:border-[#FF1D23] border border-neutral-800'
               }`}
             >
               All Items ({menuItems.length})
@@ -109,7 +109,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
                   className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 ${
                     isActive
                       ? 'bg-[#FF1D23] text-white shadow-md'
-                      : 'card-charcoal-slate text-white hover:border-[#FF1D23] border border-neutral-800'
+                      : 'bg-neutral-950 text-white hover:border-[#FF1D23] border border-neutral-800'
                   }`}
                 >
                   <span>{cat.name}</span>
@@ -196,7 +196,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
       {/* Item Detail Modal */}
       {selectedItemDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="relative w-full max-w-lg rounded-3xl card-charcoal-slate border border-white/20 p-6 shadow-2xl overflow-hidden animate-fadeIn text-white">
+          <div className="relative w-full max-w-lg rounded-3xl bg-neutral-950 border border-white/20 p-6 shadow-2xl overflow-hidden animate-fadeIn text-white">
             
             <button
               onClick={() => setSelectedItemDetail(null)}
@@ -205,7 +205,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
               ✕
             </button>
 
-            <div className="aspect-4/3 rounded-2xl overflow-hidden mb-5 card-charcoal-slate-img relative">
+            <div className="aspect-4/3 rounded-2xl overflow-hidden mb-5 bg-black relative">
               <img
                 src={selectedItemDetail.image}
                 alt={selectedItemDetail.name}
@@ -273,13 +273,13 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
 // Sub-component for individual dish cards
 function MenuItemCard({ item, onOrder, onDetail }) {
   return (
-    <div className="rounded-2xl card-charcoal-slate border border-neutral-800 hover:border-red-600 p-4 transition-all duration-200 group flex flex-col justify-between shadow-sm hover:shadow-lg">
+    <div className="rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-red-600 p-4 transition-all duration-200 group flex flex-col justify-between shadow-sm hover:shadow-lg">
       <div>
         
         {/* Photo Container */}
         <div 
           onClick={onDetail}
-          className="aspect-4/3 rounded-xl overflow-hidden mb-3 card-charcoal-slate-img relative cursor-pointer"
+          className="aspect-4/3 rounded-xl overflow-hidden mb-3 bg-black relative cursor-pointer"
         >
           <img
             src={item.image}

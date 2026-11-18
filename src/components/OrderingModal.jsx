@@ -80,7 +80,7 @@ export default function OrderingModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[90vh] rounded-3xl card-charcoal-slate border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7">
+      <div className="relative w-full max-w-2xl max-h-[90vh] rounded-3xl bg-neutral-950 border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7">
         
         {/* Close Button */}
         <button
@@ -109,7 +109,7 @@ export default function OrderingModal({
         </div>
 
         {/* Main Tab Selector (Delivery / Pickup / My Items) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-1.5 rounded-2xl card-charcoal-slate border border-neutral-800 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-1.5 rounded-2xl bg-neutral-950 border border-neutral-800 mb-6">
           <button
             type="button"
             onClick={() => setActiveTab('delivery')}
@@ -253,7 +253,7 @@ export default function OrderingModal({
 
             {/* Optional Cart Summary Box if items selected */}
             {activeItems.length > 0 && (
-              <div className="p-4 rounded-2xl card-charcoal-slate border border-neutral-800 mt-4 space-y-2.5">
+              <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800 mt-4 space-y-2.5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-wider text-white">
                     📋 Your Configured Dishes ({activeItems.length})
@@ -304,7 +304,7 @@ export default function OrderingModal({
           <div className="space-y-4 animate-fadeIn text-left">
             
             {/* Primary Call Action Card */}
-            <div className="p-6 rounded-3xl card-charcoal-slate text-white space-y-4 shadow-xl border border-neutral-800">
+            <div className="p-6 rounded-3xl bg-neutral-950 text-white space-y-4 shadow-xl border border-neutral-800">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white">
                 <Phone className="w-4 h-4 text-white" />
                 <span>Call Store to Place Pickup Order</span>
@@ -332,7 +332,7 @@ export default function OrderingModal({
 
             {/* Store Location & Hours */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-4 rounded-2xl card-charcoal-slate border border-neutral-800">
+              <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase text-white mb-1">
                   <MapPin className="w-4 h-4 text-white" />
                   <span>Pickup Location</span>
@@ -341,7 +341,7 @@ export default function OrderingModal({
                 <div className="text-xs text-white">Hamilton, ON L8N 1E5</div>
               </div>
 
-              <div className="p-4 rounded-2xl card-charcoal-slate border border-neutral-800">
+              <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase text-white mb-1">
                   <Clock className="w-4 h-4 text-white" />
                   <span>Pickup Hours</span>
@@ -353,7 +353,7 @@ export default function OrderingModal({
 
             {/* Optional Cart Items Breakdown for Phone Call */}
             {activeItems.length > 0 && (
-              <div className="p-4 rounded-2xl card-charcoal-slate border border-neutral-800 space-y-2.5 shadow-sm">
+              <div className="p-4 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-2.5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-wider text-white">
                     📋 Your Order for the Call ({activeItems.length} Items)
@@ -399,7 +399,7 @@ export default function OrderingModal({
           <div className="space-y-4 animate-fadeIn text-left">
             
             {activeItems.length === 0 ? (
-              <div className="py-10 text-center rounded-2xl card-charcoal-slate border border-neutral-800">
+              <div className="py-10 text-center rounded-2xl bg-neutral-950 border border-neutral-800">
                 <ShoppingBag className="w-10 h-10 text-white mx-auto mb-2" />
                 <h4 className="font-heading text-lg font-bold text-white">Your Cart is Empty</h4>
                 <p className="text-xs text-white max-w-xs mx-auto mt-1 mb-4">
@@ -421,9 +421,9 @@ export default function OrderingModal({
                     return (
                       <div
                         key={index}
-                        className="p-3 rounded-2xl card-charcoal-slate border border-neutral-800 shadow-sm flex items-center justify-between gap-3"
+                        className="p-3 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-sm flex items-center justify-between gap-3"
                       >
-                        <div className="w-12 h-12 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
+                        <div className="w-12 h-12 rounded-xl overflow-hidden bg-black shrink-0 border border-white/10">
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                         </div>
 
@@ -484,7 +484,7 @@ export default function OrderingModal({
                 </div>
 
                 {/* Price Breakdown */}
-                <div className="p-3.5 rounded-2xl card-charcoal-slate border border-neutral-800 space-y-1 text-xs text-white">
+                <div className="p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-1 text-xs text-white">
                   <div className="flex justify-between">
                     <span>Subtotal:</span>
                     <span className="font-bold text-white">${subtotal.toFixed(2)}</span>

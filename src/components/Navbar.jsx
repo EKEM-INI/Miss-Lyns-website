@@ -61,7 +61,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             className="flex items-center gap-3 group text-left"
           >
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#FF1D23] p-0.5 shadow-md group-hover:scale-105 transition-transform">
-              <div className="w-full h-full card-charcoal-slate rounded-[10px] flex items-center justify-center">
+              <div className="w-full h-full bg-neutral-950 rounded-[10px] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black">🍗</span>
               </div>
             </div>
@@ -206,7 +206,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-xl card-charcoal-slate border border-neutral-800 text-white hover:text-white"
+              className="p-2 rounded-xl bg-neutral-950 border border-neutral-800 text-white hover:text-white"
             >
               <X className="w-6 h-6" />
             </button>
@@ -230,7 +230,7 @@ export default function Navbar({ currentView, setCurrentView, openOrderingModal,
               <p className="text-sm text-white leading-relaxed pt-1">
                 <strong className="text-white italic underline decoration-[#FF1D23] decoration-2">Always Fresh. Made To Order.</strong> Bold Caribbean flavour in every bite. Authentic jerk chicken, <span className="text-[#FF1D23] font-semibold">wings</span>, comforting sides, and golden flaky patties, right here in Hamilton, Ontario.
               </p>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full card-charcoal-slate border border-neutral-800 text-xs font-semibold text-white mt-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-950 border border-neutral-800 text-xs font-semibold text-white mt-2">
                 <span className="text-[#FF1D23]">🔥</span>
                 <span>100% Fresh Never Frozen Chicken</span>
               </div>

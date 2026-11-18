@@ -28,7 +28,7 @@ export default function LocationHours({ openOrderingModal }) {
           <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
             
             {/* Address Box */}
-            <div className="p-6 rounded-2xl card-charcoal-slate border border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-[#FF1D23]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-[#FF1D23]" />
@@ -55,7 +55,7 @@ export default function LocationHours({ openOrderingModal }) {
             </div>
 
             {/* Hours Box */}
-            <div className="p-6 rounded-2xl card-charcoal-slate border border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-white">
                 <div className="w-10 h-10 rounded-xl bg-neutral-800 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-[#FF1D23]" />
@@ -79,7 +79,7 @@ export default function LocationHours({ openOrderingModal }) {
             </div>
 
             {/* Clickable Phone Call Box */}
-            <div className="p-6 rounded-2xl card-charcoal-slate border-2 border-neutral-800 text-left space-y-3 shadow-sm">
+            <div className="p-6 rounded-2xl bg-neutral-950 border-2 border-neutral-800 text-left space-y-3 shadow-sm">
               <div className="flex items-center gap-3 text-[#FF1D23]">
                 <div className="w-10 h-10 rounded-xl bg-red-950/80 flex items-center justify-center">
                   <Phone className="w-5 h-5 text-[#FF1D23]" />
@@ -116,7 +116,7 @@ export default function LocationHours({ openOrderingModal }) {
 
           {/* Interactive Map Embed Column */}
           <div className="lg:col-span-6 flex flex-col">
-            <div className="relative rounded-2xl overflow-hidden card-charcoal-slate border-2 border-neutral-800 shadow-md flex-1 min-h-[380px] flex flex-col justify-between">
+            <div className="relative rounded-2xl overflow-hidden bg-neutral-950 border-2 border-neutral-800 shadow-md flex-1 min-h-[380px] flex flex-col justify-between">
               
               {/* Stylized Google Map iframe */}
               <iframe
@@ -129,7 +129,7 @@ export default function LocationHours({ openOrderingModal }) {
               ></iframe>
 
               {/* Overlay Badge */}
-              <div className="p-4 card-charcoal-slate/95 backdrop-blur-md border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="p-4 bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                 <div>
                   <h4 className="font-heading text-xl font-bold uppercase text-white">
                     MISS LYN’S WINGS • HAMILTON

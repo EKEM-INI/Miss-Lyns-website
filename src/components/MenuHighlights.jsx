@@ -69,11 +69,11 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
           {highlightedItems.map((item) => (
             <div
               key={item.id}
-              className="rounded-2xl card-charcoal-slate border border-white/10 hover:border-[#FF1D23] p-4 transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-lg"
+              className="rounded-2xl bg-neutral-950 border border-white/10 hover:border-[#FF1D23] p-4 transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-lg"
             >
               <div>
                 {/* Food Image */}
-                <div className="aspect-4/3 rounded-xl overflow-hidden mb-4 card-charcoal-slate-img relative">
+                <div className="aspect-4/3 rounded-xl overflow-hidden mb-4 bg-black relative">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -128,7 +128,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
         </div>
 
         {/* Bottom Menu Banner */}
-        <div className="mt-12 p-6 rounded-2xl card-charcoal-slate border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="mt-12 p-6 rounded-2xl bg-neutral-950 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
           <div>
             <h4 className="font-heading text-2xl font-bold uppercase text-white">
               LOOKING FOR MORE <span className="text-[#FF1D23]">SIZES</span>, <span className="text-[#FF1D23]">COMBOS</span> & <span className="text-[#FF1D23]">DRINKS</span>?

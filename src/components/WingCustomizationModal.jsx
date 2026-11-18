@@ -222,7 +222,7 @@ export default function WingCustomizationModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[92vh] rounded-3xl card-charcoal-slate border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7 text-left">
+      <div className="relative w-full max-w-2xl max-h-[92vh] rounded-3xl bg-neutral-950 border border-neutral-800 shadow-2xl overflow-y-auto text-white p-5 sm:p-7 text-left">
         
         {/* Close Button */}
         <button
@@ -235,7 +235,7 @@ export default function WingCustomizationModal({
 
         {/* Top Header */}
         <div className="flex items-start gap-4 pb-4 border-b border-neutral-800">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-black shrink-0 border border-white/10">
             <img
               src={wingItem.image}
               alt={wingItem.name}
