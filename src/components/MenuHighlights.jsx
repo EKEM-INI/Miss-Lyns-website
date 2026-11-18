@@ -7,7 +7,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
   const [wingCustomizingItem, setWingCustomizingItem] = useState(null);
 
   const highlightIds = [
-    "fp2-wings",
+    "wings-1lb",
     "jerk-chicken-2pc",
     "fried-chicken-2pc",
     "spicy-beef-patty",
@@ -73,7 +73,7 @@ export default function MenuHighlights({ setCurrentView, openOrderingModal, addT
             >
               <div>
                 {/* Food Image */}
-                <div className="aspect-4/3 rounded-xl overflow-hidden mb-4 bg-black relative">
+                <div className="aspect-4/3 rounded-xl overflow-hidden mb-4 card-charcoal-slate-img relative">
                   <img
                     src={item.image}
                     alt={item.name}

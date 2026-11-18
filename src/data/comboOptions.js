@@ -7,7 +7,17 @@ export const comboProteins = [
     image: "/images/dishes/0053.jpg",
     altImage: "/images/dishes/0053.jpg",
     description: "Plump, juicy wings seasoned with Caribbean spices and fried to golden crisp perfection.",
-    badge: "Most Popular"
+    badge: "Combo #1"
+  },
+  {
+    id: "wings-1lb",
+    name: "1 Lb Wings",
+    price: 25.25,
+    tagline: "A full pound of signature wings with side and drink (Combo #2)",
+    image: "/images/dishes/0053.jpg",
+    altImage: "/images/dishes/0053.jpg",
+    description: "A full pound of signature wings tossed in your favourite flavour with side and cold drink.",
+    badge: "Combo #2"
   },
   {
     id: "jerk-chicken",
@@ -17,7 +27,17 @@ export const comboProteins = [
     image: "/images/dishes/0019.jpg",
     altImage: "/images/dishes/0039.jpg",
     description: "Tender chicken infused with Miss Lyn's house jerk marinade, pimento, and scotch bonnet peppers.",
-    badge: "House Specialty"
+    badge: "Combo #4"
+  },
+  {
+    id: "jerk-chicken-4pc",
+    name: "4 Pcs Jerk Chicken",
+    price: 21.75,
+    tagline: "4 succulent pieces of jerk chicken with side and drink (Combo #5)",
+    image: "/images/dishes/0039.jpg",
+    altImage: "/images/dishes/0040.jpg",
+    description: "Four succulent pieces of Jamaican jerk chicken with side and cold drink.",
+    badge: "Combo #5"
   },
   {
     id: "fried-chicken",
@@ -27,7 +47,17 @@ export const comboProteins = [
     image: "/images/dishes/fried-chicken.jpg",
     altImage: "/images/dishes/fried-chicken.jpg",
     description: "Crunchy golden fried chicken pieces seasoned with island spices and fried fresh to order.",
-    badge: "Crispy & Juicy"
+    badge: "Golden & Crispy"
+  },
+  {
+    id: "wings-jerk-combo6",
+    name: "Half Lb Wings + 2 Pcs Jerk",
+    price: 25.80,
+    tagline: "Best of both worlds: wings plus jerk chicken (Combo #6)",
+    image: "/images/dishes/0053.jpg",
+    altImage: "/images/dishes/0019.jpg",
+    description: "Half pound of crispy wings plus 2 pieces of authentic jerk chicken with side and cold drink.",
+    badge: "Combo #6"
   }
 ];
 

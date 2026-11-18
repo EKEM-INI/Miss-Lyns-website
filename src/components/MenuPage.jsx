@@ -205,7 +205,7 @@ export default function MenuPage({ setCurrentView, openOrderingModal, addToCart 
               ✕
             </button>
 
-            <div className="aspect-4/3 rounded-2xl overflow-hidden mb-5 bg-neutral-950 relative">
+            <div className="aspect-4/3 rounded-2xl overflow-hidden mb-5 card-charcoal-slate-img relative">
               <img
                 src={selectedItemDetail.image}
                 alt={selectedItemDetail.name}
@@ -279,7 +279,7 @@ function MenuItemCard({ item, onOrder, onDetail }) {
         {/* Photo Container */}
         <div 
           onClick={onDetail}
-          className="aspect-4/3 rounded-xl overflow-hidden mb-3 bg-neutral-950 relative cursor-pointer"
+          className="aspect-4/3 rounded-xl overflow-hidden mb-3 card-charcoal-slate-img relative cursor-pointer"
         >
           <img
             src={item.image}

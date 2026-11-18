@@ -124,7 +124,7 @@ export default function Hero({ openOrderingModal, setCurrentView }) {
                 </div>
 
                 {/* Combo Image with 100% Fit in Corner */}
-                <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-black border border-white/10 p-1 flex items-center justify-center">
+                <div className="relative aspect-4/3 rounded-2xl overflow-hidden card-charcoal-slate-img border border-white/10 p-1 flex items-center justify-center">
                   <img
                     src="/images/dishes/hero-combo.jpg"
                     alt="Miss Lyn's Custom Combo Platter"

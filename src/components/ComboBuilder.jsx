@@ -98,7 +98,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         
         {/* Live Protein Slot */}
         <div className="relative rounded-2xl bg-neutral-950 border-2 border-red-900/60 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
             <img
               src={selectedProtein.image}
               alt={selectedProtein.name}
@@ -122,7 +122,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
 
         {/* Live Side Slot */}
         <div className="relative rounded-2xl card-charcoal-slate border-2 border-neutral-800 p-4 flex items-center gap-4 shadow-sm transition-all duration-300">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
             <img
               src={selectedUpgrade ? selectedUpgrade.image : selectedSide.image}
               alt={selectedUpgrade ? selectedUpgrade.name : selectedSide.name}
@@ -148,7 +148,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
         <div className={`relative rounded-2xl bg-neutral-950 border-2 p-4 flex items-center gap-4 shadow-sm transition-all duration-300 ${
           drinkUpgradeCost > 0 ? 'border-red-600 card-charcoal-slate' : 'border-neutral-700 card-charcoal-slate'
         }`}>
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
             <img
               src={selectedDrink.image}
               alt={selectedDrink.name}
@@ -252,7 +252,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       </div>
                     )}
 
-                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 bg-neutral-950 relative mt-4">
+                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 card-charcoal-slate-img relative mt-4">
                       <img
                         src={protein.image}
                         alt={protein.name}
@@ -421,7 +421,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                       </div>
                     )}
 
-                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 bg-neutral-950">
+                    <div className="aspect-4/3 rounded-xl overflow-hidden mb-3 card-charcoal-slate-img">
                       <img
                         src={side.image}
                         alt={side.name}
@@ -505,7 +505,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                           </div>
                         )}
 
-                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-neutral-950 border border-neutral-800/80">
+                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 card-charcoal-slate-img border border-neutral-800/80">
                           <img
                             src={drink.image}
                             alt={drink.name}
@@ -565,7 +565,7 @@ export default function ComboBuilder({ openOrderingModal, addToCart }) {
                           </div>
                         )}
 
-                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 bg-neutral-950 border border-neutral-800/80 mt-4">
+                        <div className="aspect-4/3 rounded-xl overflow-hidden mb-2 card-charcoal-slate-img border border-neutral-800/80 mt-4">
                           <img
                             src={drink.image}
                             alt={drink.name}

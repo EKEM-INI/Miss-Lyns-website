@@ -235,7 +235,7 @@ export default function WingCustomizationModal({
 
         {/* Top Header */}
         <div className="flex items-start gap-4 pb-4 border-b border-neutral-800">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-neutral-950 shrink-0 border border-neutral-800">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
             <img
               src={wingItem.image}
               alt={wingItem.name}

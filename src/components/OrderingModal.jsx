@@ -423,7 +423,7 @@ export default function OrderingModal({
                         key={index}
                         className="p-3 rounded-2xl card-charcoal-slate border border-neutral-800 shadow-sm flex items-center justify-between gap-3"
                       >
-                        <div className="w-12 h-12 rounded-xl overflow-hidden bg-neutral-900 shrink-0 border border-neutral-800">
+                        <div className="w-12 h-12 rounded-xl overflow-hidden card-charcoal-slate-img shrink-0 border border-white/10">
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                         </div>
 

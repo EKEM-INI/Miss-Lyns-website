@@ -1,7 +1,8 @@
 export const menuCategories = [
-  { id: "family-meals", name: "Family Packs & Feasts", icon: "Users", count: 4 },
+  { id: "wings", name: "Crispy Wings", icon: "Flame", count: 6 },
   { id: "combos", name: "Combos", icon: "Layers", count: 6 },
   { id: "chicken", name: "Chicken & Proteins", icon: "Utensils", count: 6 },
+  { id: "family-meals", name: "Family Packs & Feasts", icon: "Users", count: 4 },
   { id: "patties", name: "Jamaican Patties", icon: "Sparkles", count: 5 },
   { id: "sides", name: "Regular Sides", icon: "Soup", count: 5 },
   { id: "premium-sides", name: "Premium Sides", icon: "Sparkles", count: 5 },
@@ -9,6 +10,73 @@ export const menuCategories = [
 ];
 
 export const menuItems = [
+  // 1. WINGS (A LA CARTE)
+  {
+    id: "wings-1lb",
+    categoryId: "wings",
+    name: "1 Lb Wings (1 Sauce)",
+    price: 18.00,
+    priceDisplay: "$18.00",
+    description: "1 sauce per order. Crispy breaded or traditional chicken wings, 1 lb portion.",
+    image: "/images/dishes/0053.jpg",
+    tags: ["Signature Wings", "1 Sauce Included"],
+    spiceLevel: 2
+  },
+  {
+    id: "wings-1-5lb",
+    categoryId: "wings",
+    name: "1.5 Lbs Wings (2 Sauces)",
+    price: 26.40,
+    priceDisplay: "$26.40",
+    description: "2 sauces per order. Crispy fried chicken wings, 1.5 lb portion.",
+    image: "/images/dishes/0053.jpg",
+    tags: ["Signature Wings", "2 Sauces Included"],
+    spiceLevel: 2
+  },
+  {
+    id: "wings-2lb",
+    categoryId: "wings",
+    name: "2 Lbs Wings (2 Sauces)",
+    price: 34.80,
+    priceDisplay: "$34.80",
+    description: "2 sauces per order. Crispy fried chicken wings, 2 lb portion.",
+    image: "/images/dishes/0053.jpg",
+    tags: ["Signature Wings", "2 Sauces Included"],
+    spiceLevel: 2
+  },
+  {
+    id: "wings-3lb",
+    categoryId: "wings",
+    name: "3 Lbs Wings (3 Sauces)",
+    price: 51.60,
+    priceDisplay: "$51.60",
+    description: "3 sauces per order. Crispy fried chicken wings, 3 lb portion.",
+    image: "/images/dishes/0053.jpg",
+    tags: ["Party Size", "3 Sauces Included"],
+    spiceLevel: 2
+  },
+  {
+    id: "wings-5lb",
+    categoryId: "wings",
+    name: "5 Lbs Wings (3 Sauces)",
+    price: 84.60,
+    priceDisplay: "$84.60",
+    description: "3 sauces per order. Chicken wings, 5 lb portion.",
+    image: "/images/dishes/0053.jpg",
+    tags: ["Party Size", "3 Sauces Included"],
+    spiceLevel: 2
+  },
+  {
+    id: "wings-10lb",
+    categoryId: "wings",
+    name: "10 Lbs Wings (5 Sauces)",
+    price: 156.00,
+    priceDisplay: "$156.00",
+    description: "5 sauces per order. 10 lb order of chicken wings, ideal for sharing.",
+    image: "/images/dishes/0053.jpg",
+    tags: ["Mega Feast", "5 Sauces Included"],
+    spiceLevel: 2
+  },
   // 1. FAMILY PACKS & FEASTS
   {
     id: "fp2-wings",

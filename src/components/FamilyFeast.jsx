@@ -110,7 +110,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 </div>
 
                 {/* Protein Platter Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-neutral-900 shadow-sm">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 card-charcoal-slate-img shadow-sm">
                   <img
                     src="/images/dishes/0053.jpg"
                     alt="Platter of Wings and Jerk Chicken"
@@ -160,7 +160,7 @@ export default function FamilyFeast({ openOrderingModal, addToCart }) {
                 </div>
 
                 {/* Side Platter Photography */}
-                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 bg-neutral-900 shadow-sm">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-4 card-charcoal-slate-img shadow-sm">
                   <img
                     src="/images/dishes/0021.jpg"
                     alt="Golden French Fries and Garlic Toast"
